@@ -1,0 +1,19 @@
+\begin{thebibliography}{TLNC10}
+
+\bibitem[PFW12]{PW}
+Joe Pitt-Francis and Jonathan Whiteley.
+\newblock {\em Guide to Scientific Computing in C++}.
+\newblock Springer-Verlag, London, 2012.
+
+\bibitem[TLNC10]{TV}
+Aslak Tveito, Hans~Petter Langtangen, Bjørn~Frederik Nielsen, and Xing Cai.
+\newblock {\em Elements of Scientific Computing}.
+\newblock Springer-Verlag, Berlin Heidelberg, 2010.
+
+\bibitem[Win16]{Wincky}
+Gregoire Winckelmans.
+\newblock {\em {LMECA2660} : Numerical methods in fluid dynamics. {L}ecture
+  notes}.
+\newblock Université Catholique de Louvain, 2016.
+
+\end{thebibliography}
