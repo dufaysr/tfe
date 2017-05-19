@@ -1,0 +1,45 @@
+% EPL master thesis cover template
+\documentclass{eplmastersthesis}
+\input{misc/packages}
+\input{misc/commands}
+\input{misc/formatting}
+% Fill in here the information: title, student name, speciality, jury members
+\title{Complex Network Analysis for Marine Models}	% Master thesis title
+\subtitle{Subtitle (optional)}			% Optional subtitle
+\author{Renaud \textsc{Dufays}}	% Student name
+%\secondauthor{Firstname \textsc{Lastname}}	% Second student name if applicable
+\speciality{Mathematical Engineering}		% Speciality (use one of the following options):
+										% Biomedical Engineering
+										% Chemical and Materials Engineering
+										% Civil Engineering
+										% Computer Science
+										% Computer Science and Engineering
+										% Electrical Engineering
+										% Electro-mechanical Engineering
+										% Mathematical Engineering
+										% Mechanical Engineering
+										% Physical Engineering
+%\options{Option(s)}		% If required by program commission mention options
+\supervisor{Eric \textsc{Deleersnijder}}	% 1st supervisor name
+\cosupervisor{Jean-Charles \textsc{Delvenne}}	% 2nd supervisor name if applicable
+\readerone{Laurent \textsc{Delannay}}		% 1st reader name
+%\readertwo{Firstname \textsc{Lastname}}		% 2nd reader name
+%\readerthree{Firstname \textsc{Lastname}}	% 3rd reader name
+\years{2016-2017}	% Academic year
+
+\begin{document}
+\pagenumbering{gobble}
+\maketitle					% To create front cover page
+\thispagestyle{empty}		% To suppress header and footer on the back of the cover page
+\blankpage
+\pagenumbering{roman} % for table of contents, etc.
+% \null \newpage
+\pagenumbering{arabic}
+\input{inputs/report.tex}
+\nocite{*}
+\bibliographystyle{alpha} % Le style est mis entre accolades.
+\bibliography{bib/bibli} % mon fichier de base de données s'appelle bibli.bib
+% Back cover page
+\backcoverpage
+
+\end{document}

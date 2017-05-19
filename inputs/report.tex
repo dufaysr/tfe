@@ -1,0 +1,111 @@
+%!TEX root = ../tfe.tex
+\section*{Test case to assess the implementation of the overturner model}
+This note is an adaptation of Eric Deleersnijder's working paper \cite{deleersnijder2011test}.
+
+\subsection*{Governing equations}
+Let us consider a water domain, whose width is denoted $A(t,\b{x})$, where $t$ is the time and $\b{x} = (y,z)$ is the position vector. The continuity equation is
+\begin{equation} \label{eq:testcase:continuity}
+	\frac{\partial A}{\partial t} + \nabla \cdot (A\b{u}) = 0,
+\end{equation}
+where $\b{u}(t,\b{x})$ is the latitudinally-averaged meridional velocity. Assuming that mixing along the parallels is sufficiently efficient, we may study the concentration of a passive tracer by means of a two-dimensional model. The latitudinally-averaged concentration of the tracer $C(t,\b{x})$ obeys the following partial differential equation :
+\begin{equation} \label{eq:testcase:conservative}
+	\frac{\partial (AC)}{\partial t} + \nabla \cdot (A \b{u} C) = \sum_{n=1}^N Q_n \delta(\b{x} - \b{x}_n) + \nabla \cdot (A\b{K} \cdot \nabla C), 
+\end{equation}
+where $\b{K}$ is the diffusivity tensor (symmetric and positive definite); $\delta$ is the Dirac delta function with $\delta(\b{x}-\b{x}_n) = \delta(x-x_n)\delta(y-y_n)$; $Q_n(t)$ is the rate of release of the point source located at $\b{x} = \b{x}_n$. If $C(t,\b x)$ represents the 
+density of the tracer in water, then $Q_n(t)$ is the mass of tracer released per second by the $n$-th point source.
+
+Equation \eqref{eq:testcase:conservative} is the so-called conservative form of the model. The convective form is obtained by combining equations \eqref{eq:testcase:continuity} and \eqref{eq:testcase:conservative}:
+\begin{equation}  \label{eq:testcase:convective}
+	\frac{\partial C}{\partial t} + \b{u} \cdot \nabla C = \frac{1}{A}\sum_{n=1}^N Q_n \delta(\b{x} - \b{x}_n) + \frac{1}{A} \nabla \cdot (A\b{K} \cdot \nabla C).
+\end{equation}
+
+\subsection*{An idealised model}
+% Recall that we are building a test case for assessing the validity of our implementation of the overturner model.
+Now we make some simplifying assumptions which will allow us to build an analytical solution. First, we consider an infinite domain, i.e.
+\begin{equation} \label{eq:testcase:domain}
+	-\infty < y < \infty, \ -\infty < z < \infty.
+\end{equation}
+We assume a constant velocity field
+\begin{equation} \label{eq:testcase:velocity}
+	\b{u}(t,\b{x}) = v \b e_y + w \b e_z,
+\end{equation}
+where $\b e_y$ and $\b e_z$ are the unit vectors associated respectively with the $y$- and $z$-coordinate axis. Furthermore, the diffusivity tensor is supposed constant and diagonal :
+\begin{equation} \label{eq:testcase:diffusivity}
+	\b{K} = \begin{pmatrix}
+			K_{yy} & 0 \\
+			0 & K_{zz}
+			\end{pmatrix},	
+\end{equation}
+where $K_{yy},\ K_{zz} > 0$. Finally, we consider a sudden pointwise release of tracer at $t=0$. Hence, $Q_n(t)$ is of the form :
+\begin{equation}
+	Q_n(t) = M_n\delta(t), \quad \mbox{ for } 1 \le n \le N.
+\end{equation} 
+
+Under these assumptions, equation \eqref{eq:testcase:convective} simplifies to :
+\begin{equation} \label{eq:testcase}
+	\frac{\partial C}{\partial t} + v \frac{\partial C}{\partial y} + w \frac{\partial C}{\partial z} = \frac{1}{A}\sum_{n=1}^N M_n \delta(t) \delta(y - y_n)\delta(z-z_n) + K_{yy} \frac{\partial^2 C}{\partial y^2} + K_{zz} \frac{\partial^2 C}{\partial z^2}.
+\end{equation}
+
+\subsection*{Green's function}
+In order to build the analytical solution of the problem, we need to compute the Green's function $\G$ associated to this particular problem. $\G$ is zero for $t<t'$ and is the solution of
+\begin{equation}
+	\begin{cases}
+		\frac{\partial G}{\partial t} + v \frac{\partial G}{\partial y} + w\frac{\partial G}{\partial z} = K_{yy}\frac{\partial^2 G}{\partial y^2} + K_{zz}\frac{\partial^2 G}{\partial z^2}\\[.1cm]
+		\left. G(t,t',y,z) \right \rvert_{t=t'} = \delta(y)\delta(z) 
+	\end{cases}
+\end{equation}
+for $t \ge 0$. This yields
+\begin{equation} 
+	G(t,t',y,z) = \frac{\exp\left[-\frac{(y-s_v)^2}{4K_{yy}\tau} -\frac{(z-s_w)^2}{4K_{zz}\tau} \right]}{4\pi\sqrt{K_{yy}K_{zz}}\tau},
+\end{equation}
+where $\tau = t-t'$ and 
+\begin{equation}
+	\b s(t,t') = (s_v(t,t'), s_w(t,t')) = \left(\int_{t'}^{t}v(\xi) \rm d \xi, \int_{t'}^{t}w(\xi) \rm d \xi \right) = \left(v\tau, w\tau\right).
+\end{equation}
+
+The Green's function has some interesting properties. The "mass" of the solution is
+\begin{equation} \label{eq:testcase:propmass}
+	m(t,t') \equiv \int_{\R[2]} \G \rm d \b x = 1.
+\end{equation}
+The "center of mass" is located at
+\begin{equation} \label{eq:testcase:propcenter}
+	\b r(t,t') \equiv \frac{1}{m(t,t')} \int_{\R[2]} \b x \G \rm d \b x  = \b s(t,t').
+\end{equation}
+The variance of the solution is
+\begin{equation} \label{eq:testcase:propvar}
+	\sigma^2(t,t') \equiv \frac{1}{m(t,t')} \int_{\R[2]} \lvert \b x - \b r(t,t') \rvert^2 \G \rm d \b x = 2 \rm{trace}(\b K) \tau.
+\end{equation}
+
+\subsection*{Analytical solution and properties}
+The analytical solution of our test case is now obtained with the help of the Green's function derived above :
+\begin{equation}
+	C(t,\b x) = \int_{t'}^{t} \int_{\R[2]} G(t,t',\b x - \b x') \frac{1}{A} \sum_{n=1}^{N} M_n \delta(t) \delta(\b x- \b x_n) \rm d \b{x}' \rm dt'.
+\end{equation}
+This expression simplifies to
+\begin{equation}
+	C(t,\b x) = \frac{1}{A} \sum_{n=1}^{N} M_n G(t,0,\b x - \b x_n).
+\end{equation}
+
+The number of tracer's particles present in the domain is
+\begin{equation}
+	m(t) \equiv A \int_{\R[2]} C(t,\b x) \rm d \b x = \sum_{n=1}^{N} M_n.
+\end{equation}
+Note that this number is independant of the transport processes.
+
+The mass center is located at
+\begin{align}
+	\b r(t) &\equiv \frac{A}{m(t)} \int_{\R[2]} \b x C(t,\b x) \rm d \b x \nonumber \\
+	&= \frac{1}{\sum_{n=1}^N M_n} \sum_{n=1}^N M_n \int_{\R[2]} \b x G(t,0,\b x - \b x_n) \rm d \b x \nonumber\\
+	&= \frac{1}{\sum_{n=1}^N M_n} \sum_{n=1}^N M_n \int_{\R[2]} (\b x-\b x_n) G(t,0,\b x - \b x_n) + \b x_n G(t,0,\b x - \b x_n) \rm d \b x\nonumber\\
+	&= \frac{\sum_{n=1}^{N} M_n (\b x_n + \b s(t,0))}{\sum_{n=1}^{N} M_n},
+\end{align}
+where properties \eqref{eq:testcase:propmass} and \eqref{eq:testcase:propcenter} are used to perform the last step.
+
+Finally, we compute the variance of the solution in the case where there is only one site of pointwise release of tracer. In that case, $N = 1$ and
+\begin{align}
+	\sigma^2(t) &= \frac{1}{m(t)} \int_{\R[2]} \lvert \b x - \b r(t) \rvert^2 C(t,\b x) \rm d \b x \nonumber \\
+	&= \int_{\R[2]} \lvert (\b x - \b x_1) - \b s(t,0)\rvert^2 G(t,0,\b x - \b x_1) \rm d \b x \nonumber \\
+	&= 2 \mathrm{trace}(\b K)t \nonumber \\
+	&= 2(K_{yy}+K_{zz})t,
+\end{align}
+where property \eqref{eq:testcase:propvar} is used.
