@@ -3,20 +3,20 @@
 This note is an adaptation of Eric Deleersnijder's working paper \cite{deleersnijder2011test}.
 
 \subsection*{Governing equations}
-Let us consider a water domain, whose width is denoted $A(t,\b{x})$, where $t$ is the time and $\b{x} = (y,z)$ is the position vector. The continuity equation is
+Let us consider a water domain, whose width is denoted $B(t,\b{x})$, where $t$ is the time and $\b{x} = (y,z)$ is the position vector. The continuity equation is
 \begin{equation} \label{eq:testcase:continuity}
-	\frac{\partial A}{\partial t} + \nabla \cdot (A\b{u}) = 0,
+	\frac{\partial B}{\partial t} + \nabla \cdot (B\b{u}) = 0,
 \end{equation}
 where $\b{u}(t,\b{x})$ is the latitudinally-averaged meridional velocity. Assuming that mixing along the parallels is sufficiently efficient, we may study the concentration of a passive tracer by means of a two-dimensional model. The latitudinally-averaged concentration of the tracer $C(t,\b{x})$ obeys the following partial differential equation :
 \begin{equation} \label{eq:testcase:conservative}
-	\frac{\partial (AC)}{\partial t} + \nabla \cdot (A \b{u} C) = \sum_{n=1}^N Q_n \delta(\b{x} - \b{x}_n) + \nabla \cdot (A\b{K} \cdot \nabla C), 
+	\frac{\partial (BC)}{\partial t} + \nabla \cdot (B \b{u} C) = \sum_{n=1}^N Q_n \delta(\b{x} - \b{x}_n) + \nabla \cdot (B\b{K} \cdot \nabla C), 
 \end{equation}
-where $\b{K}$ is the diffusivity tensor (symmetric and positive definite); $\delta$ is the Dirac delta function with $\delta(\b{x}-\b{x}_n) = \delta(x-x_n)\delta(y-y_n)$; $Q_n(t)$ is the rate of release of the point source located at $\b{x} = \b{x}_n$. If $C(t,\b x)$ represents the 
-density of the tracer in water, then $Q_n(t)$ is the mass of tracer released per second by the $n$-th point source.
+where $\b{K}$ is the diffusivity tensor (symmetric and positive definite); $\delta$ is the Dirac delta function with $\delta(\b{x}-\b{x}_n) = \delta(x-x_n)\delta(y-y_n)$; $Q_n(t)$ is the rate of release of a lineic source on a segment of length $B$ along the latitude direction located at $\b{x} = \b{x}_n$. If $C(t,\b x)$ represents the 
+density of the tracer in water, then $Q_n(t)$ is the mass of tracer released per second by the $n$-th source.
 
 Equation \eqref{eq:testcase:conservative} is the so-called conservative form of the model. The convective form is obtained by combining equations \eqref{eq:testcase:continuity} and \eqref{eq:testcase:conservative}:
 \begin{equation}  \label{eq:testcase:convective}
-	\frac{\partial C}{\partial t} + \b{u} \cdot \nabla C = \frac{1}{A}\sum_{n=1}^N Q_n \delta(\b{x} - \b{x}_n) + \frac{1}{A} \nabla \cdot (A\b{K} \cdot \nabla C).
+	\frac{\partial C}{\partial t} + \b{u} \cdot \nabla C = \frac{1}{B}\sum_{n=1}^N Q_n \delta(\b{x} - \b{x}_n) + \frac{1}{B} \nabla \cdot (B\b{K} \cdot \nabla C).
 \end{equation}
 
 \subsection*{An idealised model}
@@ -25,7 +25,7 @@ Now we make some simplifying assumptions which will allow us to build an analyti
 \begin{equation} \label{eq:testcase:domain}
 	-\infty < y < \infty, \ -\infty < z < \infty.
 \end{equation}
-We assume a constant velocity field
+We assume a constant width $B$ and a constant velocity field
 \begin{equation} \label{eq:testcase:velocity}
 	\b{u}(t,\b{x}) = v \b e_y + w \b e_z,
 \end{equation}
@@ -43,8 +43,13 @@ where $K_{yy},\ K_{zz} > 0$. Finally, we consider a sudden pointwise release of 
 
 Under these assumptions, equation \eqref{eq:testcase:convective} simplifies to :
 \begin{equation} \label{eq:testcase}
-	\frac{\partial C}{\partial t} + v \frac{\partial C}{\partial y} + w \frac{\partial C}{\partial z} = \frac{1}{A}\sum_{n=1}^N M_n \delta(t) \delta(y - y_n)\delta(z-z_n) + K_{yy} \frac{\partial^2 C}{\partial y^2} + K_{zz} \frac{\partial^2 C}{\partial z^2}.
+	\frac{\partial C}{\partial t} + v \frac{\partial C}{\partial y} + w \frac{\partial C}{\partial z} = \frac{1}{B}\sum_{n=1}^N M_n \delta(t) \delta(y - y_n)\delta(z-z_n) + K_{yy} \frac{\partial^2 C}{\partial y^2} + K_{zz} \frac{\partial^2 C}{\partial z^2}.
 \end{equation}
+For the sake of simplicity, we can forget about the fact that our model is width-integrated and consider that it is a purely two-dimensional model with a point-source
+\begin{equation}
+	Q := J\delta(t),
+\end{equation}
+where $J := M/B$ can be regarded as the mass of tracer released by the point source at $\b x = \b x_1$, if $C$ now represents the two-dimensional density (i.e., in [$kg/m^2$]) of the tracer in water. \textcolor{red}{This is represented at figure... (2D - scheme)}
 
 \subsection*{Green's function}
 In order to build the analytical solution of the problem, we need to compute the Green's function $\G$ associated to this particular problem. $\G$ is zero for $t<t'$ and is the solution of
@@ -60,7 +65,7 @@ for $t \ge 0$. This yields
 \end{equation}
 where $\tau = t-t'$ and 
 \begin{equation}
-	\b s(t,t') = (s_v(t,t'), s_w(t,t')) = \left(\int_{t'}^{t}v(\xi) \rm d \xi, \int_{t'}^{t}w(\xi) \rm d \xi \right) = \left(v\tau, w\tau\right).
+	\b s(t,t') = (s_v(t,t'), s_w(t,t')) = \left(\int_{t'}^{t}v \rm d \xi, \int_{t'}^{t}w \rm d \xi \right) = \left(v\tau, w\tau\right).
 \end{equation}
 
 The Green's function has some interesting properties. The "mass" of the solution is
@@ -79,22 +84,22 @@ The variance of the solution is
 \subsection*{Analytical solution and properties}
 The analytical solution of our test case is now obtained with the help of the Green's function derived above :
 \begin{equation}
-	C(t,\b x) = \int_{t'}^{t} \int_{\R[2]} G(t,t',\b x - \b x') \frac{1}{A} \sum_{n=1}^{N} M_n \delta(t) \delta(\b x- \b x_n) \rm d \b{x}' \rm dt'.
+	C(t,\b x) = \int_{t'}^{t} \int_{\R[2]} G(t,t',\b x - \b x') \frac{1}{B} \sum_{n=1}^{N} M_n \delta(t) \delta(\b x- \b x_n) \rm d \b{x}' \rm dt'.
 \end{equation}
 This expression simplifies to
 \begin{equation}
-	C(t,\b x) = \frac{1}{A} \sum_{n=1}^{N} M_n G(t,0,\b x - \b x_n).
+	C(t,\b x) = \frac{1}{B} \sum_{n=1}^{N} M_n G(t,0,\b x - \b x_n).
 \end{equation}
 
 The number of tracer's particles present in the domain is
 \begin{equation}
-	m(t) \equiv A \int_{\R[2]} C(t,\b x) \rm d \b x = \sum_{n=1}^{N} M_n.
+	m(t) \equiv B \int_{\R[2]} C(t,\b x) \rm d \b x = \sum_{n=1}^{N} M_n.
 \end{equation}
 Note that this number is independant of the transport processes.
 
 The mass center is located at
 \begin{align}
-	\b r(t) &\equiv \frac{A}{m(t)} \int_{\R[2]} \b x C(t,\b x) \rm d \b x \nonumber \\
+	\b r(t) &\equiv \frac{B}{m(t)} \int_{\R[2]} \b x C(t,\b x) \rm d \b x \nonumber \\
 	&= \frac{1}{\sum_{n=1}^N M_n} \sum_{n=1}^N M_n \int_{\R[2]} \b x G(t,0,\b x - \b x_n) \rm d \b x \nonumber\\
 	&= \frac{1}{\sum_{n=1}^N M_n} \sum_{n=1}^N M_n \int_{\R[2]} (\b x-\b x_n) G(t,0,\b x - \b x_n) + \b x_n G(t,0,\b x - \b x_n) \rm d \b x\nonumber\\
 	&= \frac{\sum_{n=1}^{N} M_n (\b x_n + \b s(t,0))}{\sum_{n=1}^{N} M_n},
