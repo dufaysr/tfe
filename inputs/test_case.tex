@@ -9,14 +9,14 @@ Let us consider a water domain, whose width is denoted $B(t,\b{x})$, where $t$ i
 \end{equation}
 where $\b{u}(t,\b{x})$ is the latitudinally-averaged meridional velocity. Assuming that mixing along the parallels is sufficiently efficient, we may study the concentration of a passive tracer by means of a two-dimensional model. The latitudinally-averaged concentration of the tracer $C(t,\b{x})$ obeys the following partial differential equation :
 \begin{equation} \label{eq:testcase:conservative}
-	\frac{\partial (BC)}{\partial t} + \nabla \cdot (B \b{u} C) = \sum_{n=1}^N Q_n \delta(\b{x} - \b{x}_n) + \nabla \cdot (B\b{K} \cdot \nabla C), 
+	\frac{\partial (BC)}{\partial t} + \nabla \cdot (B \b{u} C) = Q\delta(\b{x} - \b{x}_1) + \nabla \cdot (B\b{K} \cdot \nabla C), 
 \end{equation}
-where $\b{K}$ is the diffusivity tensor (symmetric and positive definite); $\delta$ is the Dirac delta function with $\delta(\b{x}-\b{x}_n) = \delta(x-x_n)\delta(y-y_n)$; $Q_n(t)$ is the rate of release of a lineic source on a segment of length $B$ along the latitude direction located at $\b{x} = \b{x}_n$. If $C(t,\b x)$ represents the 
-density of the tracer in water, then $Q_n(t)$ is the mass of tracer released per second by the $n$-th source.
+where $\b{K}$ is the diffusivity tensor (symmetric and positive definite); $\delta$ is the Dirac delta function with $\delta(\b{x}-\b{x}_n) = \delta(x-x_n)\delta(y-y_n)$; $Q(t)$ is the rate of release of a lineic source on a segment of length $B$ along the latitude direction located at $\b{x} = \b{x}_1$. If $C(t,\b x)$ represents the 
+density of the tracer in water, then $Q(t)$ is the mass of tracer released per second by the source.
 
 Equation \eqref{eq:testcase:conservative} is the so-called conservative form of the model. The convective form is obtained by combining equations \eqref{eq:testcase:continuity} and \eqref{eq:testcase:conservative}:
 \begin{equation}  \label{eq:testcase:convective}
-	\frac{\partial C}{\partial t} + \b{u} \cdot \nabla C = \frac{1}{B}\sum_{n=1}^N Q_n \delta(\b{x} - \b{x}_n) + \frac{1}{B} \nabla \cdot (B\b{K} \cdot \nabla C).
+	\frac{\partial C}{\partial t} + \b{u} \cdot \nabla C = \frac{Q}{B} \delta(\b{x} - \b{x}_1) + \frac{1}{B} \nabla \cdot (B\b{K} \cdot \nabla C).
 \end{equation}
 
 \subsection*{An idealised model}
@@ -36,20 +36,39 @@ where $\b e_y$ and $\b e_z$ are the unit vectors associated respectively with th
 			0 & K_{zz}
 			\end{pmatrix},	
 \end{equation}
-where $K_{yy},\ K_{zz} > 0$. Finally, we consider a sudden pointwise release of tracer at $t=0$. Hence, $Q_n(t)$ is of the form :
+where $K_{yy},\ K_{zz} > 0$. Finally, we consider a sudden pointwise release of tracer at $t=0$. Hence, $Q(t)$ is of the form :
 \begin{equation}
-	Q_n(t) = M_n\delta(t), \quad \mbox{ for } 1 \le n \le N.
+	Q(t) = M\delta(t),
 \end{equation} 
+where $M$ is the mass of tracer released at $t=0$.
 
 Under these assumptions, equation \eqref{eq:testcase:convective} simplifies to :
 \begin{equation} \label{eq:testcase}
-	\frac{\partial C}{\partial t} + v \frac{\partial C}{\partial y} + w \frac{\partial C}{\partial z} = \frac{1}{B}\sum_{n=1}^N M_n \delta(t) \delta(y - y_n)\delta(z-z_n) + K_{yy} \frac{\partial^2 C}{\partial y^2} + K_{zz} \frac{\partial^2 C}{\partial z^2}.
+	\frac{\partial C}{\partial t} + v \frac{\partial C}{\partial y} + w \frac{\partial C}{\partial z} = \frac{M}{B} \delta(t) \delta(y - y_1)\delta(z-z_1) + K_{yy} \frac{\partial^2 C}{\partial y^2} + K_{zz} \frac{\partial^2 C}{\partial z^2}.
 \end{equation}
 For the sake of simplicity, we can forget about the fact that our model is width-integrated and consider that it is a purely two-dimensional model with a point-source
 \begin{equation}
 	Q := J\delta(t),
 \end{equation}
-where $J := M/B$ can be regarded as the mass of tracer released by the point source at $\b x = \b x_1$, if $C$ now represents the two-dimensional density (i.e., in [$kg/m^2$]) of the tracer in water. \textcolor{red}{This is represented at figure... (2D - scheme)}
+where $J := M/B$ can be regarded as the mass of tracer released by the sudden point source at $\b x = \b x_1$, if $C$ now represents the two-dimensional density (i.e., in [$kg/m^2$]) of the tracer in water.\footnote{This could be a bit confusing. As we switch from a 3-dimensional interpretation of the model to a 2-dimensional one, the meaning of the parameters changes. Hence, in the 3-dimensional interpretation, $C$ represents a 3D density ([$kg/m^3$]) and $M$ is a mass, whereas in the 2-dimensional interpretation, $C$ is a 2D density ([$kg/m^2$]) and $M$ has units of [$kg\;m$].} This is represented on figure \ref{fig:testcase_scheme}. \textcolor{red}{On peut aussi simplement considérer B = 1. Attention, si on opte finalement pour cette option, un facteur B doit être présent pour le calcul de certains diagnostiques.}
+\begin{figure}[H]
+	\centering
+ 	\begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{fig/testcase_scheme3D.png}
+        \caption{3D interpretation of the model.}
+        \label{fig:testcase_scheme3D}
+    \end{subfigure}
+	\begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{fig/testcase_scheme2D.png}
+        \caption{2D interpretation of the model.}
+        \label{fig:testcase_scheme2D}
+    \end{subfigure}
+    \caption{Illustration of the 3D and 2D interpretations of the model.}
+    \label{fig:testcase_scheme}
+\end{figure}
+
+\input{inputs/testcase_scheme3Dbis}
+\input{inputs/testcase_scheme2Dbis}
 
 \subsection*{Green's function}
 In order to build the analytical solution of the problem, we need to compute the Green's function $\G$ associated to this particular problem. $\G$ is zero for $t<t'$ and is the solution of
@@ -78,39 +97,38 @@ The "center of mass" is located at
 \end{equation}
 The variance of the solution is
 \begin{equation} \label{eq:testcase:propvar}
-	\sigma^2(t,t') \equiv \frac{1}{m(t,t')} \int_{\R[2]} \lvert \b x - \b r(t,t') \rvert^2 \G \rm d \b x = 2 \rm{trace}(\b K) \tau.
+	\sigma^2(t,t') \equiv \frac{1}{m(t,t')} \int_{\R[2]} \lvert \b x - \b r(t,t') \rvert^2 \G \rm d \b x = 2 (K_{yy}+K_{zz}) \tau.
 \end{equation}
 
 \subsection*{Analytical solution and properties}
 The analytical solution of our test case is now obtained with the help of the Green's function derived above :
 \begin{equation}
-	C(t,\b x) = \int_{t'}^{t} \int_{\R[2]} G(t,t',\b x - \b x') \frac{1}{B} \sum_{n=1}^{N} M_n \delta(t) \delta(\b x- \b x_n) \rm d \b{x}' \rm dt'.
+	C(t,\b x) = \int_{t'}^{t} \int_{\R[2]} G(t,t',\b x - \b x') J \delta(t) \delta(\b x- \b x_1) \rm d \b{x}' \rm dt'.
 \end{equation}
 This expression simplifies to
 \begin{equation}
-	C(t,\b x) = \frac{1}{B} \sum_{n=1}^{N} M_n G(t,0,\b x - \b x_n).
+	C(t,\b x) = J G(t,0,\b x - \b x_1).
 \end{equation}
 
 The number of tracer's particles present in the domain is
 \begin{equation}
-	m(t) \equiv B \int_{\R[2]} C(t,\b x) \rm d \b x = \sum_{n=1}^{N} M_n.
+	m(t) \equiv \int_{\R[2]} C(t,\b x) \rm d \b x = J.
 \end{equation}
 Note that this number is independant of the transport processes.
 
 The mass center is located at
 \begin{align}
-	\b r(t) &\equiv \frac{B}{m(t)} \int_{\R[2]} \b x C(t,\b x) \rm d \b x \nonumber \\
-	&= \frac{1}{\sum_{n=1}^N M_n} \sum_{n=1}^N M_n \int_{\R[2]} \b x G(t,0,\b x - \b x_n) \rm d \b x \nonumber\\
-	&= \frac{1}{\sum_{n=1}^N M_n} \sum_{n=1}^N M_n \int_{\R[2]} (\b x-\b x_n) G(t,0,\b x - \b x_n) + \b x_n G(t,0,\b x - \b x_n) \rm d \b x\nonumber\\
-	&= \frac{\sum_{n=1}^{N} M_n (\b x_n + \b s(t,0))}{\sum_{n=1}^{N} M_n},
+	\b r(t) &\equiv \frac{1}{m(t)} \int_{\R[2]} \b x C(t,\b x) \rm d \b x \nonumber \\
+	&= \int_{\R[2]} \b x G(t,0,\b x - \b x_1) \rm d \b x \nonumber\\
+	&= \int_{\R[2]} (\b x-\b x_1) G(t,0,\b x - \b x_1) + \b x_1 G(t,0,\b x - \b x_1) \rm d \b x\nonumber\\
+	&= \b x_1 + \b s(t,0),
 \end{align}
 where properties \eqref{eq:testcase:propmass} and \eqref{eq:testcase:propcenter} are used to perform the last step.
 
-Finally, we compute the variance of the solution in the case where there is only one site of pointwise release of tracer. In that case, $N = 1$ and
+Finally, the variance of the solution is
 \begin{align}
 	\sigma^2(t) &= \frac{1}{m(t)} \int_{\R[2]} \lvert \b x - \b r(t) \rvert^2 C(t,\b x) \rm d \b x \nonumber \\
 	&= \int_{\R[2]} \lvert (\b x - \b x_1) - \b s(t,0)\rvert^2 G(t,0,\b x - \b x_1) \rm d \b x \nonumber \\
-	&= 2 \mathrm{trace}(\b K)t \nonumber \\
 	&= 2(K_{yy}+K_{zz})t,
 \end{align}
 where property \eqref{eq:testcase:propvar} is used.
