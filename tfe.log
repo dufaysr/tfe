@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.5.22)  22 MAY 2017 19:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.5.22)  24 MAY 2017 21:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1341,49 +1341,156 @@ ame identifier (name{page.}) has been already used, duplicate ignored
 l.34 \blankpage
                 [1] (/home/renaud/Documents/EPL/tfe/latex/inputs/test_case.tex
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 6.
-
-[1]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 53.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 53.
- (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
-File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
-)
-<fig/testcase_scheme3D.png, id=73, 892.33376pt x 815.045pt>
-File: fig/testcase_scheme3D.png Graphic file (type png)
-
-<use fig/testcase_scheme3D.png>
-Package pdftex.def Info: fig/testcase_scheme3D.png used on input line 57.
-(pdftex.def)             Requested size: 218.51521pt x 199.58206pt.
-
-<fig/testcase_scheme2D.png, id=74, 894.34125pt x 826.08624pt>
-File: fig/testcase_scheme2D.png Graphic file (type png)
-
-<use fig/testcase_scheme2D.png>
-Package pdftex.def Info: fig/testcase_scheme2D.png used on input line 62.
-(pdftex.def)             Requested size: 218.51521pt x 201.83197pt.
+(Font)              <10.95> on input line 7.
 
 (/home/renaud/Documents/EPL/tfe/latex/inputs/testcase_scheme3Dbis.tex)
-(/home/renaud/Documents/EPL/tfe/latex/inputs/testcase_scheme2Dbis.tex)
-Overfull \hbox (66.7881pt too wide) in paragraph at lines 443--72
-[][] [] 
- []
+(/home/renaud/Documents/EPL/tfe/latex/inputs/testcase_scheme2Dbis.tex) [1]
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
+File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
+) [2] [3] [4]
+[5]
+Package epstopdf Info: Source file: <fig/testcase/testcase_surf.eps>
+(epstopdf)                    date: 2017-05-24 17:26:05
+(epstopdf)                    size: 123285 bytes
+(epstopdf)             Output file: <fig/testcase/testcase_surf-eps-converted-t
+o.pdf>
+(epstopdf)                    date: 2017-05-24 17:26:57
+(epstopdf)                    size: 108301 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/testcase/testcase_surf
+-eps-converted-to.pdf fig/testcase/testcase_surf.eps>
+(epstopdf)             \includegraphics on input line 232.
+Package epstopdf Info: Output file is already uptodate.
 
-[2 </home/renaud/Documents/EPL/tfe/latex/fig/testcase_scheme3D.png> </home/rena
-ud/Documents/EPL/tfe/latex/fig/testcase_scheme2D.png>] [3])
-(/home/renaud/Documents/EPL/tfe/latex/tfe.bbl [4]
+<fig/testcase/testcase_surf-eps-converted-to.pdf, id=139, 449.68pt x 343.2825pt
+>
+File: fig/testcase/testcase_surf-eps-converted-to.pdf Graphic file (type pdf)
+ <use fig/testcase/testcase_surf-eps-converted-to.pdf>
+Package pdftex.def Info: fig/testcase/testcase_surf-eps-converted-to.pdf used o
+n input line 232.
+(pdftex.def)             Requested size: 455.24411pt x 347.54543pt.
+Package epstopdf Info: Source file: <fig/testcase/testcase_fixedy.eps>
+(epstopdf)                    date: 2017-05-24 17:26:05
+(epstopdf)                    size: 32989 bytes
+(epstopdf)             Output file: <fig/testcase/testcase_fixedy-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2017-05-24 17:26:58
+(epstopdf)                    size: 17752 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/testcase/testcase_fixe
+dy-eps-converted-to.pdf fig/testcase/testcase_fixedy.eps>
+(epstopdf)             \includegraphics on input line 239.
+Package epstopdf Info: Output file is already uptodate.
+
+<fig/testcase/testcase_fixedy-eps-converted-to.pdf, id=140, 227.85126pt x 182.6
+825pt>
+File: fig/testcase/testcase_fixedy-eps-converted-to.pdf Graphic file (type pdf)
+
+ <use fig/testcase/testcase_fixedy-eps-converted-to.pdf>
+Package pdftex.def Info: fig/testcase/testcase_fixedy-eps-converted-to.pdf used
+ on input line 239.
+(pdftex.def)             Requested size: 223.07211pt x 178.85478pt.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 240.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 240.
+Package epstopdf Info: Source file: <fig/testcase/testcase_fixedz.eps>
+(epstopdf)                    date: 2017-05-24 17:26:06
+(epstopdf)                    size: 37689 bytes
+(epstopdf)             Output file: <fig/testcase/testcase_fixedz-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2017-05-24 17:26:58
+(epstopdf)                    size: 17661 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/testcase/testcase_fixe
+dz-eps-converted-to.pdf fig/testcase/testcase_fixedz.eps>
+(epstopdf)             \includegraphics on input line 244.
+Package epstopdf Info: Output file is already uptodate.
+
+<fig/testcase/testcase_fixedz-eps-converted-to.pdf, id=141, 227.85126pt x 182.6
+825pt>
+File: fig/testcase/testcase_fixedz-eps-converted-to.pdf Graphic file (type pdf)
+
+ <use fig/testcase/testcase_fixedz-eps-converted-to.pdf>
+Package pdftex.def Info: fig/testcase/testcase_fixedz-eps-converted-to.pdf used
+ on input line 244.
+(pdftex.def)             Requested size: 223.07211pt x 178.85478pt.
+ [6 </home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcase_surf-eps-conver
+ted-to.pdf>]
+Package epstopdf Info: Source file: <fig/testcase/testcaseSI_surf.eps>
+(epstopdf)                    date: 2017-05-24 18:46:22
+(epstopdf)                    size: 146170 bytes
+(epstopdf)             Output file: <fig/testcase/testcaseSI_surf-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2017-05-24 21:10:57
+(epstopdf)                    size: 125629 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/testcase/testcaseSI_su
+rf-eps-converted-to.pdf fig/testcase/testcaseSI_surf.eps>
+(epstopdf)             \includegraphics on input line 283.
+Package epstopdf Info: Output file is already uptodate.
+
+<fig/testcase/testcaseSI_surf-eps-converted-to.pdf, id=160, 464.73625pt x 388.4
+5125pt>
+File: fig/testcase/testcaseSI_surf-eps-converted-to.pdf Graphic file (type pdf)
+
+ <use fig/testcase/testcaseSI_surf-eps-converted-to.pdf>
+Package pdftex.def Info: fig/testcase/testcaseSI_surf-eps-converted-to.pdf used
+ on input line 283.
+(pdftex.def)             Requested size: 455.24411pt x 380.5255pt.
+Package epstopdf Info: Source file: <fig/testcase/testcaseSI_fixedy.eps>
+(epstopdf)                    date: 2017-05-24 18:46:22
+(epstopdf)                    size: 34087 bytes
+(epstopdf)             Output file: <fig/testcase/testcaseSI_fixedy-eps-convert
+ed-to.pdf>
+(epstopdf)                    date: 2017-05-24 21:10:59
+(epstopdf)                    size: 14411 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/testcase/testcaseSI_fi
+xedy-eps-converted-to.pdf fig/testcase/testcaseSI_fixedy.eps>
+(epstopdf)             \includegraphics on input line 290.
+Package epstopdf Info: Output file is already uptodate.
+
+<fig/testcase/testcaseSI_fixedy-eps-converted-to.pdf, id=161, 220.825pt x 159.5
+9625pt>
+File: fig/testcase/testcaseSI_fixedy-eps-converted-to.pdf Graphic file (type pd
+f)
+ <use fig/testcase/testcaseSI_fixedy-eps-converted-to.pdf>
+Package pdftex.def Info: fig/testcase/testcaseSI_fixedy-eps-converted-to.pdf us
+ed on input line 290.
+(pdftex.def)             Requested size: 223.07211pt x 161.22745pt.
+Package epstopdf Info: Source file: <fig/testcase/testcaseSI_fixedz.eps>
+(epstopdf)                    date: 2017-05-24 18:46:23
+(epstopdf)                    size: 29365 bytes
+(epstopdf)             Output file: <fig/testcase/testcaseSI_fixedz-eps-convert
+ed-to.pdf>
+(epstopdf)                    date: 2017-05-24 21:10:59
+(epstopdf)                    size: 12367 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/testcase/testcaseSI_fi
+xedz-eps-converted-to.pdf fig/testcase/testcaseSI_fixedz.eps>
+(epstopdf)             \includegraphics on input line 295.
+Package epstopdf Info: Output file is already uptodate.
+
+<fig/testcase/testcaseSI_fixedz-eps-converted-to.pdf, id=162, 227.85126pt x 182
+.6825pt>
+File: fig/testcase/testcaseSI_fixedz-eps-converted-to.pdf Graphic file (type pd
+f)
+ <use fig/testcase/testcaseSI_fixedz-eps-converted-to.pdf>
+Package pdftex.def Info: fig/testcase/testcaseSI_fixedz-eps-converted-to.pdf us
+ed on input line 295.
+(pdftex.def)             Requested size: 223.07211pt x 178.85478pt.
+ [7 </home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcase_fixedy-eps-conv
+erted-to.pdf> </home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcase_fixed
+z-eps-converted-to.pdf>]) (/home/renaud/Documents/EPL/tfe/latex/tfe.bbl [8 </ho
+me/renaud/Documents/EPL/tfe/latex/fig/testcase/testcaseSI_surf-eps-converted-to
+.pdf>]
+[9 </home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcaseSI_fixedy-eps-con
+verted-to.pdf> </home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcaseSI_fi
+xedz-eps-converted-to.pdf>]
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 8.
-
-(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+ (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 Package microtype Info: Loading generic settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-) [5
+) [10
 
 ]
 *geometry* verbose mode - [ newgeometry ] result:
@@ -1420,29 +1527,29 @@ Package microtype Info: Loading generic settings for font family
 
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <9> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 43.
- [6
+
+[11
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 45.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 45.
-
-(/home/renaud/Documents/EPL/tfe/latex/tfe.aux)
+ (/home/renaud/Documents/EPL/tfe/latex/tfe.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 45.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 45.
 Package rerunfilecheck Info: File `tfe.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 35537 strings out of 493029
- 819700 string characters out of 6136234
- 1129625 words of memory out of 5000000
- 38278 multiletter control sequences out of 15000+600000
- 105491 words of font info for 114 fonts, out of 8000000 for 9000
+ 35624 strings out of 493029
+ 821764 string characters out of 6136234
+ 1133059 words of memory out of 5000000
+ 38303 multiletter control sequences out of 15000+600000
+ 107687 words of font info for 124 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 64i,10n,107p,977b,1949s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,14n,110p,1163b,2102s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
-ips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/s
-hare/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
+ips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share
+/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
 -mathex.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/sh
 are/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public
 /lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb></usr/share/te
@@ -1452,16 +1559,17 @@ nts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi9.pfb
 ></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type
 1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/sha
 re/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm
-/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf
-/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on /home/renaud/Documents/EPL/tfe/latex/tfe.pdf (8 pages, 370457
- bytes).
+/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texm
+f/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/urw/helvetic/uhvr8a.pfb>
+Output written on /home/renaud/Documents/EPL/tfe/latex/tfe.pdf (13 pages, 65585
+2 bytes).
 PDF statistics:
- 210 PDF objects out of 1000 (max. 8388607)
- 160 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 28284 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 305 PDF objects out of 1000 (max. 8388607)
+ 236 compressed objects within 3 object streams
+ 74 named destinations out of 1000 (max. 500000)
+ 29840 words of extra memory for PDF output out of 29859 (max. 10000000)
 
