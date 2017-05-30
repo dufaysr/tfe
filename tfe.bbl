@@ -1,10 +1,78 @@
-\begin{thebibliography}{Del11}
+\begin{thebibliography}{10}
 
-\bibitem[Del11]{deleersnijder2011test}
+\bibitem{deleersnijder2011test}
 Eric Deleersnijder.
 \newblock Test cases for advection-diffusion equations with a first-order decay
   term.
 \newblock 2011.
 \newblock Available at \url{http://hdl.handle.net/2078.1/155372}.
+
+\bibitem{fortunato2010community}
+Santo Fortunato.
+\newblock Community detection in graphs.
+\newblock {\em Physics reports}, 486(3):75--174, 2010.
+
+\bibitem{delvenne2010stability}
+J-C Delvenne, Sophia~N Yaliraki, and Mauricio Barahona.
+\newblock Stability of graph communities across time scales.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  107(29):12755--12760, 2010.
+
+\bibitem{lambiotte2009laplacian}
+Renaud Lambiotte, J-C Delvenne, and Mauricio Barahona.
+\newblock Laplacian dynamics and multiscale modular structure in networks.
+\newblock {\em arXiv preprint arXiv:0812.1770}, 2009.
+
+\bibitem{delvenne2013stability}
+Jean-Charles Delvenne, Michael~T Schaub, Sophia~N Yaliraki, and Mauricio
+  Barahona.
+\newblock The stability of a graph partition: A dynamics-based framework for
+  community detection.
+\newblock In {\em Dynamics On and Of Complex Networks, Volume 2}, pages
+  221--242. Springer, 2013.
+
+\bibitem{blondel2008fast}
+Vincent Blondel, Jean-Loup Guillaume, Renaud Lambiotte, and Etienne Lefebvre.
+\newblock Fast unfolding of communities in large networks.
+\newblock {\em Journal of statistical mechanics: theory and experiment},
+  2008(10):P10008, 2008.
+
+\bibitem{grin1998anatomy}
+Sergey Grin and Lawrence Page.
+\newblock The anatomy of a large-scale hypertextual web search engine.
+\newblock {\em Computer networks and ISDN systems}, 30(1-7):107--117, 1998.
+
+\bibitem{meilua2007comparing}
+Marina Meil{\u{a}}.
+\newblock Comparing clusterings -- an information based distance.
+\newblock {\em Journal of multivariate analysis}, 98(5):873--895, 2007.
+
+\bibitem{riddle1998specification}
+AM~Riddle.
+\newblock The specification of mixing in random walk models for dispersion in
+  the sea.
+\newblock {\em Continental Shelf Research}, 18(2):441--456, 1998.
+
+\bibitem{spivakovskaya2007lagrangian}
+Darya Spivakovskaya, Arnold~W Heemink, and Eric Deleersnijder.
+\newblock Lagrangian modelling of multi-dimensional advection-diffusion with
+  space-varying diffusivities: theory and idealized test cases.
+\newblock {\em Ocean Dynamics}, 57(3):189--203, 2007.
+
+\bibitem{silverman1986density}
+Bernard~W Silverman.
+\newblock {\em Density estimation for statistics and data analysis}, volume~26.
+\newblock CRC press, 1986.
+
+\bibitem{wand1995kernel}
+MP~Wand and MC~Jones.
+\newblock Kernel smoothing. 1995.
+\newblock {\em Chapman\&Hall, London}, 1995.
+
+\bibitem{lambiotte2011flow}
+Renaud Lambiotte, Roberta Sinatra, J-C Delvenne, Tim~S Evans, Mauricio
+  Barahona, and Vito Latora.
+\newblock Flow graphs: Interweaving dynamics and structure.
+\newblock {\em Physical Review E}, 84(1):017102, 2011.
 
 \end{thebibliography}

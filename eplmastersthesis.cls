@@ -1,4 +1,4 @@
-%!TEX root = ../tfe.tex
+%!TEX root = tfe.tex
 % http://ctan.mirrors.hoobly.com/macros/latex/doc/clsguide.pdf
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{eplmastersthesis}[2016/05/21 EPL Master''s Thesis class]
@@ -9,7 +9,7 @@
 \usepackage[utf8x]{inputenc}
 \usepackage[french, english]{babel}
 \parskip = 8pt
-\parindent = 12pt
+\parindent = 18pt
 \RequirePackage{microtype} % Improves typography
 \RequirePackage[T1]{fontenc}
 \RequirePackage{lmodern}

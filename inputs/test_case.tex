@@ -1,9 +1,10 @@
 %!TEX root = ../tfe.tex
-\section*{Test case to assess the implementation of the overturner model}
+\chapter{Numerical Considerations}
+\section{Test case to assess the implementation of the overturner model}
 This note is an adaptation of Eric Deleersnijder's working paper \cite{deleersnijder2011test}.
 
 %----------------------------------GOVERNING EQUATIONS--------------------------------------------------------%
-\subsection*{Governing equations}
+\subsection{Governing equations}
 Let us consider a water domain, whose width is denoted $B(t,\b{x})$, where $t$ is the time and $\b{x} = (y,z)$ is the position vector. The continuity equation is
 \begin{equation} \label{eq:testcase:continuity}
 	\frac{\partial B}{\partial t} + \nabla \cdot (B\b{u}) = 0,
@@ -21,7 +22,7 @@ Equation \eqref{eq:testcase:conservative} is the so-called conservative form of 
 \end{equation}
 
 %----------------------------------AN IDEALISED MODEL----------------------------------------------------------------------%
-\subsection*{An idealised model}
+\subsection{An idealised model}
 For our test case to be interesting, we must be able to compute its analytical solution. Accordingly, we make some simplifying assumptions which will allow us to compute the solution analytically.
 First, we assume a constant width $B$ and a constant velocity field
 \begin{equation} \label{eq:testcase:velocity}
@@ -53,15 +54,15 @@ A part of the physical meaning of the model is lost but this makes representatio
 % \footnote{This could be a bit confusing. As we switch from a 3-dimensional interpretation of the model to a 2-dimensional one, the meaning of the parameters changes. Hence, in the 3-dimensional interpretation, $C$ represents a 3D density ([$kg/m^3$]) and $M$ is a mass, whereas in the 2-dimensional interpretation, $C$ is a 2D density ([$kg/m^2$]) and $M$ has units of [$kg\;m$]. A part of the physical meaning of the model is lost, but this makes representations of the problem much easier.} \textcolor{red}{On peut aussi simplement considérer B = 1. Attention, si on opte finalement pour cette option, un facteur B doit être présent pour le calcul de certains diagnostiques.}
 \begin{figure}[H]
 	\centering
-	\scalebox{.8}{\input{inputs/testcase_scheme3Dbis}}
-	\scalebox{.8}{\input{inputs/testcase_scheme2Dbis}}
+	\scalebox{.8}{\input{fig/testcase/testcase_scheme3D}}
+	\scalebox{.8}{\input{fig/testcase/testcase_scheme2D}}
 	\caption{Illustration of the 3D and 2D interpretations of the model.}
     \label{fig:testcase_scheme}
 \end{figure}
 
 
 %------------------------------------PARAMETERS FOR TEST CASE 1--------------------------------------------------------------%
-\subsubsection*{Test case 1 : infinite domain}
+\subsubsection{Test case 1 : infinite domain}
 The first (an most simple) test case is to consider an infinite domain, i.e.
 \begin{equation} \label{eq:testcase:domain}
 	-\infty < y,\; z < \infty,
@@ -82,7 +83,7 @@ Hence, in both the $y$- and $z$-directions, the transport is neither dominated b
 Finally, $J = 50\;000$ particles are released at $t=0$ at the location $(y_1,z_1) = (0,0)$.
 
 %------------------------------------PARAMETERS FOR TEST CASE 2--------------------------------------------------------------%
-\subsubsection*{Test case 2 : semi-infinite domain}
+\subsubsection{Test case 2 : semi-infinite domain}
 Another interesting case is to consider a semi-infinite domain with a wall at $z=0$ :
 \begin{equation}
 	-\infty < y < \infty,\quad 0 < z < \infty.
@@ -99,9 +100,9 @@ Notice the choice  of $K_{zz}$ : it is chosen equal to $K_{v_1}$, which is $10^3
 
 
 
-\subsection*{Analytical solution and properties}
+\subsection{Analytical solution and properties}
 %------------------------------------------------Analytic GREEN's FUNCTION ---------------------------------------------%
-\subsubsection*{Green's function}
+\subsubsection{Green's function}
 In order to build the analytical solution of the problem, we need to compute the Green's function associated to this particular problem. We derive the Green's function $G$ associated to test case 1. We will show later how this function can be used to compute the concentration for both test case 1 and test case 2. $\G$ is zero for $t<t'$ and is the solution of
 \begin{equation} \label{eq:testcase_green}
 	\begin{cases}
@@ -132,7 +133,7 @@ The variance of the solution is
 \end{equation}
 
 %------------------------------------------------Analytic TEST CASE 1 ---------------------------------------------%
-\subsubsection*{Test case 1}
+\subsubsection{Test case 1}
 The analytical solution of test case 1 is now obtained with the help of the Green's function derived above by computing the convolution between $G$ and the source terms :
 \begin{align}
 	C(t,\b x) &= \int_{0}^{t} \int_{\R[2]} G(t,t',\b x - \b x') J \delta(t) \delta(\b x- \b x_1) \rm d \b{x}' \rm dt'\nonumber\\
@@ -167,7 +168,7 @@ Finally, the variance of the solution is
 where property \eqref{eq:testcase:propvar} is used.
 
 %------------------------------------------------Analytic TEST CASE 2 ---------------------------------------------%
-\subsubsection*{Test case 2}
+\subsubsection{Test case 2}
 To compute the solution to test case 2, a little trick must be applied. Consider the problem on an infinite domain with two sudden point sources of equal intensity located at $z = H$ and $z = -H$. By symmetry, one can see that the concentration of that problem in the region $[-\infty, \infty] \times [0, \infty]$ is precisely the concentration of test case 2. Hence, we can use the Green's function $G$ derived or test case 1 to compute the concentration. In this case, the convolution has to be performed with two point sources :
 \begin{align}
 	C(t,\b x) &= \int_{0}^{t} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} J \delta(t') \delta(y'- y_1)\left[\delta(z'-z_1)+\delta(z'+z_1)\right] G(t,t',y-y',z-z') \rm dy' \rm dz' \rm dt' \nonumber\\
@@ -195,14 +196,14 @@ Cependant, le calcul du centre de masse ne me parait pas indispensable et même 
 % \end{align}
 
 %-------------------------------------VALIDATION--------------------------------------------------------------------------------%
-\section*{Validation of the numerical solver}
+\section{Validation of the numerical solver}
 This section aims to show that the numerical results obtained with the solver are in good agreement with the analytical ones. As the combination of the two test cases cover the main features of the overturner model, this constitutes a validation of the solver. 
 
 Both test cases are simulated for 1 year with a time step of 1 hour, and $J = 50\;000$ particles are released at $t=0$.
 The concentration is computed at the final time $T = 1$ year on the domain $[y_{min},y_{max}] \times [z_{min},z_{max}]$, where the subscripts \textit{min} and \textit{max} stands for the minimal and maximal position at time $T$ amongst all the particles. The notation $C(y,z)$ will be used to denote $C(T,y,z)$ in the next. That domain is divided into $20 \times 20$ boxes, and the (normalized) concentration in a box is computed as the number of particles in that box divided by the total number of particles $J$.
 
 %-------------------------------------RESULTS CASE 1----------------------------------------------------------------------------%
-\subsection*{Test case 1}
+\subsection{Test case 1}
 Figure \ref{fig:testcase_surf} shows a comparison between the numerical result and the analytical solution for the (normalized) concentrations. Dark (resp. light) shaded areas correspond to zones where the numerically computed concentration is "above" (resp. "below") the exact concentration. Figures \ref{fig:testcase_fixedy} and \ref{fig:testcase_fixedz} represent respectively a cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The numerically computed concentration $C_{num}$ seems to be an appreciable approximation of the exact concentration $C_{exact}$. To be more specific, the maximal local error is 
 \begin{equation}
 	\|C_{exact}-C_{num}\|_{\infty} = 1.037\e{-3}.
@@ -249,7 +250,7 @@ The relative error is
 \end{figure}
 
 %-------------------------------------------RESULTS CASE 2-----------------------------------------------------------------------%
-\subsection*{Test case 2}
+\subsection{Test case 2}
 Figure \ref{fig:testcaseSI_surf} shows a comparison between the numerical result and the analytical solution for the (normalized) concentrations for test case 2. Since we do not have analytical expressions of the center of mass and of the variance for this test case, the "exact" values are approximated numerically thanks to the analytical expression of the concentration. Figures \ref{fig:testcaseSI_fixedy} and \ref{fig:testcaseSI_fixedz} represent respectively a cut of the concentrations at fixed $y = r_{y,exact}$ and along the boundary $z = 0$. The big picture about test case 2 is the presence of a boundary with no-through condition. A first verification is to check if all the particles are still in the domain, which is indeed the case. Although this might seem trivial here, it is sometimes a real challenge to ensure that no particle crosses the boundary, especially for geometrically complex domains. Besides, one can see on figure \ref{fig:testcaseSI_fixedz} that the concentration profile is well approximated along the boundary. Indeed, the maximal local error at the boundary is
 \begin{equation}
 	\|C_{exact}(y,0)-C_{num}(y,0)\|_{\infty} = 3.53\e{-4}, 
