@@ -13,7 +13,7 @@ Santo Fortunato.
 \newblock {\em Physics reports}, 486(3):75--174, 2010.
 
 \bibitem{delvenne2010stability}
-J-C Delvenne, Sophia~N Yaliraki, and Mauricio Barahona.
+J-C Delvenne, Sophia~N. Yaliraki, and Mauricio Barahona.
 \newblock Stability of graph communities across time scales.
 \newblock {\em Proceedings of the National Academy of Sciences},
   107(29):12755--12760, 2010.
@@ -24,7 +24,7 @@ Renaud Lambiotte, J-C Delvenne, and Mauricio Barahona.
 \newblock {\em arXiv preprint arXiv:0812.1770}, 2009.
 
 \bibitem{delvenne2013stability}
-Jean-Charles Delvenne, Michael~T Schaub, Sophia~N Yaliraki, and Mauricio
+Jean-Charles Delvenne, Michael~T. Schaub, Sophia~N. Yaliraki, and Mauricio
   Barahona.
 \newblock The stability of a graph partition: A dynamics-based framework for
   community detection.
@@ -54,13 +54,13 @@ AM~Riddle.
 \newblock {\em Continental Shelf Research}, 18(2):441--456, 1998.
 
 \bibitem{spivakovskaya2007lagrangian}
-Darya Spivakovskaya, Arnold~W Heemink, and Eric Deleersnijder.
+Darya Spivakovskaya, Arnold~W. Heemink, and Eric Deleersnijder.
 \newblock Lagrangian modelling of multi-dimensional advection-diffusion with
   space-varying diffusivities: theory and idealized test cases.
 \newblock {\em Ocean Dynamics}, 57(3):189--203, 2007.
 
 \bibitem{silverman1986density}
-Bernard~W Silverman.
+Bernard~W. Silverman.
 \newblock {\em Density estimation for statistics and data analysis}, volume~26.
 \newblock CRC press, 1986.
 
@@ -70,7 +70,7 @@ MP~Wand and MC~Jones.
 \newblock {\em Chapman\&Hall, London}, 1995.
 
 \bibitem{lambiotte2011flow}
-Renaud Lambiotte, Roberta Sinatra, J-C Delvenne, Tim~S Evans, Mauricio
+Renaud Lambiotte, Roberta Sinatra, J-C Delvenne, Tim~S. Evans, Mauricio
   Barahona, and Vito Latora.
 \newblock Flow graphs: Interweaving dynamics and structure.
 \newblock {\em Physical Review E}, 84(1):017102, 2011.

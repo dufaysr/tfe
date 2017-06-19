@@ -88,9 +88,9 @@ By ergodicity, the memory of the initial condition is lost at infinity and $P(\C
 	r(t) = \max_{\P} r(t;\P).
 \end{equation}
 
-
-\subsection{Assessing the robustness of a partition}
-We present here two mechanisms commonly used to assess the relevance of a particular partition. One simple way is to consider that a robust partition should not be alterred by a small modification of the quality function. Such a modification could be for example a perturbation of the Markov time $t$ at which the partition has been found. From this point of view, robust partitions correspond to \textit{plateaux} in the stability curve of the graph. In other words, robust partitions should be persistent over a wide interval of Markov time.
+%----------------------------------------ROBUSTNESS----------------------------------------------------------------%
+\subsection{Assessing the robustness of a partition} \label{subsec:robustness}
+We present here two mechanisms commonly used to assess the relevance of a particular partition. One simple way is to consider that a robust partition should not be alterred by a small modification of the quality function. Such a modification could be for example a perturbation of the Markov time $t$ at which the partition has been found. From this point of view, robust partitions correspond to \textit{plateaux} in the community curve of the graph. In other words, robust partitions should be persistent over a wide interval of Markov time.
 
 \begin{sloppypar} 
 The second indicator of the robustness of a partition that we will take into account in this work follows from considering that a robust partition is one that is persistent to small modifications of the optimization algorithm. The central tool to quantify this approach of the robustness of a partition is the \textit{normalized variation of information} \cite{meilua2007comparing}, which is a popular way to compare two partitions. Let $p(\C)$ be the probability for a node to be in community $\C$, i.e. $p(\C) = n_\C/N$ where $n_\C$ is the number of nodes in community $\C$. The variation of information between partitions $\P_1$ and $\P_2$ is defined by :
@@ -107,11 +107,11 @@ where $\log(N)$ is a normalization factor; $H(\P) = -\sum_{\C} p(\C) \log[p(\C)]
 % 2. Décomposition du domaine en boxes, on cherche ce que donne le clustering sur ces boxes.
 % 3. Résultats pour nboxy = 15, nboxz = 10 (et expliquer que ces choix permettent que y0 et z0 correspondent à des frontières de box)
 
-This section presents the results of applying a community detection algorithm based on the stability measure on the overturner problem. First, we explain how the method is applied and then we present the results for a given set of data's.
+This section presents the results of applying a stability-based community detection algorithm on the overturner problem. First, we explain how the method is applied and then we present the results for a given set of data's.
 
 %-----------------------DESCRIPTION OF THE METHOD---------------------------------%
 \subsection{Description of the method}
-In order to apply a clustering algorithm on the overturner problem, we have to define how the model can be considered as a graph. To this end, the domain is decomposed into $\nby \times \nbz$ boxes. We note $N_{box} = \nby\nbz$ the total number of boxes. Figure \ref{fig:box_scheme} represents an example of such a domain decomposition with $\nby = 15$ and $\nbz = 10$. For any time $T$, the corresponding directed graph is build as follows : each node represents a box, and the weight of the edge between nodes $i$ and $j$ is the probability $m^T_{ij}$ that a particle ends up in box $j$ after a time $T$ if it was initially in box $i$. If $m^T_{ij} = 0$, one can equivalently consider that there is no edge between nodes $i$ and $j$. Since the problem is stationnary, $m^T_{ij}$ depends only on the time range $T$, not on the initial time. Hence, the initial time can indifferently be considered as being zero. The adjacency matrix $\b M(T)$ of the graph is build from the weights $m^T_{ij}$ : $[\b M(T)]_{ij} = m^T_{ij}$. For any time $T$, $\b M(T)$ is row-stochastic, i.e. $\b M(T)\b 1 = \b 1$, where $\b 1$ is the $N_{box}$-dimensional unit column vector.
+In order to apply a clustering algorithm on the overturner problem, we have to define how the model can be considered as a graph. To this end, the domain is decomposed into $\nby \times \nbz$ boxes. We note $N_{box} = \nby\nbz$ the total number of boxes. Figure \ref{fig:box_scheme} represents an example of such a domain decomposition with $\nby = 15$ and $\nbz = 10$. For any time $T$, the corresponding directed graph is build as follows : each node represents a box, and the weight of the edge between nodes $i$ and $j$ is the probability $m_{ij}(T)$ that a particle ends up in box $j$ after a time $T$ if it was initially in box $i$. If $m_{ij}(T) = 0$, one can equivalently consider that there is no edge between nodes $i$ and $j$. Since the problem is stationnary, $m_{ij}(T)$ depends only on the elapsed time $T$, not on the initial time. Hence, the initial time can indifferently be considered as being zero. The adjacency matrix $\b M(T)$ of the graph is build from the weights $m_{ij}(T)$: $[\b M(T)]_{ij} = m_{ij}(T)$. For any time $T$, $\b M(T)$ is row-stochastic, i.e. $\b M(T)\b 1 = \b 1$, where $\b 1$ is the $N_{box}$-dimensional unit column vector. The latter has a straightforward physical interpretation: every particle remains in the domain.
 \begin{figure}[h!]
 	\centering
 	\input{fig/clusters/box_scheme}
@@ -119,7 +119,7 @@ In order to apply a clustering algorithm on the overturner problem, we have to d
 	\label{fig:box_scheme}
 \end{figure}
 
-To estimate the probabilities $m^T_{ij}$, the program is runned for a time $T$ with each box containing initially $J$ uniformly distributed particles. $m^T_{ij}$ is then numerically estimated as the number of particles $p_{ij}$ having started in box $i$ and ending up in box $j$, divided by $J$. This \textit{box counting} method has been extensively used to estimate the concentration in studies using random walk modeling, see e.g. \cite{riddle1998specification}. Nevertheless, this method suffers some drawbacks; the most important of them are pointed in \cite{spivakovskaya2007lagrangian}. The estimated transition probability depends on the choice of the boxes, in particular of their size and their center. Moreover, the number of boxes cannot be chosen to be too large; otherwise the estimated concentration tends to become very irregular or noisy. Finally, the resolution of the estimated concentration is limited to the size of the boxes, as it cannot be described in a box more precisely than a constant. But it is the perfect method for our problem since the volume average over such boxes (the nodes) is precisely what we want. Note however that other methods exist for estimating the concentration that might be better suited for other studies. For example, the \textit{kernel estimation} method allows to reduce drastically the number of particles, and does not suffer from the resolution limit inherent to the box counting method. This method is briefly presented in \cite{spivakovskaya2007lagrangian}. Classical references are \cite{silverman1986density} and \cite{wand1995kernel}.
+To estimate the probabilities $m_{ij}(T)$, the program is runned for a time $T$ with each box containing initially $J$ uniformly distributed particles. $m_{ij}(T)$ is then numerically estimated as the number of particles having started in box $i$ and ending up in box $j$, divided by $J$. This \textit{box counting} method has been extensively used to estimate the concentration in studies using random walk modeling, see e.g. \cite{riddle1998specification}. Nevertheless, this method suffers some drawbacks; the most important of them are pointed in \cite{spivakovskaya2007lagrangian}, but we recall them here for the sake of completeness. The estimated transition probability depends on the choice of the boxes, in particular of their size and their center. Moreover, the number of boxes cannot be chosen to be too large; otherwise the estimated concentration tends to become very irregular or noisy. Finally, the resolution of the estimated concentration is limited to the size of the boxes, as it cannot be described in a box more precisely than a constant. But it is the perfect method for our problem since the volume average over such boxes (the nodes) is precisely what we want. Note however that other methods exist for estimating the concentration, that might be better suited for other studies. For example, the \textit{kernel estimation} method allows to reduce drastically the number of particles, and does not suffer from the resolution limit inherent to the box counting method. This method is briefly presented in \cite{spivakovskaya2007lagrangian}. Classical references are \cite{silverman1986density} and \cite{wand1995kernel}.
 
 
 %-------------------------USE OF THE TOOLBOX----------------------------%
@@ -129,9 +129,184 @@ We present here briefly how the \textit{PartitionStability} software is used to 
 \begin{center}
 	\mtlb{[S,N,VI,C] = stability(M,Markov_T,'directed','plot','teleport',0.01);}
 \end{center} %style = Matlab-bw for black and white
-Here, \mtlb{M} is the matrix $\b M(T)$ at the desired time $T$; \mtlb{Markov_T} is the vector containing every Markov times at which the optimal stability partition has to be computed; the \mtlb{'directed'} option specifies that we consider a directed graph; \mtlb{'plot'} ask the program to plot the stability, number of communities and variation of information as a function of the Markov time; and \mtlb{'teleport',0.01} allows to specify the value of the teleportation probability $\tau$ to $0.01$, the default value being $0.15$. this choice is motivated by the fact that we believe the graph to be ergodic, even if we cannot prove it. Note that the program allows to choose which type of laplacian should be used to calculate the stability. However, the question does not arise here since both laplacians are equivalent in our case. Indeed, the total outgoing weight is the same at every node and is precisely equal to the number of particles $J$ released in each box. Hence, $k_i = J$ for every node $i$ and $\langle \b k \rangle = 1$, so that $\bs \lambda_{combi}(\b k) = \b k/ \langle \b k \rangle = \b 1 = \bs \lambda_{norm}(\b k)$. We let thus the program run with the default normalized Laplacian, since it does not make any difference in our case. The output arguments \mtlb{S}, \mtlb{N}, \mtlb{VI} and \mtlb{C} contain respectively the stability, the number of communities, the variation of information, and the optimal partition for each Markov time contained in \mtlb{Markov_T}. If the latter is of size $n$, then \mtlb{S}, \mtlb{N} and \mtlb{VI} are $n$-dimensional vectors and \mtlb{C} is a $N_{box} \times n$ matrix. At the $j$th Markov time, communities are labeled by consecutive integers between $0$ and \mtlb{N(j)}$-1$ such that \mtlb{C(i,j)} $= k$ means that node $i$ belongs to community $k$ at Markov time \mtlb{Markov_T(j)}.  
+Here, \mtlb{M} is the matrix $\b M(T)$ at the desired time $T$; \mtlb{Markov_T} is the vector containing every Markov times at which the optimal stability partition has to be computed (ideally, the sampling should be exponential); the \mtlb{'directed'} option specifies that we consider a directed graph; \mtlb{'plot'} asks the program to plot the stability, number of communities and variation of information as a function of the Markov time; and \mtlb{'teleport',0.01} allows to specify the value of the teleportation probability $\tau$ to $0.01$, the default value being $0.15$. The choice of $0.01$ is motivated by the fact that we believe the graph to be ergodic, even if we cannot prove it. Note that the program allows to choose which type of laplacian should be used to calculate the stability. However, the question does not arise here since both laplacians are equivalent in our case. Indeed, the total outgoing weight is the same at every node and is precisely equal to the number of particles $J$ released in each box. Hence, $k_i = J$ for every node $i$ and $\langle \b k \rangle = J$, so that $\bs \lambda_{combi}(\b k) = \b k/ \langle \b k \rangle = \b 1 = \bs \lambda_{norm}(\b k)$. We let thus the program run with the default normalized Laplacian, since it does not make any difference in our case. The output arguments \mtlb{S}, \mtlb{N}, \mtlb{VI} and \mtlb{C} contain respectively the stability, the number of communities, the variation of information, and the optimal partition for each Markov time contained in \mtlb{Markov_T}. If the latter is of size $n$, then \mtlb{S}, \mtlb{N} and \mtlb{VI} are $n$-dimensional vectors and \mtlb{C} is a $N_{box} \times n$ matrix. At the $j$th Markov time, communities are labeled by consecutive integers between $0$ and \mtlb{N(j)}$-1$ such that \mtlb{C(i,j)} $= k$ means that node $i$ belongs to community $k$ at Markov time \mtlb{Markov_T(j)}.  
 
 
 
 %--------------------------RESULTS--------------------------------------%
 \subsection{Results}
+Now we present some results on a particular discretization of the overturner problem. The box decomposition of the domain is the one shown in figure \ref{fig:box_scheme}, and $J = 10\,000$ particles are released in each box. More precesily, a box is decomposed into a $100 \times 100$ subgrid, and one particle is initially located at every point of the subgrid, so that the particles are initially uniformly distributed within the box. The transition probability matrices $\b M(T)$ are generated for different values of $T$. We show here the results for $T = 1$, $10$, $50$ and $100$ years. The vector of the Markov times \mtlb{Markov_T} is sampled exponentially from $0.1$ to $100$ : $\log_{10}($\mtlb{Markov_T}$) = [-1,\, -0.98, \dots ,\, 1.98,\, 2]$. Notice that the physical meaning of the Markov time changes with $T$ : a Markov time step of $1$ is equal to a physical time step of $T$. Hence, for $a >0$, if for $\b M(T)$ we find some communities in the range of Markov times $[t_{M_1},\, t_{M_2}]$, then for $\b M(aT)$ we expect to find similar communities in the range of Markov times $\frac{1}{a}[t_{M_1},\, t_{M_2}]$.
+
+Figures \ref{fig:stab0}, \ref{fig:stab1}, \ref{fig:stab5} and \ref{fig:stab10} show the stability curves, the number of communities and the variation of information as functions of the Markov time for $T = 1$, $10$, $50$ and $100$ years respectively. As discussed in section \ref{subsec:robustness}, robust partitions correspond to plateaux in the community curve of the graphs. By using this criterion, partitions of 6, 5, 4, 3 and 2 communities are found at different time scales. Those partitions are summarized in table \ref{tab:partitions_summary} along with the physical time range at which they reveal themselves. Figure \ref{fig:cluster0}, \ref{fig:cluster1}, \ref{fig:cluster5} and \ref{fig:cluster10} shows the most robust clusterings for $T=1$, $10$, $50$ and $100$ respectively. From table \ref{tab:partitions_summary}, we observe that some similar partitions happen to be the most relevant at different time scales when we modify $T$. For example, for $T=1$, 6 communities are found in the time range 9 - 12 years (figure \ref{fig:cluster0_6_}). A similar clustering is found for $T = 10$ and $T = 50$ but in the time ranges 24 - 48 years and 36-48 years respectively (figures \ref{fig:cluster1_6_} and \ref{fig:cluster5_6_}).
+
+It is important to notice that the community detection algorithm may fail to detect the right number of communities. Take figure \ref{fig:cluster1_2_} for example : the stability software detects 2 communities. However, the white community consists of two noncontiguous blocks. Intuitively, particles leaving the lower white block should enter the khaki block first before entering the upper white block. Hence, there should be 3 communities rather than 2 for this partitioning. A way to quantify this intuition is by looking at
+\begin{equation}
+	\b M_{\P}(T) = \diag^{-1}(\b n)\b H^{\t}_{\P} \b M(T) \b H_{\P},
+\end{equation}
+where $\b n$ is the $c$-dimensional vector containing the number of blocks in each community. $[\b M_{\P}]_{kl}$ is the transition probability from community $k$ to community $l$. By considering the clustering where the lower and the upper white blocks are separated communities, we get
+\begin{equation}
+	\b M_{\P}(10) = 
+	\begin{pmatrix}
+		0.886 & 0.114 & 0.000\\
+	    0.052 & 0.895 & 0.053\\
+	    0.017 & 0.256 & 0.727\\
+    \end{pmatrix}.
+\end{equation}
+Here, community 1 is the lower white block, community 2 is the khaki block and community 3 is the upper white block. We observe that $[\b M_{\P}]_{13} = 0$ and $[\b M_{\P}]_{31} = 0.017$, indicationg very weak links between the lower and the upper white blocks. Hence, they should indeed be considered as separated communities. However, this does not mean that \ref{fig:cluster1_2_} provides then the optimal clustering with 3 communities ! Such a clustering is rather given by figure \ref{fig:cluster1_3_}, and the clustering proposed in figure \ref{fig:cluster1_2_} should simply be disregareded as being nonrelevant.
+
+Now, let us analyze a seemingly relevant community structure. By looking at table \ref{tab:partitions_summary} together with figures \ref{fig:cluster1_5_} and \ref{fig:cluster5_5_}, we observe that two similar 5-communities clusterings arise in the time range 50 - 63 years when $T = 10$ and $T = 50$. This indicates that those community structures might be more resilient than others. There is only a 2 boxes difference between the two clusterings; we will therefore focus on the clustering found for $T = 10$, namely the one from figure \ref{fig:cluster1_5_}. The communities are numbered from 1 to 5 on the figure. The matrix $\b M_{\P}$ for this community structure is
+\begin{equation}
+	\b M_{\P}(10) = 
+	\begin{pmatrix}
+	0.907 & 0.024 &     0 & 0.024 & 0.045\\
+    0.073 & 0.827 & 0.043 & 0.057 & 0\\
+        0 & 0.029 & 0.925 & 0.036 & 0.010\\
+    0.039 & 0.041 & 0.089 & 0.776 & 0.055\\
+    0.020 &     0 & 0.048 & 0.022 & 0.910\\
+	\end{pmatrix}.
+\end{equation}
+Obviously, particles in a community tends to stay in that community. But what are the main interconnections between communities ? By looking at matrix $\b M_{\P}$, we observe that particles leaving community 1 goes preferentially to community 5; from community 2, the main tendency is to go to community 1; from 3 to 4 and 2; from 4 to 3 (mainly because of the size of 3) and from 5 to 3. Hence, the dominant tendency is that the particles tend to describes a clockwise cycle in the domain, which is exactly the expected behavior. 
+
+\textcolor{blue}{J'aimerais aller un peu plus loin dans mes commentaires mais les idées ne se bousculent pas... Et les commentaires que je fais ci-dessus ne nous apprennent rien. Cela fait sans doute beaucoup d'images d'images pour au final pas grand chose.}
+
+\begin{table}[H]
+\centering
+\caption{Summary of the dominant clusterings found by inspection of the transition probability matrix $\b M(T)$ for $T = 1$, $10$, $50$ and $100$ years.}
+\label{tab:partitions_summary}
+\begin{tabular}{l|ccccc}
+\hline
+\multirow{2}{*}{$T$} & \multicolumn{5}{c}{Time range [year]} \\ \cline{2-6} 
+                  &  6 communities &  5 communities  &  4 communities  &  3 communities &  2 communities \\ \hline
+              1   & \phantom{0}9 - 12  & 15 - 26 & 28 - 36 & \phantom{0}38 - $\dots$  &   \\
+              10  & 24 - 48 &  50 - 63 & & \phantom{0}91 - 316 & 331 - $\dots$ \\
+              50  & 36 - 48 & 50 - 66 & & \phantom{0}69 - 138 & 144 - 190 \\
+              100 & 58 - 76 & 79 - 105 & &120 - 229 & 240 - 316 \\ \hline
+\end{tabular}
+\end{table}
+
+%------------------ T = 1 ------------------------------%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = .7\textwidth]{clusters/stab0.eps}
+	\caption{Stability, number of communities and variation of information as a function of the Markov time for $T=1$ year.}
+	\label{fig:stab0}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{clusters/cluster0_6_.eps}
+		\caption{6 communities.}
+		\label{fig:cluster0_6_}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{clusters/cluster0_5_.eps}
+		\caption{5 communities.}
+		\label{fig:cluster0_5_}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{clusters/cluster0_4_.eps}
+		\caption{4 communities.}
+		\label{fig:cluster0_4_}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{clusters/cluster0_3_.eps}
+		\caption{3 communities.}
+		\label{fig:cluster0_3_}
+	\end{subfigure}
+	\caption{The relevant clusterings detected at different time scales for $T=1$ year.}
+	\label{fig:cluster0}
+\end{figure}
+
+%------------------ T = 10 -----------------------------%
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = .7\textwidth]{clusters/stab1.eps}
+	\caption{Stability, number of communities and variation of information as a function of the Markov time for $T=10$ years.}
+	\label{fig:stab1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{clusters/cluster1_6_.eps}
+		\caption{6 communities.}
+		\label{fig:cluster1_6_}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{clusters/cluster1_5_num.eps}
+		\caption{5 communities.}
+		\label{fig:cluster1_5_}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{clusters/cluster1_3_.eps}
+		\caption{3 communities.}
+		\label{fig:cluster1_3_}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{clusters/cluster1_2_.eps}
+		\caption{2 communities detected by the algorithm which should rather be considered as being 3 communities.}
+		\label{fig:cluster1_2_}
+	\end{subfigure}
+	\caption{The relevant clusterings detected at different time scales for $T=10$ years.}
+	\label{fig:cluster1}
+\end{figure}
+
+%------------------ T = 50 -----------------------------%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = .7\textwidth]{clusters/stab5.eps}
+	\caption{Stability, number of communities and variation of information as a function of the Markov time for $T=50$ years.}
+	\label{fig:stab5}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{clusters/cluster5_6_.eps}
+		\caption{6 communities.}
+		\label{fig:cluster5_6_}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{clusters/cluster5_5_.eps}
+		\caption{5 communities.}
+		\label{fig:cluster5_5_}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{clusters/cluster5_3_.eps}
+		\caption{3 communities.}
+		\label{fig:cluster5_3_}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{clusters/cluster5_2_.eps}
+		\caption{2 communities.}
+		\label{fig:cluster5_2_}
+	\end{subfigure}
+	\caption{The relevant clusterings detected at different time scales for $T=50$ years.}
+	\label{fig:cluster5}
+\end{figure}
+
+%------------------ T = 100 ----------------------------%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = .7\textwidth]{clusters/stab10.eps}
+	\caption{Stability, number of communities and variation of information as a function of the Markov time for $T=100$ years.}
+	\label{fig:stab10}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{clusters/cluster10_3_.eps}
+		\caption{3 communities.}
+		\label{fig:cluster10_3_}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{clusters/cluster10_2_.eps}
+		\caption{2 communities.}
+		\label{fig:cluster10_2_}
+	\end{subfigure}
+	\caption{The relevant clusterings detected at different time scales for $T=100$ years.}
+	\label{fig:cluster10}
+\end{figure}

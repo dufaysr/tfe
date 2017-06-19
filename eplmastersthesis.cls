@@ -14,6 +14,7 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{lmodern}
 \RequirePackage[pdftex]{graphicx}
+\graphicspath{{fig/}}
 \RequirePackage{graphics}
 \RequirePackage{xcolor}
 \definecolor{UCLblue}{cmyk}{1.00,0.68,0.00,0.54}
