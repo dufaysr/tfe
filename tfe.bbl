@@ -1,5 +1,18 @@
 \begin{thebibliography}{10}
 
+\bibitem{deleersnijder2006overturner}
+Eric Deleersnijder.
+\newblock Éléments d'un modèle latitude-profondeur très simple —
+  application à l'injection de "co2 idéalisée" dans l'océan.
+\newblock 2006.
+\newblock Available at \url{http://hdl.handle.net/2078.1/155304}.
+
+\bibitem{deleersnijder2001concept}
+Eric Deleersnijder, Jean-Michel Campin, and Eric~JM Delhez.
+\newblock The concept of age in marine modelling: I. theory and preliminary
+  model results.
+\newblock {\em Journal of Marine Systems}, 28(3):229--267, 2001.
+
 \bibitem{deleersnijder2011test}
 Eric Deleersnijder.
 \newblock Test cases for advection-diffusion equations with a first-order decay
@@ -68,6 +81,11 @@ Bernard~W. Silverman.
 MP~Wand and MC~Jones.
 \newblock Kernel smoothing. 1995.
 \newblock {\em Chapman\&Hall, London}, 1995.
+
+\bibitem{timmermans2006masterthesis}
+Catherine Timmermans.
+\newblock Ventilation et rétention dans un bassin océanique idéalisé.
+\newblock Master's thesis, UCL, 2006.
 
 \bibitem{lambiotte2011flow}
 Renaud Lambiotte, Roberta Sinatra, J-C Delvenne, Tim~S. Evans, Mauricio

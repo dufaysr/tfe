@@ -1,0 +1,61 @@
+%!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
+\section{Preliminaries}
+We introduce here the notions of stochastic differential equations (SDE's) and stochastic integrals. Those are the fundamental tools at the basis of the Lagrangian numerical methods. The idea behind such methods is to estimate the concentration obeying an advection-diffusion-reaction equation by simulating the trajectories of a large number of particles in the flow. In this work, we restrict ourselves to advection diffusion equations of the form \eqref{eq:C_PDE_vec}, which we recall here for the sake of readability:
+\begin{equation} \label{eq:ADE}
+	\frac{\partial \b C}{\partial t} = \nabla \cdot (-\b u C + \b K \nabla C)
+\end{equation}
+In the next, equation \eqref{eq:ADE} will be referred to as the \textit{transport model}. In order to implement a numerical method tracking the fates of individual particles, an equation describing the fate of such a particle must be derived, and that equation must be consistent with the transport model. Formally, the transport model can be interpreted as a Fokker-Planck equation, namely the partial differential equation governing the time evolution of the probability density function $p(\b x,t)$ of the position of a particle. The correspondence is made by interpreting the concentration as the probability density function: $p=C$. 
+
+At the microscopic scale, Brownian diffusion is modeled by a stochastic force acting on the particles. This force is interpreted as the resultant of atomic bombardment on the particle. Intuitively, the direction of the force due to atomic bombardment is constantly changing, and at different times the particle is hit more on one side than another, leading to the seemingly random nature of the force, and hence of the motion. Therefore, the differential equation governing the position $\b x(t)$ of a particle is stochastic. For example, Langevin proposed in 1908 an equation governing the position of a Brownian particle, which in 1D can be written in the form :
+\begin{equation} \label{eq:Langevin}
+	\frac{dx}{dt} = a(x,t) + b(x,t)\xi(t),
+\end{equation}
+where $x$ is the position of the particle, $a(x,t)$ and $b(x,t)$ are known functions and $\xi(t)$ is the rapidly fluctuating random term. More precisely, $\xi(t)$ is a white noise, i.e.
+\begin{subnumcases}{}
+		\esp{\xi(t)} = 0,\\
+		\esp{\xi(t)\xi(t')} = \delta(t-t'),
+\end{subnumcases}
+where $\esp{\cdot}$ denotes expectation. The fact that $\xi$ has zero mean is because any nonzero mean can be absorbed in the term $a(x,t)$. The second condition states that $\xi(t)$ is uncorrelated, namely that the random force acting on a particle at a time is independent of the random forces acting on that particle at any other time. This simple form of the noise is of course an unrealistic idealization. It is possible to show that
+\begin{equation} \label{eq:whitenoise_integral}
+	\int_0^t \xi(t') \rm dt' = W(t),
+\end{equation}
+where $W(t)$ is the \textit{Wiener process}, a stochastic process defined by the following characteristics:
+\begin{subnumcases}{} \label{eq:WienerProcess}
+	W(0) = 0,\\
+	W(t_2) - W(t_1)  \sim \mathcal{N}(0,t_2-t_1),\\
+	\esp{[W(t_4)-W(t_3)][W(t_2)-W(t_1)]} = 0, \label{eq:independent_inc}
+\end{subnumcases}
+where $t_1 < t_2 < t_3 < t_4$. In other words, $W(t)$ is a zero mean gaussian process of variance $t$ which has the property of independent increments. Suppose now that $a(x,t) = a$ and $b(x,t) = b$ are constant. The above relations imply that the solution to $\eqref{eq:Langevin}$ is
+\begin{equation}
+	x(t) = at + bW(t),
+\end{equation}
+where we implicitly assumed that $x(0) = 0$. However, one can show that the Wiener process is not differentiable with probability 1 (see for example \textcolor{red}{blabla}). We are thus faced with a paradox here since this implies that $x(t)$ is itself non-differentiable, and hence that the Langevin equation as stated in \eqref{eq:Langevin} \textit{does not exist mathematically}. In fact, $\xi(t)$ is the derivative of $W(t)$ in the \textit{distributive sense}. From \eqref{eq:whitenoise_integral}, it follows directly that
+\begin{equation}
+	\rm dW(t) \equiv W(t+\rm dt) - W(t) = \xi(t) \rm dt,
+\end{equation}
+but it is incorrect (or at least very misleading) to write $\frac{dW(t)}{dt} = \xi(t)$, since the Wiener process is nowhere differentiable with probability 1, as already stated above.
+
+Hopefully this introductory example shows the need for some preliminary steps in order to rigorously define a SDE, and to formalize the link between SDE's and Fokker-Planck equations. This is precisely the goal of this section.
+
+\subsection{Formal definition of a SDE}
+In this section, we restrict ourselves to a 1-dimensional problem. This allows to make the notations less cumbersome while still introducing all the tools and concepts that are needed in order to understand the 2-dimensional Lagrangian model which is at the basis of our numerical resolution of the overturner model for the meridian concentration in the Atlantic ocean. Indeed, all the results presented here can almost straightforwardly be extended to several dimensions. Consider again the Langevin equation \eqref{eq:Langevin}. We have shown in the introduction that the equation does not really make sense under that form. What we are now going to show is that this corresponding \textit{integral equation} 
+\begin{equation}
+	x(t) = x(0) + \int_0^t a(x(s),s) \rm ds + \int_0^t b(x(s),s) \xi(s) \rm ds
+\end{equation}
+can be interpreted consistently. 
+Consider the SDE
+\begin{equation}
+	\left\{
+	\begin{array}{rcl} \label{eq:generalSDE}
+		\rm dX_t &=& f(X_t,t) \rm dt + g(X_t,t) \rm dW_t\\
+		X_{t_0} &=& x_0. 
+	\end{array}
+	\right.
+\end{equation}
+
+\subsection{Fokker-Plank equation for a Backward-Itô SDE}
+Consider a particle whose 1D position $X_t$ obeys the SDE \eqref{eq:generalSDE}, considered in the backward-Itô sense. For a small $\Delta t$, we have
+\begin{equation}
+	X_{t+\Delta t} = X_t + f(X_t,t) \Delta t + g(X_{t+\Delta t},t+\Delta t)[W_{t+\Delta t}-W_t] + \dots
+\end{equation}
+Let $\Delta W_t := [W_{t+\Delta t}-W_t]$ It is a gaussian random variable of mean $0$ and variance $\Delta t$: $\Delta W_t \sim \mathcal{N}(0,\Delta t)$. 

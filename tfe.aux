@@ -20,6 +20,7 @@
 \gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
+\providecommand\tcolorbox@label[2]{}
 \select@language{english}
 \@writefile{toc}{\select@language{english}}
 \@writefile{lof}{\select@language{english}}
@@ -27,51 +28,94 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}The "overturner" model}{1}{chapter.1}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\citation{deleersnijder2011test}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Numerical Considerations}{2}{chapter.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Mathematical model}{1}{section.1.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.1}An idealised velocity field}{1}{subsection.1.1.1}}
+\newlabel{eq:continuity}{{1.2}{1}{An idealised velocity field}{equation.1.1.2}{}}
+\newlabel{eq:bouss_hyp}{{1.3}{1}{An idealised velocity field}{equation.1.1.3}{}}
+\newlabel{eq:overturnerBC}{{1.8}{2}{An idealised velocity field}{equation.1.1.8}{}}
+\newlabel{eq:stream3d}{{1.9}{2}{An idealised velocity field}{equation.1.1.9}{}}
+\newlabel{eq:u-psi}{{1.11}{2}{An idealised velocity field}{equation.1.1.11}{}}
+\citation{deleersnijder2006overturner}
+\newlabel{eq:phi}{{1.18}{4}{An idealised velocity field}{equation.1.1.18}{}}
+\newlabel{eq:psi_overturner}{{1.20}{4}{An idealised velocity field}{equation.1.1.20}{}}
+\newlabel{eq:psi_y0}{{1.21}{4}{An idealised velocity field}{equation.1.1.21}{}}
+\newlabel{eq:psi_z0}{{1.22}{4}{An idealised velocity field}{equation.1.1.22}{}}
+\newlabel{eq:v_overturner}{{1.24}{4}{An idealised velocity field}{equation.1.1.24}{}}
+\newlabel{eq:w_overturner}{{1.25}{4}{An idealised velocity field}{equation.1.1.25}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.2}Estimation of the parameter values}{5}{subsection.1.1.2}}
+\newlabel{eq:VW}{{1.26}{5}{Estimation of the parameter values}{equation.1.1.26}{}}
+\newlabel{eq:T}{{1.27}{5}{Estimation of the parameter values}{equation.1.1.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Some isolines of the adimensional meridian streamfunction $\psi (y,z)/\Psi $, which are also streamlines of the idealised meridian circulation in the Atlantic ocean.\relax }}{5}{figure.caption.1}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:psi_overturner}{{1.1}{5}{Some isolines of the adimensional meridian streamfunction $\psi (y,z)/\Psi $, which are also streamlines of the idealised meridian circulation in the Atlantic ocean.\relax }{figure.caption.1}{}}
+\citation{deleersnijder2001concept}
+\newlabel{fig:v_overturner}{{1.2a}{6}{$v(y,z)$.\relax }{figure.caption.2}{}}
+\newlabel{sub@fig:v_overturner}{{a}{6}{$v(y,z)$.\relax }{figure.caption.2}{}}
+\newlabel{fig:w_overturner}{{1.2b}{6}{$w(y,z)$.\relax }{figure.caption.2}{}}
+\newlabel{sub@fig:w_overturner}{{b}{6}{$w(y,z)$.\relax }{figure.caption.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces Meridional and vertical components of the idealised velocity fields in the adimensional domain. Here, $y_0 = \frac  {11}{12}L$ and $z_0 = \frac  {7}{8}H$.\relax }}{6}{figure.caption.2}}
+\newlabel{fig:vw_overturner}{{1.2}{6}{Meridional and vertical components of the idealised velocity fields in the adimensional domain. Here, $y_0 = \frac {11}{12}L$ and $z_0 = \frac {7}{8}H$.\relax }{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.3}Injection of a passive tracer into the ocean}{6}{subsection.1.1.3}}
+\newlabel{eq:C_PDE_vec}{{1.28}{6}{Injection of a passive tracer into the ocean}{equation.1.1.28}{}}
+\newlabel{eq:K}{{1.29}{6}{Injection of a passive tracer into the ocean}{equation.1.1.29}{}}
+\newlabel{eq:Kv}{{1.30}{6}{Injection of a passive tracer into the ocean}{equation.1.1.30}{}}
+\newlabel{eq:C_PDE_dev}{{1.31}{6}{Injection of a passive tracer into the ocean}{equation.1.1.31}{}}
+\newlabel{eq:C_PDE_BC}{{1.32}{7}{Injection of a passive tracer into the ocean}{equation.1.1.32}{}}
+\newlabel{eq:C_PDE_CI}{{1.33}{7}{Injection of a passive tracer into the ocean}{equation.1.1.33}{}}
+\newlabel{eq:PDE_adim}{{1.38}{7}{Injection of a passive tracer into the ocean}{equation.1.1.38}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Numerical Considerations}{8}{chapter.2}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Test case to assess the implementation of the overturner model}{2}{section.2.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Governing equations}{2}{subsection.2.1.1}}
-\newlabel{eq:testcase:continuity}{{2.1}{2}{Governing equations}{equation.2.1.1}{}}
-\newlabel{eq:testcase:conservative}{{2.2}{2}{Governing equations}{equation.2.1.2}{}}
-\newlabel{eq:testcase:convective}{{2.3}{2}{Governing equations}{equation.2.1.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}An idealised model}{2}{subsection.2.1.2}}
-\newlabel{eq:testcase:velocity}{{2.4}{2}{An idealised model}{equation.2.1.4}{}}
-\newlabel{eq:testcase:diffusivity}{{2.5}{3}{An idealised model}{equation.2.1.5}{}}
-\newlabel{eq:testcase}{{2.7}{3}{An idealised model}{equation.2.1.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Illustration of the 3D and 2D interpretations of the model.\relax }}{3}{figure.caption.1}}
-\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:testcase_scheme}{{2.1}{3}{Illustration of the 3D and 2D interpretations of the model.\relax }{figure.caption.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Test case 1 : infinite domain}{3}{section*.2}}
-\newlabel{eq:testcase:domain}{{2.9}{3}{Test case 1 : infinite domain}{equation.2.1.9}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Test case 2 : semi-infinite domain}{4}{section*.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.3}Analytical solution and properties}{4}{subsection.2.1.3}}
-\@writefile{toc}{\contentsline {subsubsection}{Green's function}{4}{section*.4}}
-\newlabel{eq:testcase_green}{{2.16}{4}{Green's function}{equation.2.1.16}{}}
-\newlabel{eq:testcase:propmass}{{2.19}{5}{Green's function}{equation.2.1.19}{}}
-\newlabel{eq:testcase:propcenter}{{2.20}{5}{Green's function}{equation.2.1.20}{}}
-\newlabel{eq:testcase:propvar}{{2.21}{5}{Green's function}{equation.2.1.21}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Test case 1}{5}{section*.5}}
-\@writefile{toc}{\contentsline {subsubsection}{Test case 2}{6}{section*.6}}
-\newlabel{tc2_eq2}{{2.27}{6}{Test case 2}{equation.2.1.27}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Validation of the numerical solver}{6}{section.2.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Test case 1}{7}{subsection.2.2.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }}{8}{figure.caption.7}}
-\newlabel{fig:testcase_surf}{{2.2}{8}{Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }{figure.caption.7}{}}
-\newlabel{fig:testcase_fixedy}{{2.3a}{8}{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.\relax }{figure.caption.8}{}}
-\newlabel{sub@fig:testcase_fixedy}{{a}{8}{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.\relax }{figure.caption.8}{}}
-\newlabel{fig:testcase_fixedz}{{2.3b}{8}{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.\relax }{figure.caption.8}{}}
-\newlabel{sub@fig:testcase_fixedz}{{b}{8}{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.\relax }{figure.caption.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The dashed line represent $C_{num}$ and the continuous line is for $C_{exact}$.\relax }}{8}{figure.caption.8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Test case 2}{9}{subsection.2.2.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }}{10}{figure.caption.9}}
-\newlabel{fig:testcaseSI_surf}{{2.4}{10}{Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }{figure.caption.9}{}}
-\newlabel{fig:testcaseSI_fixedy}{{2.5a}{10}{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.\relax }{figure.caption.10}{}}
-\newlabel{sub@fig:testcaseSI_fixedy}{{a}{10}{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.\relax }{figure.caption.10}{}}
-\newlabel{fig:testcaseSI_fixedz}{{2.5b}{10}{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.\relax }{figure.caption.10}{}}
-\newlabel{sub@fig:testcaseSI_fixedz}{{b}{10}{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.\relax }{figure.caption.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The dashed line represent $C_{num}$ and the continuous line is for $C_{exact}$.\relax }}{10}{figure.caption.10}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Preliminaries}{8}{section.2.1}}
+\newlabel{eq:ADE}{{2.1}{8}{Preliminaries}{equation.2.1.1}{}}
+\newlabel{eq:Langevin}{{2.2}{8}{Preliminaries}{equation.2.1.2}{}}
+\newlabel{eq:whitenoise_integral}{{2.4}{9}{Preliminaries}{equation.2.1.4}{}}
+\newlabel{eq:WienerProcess}{{2.5a}{9}{Preliminaries}{equation.2.1.5}{}}
+\newlabel{eq:independent_inc}{{2.5c}{9}{Preliminaries}{equation.2.1.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Formal definition of a SDE}{9}{subsection.2.1.1}}
+\newlabel{eq:generalSDE}{{2.9}{9}{Formal definition of a SDE}{equation.2.1.9}{}}
+\citation{deleersnijder2011test}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}Fokker-Plank equation for a Backward-It\IeC {\^o} SDE}{10}{subsection.2.1.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Test case to assess the implementation of the overturner model}{10}{section.2.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Governing equations}{10}{subsection.2.2.1}}
+\newlabel{eq:testcase:continuity}{{2.11}{10}{Governing equations}{equation.2.2.11}{}}
+\newlabel{eq:testcase:conservative}{{2.12}{10}{Governing equations}{equation.2.2.12}{}}
+\newlabel{eq:testcase:convective}{{2.13}{10}{Governing equations}{equation.2.2.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}An idealised model}{10}{subsection.2.2.2}}
+\newlabel{eq:testcase:velocity}{{2.14}{10}{An idealised model}{equation.2.2.14}{}}
+\newlabel{eq:testcase:diffusivity}{{2.15}{10}{An idealised model}{equation.2.2.15}{}}
+\newlabel{eq:testcase}{{2.17}{11}{An idealised model}{equation.2.2.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Illustration of the 3D and 2D interpretations of the model.\relax }}{11}{figure.caption.3}}
+\newlabel{fig:testcase_scheme}{{2.1}{11}{Illustration of the 3D and 2D interpretations of the model.\relax }{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Test case 1 : infinite domain}{11}{section*.4}}
+\newlabel{eq:testcase:domain}{{2.19}{11}{Test case 1 : infinite domain}{equation.2.2.19}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Test case 2 : semi-infinite domain}{12}{section*.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Analytical solution and properties}{12}{subsection.2.2.3}}
+\@writefile{toc}{\contentsline {subsubsection}{Green's function}{12}{section*.6}}
+\newlabel{eq:testcase_green}{{2.26}{12}{Green's function}{equation.2.2.26}{}}
+\newlabel{eq:testcase:propmass}{{2.29}{12}{Green's function}{equation.2.2.29}{}}
+\newlabel{eq:testcase:propcenter}{{2.30}{12}{Green's function}{equation.2.2.30}{}}
+\newlabel{eq:testcase:propvar}{{2.31}{12}{Green's function}{equation.2.2.31}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Test case 1}{13}{section*.7}}
+\@writefile{toc}{\contentsline {subsubsection}{Test case 2}{13}{section*.8}}
+\newlabel{tc2_eq2}{{2.37}{13}{Test case 2}{equation.2.2.37}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Validation of the numerical solver}{14}{section.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Test case 1}{14}{subsection.2.3.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }}{15}{figure.caption.9}}
+\newlabel{fig:testcase_surf}{{2.2}{15}{Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }{figure.caption.9}{}}
+\newlabel{fig:testcase_fixedy}{{2.3a}{16}{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.\relax }{figure.caption.10}{}}
+\newlabel{sub@fig:testcase_fixedy}{{a}{16}{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.\relax }{figure.caption.10}{}}
+\newlabel{fig:testcase_fixedz}{{2.3b}{16}{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.\relax }{figure.caption.10}{}}
+\newlabel{sub@fig:testcase_fixedz}{{b}{16}{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.\relax }{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The dashed line represent $C_{num}$ and the continuous line is for $C_{exact}$.\relax }}{16}{figure.caption.10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Test case 2}{16}{subsection.2.3.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }}{17}{figure.caption.11}}
+\newlabel{fig:testcaseSI_surf}{{2.4}{17}{Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }{figure.caption.11}{}}
+\newlabel{fig:testcaseSI_fixedy}{{2.5a}{18}{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.\relax }{figure.caption.12}{}}
+\newlabel{sub@fig:testcaseSI_fixedy}{{a}{18}{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.\relax }{figure.caption.12}{}}
+\newlabel{fig:testcaseSI_fixedz}{{2.5b}{18}{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.\relax }{figure.caption.12}{}}
+\newlabel{sub@fig:testcaseSI_fixedz}{{b}{18}{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.\relax }{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The dashed line represent $C_{num}$ and the continuous line is for $C_{exact}$.\relax }}{18}{figure.caption.12}}
 \citation{fortunato2010community}
 \citation{delvenne2010stability}
 \citation{lambiotte2009laplacian}
@@ -79,95 +123,98 @@
 \citation{blondel2008fast}
 \citation{lambiotte2009laplacian}
 \citation{delvenne2010stability}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Clustering}{11}{chapter.3}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Clustering}{19}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}The stability criterion for graph communities}{11}{section.3.1}}
-\newlabel{sec:stability}{{3.1}{11}{The stability criterion for graph communities}{section.3.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Discrete-time stability as an autocovorariance}{12}{subsection.3.1.1}}
-\newlabel{eq:discreteMP}{{3.1}{12}{Discrete-time stability as an autocovorariance}{equation.3.1.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}The stability criterion for graph communities}{19}{section.3.1}}
+\newlabel{sec:stability}{{3.1}{19}{The stability criterion for graph communities}{section.3.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Discrete-time stability as an autocovorariance}{20}{subsection.3.1.1}}
+\newlabel{eq:discreteMP}{{3.1}{20}{Discrete-time stability as an autocovorariance}{equation.3.1.1}{}}
 \citation{delvenne2013stability}
 \citation{grin1998anatomy}
-\newlabel{eq:M_teleport}{{3.12}{14}{Discrete-time stability as an autocovorariance}{equation.3.1.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Extension to continuous time}{14}{subsection.3.1.2}}
-\newlabel{eq:continuousMP_general}{{3.13}{14}{Extension to continuous time}{equation.3.1.13}{}}
-\newlabel{eq:continuousMP_norm}{{3.14}{14}{Extension to continuous time}{equation.3.1.14}{}}
-\newlabel{eq:continuousMP_combi}{{3.15}{14}{Extension to continuous time}{equation.3.1.15}{}}
+\newlabel{eq:M_teleport}{{3.12}{22}{Discrete-time stability as an autocovorariance}{equation.3.1.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Extension to continuous time}{22}{subsection.3.1.2}}
+\newlabel{eq:continuousMP_general}{{3.13}{22}{Extension to continuous time}{equation.3.1.13}{}}
+\newlabel{eq:continuousMP_norm}{{3.14}{22}{Extension to continuous time}{equation.3.1.14}{}}
+\newlabel{eq:continuousMP_combi}{{3.15}{22}{Extension to continuous time}{equation.3.1.15}{}}
 \citation{meilua2007comparing}
-\newlabel{eq:generalstability}{{3.18}{15}{Extension to continuous time}{equation.3.1.18}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Assessing the robustness of a partition}{15}{subsection.3.1.3}}
-\newlabel{subsec:robustness}{{3.1.3}{15}{Assessing the robustness of a partition}{subsection.3.1.3}{}}
-\newlabel{eq:clustering_VI}{{3.20}{15}{Assessing the robustness of a partition}{equation.3.1.20}{}}
+\newlabel{eq:generalstability}{{3.18}{23}{Extension to continuous time}{equation.3.1.18}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Assessing the robustness of a partition}{23}{subsection.3.1.3}}
+\newlabel{subsec:robustness}{{3.1.3}{23}{Assessing the robustness of a partition}{subsection.3.1.3}{}}
+\newlabel{eq:clustering_VI}{{3.20}{23}{Assessing the robustness of a partition}{equation.3.1.20}{}}
 \citation{riddle1998specification}
 \citation{spivakovskaya2007lagrangian}
 \citation{spivakovskaya2007lagrangian}
 \citation{silverman1986density}
 \citation{wand1995kernel}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Clustering of the overturner problem}{16}{section.3.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Description of the method}{16}{subsection.3.2.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Illustration of the decomposition of the domain into boxes with $\ensuremath  {n_{box,\tmspace  +\thinmuskip {.1667em}y}}= 15$ and $\ensuremath  {n_{box,\tmspace  +\thinmuskip {.1667em}z}}= 10$.\relax }}{16}{figure.caption.11}}
-\newlabel{fig:box_scheme}{{3.1}{16}{Illustration of the decomposition of the domain into boxes with $\nby = 15$ and $\nbz = 10$.\relax }{figure.caption.11}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Use of the stability software}{17}{subsection.3.2.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Results}{17}{subsection.3.2.3}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Summary of the dominant clusterings found by inspection of the transition probability matrix $\mathbf  M(T)$ for $T = 1$, $10$, $50$ and $100$ years.\relax }}{19}{table.caption.12}}
-\newlabel{tab:partitions_summary}{{3.1}{19}{Summary of the dominant clusterings found by inspection of the transition probability matrix $\b M(T)$ for $T = 1$, $10$, $50$ and $100$ years.\relax }{table.caption.12}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $T=1$ year.\relax }}{19}{figure.caption.13}}
-\newlabel{fig:stab0}{{3.2}{19}{Stability, number of communities and variation of information as a function of the Markov time for $T=1$ year.\relax }{figure.caption.13}{}}
-\newlabel{fig:cluster0_6_}{{3.3a}{20}{6 communities.\relax }{figure.caption.14}{}}
-\newlabel{sub@fig:cluster0_6_}{{a}{20}{6 communities.\relax }{figure.caption.14}{}}
-\newlabel{fig:cluster0_5_}{{3.3b}{20}{5 communities.\relax }{figure.caption.14}{}}
-\newlabel{sub@fig:cluster0_5_}{{b}{20}{5 communities.\relax }{figure.caption.14}{}}
-\newlabel{fig:cluster0_4_}{{3.3c}{20}{4 communities.\relax }{figure.caption.14}{}}
-\newlabel{sub@fig:cluster0_4_}{{c}{20}{4 communities.\relax }{figure.caption.14}{}}
-\newlabel{fig:cluster0_3_}{{3.3d}{20}{3 communities.\relax }{figure.caption.14}{}}
-\newlabel{sub@fig:cluster0_3_}{{d}{20}{3 communities.\relax }{figure.caption.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces The relevant clusterings detected at different time scales for $T=1$ year.\relax }}{20}{figure.caption.14}}
-\newlabel{fig:cluster0}{{3.3}{20}{The relevant clusterings detected at different time scales for $T=1$ year.\relax }{figure.caption.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $T=10$ years.\relax }}{21}{figure.caption.15}}
-\newlabel{fig:stab1}{{3.4}{21}{Stability, number of communities and variation of information as a function of the Markov time for $T=10$ years.\relax }{figure.caption.15}{}}
-\newlabel{fig:cluster1_6_}{{3.5a}{22}{6 communities.\relax }{figure.caption.16}{}}
-\newlabel{sub@fig:cluster1_6_}{{a}{22}{6 communities.\relax }{figure.caption.16}{}}
-\newlabel{fig:cluster1_5_}{{3.5b}{22}{5 communities.\relax }{figure.caption.16}{}}
-\newlabel{sub@fig:cluster1_5_}{{b}{22}{5 communities.\relax }{figure.caption.16}{}}
-\newlabel{fig:cluster1_3_}{{3.5c}{22}{3 communities.\relax }{figure.caption.16}{}}
-\newlabel{sub@fig:cluster1_3_}{{c}{22}{3 communities.\relax }{figure.caption.16}{}}
-\newlabel{fig:cluster1_2_}{{3.5d}{22}{2 communities detected by the algorithm which should rather be considered as being 3 communities.\relax }{figure.caption.16}{}}
-\newlabel{sub@fig:cluster1_2_}{{d}{22}{2 communities detected by the algorithm which should rather be considered as being 3 communities.\relax }{figure.caption.16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces The relevant clusterings detected at different time scales for $T=10$ years.\relax }}{22}{figure.caption.16}}
-\newlabel{fig:cluster1}{{3.5}{22}{The relevant clusterings detected at different time scales for $T=10$ years.\relax }{figure.caption.16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $T=50$ years.\relax }}{23}{figure.caption.17}}
-\newlabel{fig:stab5}{{3.6}{23}{Stability, number of communities and variation of information as a function of the Markov time for $T=50$ years.\relax }{figure.caption.17}{}}
-\newlabel{fig:cluster5_6_}{{3.7a}{24}{6 communities.\relax }{figure.caption.18}{}}
-\newlabel{sub@fig:cluster5_6_}{{a}{24}{6 communities.\relax }{figure.caption.18}{}}
-\newlabel{fig:cluster5_5_}{{3.7b}{24}{5 communities.\relax }{figure.caption.18}{}}
-\newlabel{sub@fig:cluster5_5_}{{b}{24}{5 communities.\relax }{figure.caption.18}{}}
-\newlabel{fig:cluster5_3_}{{3.7c}{24}{3 communities.\relax }{figure.caption.18}{}}
-\newlabel{sub@fig:cluster5_3_}{{c}{24}{3 communities.\relax }{figure.caption.18}{}}
-\newlabel{fig:cluster5_2_}{{3.7d}{24}{2 communities.\relax }{figure.caption.18}{}}
-\newlabel{sub@fig:cluster5_2_}{{d}{24}{2 communities.\relax }{figure.caption.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces The relevant clusterings detected at different time scales for $T=50$ years.\relax }}{24}{figure.caption.18}}
-\newlabel{fig:cluster5}{{3.7}{24}{The relevant clusterings detected at different time scales for $T=50$ years.\relax }{figure.caption.18}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Clustering of the overturner problem}{24}{section.3.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Description of the method}{24}{subsection.3.2.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Illustration of the decomposition of the domain into boxes with $\ensuremath  {n_{box,\tmspace  +\thinmuskip {.1667em}y}}= 15$ and $\ensuremath  {n_{box,\tmspace  +\thinmuskip {.1667em}z}}= 10$.\relax }}{24}{figure.caption.13}}
+\newlabel{fig:box_scheme}{{3.1}{24}{Illustration of the decomposition of the domain into boxes with $\nby = 15$ and $\nbz = 10$.\relax }{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Use of the stability software}{25}{subsection.3.2.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Results}{25}{subsection.3.2.3}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Summary of the dominant clusterings found by inspection of the transition probability matrix $\mathbf  M(T)$ for $T = 1$, $10$, $50$ and $100$ years.\relax }}{27}{table.caption.14}}
+\newlabel{tab:partitions_summary}{{3.1}{27}{Summary of the dominant clusterings found by inspection of the transition probability matrix $\b M(T)$ for $T = 1$, $10$, $50$ and $100$ years.\relax }{table.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $T=1$ year.\relax }}{27}{figure.caption.15}}
+\newlabel{fig:stab0}{{3.2}{27}{Stability, number of communities and variation of information as a function of the Markov time for $T=1$ year.\relax }{figure.caption.15}{}}
+\newlabel{fig:cluster0_6_}{{3.3a}{28}{6 communities.\relax }{figure.caption.16}{}}
+\newlabel{sub@fig:cluster0_6_}{{a}{28}{6 communities.\relax }{figure.caption.16}{}}
+\newlabel{fig:cluster0_5_}{{3.3b}{28}{5 communities.\relax }{figure.caption.16}{}}
+\newlabel{sub@fig:cluster0_5_}{{b}{28}{5 communities.\relax }{figure.caption.16}{}}
+\newlabel{fig:cluster0_4_}{{3.3c}{28}{4 communities.\relax }{figure.caption.16}{}}
+\newlabel{sub@fig:cluster0_4_}{{c}{28}{4 communities.\relax }{figure.caption.16}{}}
+\newlabel{fig:cluster0_3_}{{3.3d}{28}{3 communities.\relax }{figure.caption.16}{}}
+\newlabel{sub@fig:cluster0_3_}{{d}{28}{3 communities.\relax }{figure.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces The relevant clusterings detected at different time scales for $T=1$ year.\relax }}{28}{figure.caption.16}}
+\newlabel{fig:cluster0}{{3.3}{28}{The relevant clusterings detected at different time scales for $T=1$ year.\relax }{figure.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $T=10$ years.\relax }}{29}{figure.caption.17}}
+\newlabel{fig:stab1}{{3.4}{29}{Stability, number of communities and variation of information as a function of the Markov time for $T=10$ years.\relax }{figure.caption.17}{}}
+\newlabel{fig:cluster1_6_}{{3.5a}{30}{6 communities.\relax }{figure.caption.18}{}}
+\newlabel{sub@fig:cluster1_6_}{{a}{30}{6 communities.\relax }{figure.caption.18}{}}
+\newlabel{fig:cluster1_5_}{{3.5b}{30}{5 communities.\relax }{figure.caption.18}{}}
+\newlabel{sub@fig:cluster1_5_}{{b}{30}{5 communities.\relax }{figure.caption.18}{}}
+\newlabel{fig:cluster1_3_}{{3.5c}{30}{3 communities.\relax }{figure.caption.18}{}}
+\newlabel{sub@fig:cluster1_3_}{{c}{30}{3 communities.\relax }{figure.caption.18}{}}
+\newlabel{fig:cluster1_2_}{{3.5d}{30}{2 communities detected by the algorithm which should rather be considered as being 3 communities.\relax }{figure.caption.18}{}}
+\newlabel{sub@fig:cluster1_2_}{{d}{30}{2 communities detected by the algorithm which should rather be considered as being 3 communities.\relax }{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces The relevant clusterings detected at different time scales for $T=10$ years.\relax }}{30}{figure.caption.18}}
+\newlabel{fig:cluster1}{{3.5}{30}{The relevant clusterings detected at different time scales for $T=10$ years.\relax }{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $T=50$ years.\relax }}{31}{figure.caption.19}}
+\newlabel{fig:stab5}{{3.6}{31}{Stability, number of communities and variation of information as a function of the Markov time for $T=50$ years.\relax }{figure.caption.19}{}}
+\newlabel{fig:cluster5_6_}{{3.7a}{32}{6 communities.\relax }{figure.caption.20}{}}
+\newlabel{sub@fig:cluster5_6_}{{a}{32}{6 communities.\relax }{figure.caption.20}{}}
+\newlabel{fig:cluster5_5_}{{3.7b}{32}{5 communities.\relax }{figure.caption.20}{}}
+\newlabel{sub@fig:cluster5_5_}{{b}{32}{5 communities.\relax }{figure.caption.20}{}}
+\newlabel{fig:cluster5_3_}{{3.7c}{32}{3 communities.\relax }{figure.caption.20}{}}
+\newlabel{sub@fig:cluster5_3_}{{c}{32}{3 communities.\relax }{figure.caption.20}{}}
+\newlabel{fig:cluster5_2_}{{3.7d}{32}{2 communities.\relax }{figure.caption.20}{}}
+\newlabel{sub@fig:cluster5_2_}{{d}{32}{2 communities.\relax }{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces The relevant clusterings detected at different time scales for $T=50$ years.\relax }}{32}{figure.caption.20}}
+\newlabel{fig:cluster5}{{3.7}{32}{The relevant clusterings detected at different time scales for $T=50$ years.\relax }{figure.caption.20}{}}
 \citation{*}
 \bibstyle{unsrt}
 \bibdata{bib/bibli}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $T=100$ years.\relax }}{25}{figure.caption.19}}
-\newlabel{fig:stab10}{{3.8}{25}{Stability, number of communities and variation of information as a function of the Markov time for $T=100$ years.\relax }{figure.caption.19}{}}
-\newlabel{fig:cluster10_3_}{{3.9a}{25}{3 communities.\relax }{figure.caption.20}{}}
-\newlabel{sub@fig:cluster10_3_}{{a}{25}{3 communities.\relax }{figure.caption.20}{}}
-\newlabel{fig:cluster10_2_}{{3.9b}{25}{2 communities.\relax }{figure.caption.20}{}}
-\newlabel{sub@fig:cluster10_2_}{{b}{25}{2 communities.\relax }{figure.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces The relevant clusterings detected at different time scales for $T=100$ years.\relax }}{25}{figure.caption.20}}
-\newlabel{fig:cluster10}{{3.9}{25}{The relevant clusterings detected at different time scales for $T=100$ years.\relax }{figure.caption.20}{}}
-\bibcite{deleersnijder2011test}{1}
-\bibcite{fortunato2010community}{2}
-\bibcite{delvenne2010stability}{3}
-\bibcite{lambiotte2009laplacian}{4}
-\bibcite{delvenne2013stability}{5}
-\bibcite{blondel2008fast}{6}
-\bibcite{grin1998anatomy}{7}
-\bibcite{meilua2007comparing}{8}
-\bibcite{riddle1998specification}{9}
-\bibcite{spivakovskaya2007lagrangian}{10}
-\bibcite{silverman1986density}{11}
-\bibcite{wand1995kernel}{12}
-\bibcite{lambiotte2011flow}{13}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $T=100$ years.\relax }}{33}{figure.caption.21}}
+\newlabel{fig:stab10}{{3.8}{33}{Stability, number of communities and variation of information as a function of the Markov time for $T=100$ years.\relax }{figure.caption.21}{}}
+\newlabel{fig:cluster10_3_}{{3.9a}{33}{3 communities.\relax }{figure.caption.22}{}}
+\newlabel{sub@fig:cluster10_3_}{{a}{33}{3 communities.\relax }{figure.caption.22}{}}
+\newlabel{fig:cluster10_2_}{{3.9b}{33}{2 communities.\relax }{figure.caption.22}{}}
+\newlabel{sub@fig:cluster10_2_}{{b}{33}{2 communities.\relax }{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces The relevant clusterings detected at different time scales for $T=100$ years.\relax }}{33}{figure.caption.22}}
+\newlabel{fig:cluster10}{{3.9}{33}{The relevant clusterings detected at different time scales for $T=100$ years.\relax }{figure.caption.22}{}}
+\bibcite{deleersnijder2006overturner}{1}
+\bibcite{deleersnijder2001concept}{2}
+\bibcite{deleersnijder2011test}{3}
+\bibcite{fortunato2010community}{4}
+\bibcite{delvenne2010stability}{5}
+\bibcite{lambiotte2009laplacian}{6}
+\bibcite{delvenne2013stability}{7}
+\bibcite{blondel2008fast}{8}
+\bibcite{grin1998anatomy}{9}
+\bibcite{meilua2007comparing}{10}
+\bibcite{riddle1998specification}{11}
+\bibcite{spivakovskaya2007lagrangian}{12}
+\bibcite{silverman1986density}{13}
+\bibcite{wand1995kernel}{14}
+\bibcite{timmermans2006masterthesis}{15}
+\bibcite{lambiotte2011flow}{16}

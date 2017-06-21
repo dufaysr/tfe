@@ -1,7 +1,6 @@
 %!TEX root = ../tfe.tex
-\chapter{Numerical Considerations}
 \section{Test case to assess the implementation of the overturner model}
-This note is an adaptation of Eric Deleersnijder's working paper \cite{deleersnijder2011test}.
+This note is an adaptation of \textit{Eric Deleersnijder}'s working paper \cite{deleersnijder2011test}.
 
 %----------------------------------GOVERNING EQUATIONS--------------------------------------------------------%
 \subsection{Governing equations}
@@ -51,7 +50,7 @@ For the sake of simplicity, we can forget about the fact that our model is width
 	Q := J\delta(t).
 \end{equation}
 A part of the physical meaning of the model is lost but this makes representations of the problem easier. $C$ now represents the two-dimensional density (i.e., in [$kg/m^2$]) of the tracer in water. $J$ can then be regarded as the mass of tracer released by the sudden point source at $\b x = \b x_1$. The three- and two-dimensional interpretations of the problem are represented on figure \ref{fig:testcase_scheme}.
-% \footnote{This could be a bit confusing. As we switch from a 3-dimensional interpretation of the model to a 2-dimensional one, the meaning of the parameters changes. Hence, in the 3-dimensional interpretation, $C$ represents a 3D density ([$kg/m^3$]) and $M$ is a mass, whereas in the 2-dimensional interpretation, $C$ is a 2D density ([$kg/m^2$]) and $M$ has units of [$kg\;m$]. A part of the physical meaning of the model is lost, but this makes representations of the problem much easier.} \textcolor{red}{On peut aussi simplement considérer B = 1. Attention, si on opte finalement pour cette option, un facteur B doit être présent pour le calcul de certains diagnostiques.}
+% \footnote{This could be a bit confusing. As we switch from a 3-dimensional interpretation of the model to a 2-dimensional one, the meaning of the parameters changes. Hence, in the 3-dimensional interpretation, $C$ represents a 3D density ([$kg/m^3$]) and $M$ is a mass, whereas in the 2-dimensional interpretation, $C$ is a 2D density ([$kg/m^2$]) and $M$ has units of [$kg\,m$]. A part of the physical meaning of the model is lost, but this makes representations of the problem much easier.} \textcolor{red}{On peut aussi simplement considérer B = 1. Attention, si on opte finalement pour cette option, un facteur B doit être présent pour le calcul de certains diagnostiques.}
 \begin{figure}[H]
 	\centering
 	\scalebox{.8}{\input{fig/testcase/testcase_scheme3D}}
@@ -65,7 +64,7 @@ A part of the physical meaning of the model is lost but this makes representatio
 \subsubsection{Test case 1 : infinite domain}
 The first (an most simple) test case is to consider an infinite domain, i.e.
 \begin{equation} \label{eq:testcase:domain}
-	-\infty < y,\; z < \infty,
+	-\infty < y,\, z < \infty,
 \end{equation}
 with nonzero velocities $v$ and $w$. This test case provides a check that our numerical implementation handles the diffusion and advection processes properly both in the $y$- and $z$-directions. The parameters are chosen from the values of the overturner model :
 \begin{equation}
@@ -80,7 +79,7 @@ For the length scales of the overturner model, those diffusivities corresponds t
 	Pe_y = \frac{v}{K_{yy}/L} = 6,\quad Pe_z = \frac{w}{K_{zz}/H} = 6.67.
 \end{equation}
 Hence, in both the $y$- and $z$-directions, the transport is neither dominated by advection nor by diffusion. This is interesting as a test case since it allows to assess how the numerical solver handles both physical processes in both directions. 
-Finally, $J = 50\;000$ particles are released at $t=0$ at the location $(y_1,z_1) = (0,0)$.
+Finally, $J = 50\,000$ particles are released at $t=0$ at the location $(y_1,z_1) = (0,0)$.
 
 %------------------------------------PARAMETERS FOR TEST CASE 2--------------------------------------------------------------%
 \subsubsection{Test case 2 : semi-infinite domain}
@@ -96,7 +95,7 @@ and
 \begin{equation}
 	K_{yy} = K_h = 10^{3} \mbox{ [$m^2/s$],}\quad K_{zz} = K_{v_{1}} = 10^{-1} \mbox{ [$m^2/s$].} 
 \end{equation}
-Notice the choice  of $K_{zz}$ : it is chosen equal to $K_{v_1}$, which is $10^3$ times larger than $K_{v_2}$, the value chosen for test case 1. The goal here is to assess that the boundary condition is well handled by the solver. Since $w=0$, only the vertical diffusivity could possibly drive the particles towards the wall. By increasing $K_{zz}$, we ensure that more particles will bounce against the wall, which is relevant in this context. $J = 50\;000$ particles are released at $t=0$ at the location $(y_1,z_1) = (0,H)$.
+Notice the choice  of $K_{zz}$ : it is chosen equal to $K_{v_1}$, which is $10^3$ times larger than $K_{v_2}$, the value chosen for test case 1. The goal here is to assess that the boundary condition is well handled by the solver. Since $w=0$, only the vertical diffusivity could possibly drive the particles towards the wall. By increasing $K_{zz}$, we ensure that more particles will bounce against the wall, which is relevant in this context. $J = 50\,000$ particles are released at $t=0$ at the location $(y_1,z_1) = (0,H)$.
 
 
 
@@ -110,7 +109,7 @@ In order to build the analytical solution of the problem, we need to compute the
 		\left. G(t,t',y,z) \right \rvert_{t=t'} = \delta(y)\delta(z) 
 	\end{cases}
 \end{equation}
-for $t \ge 0$, and on an infinite domain $\infty < y,\; z < \infty$. It can be shown that \textcolor{red}{source ? ou le papier de deleersnijder suffit ?}
+for $t \ge 0$, and on an infinite domain $\infty < y,\, z < \infty$. It can be shown that \textcolor{red}{source ? ou le papier de deleersnijder suffit ?}
 \begin{equation} 
 	G(t,t',y,z) = \frac{\exp\left[-\frac{(y-s_v)^2}{4K_{yy}\tau} -\frac{(z-s_w)^2}{4K_{zz}\tau} \right]}{4\pi\sqrt{K_{yy}K_{zz}}\tau},
 \end{equation}
@@ -199,7 +198,7 @@ Cependant, le calcul du centre de masse ne me parait pas indispensable et même 
 \section{Validation of the numerical solver}
 This section aims to show that the numerical results obtained with the solver are in good agreement with the analytical ones. As the combination of the two test cases cover the main features of the overturner model, this constitutes a validation of the solver. 
 
-Both test cases are simulated for 1 year with a time step of 1 hour, and $J = 50\;000$ particles are released at $t=0$.
+Both test cases are simulated for 1 year with a time step of 1 hour, and $J = 50\,000$ \textcolor{red}{il faudrait tester avec $10\,000$} particles are released at $t=0$.
 The concentration is computed at the final time $T = 1$ year on the domain $[y_{min},y_{max}] \times [z_{min},z_{max}]$, where the subscripts \textit{min} and \textit{max} stands for the minimal and maximal position at time $T$ amongst all the particles. The notation $C(y,z)$ will be used to denote $C(T,y,z)$ in the next. That domain is divided into $20 \times 20$ boxes, and the (normalized) concentration in a box is computed as the number of particles in that box divided by the total number of particles $J$.
 
 %-------------------------------------RESULTS CASE 1----------------------------------------------------------------------------%
@@ -210,7 +209,7 @@ Figure \ref{fig:testcase_surf} shows a comparison between the numerical result a
 \end{equation}
 The centers of mass are located at
 \begin{equation}
-	\b r_{exact} = (12\;614.4,\;4.2) \mbox{ [$m$],}\quad \b r_{num} = (10\;985.3,\;4.4) \mbox{ [$m$]}.
+	\b r_{exact} = (12\,614.4,\,4.2) \mbox{ [$m$],}\quad \b r_{num} = (10\,985.3,\,4.4) \mbox{ [$m$]}.
 \end{equation}
 The relative error is
 \begin{equation}
