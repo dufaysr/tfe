@@ -13,6 +13,102 @@ Eric Deleersnijder, Jean-Michel Campin, and Eric~JM Delhez.
   model results.
 \newblock {\em Journal of Marine Systems}, 28(3):229--267, 2001.
 
+\bibitem{spivakovskaya2007lagrangian}
+Darya Spivakovskaya, Arnold~W. Heemink, and Eric Deleersnijder.
+\newblock Lagrangian modelling of multi-dimensional advection-diffusion with
+  space-varying diffusivities: theory and idealized test cases.
+\newblock {\em Ocean Dynamics}, 57(3):189--203, 2007.
+
+\bibitem{spivakovskaya2007backward}
+D~Spivakovskaya, AW~Heemink, and Eric Deleersnijder.
+\newblock The backward {\^i}to method for the lagrangian simulation of
+  transport processes with large space variations of the diffusivity.
+\newblock {\em Ocean Science Discussions}, 4(4):623--652, 2007.
+
+\bibitem{stijn1987positive}
+VAN STIJN.
+\newblock Positive advection schemes for environmental studies.
+\newblock {\em Numerical methods in laminar and turbulent flow}, 1987.
+
+\bibitem{yang1998accuracy}
+Y~Yang, LT~Wilson, ME~Makela, and MA~Marchetti.
+\newblock Accuracy of numerical methods for solving the advection--diffusion
+  equation as applied to spore and insect dispersal.
+\newblock {\em Ecological modelling}, 109(1):1--24, 1998.
+
+\bibitem{zheng2002applied}
+Chunmiao Zheng, Gordon~D Bennett, et~al.
+\newblock {\em Applied contaminant transport modeling}, volume~2.
+\newblock Wiley-Interscience New York, 2002.
+
+\bibitem{hunter1987application}
+JR~Hunter.
+\newblock The application of lagrangian particle-tracking techniques to
+  modelling of dispersion in the sea.
+\newblock {\em North-Holland Mathematics Studies}, 145:257--269, 1987.
+
+\bibitem{hunter1993use}
+JR~Hunter, PD~Craig, and HE~Phillips.
+\newblock On the use of random walk models with spatially variable diffusivity.
+\newblock {\em Journal of Computational Physics}, 106(2):366--376, 1993.
+
+\bibitem{yeh1990lagrangian}
+GT~Yeh.
+\newblock A lagrangian-eulerian method with zoomable hidden fine-mesh approach
+  to solving advection-dispersion equations.
+\newblock {\em Water Resources Research}, 26(6):1133--1144, 1990.
+
+\bibitem{labolle1996random}
+Eric~M LaBolle, Graham~E Fogg, and Andrew~FB Tompson.
+\newblock Random-walk simulation of transport in heterogeneous porous media:
+  Local mass-conservation problem and implementation methods.
+\newblock {\em Water Resources Research}, 32(3):583--593, 1996.
+
+\bibitem{gardiner1985stochastic}
+C.~W. Gardiner.
+\newblock Stochastic methods.
+\newblock {\em Springer-Verlag}, 1985.
+
+\bibitem{heemink2011slides}
+Arnold Heemink and et~al.
+\newblock Modeling transport processes using stochastic differential equations.
+\newblock Slides, 2011.
+
+\bibitem{keunings}
+Roland Keunings.
+\newblock Mathematical modeling of physical problems.
+\newblock Lecture notes, 2016.
+
+\bibitem{kloedenplaten1995numerical}
+Peter~E. Kloeden and Eckhard Platen.
+\newblock {\em Numerical Solution of Stochastic Differential Equations}.
+\newblock Springer-Verlag, Berlin Heidelberg New York, 1995.
+
+\bibitem{labolle2000diffusion}
+Eric~M LaBolle, Jeremy Quastel, Graham~E Fogg, and Janko Gravner.
+\newblock Diffusion processes in composite porous media and their numerical
+  integration by random walks: Generalized stochastic differential equations
+  with discontinuous coefficients.
+\newblock {\em Water Resources Research}, 36(3):651--662, 2000.
+
+\bibitem{colet2014stochastic}
+Pere Colet and Raúl Toral.
+\newblock {\em Stochastic numerical methods: an introduction for students and
+  scientists}.
+\newblock John Wiley \& Sons, 2014.
+
+\bibitem{prickett1981random}
+Thomas~A Prickett, Carl~G Lonnquist, Thomas~G Naymik, et~al.
+\newblock A" random-walk" solute transport model for selected groundwater
+  quality evaluations.
+\newblock {\em Bulletin/Illinois State Water Survey; no. 65}, 1981.
+
+\bibitem{tompson1987numerical}
+Andrew~FB Tompson, Efstratios~G Vomvoris, and Lynn~W Gelhar.
+\newblock Numerical simulation of solute transport in randomly heterogeneous
+  porous media: motivation, model development, and application.
+\newblock Technical report, Lawrence Livermore National Lab., CA (USA), 1987.
+
 \bibitem{deleersnijder2011test}
 Eric Deleersnijder.
 \newblock Test cases for advection-diffusion equations with a first-order decay
@@ -65,12 +161,6 @@ AM~Riddle.
 \newblock The specification of mixing in random walk models for dispersion in
   the sea.
 \newblock {\em Continental Shelf Research}, 18(2):441--456, 1998.
-
-\bibitem{spivakovskaya2007lagrangian}
-Darya Spivakovskaya, Arnold~W. Heemink, and Eric Deleersnijder.
-\newblock Lagrangian modelling of multi-dimensional advection-diffusion with
-  space-varying diffusivities: theory and idealized test cases.
-\newblock {\em Ocean Dynamics}, 57(3):189--203, 2007.
 
 \bibitem{silverman1986density}
 Bernard~W. Silverman.
