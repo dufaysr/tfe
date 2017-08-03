@@ -1,0 +1,41 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n}{BISolver}\PYG{o}{::}\PYG{n}{UpdatePosition}\PYG{p}{(}\PYG{k}{const} \PYG{n}{AbstractAdvDiffProblem}\PYG{o}{\PYGZam{}} \PYG{n}{prob}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+	\PYG{n}{LowerTriMatrix} \PYG{n}{B}\PYG{p}{;}
+	\PYG{n}{Vec2} \PYG{n}{U}\PYG{p}{;}
+	\PYG{k+kt}{double} \PYG{n}{R1}\PYG{p}{,} \PYG{n}{R2}\PYG{p}{,} \PYG{n}{dY}\PYG{p}{,} \PYG{n}{dZ}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{z}\PYG{p}{,} \PYG{n}{ypred}\PYG{p}{,} \PYG{n}{zpred}\PYG{p}{;}
+	\PYG{k+kt}{double} \PYG{n}{sqrt\PYGZus{}dt} \PYG{o}{=} \PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{mdt}\PYG{p}{);}
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{mParticles}\PYG{p}{.}\PYG{n}{mN}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+	\PYG{p}{\PYGZob{}}
+		\PYG{c+c1}{// position and speed of particle i at time t}
+		\PYG{n}{y} \PYG{o}{=} \PYG{n}{mParticles}\PYG{p}{.}\PYG{n}{mY}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+		\PYG{n}{z} \PYG{o}{=} \PYG{n}{mParticles}\PYG{p}{.}\PYG{n}{mZ}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+		\PYG{n}{U} \PYG{o}{=} \PYG{n}{prob}\PYG{p}{.}\PYG{n}{getU}\PYG{p}{(}\PYG{n}{y}\PYG{p}{,}\PYG{n}{z}\PYG{p}{);}
+		\PYG{n}{B} \PYG{o}{=} \PYG{n}{prob}\PYG{p}{.}\PYG{n}{getB}\PYG{p}{(}\PYG{n}{y}\PYG{p}{,}\PYG{n}{z}\PYG{p}{);}
+		\PYG{c+c1}{// realisations of the noises}
+		\PYG{n}{R1} \PYG{o}{=} \PYG{n}{wiener}\PYG{p}{(}\PYG{n}{generator}\PYG{p}{);}
+		\PYG{n}{R2} \PYG{o}{=} \PYG{n}{wiener}\PYG{p}{(}\PYG{n}{generator}\PYG{p}{);}
+		\PYG{c+c1}{// prediction step of the backward\PYGZhy{}Ito scheme}
+		\PYG{n}{dY} \PYG{o}{=} \PYG{n}{B}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{*}\PYG{n}{sqrt\PYGZus{}dt}\PYG{o}{*}\PYG{n}{R1}\PYG{p}{;}
+		\PYG{n}{dZ} \PYG{o}{=} \PYG{n}{B}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{*}\PYG{n}{sqrt\PYGZus{}dt}\PYG{o}{*}\PYG{n}{R1} \PYG{o}{+} \PYG{n}{B}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{*}\PYG{n}{sqrt\PYGZus{}dt}\PYG{o}{*}\PYG{n}{R2}\PYG{p}{;}
+		\PYG{c+c1}{// No\PYGZhy{}through BC also applies on the predictions \PYGZhy{}\PYGZgt{} boucing on the walls}
+		\PYG{n}{ypred} \PYG{o}{=} \PYG{n}{y}\PYG{o}{+}\PYG{n}{dY}\PYG{p}{;}
+		\PYG{n}{zpred} \PYG{o}{=} \PYG{n}{z}\PYG{o}{+}\PYG{n}{dZ}\PYG{p}{;}
+		\PYG{n}{ypred} \PYG{o}{=} \PYG{p}{(}\PYG{n}{ypred} \PYG{o}{\PYGZlt{}} \PYG{n}{prob}\PYG{p}{.}\PYG{n}{getL0}\PYG{p}{())} \PYG{o}{?} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{prob}\PYG{p}{.}\PYG{n}{getL0}\PYG{p}{()}\PYG{o}{\PYGZhy{}} \PYG{n+nl}{ypred} \PYG{p}{:}
+				\PYG{p}{(}\PYG{n}{ypred} \PYG{o}{\PYGZgt{}} \PYG{n}{prob}\PYG{p}{.}\PYG{n}{getL1}\PYG{p}{())} \PYG{o}{?} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{prob}\PYG{p}{.}\PYG{n}{getL1}\PYG{p}{()}\PYG{o}{\PYGZhy{}}\PYG{n+nl}{ypred} \PYG{p}{:} \PYG{n}{ypred}\PYG{p}{;}
+		\PYG{n}{zpred} \PYG{o}{=} \PYG{p}{(}\PYG{n}{zpred} \PYG{o}{\PYGZlt{}} \PYG{n}{prob}\PYG{p}{.}\PYG{n}{getH0}\PYG{p}{())} \PYG{o}{?} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{prob}\PYG{p}{.}\PYG{n}{getH0}\PYG{p}{()}\PYG{o}{\PYGZhy{}}\PYG{n+nl}{zpred} \PYG{p}{:}
+				\PYG{p}{(}\PYG{n}{zpred} \PYG{o}{\PYGZgt{}} \PYG{n}{prob}\PYG{p}{.}\PYG{n}{getH1}\PYG{p}{())} \PYG{o}{?} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{prob}\PYG{p}{.}\PYG{n}{getH1}\PYG{p}{()}\PYG{o}{\PYGZhy{}}\PYG{n+nl}{zpred} \PYG{p}{:} \PYG{n}{zpred}\PYG{p}{;}
+		\PYG{c+c1}{// amplitude of the noises}
+		\PYG{n}{B} \PYG{o}{=} \PYG{n}{prob}\PYG{p}{.}\PYG{n}{getB}\PYG{p}{(}\PYG{n}{ypred}\PYG{p}{,}\PYG{n}{zpred}\PYG{p}{);}
+		\PYG{c+cm}{/* update particles positions using backward\PYGZhy{}Ito scheme}
+\PYG{c+cm}{		* No\PYGZhy{}flux BC : Bounce on the wall */}
+		\PYG{n}{ypred} \PYG{o}{=} \PYG{n}{mParticles}\PYG{p}{.}\PYG{n}{mY}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+} \PYG{n}{U}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{*}\PYG{n}{mdt} \PYG{o}{+} \PYG{n}{B}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{*}\PYG{n}{sqrt\PYGZus{}dt}\PYG{o}{*}\PYG{n}{R1}\PYG{p}{;}
+		\PYG{n}{zpred} \PYG{o}{=} \PYG{n}{mParticles}\PYG{p}{.}\PYG{n}{mZ}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+} \PYG{n}{U}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{*}\PYG{n}{mdt} \PYG{o}{+} \PYG{n}{B}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{*}\PYG{n}{sqrt\PYGZus{}dt}\PYG{o}{*}\PYG{n}{R1} \PYG{o}{+} \PYG{n}{B}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{*}\PYG{n}{sqrt\PYGZus{}dt}\PYG{o}{*}\PYG{n}{R2}\PYG{p}{;}
+		\PYG{n}{mParticles}\PYG{p}{.}\PYG{n}{mY}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n}{ypred} \PYG{o}{\PYGZlt{}} \PYG{n}{prob}\PYG{p}{.}\PYG{n}{getL0}\PYG{p}{())} \PYG{o}{?} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{prob}\PYG{p}{.}\PYG{n}{getL0}\PYG{p}{()}\PYG{o}{\PYGZhy{}}\PYG{n+nl}{ypred} \PYG{p}{:}
+						   \PYG{p}{(}\PYG{n}{ypred} \PYG{o}{\PYGZgt{}} \PYG{n}{prob}\PYG{p}{.}\PYG{n}{getL1}\PYG{p}{())} \PYG{o}{?} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{prob}\PYG{p}{.}\PYG{n}{getL1}\PYG{p}{()}\PYG{o}{\PYGZhy{}}\PYG{n+nl}{ypred} \PYG{p}{:} \PYG{n}{ypred}\PYG{p}{;}
+		\PYG{n}{mParticles}\PYG{p}{.}\PYG{n}{mZ}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n}{zpred} \PYG{o}{\PYGZlt{}} \PYG{n}{prob}\PYG{p}{.}\PYG{n}{getH0}\PYG{p}{())} \PYG{o}{?} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{prob}\PYG{p}{.}\PYG{n}{getH0}\PYG{p}{()}\PYG{o}{\PYGZhy{}}\PYG{n+nl}{zpred} \PYG{p}{:}
+						   \PYG{p}{(}\PYG{n}{zpred} \PYG{o}{\PYGZgt{}} \PYG{n}{prob}\PYG{p}{.}\PYG{n}{getH1}\PYG{p}{())} \PYG{o}{?} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{prob}\PYG{p}{.}\PYG{n}{getH1}\PYG{p}{()}\PYG{o}{\PYGZhy{}}\PYG{n+nl}{zpred} \PYG{p}{:} \PYG{n}{zpred}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{n}{mParticles}\PYG{p}{.}\PYG{n}{mTime} \PYG{o}{+=} \PYG{n}{mdt}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

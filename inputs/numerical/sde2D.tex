@@ -1,0 +1,126 @@
+%!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
+\section{The code}
+The preceding sections cover all the material needed to implement a Lagrangian code that solves a two-dimensional advection-diffusion problem. For the need of this work, a \Cpp code has been implemented. The choice of \Cpp is motivated by the fact that it is \textit{fast}, and that it comes together with a wide range of \textit{open source} supporting tools. Another reason is that \Cpp is an \textit{object-oriented language}, and it is widely held that writing in an object-oriented style leads to programs which are easier to understand, to extend, to maintain and to refactor \cite{pitt2012guide}.
+
+The code deals with the two-dimensional transport equation
+\begin{equation} \label{eq:TEcode}
+	\frac{\partial C}{\partial t} = \nabla \cdot (-\b u C + \b K \nabla C)
+\end{equation}
+on rectangular domains with no-through boundary conditions. It allows to simulate trajectories, to compute the concentration and to build the transition probability matrix for a given partitioning of the domain. The trajectories are simulated using the backward Euler method, applied on the system of backward Itô SDE's \eqref{eq:bi-TM}.
+% The user can choose between the Euler-Maruyama \textcolor{red}{attention implémenter drift gradient term} and backward-Itô method to simulate the trajectories. In view of the preceding sections, the Itô SDE corresponding to \eqref{eq:TEcode} is
+In this work, only the box-counting method is used for the estimation of the concentration (and thus also for the computation of the transition probability matrix) but the density kernel estimation method has also been implemented for the sake of completeness.
+
+In order to use the code on a particular problem meeting the above specifications, a class that defines the problem must be implemented. That class must inherit from the abstract base class \mintinline{c++}{AbstractAdvDiffProblem} (see listing \ref{listing:abstractadvdiffproblem}), and must at least implement the two pure virtual functions of the abstract base class:
+\begin{listing}[ht!]
+\caption{The abstract base class \cppcode{AbstractAdvDiffProblem}.}
+\label{listing:abstractadvdiffproblem}
+\begin{minted}[breaklines,tabsize=4,fontsize=\footnotesize,style=tango,escapeinside=||]{c++}
+class AbstractAdvDiffProblem
+{
+	protected:
+		double mH0, mH1; // boundaries of the domain in the z-direction : H0 <= z <= H1
+		double mL0, mL1; // boundaries of the domain in the y-direction : L0 <= y <= L1
+
+	public:
+		AbstractAdvDiffProblem(double H0, double H1, double L0, double L1);
+		virtual ~AbstractAdvDiffProblem(){};
+		double getH0() const; // bottom boundary
+		double getH1() const; // top boundary 
+		double getL0() const; // left boundary
+		double getL1() const; // right boundary
+		virtual SymMatrix getK(double y, double z) const=0; // diffusivity tensor
+		virtual LowerTriMatrix getB(double y, double z) const; // 2K = BB'
+		virtual Vec2 getU(double y, double z) const=0; // velocity vector
+		virtual void printInfo(std::ofstream& f) const;
+};
+\end{minted}
+\end{listing}
+\begin{itemize}[nosep]
+	\item \mintinline[style=tango]{c++}{SymMatrix getK(double y, double z)}: returns the diffusivity tensor $\b K$ evaluated at $(y,z)$. The return value is of type \cppcode{SymMatrix}, a structure intended to store a $2\times 2$ symmetric matrix with only three elements stored in memory. Instantiating an object \cppcode{A} of type \cppcode{SymMatrix} is pretty simple: \cppcode{SymMatrix A(a,b,c)} creates the matrix
+	\[
+		A = \begin{pmatrix} a & b \\ b & c \end{pmatrix},
+	\] 
+	where \cppcode{a}, \cppcode{b} and \cppcode{c} are of type double. The elements of \cppcode{A} are then accessed via the syntax \cppcode{A(i,j)} which uses one-based indexing. Hence, \cppcode{A(1,1) = a}, \cppcode{A(1,2) = A(2,1) = b} and \cppcode{A(2,2) = c}. The same syntax can be used to modify the elements of \cppcode{A}.
+	\item \mintinline[style=tango]{c++}{Vec2 getU(double y, double z)}: returns the velocity vector $\b u$ evaluated at $(y,z)$. The return value is of type \cppcode{Vec2}, a structure that stores a vector of size 2. The syntax \cppcode{Vec2 v(a,b)} is used to create the two-dimensional vector $v = (a,b)$. The elements of \cppcode{v} are accessed via the syntax \cppcode{v(i)} which also uses one-based indexing.
+\end{itemize}
+By default, the code computes the matrix $\b B$ using \eqref{eq:B} and \eqref{eq:Bstar}. This is done by the function \cppcode{LowerTriMatrix GetB(double y, double z)}. In some cases, it can be interesting to overload that definition of \cppcode{GetB}, which is possible since this function is virtual. The return value must be of type \cppcode{LowerTriMatrix}, which is a structure similar to \cppcode{SymMatrix} but is intended to store lower triangular $2\times2$ matrices instead of symmetric $2\times2$ matrices.
+
+Notice that the code as such implements the dimensional form of the transport model. However, it can be used to run simulations on the adimensional form of the transport model. To this end, it suffice to define the functions \cppcode{getK} and \cppcode{getU} accordingly: \cppcode{getK} shall return the inverse of the Peclet matrix, and \cppcode{getU} shall return the adimensional velocity vector.
+
+Once a class describing the problem is properly defined, three methods can be used to compute either the trajectories, the normalized concentration or the transition probability matrix. We call those methods the \textit{compute methods}. Their signatures are given in listing \ref{listing:signature_compute}. Since those functions are well documented in the code, we do not provide any further explanations about how to use them here.
+\begin{listing}[ht!]
+\caption{Signatures of the \textit{compute methods}.}
+\label{listing:signature_compute}
+\begin{minted}[breaklines,tabsize=4,fontsize=\footnotesize,style=tango,escapeinside=||]{c++}
+void ComputeTrajectories(const AbstractAdvDiffProblem& prob, std::string model, double dt,
+						 double T, int Nloc, double yStart, double zStart);
+void ComputeConcentration(const AbstractAdvDiffProblem &prob, std::string model, double dt,
+						  double T, std::string estimator, int Nloc, double yStart,
+						  double zStart, int nboxy, int nboxz);
+void ComputeTransitionProbabilities(const AbstractAdvDiffProblem& prob, std::string model,
+									int nboxy, int nboxz, int nyloc, int nzloc, double dt,
+									double Times[], int nTimes, bool binary,
+									std::string estimator = "box");
+\end{minted}
+\end{listing}
+% \begin{itemize}
+% 	\item \mintinline{c++}{LowerTriMatrix getB(double y, double z)}:
+% 	\item io 
+% \end{itemize} 
+% Le code résout des probleme 2D generaux sur un domaine rectangulaire avec des conditions frontières no trough.
+% Choix entre Ito (attention alors il faut implémenter le drift gradient velocity) et backward Ito.
+% --> Pour résoudre un problème particulier :
+% 	1. Implémenter une class problem qui hérite de abstractadvdiff, et dont les méthode minimales sont : ...
+% 	AbstractAdvDiff implémente Cholesky par défaut mais on peut aussi implémenter sa propre méthode getB,
+%	ce qui permet d'autre choix de B et dans certains cas une meilleure efficacité. (+ exemple)
+%	Si on veut de l'adim il suffit de faire K = 1/Pe et U = ...
+%	2. Ensuite les méthodes Compute permette de calculer trajectoire, concentration et matrice de transition de proba.
+%	Ces méthodes font entre autre appel aux méthodes de la classe solver et de ses enfant. Par exemple backward ito est implémenté dans 
+%	biSlver par <CODE>.
+%	3. Mettre le code "main" dans un studycase (à voir si c'est vraiment intéressant de parler des studycases)
+% 
+% \begin{listing}[ht!]
+% \caption{Implementation of the backward Euler method.}
+% \label{listing:updateposition}
+% \begin{minted}[breaklines,tabsize=4,fontsize=\footnotesize,style=tango,escapeinside=||]{c++}
+% void BISolver::UpdatePosition(const AbstractAdvDiffProblem& prob)
+% {
+% 	LowerTriMatrix B;
+% 	Vec2 U;
+% 	double R1, R2, dY, dZ, y, z, ypred, zpred;
+% 	double sqrt_dt = sqrt(mdt);
+% 	for (int i=0; i<mParticles.mN; i++)
+% 	{
+% 		// position and speed of particle i at time t
+% 		y = mParticles.mY[i];
+% 		z = mParticles.mZ[i];
+% 		U = prob.getU(y,z);
+% 		B = prob.getB(y,z);
+% 		// realisations of the noises
+% 		R1 = wiener(generator);
+% 		R2 = wiener(generator);
+% 		// prediction step of the backward-Ito scheme
+% 		dY = B(1,1)*sqrt_dt*R1;
+% 		dZ = B(2,1)*sqrt_dt*R1 + B(2,2)*sqrt_dt*R2;
+% 		// No-through BC also applies on the predictions -> bouncing on the walls
+% 		ypred = y+dY;
+% 		zpred = z+dZ;
+% 		ypred = (ypred < prob.getL0()) ? 2*prob.getL0()-|\color{black}{ypred}| : 
+% 				(ypred > prob.getL1()) ? 2*prob.getL1()-|\color{black}{ypred}| : ypred;
+% 		zpred = (zpred < prob.getH0()) ? 2*prob.getH0()-|\color{black}{zpred}| : 
+% 				(zpred > prob.getH1()) ? 2*prob.getH1()-|\color{black}{zpred}| : zpred;
+% 		// amplitude of the noises
+% 		B = prob.getB(ypred,zpred);
+% 		/* update particles positions using backward-Ito scheme
+% 		* No-flux BC : Bounce on the wall */
+% 		ypred = mParticles.mY[i] + U(1)*mdt + B(1,1)*sqrt_dt*R1;
+% 		zpred = mParticles.mZ[i] + U(2)*mdt + B(2,1)*sqrt_dt*R1 + B(2,2)*sqrt_dt*R2;
+% 		mParticles.mY[i] = (ypred < prob.getL0()) ? 2*prob.getL0()-|\color{black}{ypred}| : 
+% 						   (ypred > prob.getL1()) ? 2*prob.getL1()-|\color{black}{ypred}| : ypred;
+% 		mParticles.mZ[i] = (zpred < prob.getH0()) ? 2*prob.getH0()-|\color{black}{zpred}| :
+% 						   (zpred > prob.getH1()) ? 2*prob.getH1()-|\color{black}{zpred}| : zpred;
+% 	}
+% 	mParticles.mTime += mdt;
+% }
+% \end{minted}
+% \end{listing}

@@ -1,0 +1,70 @@
+%!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
+\section{Lagrangian equations corresponding to the general transport model}
+The previous section introduce all the theoretical tools needed to compute the Lagrangian equations corresponding to the transport model, namely the general advection-diffusion equation
+\begin{equation} \label{eq:TM}
+	\frac{\partial C}{\partial t} = \nabla \cdot (-\b u C + \b K \nabla C),
+\end{equation}
+where $\b K$ is the symmetric and positive-definite diffusivity tensor.
+From now on, we restrict ourselves to two dimensions in the cartesian coordinate system $(y,z)$. 
+The transport equation \eqref{eq:TM} can be interpreted as a Fokker-Planck equation where $C$ is the probability density function of the position $\b x(t) = (y(t),\,z(t))$ of the particle. Let
+\begin{equation}
+	\b K = \begin{pmatrix} K_{yy} & K_{yz}\\ K_{zy} & K_{zz} \end{pmatrix},
+\end{equation}
+with $K_{yz} = K_{zy}$ since $\b K$ is symmetric. In order to get the Itô and backward-Itô systems of SDE's corresponding to the transport model, we must rewrite \eqref{eq:TM} in the forms \eqref{eq:FP-I-ndim} and \eqref{eq:FP-bI-ndim} respectively. The systems of SDE's can then be deduced straightforwardly by analogy.
+
+Let us first compute the Itô SDE's corresponding to \eqref{eq:TM}. Equation \eqref{eq:TM} can be rewritten as
+\begin{align}
+	\frac{\partial C}{\partial t} =~& -\frac{\partial}{\partial y}\left[\left(v+\frac{\partial K_{yy}}{\partial y} + \frac{\partial K_{yz}}{\partial z}\right)C\right] -\frac{\partial}{\partial z}\left[\left(w+\frac{\partial K_{zy}}{\partial y} + \frac{\partial K_{zz}}{\partial z}\right)C\right] \nonumber\\
+	&+ \frac{1}{2}\left[\frac{\partial^2}{\partial y^2} \left(2K_{yy} C\right) + \frac{\partial^2}{\partial y \partial z} \left(2K_{yz} C\right) + \frac{\partial^2}{\partial z \partial y} \left(2K_{zy} C\right) + \frac{\partial^2}{\partial z^2} \left(2K_{zz} C\right) \right].
+\end{align}
+% \begin{equation}
+% 	\frac{\partial C}{\partial t} = -\frac{\partial}{\partial y}\left[\left(v+\frac{\partial K_{h}}{\partial y}\right)C\right] -\frac{\partial}{\partial z}\left[\left(w+ \frac{\partial K_{v}}{\partial z}\right)C\right]	+ \frac{1}{2}\left[\frac{\partial^2}{\partial y^2} \left(2K_{h} C\right) + \frac{\partial^2}{\partial z^2} \left(2K_v C\right) \right].
+% \end{equation}
+This is precisely equation \eqref{eq:FP-I-ndim} with $\b x =(y,z)$, $p=C$, $\b a = (v+\partial_y K_{yy} + \partial_z K_{yz},\, w+\partial_y K_{zy} + \partial_z K_{zz})$ and $\b D = 2\b K$. Therefore, $\b x(t) = (y(t),\, z(t))$ obeys the Itô SDE
+% This is precisely equation \eqref{eq:FP-I-ndim} with $\b x =(y,z)$, $p=C$, $\b a = (v+\partial_y K_{h},\, w+\partial_z K_{v})$ and $\b D = 2\b K$. Therefore, $\b x(t) = (y(t),\, z(t))$ obeys the Itô SDE
+\begin{equation} \label{eq:ito-TM-vec}
+	\rm d \b x(t) = \b a(x(t),t) \rm dt + \b B(x(t),t) \rm d \b W(t),
+\end{equation}
+where $\b B$ has to be solved from $2\b K = \b B \b B^{\t}$. Since $2\b K$ is positive semidefinite, a possible Cholesky decomposition is given by
+\begin{equation} \label{eq:B}
+	\b B = \begin{pmatrix} B_{yy} & 0 \\ B_{zy} & B_{zz} \end{pmatrix} = \begin{pmatrix} \sqrt{2K_{yy}} & 0 \\ B_* & \sqrt{2K_{zz}-B_*^2} \end{pmatrix},
+\end{equation}
+where
+\begin{equation} \label{eq:Bstar}
+	B_* = \left\{ 
+		\begin{array}{lr}
+			0 & \mbox{if } K_{yy} = 0,\\
+			\frac{2K_{yz}}{B_{yy}} & \mbox{otherwise}.
+		\end{array}
+	\right.
+\end{equation}
+The Itô SDE \eqref{eq:ito-TM-vec} can be rewritten as
+\begin{equation} \label{eq:ito-TM}
+	\begin{cases}
+		\rm dy(t) = \left(v + \frac{\partial K_{yy}}{\partial y} + \frac{\partial K_{yz}}{\partial z} \right) \rm dt + B_{yy} \rm dW_1(t)\\
+		\rm dz(t) = \left(w + \frac{\partial K_{zy}}{\partial y} + \frac{\partial K_{zz}}{\partial z} \right) \rm dt + B_{zy} \rm dW_1(t) + B_{zz} \rm dW_2(t)\\
+		(y(0),z(0)) = (y_0,z_0),
+	\end{cases}
+\end{equation}
+where $W_1(t)$ and $W_2(t)$ are independent Wiener processes. The derivatives of the elements of $\b K$ appearing in equation \eqref{eq:ito-TM} are called the \textit{gradient drift terms}. If $\b K$ is known analytically, those terms can be computed for the numerical implementation. If not, finite differences can be used. In the next of this work, we will encounter problems where $\b K$ is discontinuous along segments in the domain, so that a part of the gradient drift terms is infinite at those points.
+Such an issue is addressed in \cite{prickett1981random} by neglecting the gradient drift terms all together, and in \cite{tompson1987numerical} by evaluating gradient drift terms via finite differences. Such methods are probably good enough for the simple problems considered in this work.
+% \footnote{This is especially true since the discontinuity of the diffusivity is in fact an idealization in the problems we will encounter. An estimation of the gradient drift terms via finite differences near the discontinuities would thus be more realistic than the infinite value.}
+However, we prefer the \textit{backward-Euler} approach as this method applies to a wider range of problems with discontinuous diffusivities.
+
+% Specific to overturner :
+% In our model, $K_h$ is constant so that $\partial_y K_h = 0$ uniformly on $\Omega$. The term gradient drift term $\partial_z K_v$ is more problematic: $K_v$ is indeed discontinuous and $\partial_z K_v$ is infinite on the segment defined by $(\lambda y_0, z_0)$ with $\lambda \in [0,1]$.
+
+
+To derive the backward Itô SDE corresponding to the transport model, notice that equation \eqref{eq:TM} can also be rewritten as
+\begin{equation}\label{eq:TM-bito}
+	\frac{\partial C}{\partial t} = -\frac{\partial}{\partial y}(vC) -\frac{\partial}{\partial z}(wC) + \frac{1}{2}\left[\frac{\partial}{\partial y} \left(2K_{yy}\frac{\partial C}{\partial y} + 2K_{yz}\frac{\partial C}{\partial z} \right) + \frac{\partial}{\partial z} \left(2K_{zy}\frac{\partial C}{\partial y} + 2K_{zz}\frac{\partial C}{\partial z}\right)\right].
+\end{equation}
+This is precisely equation \eqref{eq:FP-bI-ndim} with $\b x = (y,z)$, $p=C$, $\b a = (v,w)$ and $\b D = 2\b K$. Hence, we can use the matrix $\b B$ computed in \eqref{eq:B}. Then, $\b x(t) = (y(t),z(t))$ also obeys the backward Itô SDE
+\begin{equation} \label{eq:bi-TM}
+	\begin{cases}
+		\rm dy(t) = v \rm dt + B_{yy}\rm dW_1(t)\\
+		\rm dz(t) = w \rm dt + B_{zy}\rm dW_1(t) + B_{zz}\rm dW_2(t)\\
+		(y(0),z(0)) = (y_0,z_0).
+	\end{cases}
+\end{equation}
+Interestingly, there is no gradient drift term, i.e. no derivative of the diffusivities. In the context of a problem with discontinuous diffusivities, the backward Itô interpretation is thus particularly interesting: see \cite{labolle2000diffusion} and \cite{spivakovskaya2007backward} for more complete discussions about the use of the backward Itô method on problems with discontinuous diffusivities.

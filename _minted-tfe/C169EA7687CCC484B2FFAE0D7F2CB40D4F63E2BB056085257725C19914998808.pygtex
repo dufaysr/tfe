@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k}{class} \PYG{n+nc}{AbstractAdvDiffProblem}
+\PYG{p}{\PYGZob{}}
+	\PYG{k}{protected}\PYG{o}{:}
+		\PYG{k+kt}{double} \PYG{n}{mH0}\PYG{p}{,} \PYG{n}{mH1}\PYG{p}{;} \PYG{c+c1}{// boundaries of the domain in the z\PYGZhy{}direction : H0 \PYGZlt{}= z \PYGZlt{}= H1}
+		\PYG{k+kt}{double} \PYG{n}{mL0}\PYG{p}{,} \PYG{n}{mL1}\PYG{p}{;} \PYG{c+c1}{// boundaries of the domain in the y\PYGZhy{}direction : L0 \PYGZlt{}= y \PYGZlt{}= L1}
+
+	\PYG{k}{public}\PYG{o}{:}
+		\PYG{n}{AbstractAdvDiffProblem}\PYG{p}{(}\PYG{k+kt}{double} \PYG{n}{H0}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{H1}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{L0}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{L1}\PYG{p}{)}\PYG{p}{;}
+		\PYG{k}{virtual} \PYG{o}{\PYGZti{}}\PYG{n}{AbstractAdvDiffProblem}\PYG{p}{(}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+		\PYG{k+kt}{double} \PYG{n+nf}{getH0}\PYG{p}{(}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;} \PYG{c+c1}{// bottom boundary}
+		\PYG{k+kt}{double} \PYG{n+nf}{getH1}\PYG{p}{(}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;} \PYG{c+c1}{// top boundary}
+		\PYG{k+kt}{double} \PYG{n+nf}{getL0}\PYG{p}{(}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;} \PYG{c+c1}{// left boundary}
+		\PYG{k+kt}{double} \PYG{n+nf}{getL1}\PYG{p}{(}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;} \PYG{c+c1}{// right boundary}
+		\PYG{k}{virtual} \PYG{n}{SymMatrix} \PYG{n+nf}{getK}\PYG{p}{(}\PYG{k+kt}{double} \PYG{n}{y}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{z}\PYG{p}{)} \PYG{k}{const}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{c+c1}{// diffusivity tensor}
+		\PYG{k}{virtual} \PYG{n}{LowerTriMatrix} \PYG{n+nf}{getB}\PYG{p}{(}\PYG{k+kt}{double} \PYG{n}{y}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{z}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;} \PYG{c+c1}{// 2K = BB\PYGZsq{}}
+		\PYG{k}{virtual} \PYG{n}{Vec2} \PYG{n+nf}{getU}\PYG{p}{(}\PYG{k+kt}{double} \PYG{n}{y}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{z}\PYG{p}{)} \PYG{k}{const}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{c+c1}{// velocity vector}
+		\PYG{k}{virtual} \PYG{k+kt}{void} \PYG{n+nf}{printInfo}\PYG{p}{(}\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{ofstream}\PYG{o}{\PYGZam{}} \PYG{n}{f}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\end{Verbatim}
