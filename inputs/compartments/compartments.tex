@@ -1,0 +1,377 @@
+%!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
+\chapter{Structure of a compartment model for tracer transport} \label{chap:compartment}
+The previous chapters cover the material needed to derive compartments from the dynamics of a tracer transport model. But deciding which subdomains define the compartments is only the first step in building a compartment model. In this chapter, the structure of a compartment model is reviewed. Obviously, the compartment model has to share some of the properties of the corresponding continuous model, and covered in \textcolor{red}{chapter ?? of this work}. In this chapter, it is seen how to express a compartment model in matrix form and the matrix formulation is derived. This chapter is widely inspired from \cite{deleersnijder2014compartment} and \cite{delhez2010compartment}.
+
+\section{Formulation of a compartment model} \label{sec:fcm}
+Recall that the evolution of the concentration $C(t,\b x)$ of a tracer in a domain $\Omega$ obeys the following equation:
+\begin{equation} \label{eq:continuousproblem}
+	\frac{\partial C}{\partial t} = q - \nabla \cdot (\b u C - \b K \cdot \nabla C),
+\end{equation}
+where $\b u$ is the velocity field and $q$ is the source or sink term, i.e. the rate at which the tracer is produced or destroyed. In the case of a passive tracer, $q = 0$. Under the Boussinesq approximation, the continuity equation simplifies to
+\begin{equation}
+	\nabla \cdot \b u = 0,
+\end{equation}
+namely the velocity field is divergence-free. As already stated, the diffusivity tensor $\b K$ is symmetric and positive definite.
+
+In order to derive a compartment model from \eqref{eq:continuousproblem}, $\Omega$ must be partitioned into $N$ subdomains $\Omega_i$ ($i = 1,\dots,N$) called the \textit{compartments}. The interface between the subdomains $\Omega_i$ and $\Omega_j$ is denoted $\Gamma_{i,j}$ and the interface between $\Omega_i$ and the environment is denoted $\Gamma_{i,e}$. Obviously, $\Gamma_{i,j} = \Gamma_{j,i}$. In a compartment model, only the averages over the compartments are considered. The mean tracer concentration over compartment $i$ is 
+\begin{equation}
+	C_i(t) = \frac{1}{\Omega_i} \int_{\Omega_i} C(t,\b x) \rm d\Omega_i,
+\end{equation}
+and the production/destruction term over the subdomain $i$ becomes
+\begin{equation}
+	q_i(t) =  \frac{1}{\Omega_i} \int_{\Omega_i} q(t,\b x) \rm d\Omega_i.
+\end{equation}
+The equation governing the evolution of $C_i(t)$, the average concentration in compartment $i$, is obtained by integrating \eqref{eq:continuousproblem} over $\Omega_i$. This yields, using Gauss's Theorem:
+\begin{equation}
+	\Omega_i \frac{d C_i}{d t} = \Omega_i q_i - \sum_{\subalign{j&=1 \\j &\neq i}}^N \underbrace{\int_{\Gamma_{i,j}} (\b u C - \b K \cdot \nabla C)\cdot \b n_{i,j} \rm d\Gamma_{i,j}}_{\phi_{i,j}} - \underbrace{\int_{\Gamma_{i,e}} (\b u C - \b K \cdot \nabla C)\cdot \b n_{i,e} \rm d\Gamma_{i,e}}_{\phi_{i,e}}.
+\end{equation}
+In the framework of a compartment model, only the mean concentration in each compartment are available, making it impossible to evaluate the integrals in the right-hand side exactly. The flux $\phi_{i,j}$ can be split into an advective and a diffusive part:
+\begin{equation} \label{eq:phi_i,j}
+	\phi_{i,j} = \underbrace{\int_{\Gamma_{i,j}} (\b u C)\cdot \b n_{i,j} \rm d\Gamma_{i,j}}_{:= \phi_{i,j}^A \mbox{ \footnotesize (advective part)}} + \underbrace{\int_{\Gamma_{i,j}} (-\b K \cdot \nabla C)\cdot \b n_{i,j} \rm d\Gamma_{i,j}}_{:= \phi_{i,j}^D \mbox{ \footnotesize (diffusive part)}}.
+\end{equation} 
+A natural approximation of the advective flux $\phi_{i,j}^A$ is obtained as
+\begin{equation}
+	\phi_{i,j}^A \approx \frac{C_i + C_j}{2} \int_{\Gamma_{i,j}} \b u \cdot \b n_{i,j} \rm d\Gamma_{i,j} =  \frac{C_i + C_j}{2} \Gamma_{i,j} u_{i,j},
+\end{equation}
+where a characteristic speed $u_{i,j}$ has been introduced such that
+\begin{equation} \label{eq:def_uij}
+	\Gamma_{i,j}u_{i,j} = \int_{\Gamma_{i,j}}\b u \cdot \b n_{i,j} \rm d\Gamma_{i,j}.
+\end{equation}
+Since $\phi_{i,j}^A = - \phi_{j,i}^A$ and $\Gamma_{i,j} = \Gamma_{j,i}$, the characteristic speed must satisfy
+\begin{equation}
+	u_{i,j} = - u_{j,i}.
+\end{equation}
+The definition \eqref{eq:def_uij} satisfies that condition.
+The diffusive flux $\phi_{i,j}^D$ involves the gradient of the concentration at the interface. A possible approximation is given by
+\begin{equation}
+	\phi_{i,j}^D = - \Gamma_{i,j} k_{i,j} \frac{C_j-C_i}{l_{i,j}},
+\end{equation}
+where $k_{i,j} > 0$ is a characteristic diffusivity and $l_{i,j} > 0$ is a characteristic length. Obviously, $\phi_{i,j}^D = -\phi_{j,i}^D$ hence $k_{i,j} = k_{j,i}$ and $l_{i,j} = l_{j,i}$. In \cite{deleersnijder2014compartment}, \textit{Deleersnijder} proposes to simplify those notations by introducing advective and diffusive "fluxes" $U_{i,j}$ and $V_{i,j}$:
+\begin{equation} \label{eq:def_Uij_Vij}
+	U_{i,j} = \Gamma_{i,j}u_{i,j} \quad \mbox{and} \quad V_{i,j} = \frac{\Gamma_{i,j}k_{i,j}}{l_{i,j}}.
+\end{equation}
+By the previously mentioned properties, it is obvious that 
+\begin{equation} \label{eq:Uprop}
+	U_{i,j} = -U_{j,i}
+\end{equation} 
+and that 
+\begin{equation} \label{eq:Vprop}
+	V_{i,j} = V_{j,i} > 0.
+\end{equation}
+Using those notations, the flux from compartment $i$ to compartment $j$ is approximated by
+\begin{equation}
+	\phi_{i,j} \approx U_{i,j} \frac{C_i + C_j}{2} - V_{i,j}(C_j - C_i),
+\end{equation}
+and the equation governing the evolution of the concentration in compartment $i$ is obtained as
+\begin{equation} \label{eq:compartmentmodel}
+	\Omega_i \frac{dC_i}{dt} = \Omega_i q_i - \sum_{\subalign{j&=1 \\j &\neq i}}^N \left[ U_{i,j}\frac{C_i + C_j}{2} - V_{i,j} (C_j-C_i)\right] - \phi_{i,e}.
+\end{equation}
+Let us fix the convention $U_{i,i} = 0$ and $V_{i,i} = 0$ so that the summation subscript $j \neq i$ becomes unnecessary.
+Note that by \eqref{eq:def_Uij_Vij}, \eqref{eq:def_uij} and Gauss's theorem,
+\begin{equation} \label{eq:continuitycompartment}
+	\sum_{\subalign{j&=1 \\j &\neq i}}^N U_{i,j} + U_{i,e} = \sum_{\subalign{j&=1 \\j &\neq i}}^N \int_{\Gamma_{i,j}}\b u \cdot \b n_{i,j} \rm d\Gamma_{i,j} + \int_{\Gamma_{i,e}}\b u \cdot \b n_{i,e} \rm d\Gamma_{i,e} = \int_{\Omega_{i}} (\nabla \cdot \b u) \rm d\Omega_{i} = 0,
+\end{equation}
+the counterpart to the continuity equation.
+
+\section{Properties of the compartment model solution} \label{sec:prop_comp}
+\textcolor{red}{In chapter ???, important properties of the continuous transport model have been derived.} In this section, the counterpart of those properties are established in the case of a compartment model. In the compartment representation, the domain-averaged concentration is
+\begin{equation} \label{eq:Cmean_compartment}
+	\bar{C}(t) = \frac{1}{\Omega} \sum_{i=1}^N \Omega_i C_i(t),
+\end{equation}
+and the variance of the concentration is given by
+\begin{equation}
+	\sigma^2(t) = \frac{1}{\Omega} \sum_{i=1}^{N} \Omega_i \left[C_i(t) - \bar{C}(t)\right]^2.
+\end{equation}
+
+\begin{property} \label{prop1_comp}
+	The mean tracer concentration $\bar C$ is not influenced by the internal advective and diffusive fluxes.
+\end{property}
+\begin{proof}
+	By \eqref{eq:Cmean_compartment}, \eqref{eq:compartmentmodel}, \eqref{eq:Uprop} and \eqref{eq:Vprop}, we get successively
+	\begin{subequations}
+	\begin{align}
+		\frac{d\bar{C}}{dt} &= \frac{1}{\Omega} \sum_{i=1}^N \Omega_i \frac{dC_i(t)}{dt}\\
+			&= \frac{1}{\Omega} \sum_{i=1}^N \left[\Omega_i q_i - \sum_{j=1}^N \left[ U_{i,j}\frac{C_i + C_j}{2} - V_{i,j} (C_j-C_i)\right] - \phi_{i,e} \right]\\
+			&= \frac{1}{\Omega} \sum_{i=1}^N(\Omega_i q_i + \phi_{e,i}). \label{eq:prop1deleersnijder}
+	\end{align}
+	\end{subequations}
+\end{proof}
+
+\begin{corollary}{prop1_comp}
+	For a passive tracer ($q_i = 0$) in an isolated domain ($\phi_{i,e} = 0$), the mean tracer concentration within the whole domain $\bar C$ is a constant.
+\end{corollary}
+\begin{proof}
+	The proof is straightforward by introducing $q_i = 0$ (passive tracer) and $\phi_{i,e} = 0$ (isolated domain) in equation \eqref{eq:prop1deleersnijder}.	
+\end{proof}
+
+\begin{property} \label{prop2_comp}
+	If the tracer is passive, the domain isolated and the initial concentration is constant, then the concentration stays constant.
+\end{property}
+\begin{proof}
+	If the initial concentration is constant, then $C_i(0) = C_0$ for all $i = 1,\dots,N$. At time $t=0$, equation \eqref{eq:compartmentmodel} becomes
+	\begin{equation}
+		\Omega_i \frac{dC_i}{dt} = -C_0 \sum_{\subalign{j&=1 \\j &\neq i}}^N U_{i,j},
+	\end{equation}
+	which is equal to zero by \eqref{eq:continuitycompartment}. Here we have used that $q_i = 0$ and $\phi_{i,e} = 0$ (and thus $U_{i,e}=0$) since the tracer is passive and the domain is isolated.
+\end{proof}
+
+\begin{property} \label{prop3_comp}
+	For a passive tracer ($q_i = 0$) in an isolated domain ($\phi_{i,e} = 0$), the variance of the concentration decreases monotonically until $C_i(t) = \bar{C}(0)$ for all $i = 1,\dots,N$ (i.e., until the tracer distribution is uniform).
+\end{property}
+\begin{proof}
+	Let $\hat{C}_i(t)$ denote the deviation of the concentration in compartment $i$ with respect to the mean concentration over the whole domain:
+	\begin{equation}
+		\hat{C}_i(t) := C_i(t) - \bar C(t).
+	\end{equation}
+	By property \ref{prop2_comp}, $\bar C(t) = \bar C(0) = \bar C$ since the domain is isolated and the tracer is passive. Hence, we can rewrite equation \eqref{eq:compartmentmodel} as 
+	\begin{equation}
+		\Omega_i \frac{d(\hat C_i)}{dt} = - \sum_{j=1}^N \left[ U_{i,j}\frac{\hat C_i + \hat C_j}{2} - V_{i,j} (\hat C_j - \hat C_i)\right] - \bar C \sum_{j=1}^N U_{i,j},
+	\end{equation}
+	which by \eqref{eq:continuitycompartment} simplifies to
+	\begin{equation} \label{eq:temp_comp1}
+		\Omega_i \frac{d(\hat C_i)}{dt} = - \sum_{j=1}^N \left[ U_{i,j}\frac{\hat C_i + \hat C_j}{2} - V_{i,j} (\hat C_j - \hat C_i)\right].
+	\end{equation}
+	Multiplying \eqref{eq:temp_comp1} by $\hat C_i(t)$ and summing over $i = 1,\dots,N$ yields after some calculations
+	\begin{equation} \label{eq:temp_comp2}
+		\Omega \frac{d \sigma^2}{dt} = - \sum_{i=1}^N \sum_{j=1}^N \left[ U_{i,j}(\hat C_i + \hat C_j)\hat C_i - 2 V_{i,j} (\hat C_j - \hat C_i) \hat C_i\right].
+	\end{equation}
+	Let us look at both terms in the right-hand side of \eqref{eq:temp_comp2} separately. The first term is equal to zero:
+	\begin{subequations}
+	 	\begin{align}
+	 		\sum_{i=1}^N \sum_{j=1}^N U_{i,j}(\hat C_i + \hat C_j)\hat C_i &= \sum_{i=1}^N \left(\hat C_i \right)^2 \underbrace{\sum_{j=1}^N U_{i,j}}_{= 0} + \sum_{i=1}^N \sum_{j=1}^N U_{i,j}\hat C_j\hat C_i\\
+	 		&= \sum_{i=1}^N \sum_{j=1}^N \underbrace{\frac{U_{i,j} + U_{j,i}}{2}}_{=0}\hat C_j\hat C_i.
+	 	\end{align}
+	 \end{subequations} 
+	The second term is rewritten as
+	\begin{equation}
+ 		2 \sum_{i=1}^N \sum_{j=1}^N V_{i,j} (\hat C_j - \hat C_i) \hat C_i = -2 \sum_{i=1}^N \sum_{j=1}^N V_{i,j} (\hat C_j - \hat C_i)^2 - 2\sum_{i=1}^N \sum_{j=1}^N V_{i,j} (\hat C_j - \hat C_i) \hat C_i,
+	 \end{equation} 
+	 so that
+	 \begin{equation}
+	 	2 \sum_{i=1}^N \sum_{j=1}^N V_{i,j} (\hat C_j - \hat C_i) \hat C_i = - \sum_{i=1}^N \sum_{j=1}^N V_{i,j} (\hat C_j - \hat C_i)^2.
+	 \end{equation}
+	 Finally,
+	 \begin{equation}
+	 	\Omega \frac{d \sigma^2}{dt} = - \sum_{i=1}^N \sum_{j=1}^N V_{i,j} (\hat C_j - \hat C_i)^2,
+	 \end{equation}
+	 and thus
+	 \begin{equation}
+	 	\frac{d \sigma^2}{dt} = -\frac{1}{\Omega} \sum_{i=1}^N \sum_{j=1}^N V_{i,j} (C_j - C_i)^2,
+	 \end{equation}
+	 which proves the claim.  Interestingly, the advective part of the fluxes does not contribute to the homogenization of the concentration; only the diffusive part does.
+\end{proof}
+
+\section{Matrix formulation}
+The generic compartment model described in the previous sections can be written in matrix form. For simplicity and because we will restrict ourselves to such systems in the next, we consider the case of an isolated system, i.e. $\phi_{i,e} = 0$. Let
+\begin{equation} \label{eq:def_compartment_vars}
+	\b c = \begin{pmatrix} C_1 \\ C_2 \\ \vdots \\ C_N \end{pmatrix}, \quad \b q = \begin{pmatrix} q_1 \\ q_2 \\ \vdots \\ q_N \end{pmatrix}, \quad \bs \omega = \begin{pmatrix} \Omega_1 \\ \Omega_2 \\ \vdots \\ \Omega_N \end{pmatrix}, \quad \mbox{and} \quad \bs \Omega = \diag(\bs \omega).
+\end{equation}
+The evolution of the concentrations in the compartments is given by
+\begin{equation} \label{eq:compartmentmatrix}
+	\bs \Omega \b{\dot{c}} = \bs \Omega \b q + \b A \b c,
+\end{equation}
+where $\b A$ is the \textit{interaction matrix}, which describes the advective and diffusive fluxes between the subdomains. Using the parameters introduced previously, $\b A$ can be expressed as
+\begin{equation} \label{eq:generalA}
+	\b A = 	\begin{pmatrix}
+				-\sum_{j=1}^N \frac{1}{2}U_{1,j}+V_{1,j} & -\frac{1}{2}U_{1,2}+V_{1,2} & \cdots & -\frac{1}{2}U_{1,N}+V_{1,N}\\[.1cm]
+				-\frac{1}{2}U_{2,1}+V_{2,1} & -\sum_{j=1}^N \frac{1}{2}U_{2,j}+V_{2,j} & \cdots & -\frac{1}{2}U_{2,N}+V_{2,N}\\
+				\vdots & \vdots & \ddots & \vdots\\
+				-\frac{1}{2}U_{N,1}+V_{N,1} & -\frac{1}{2}U_{N,2}+V_{N,2} & \cdots & -\sum_{j=1}^N \frac{1}{2}U_{N,j}+V_{N,j}
+			\end{pmatrix}.
+\end{equation}
+In matrix formulation, the mean concentration is expressed as
+\begin{equation} \label{eq:Cmeanmatrix}
+	\bar C = \frac{1}{\Omega} \b 1^\t \bs \Omega \b c,
+\end{equation}
+where $\b 1$ is the N-dimensional unit column vector. Notice that $\Omega = \b 1^\t \bs \Omega \b 1$. In the next of this section, we show of properties \ref{prop1_comp}, \ref{prop2_comp} and \ref{prop3_comp} from section \ref{sec:prop_comp} are expressed in matrix formulation.
+\begin{propertybis}{prop1_comp} \label{prop1bis_comp}
+Each column of the interaction matrix sums to zero:
+\begin{equation}
+	\b 1^\t \b A = 0.
+\end{equation}
+\end{propertybis} 
+\begin{proof}
+	We know that $\dot{\bar C} = 0$. From equations \eqref{eq:compartmentmatrix} and \eqref{eq:Cmeanmatrix},
+	\begin{equation}
+		\Omega \dot{\bar{C}} = \b 1^\t \bs \Omega \dot{\b{c}} = \b 1^\t \bs \Omega \b q + \b 1^\t\b A \b c.
+	\end{equation}
+	Furthermore, equation \eqref{eq:prop1deleersnijder} in an isolated system is equivalent to
+	\begin{equation}
+		\Omega \dot{\bar{C}} = \b 1^\t \bs \Omega \b q,
+	\end{equation}
+	hence we must have that $\b 1^\t \b A = 0$.
+\end{proof}
+
+\begin{propertybis}{prop2_comp} \label{prop2bis_comp}
+	Each row of the interaction matrix sums to zero:
+	\begin{equation}
+		\b A \b 1 = 0.		
+	\end{equation}	
+\end{propertybis}
+\begin{proof}
+	Let $C_0$ be a constant and $\b c = C_0 \b 1$. Introducing the latter in \eqref{eq:compartmentmatrix} with $\b q = \b 0$ yields
+	\begin{equation}
+		0 = C_0 \b A \b 1.
+	\end{equation}
+\end{proof}
+
+\begin{propertybis}{prop3_comp} \label{prop3bis_comp}
+	The interaction matrix is negative definite.
+\end{propertybis}
+\begin{proof}
+	We consider a passive tracer hence $\b q = 0$. Besides, since the domain is isolated the domain-averaged value of the concentration $\bar C$ is a constant.
+	Consider $\hat{\b c} = \b c - \bar C \b 1$, the deviation of the concentration with respect to $\bar C$. Since under those conditions, \eqref{eq:compartmentmatrix} is linear and homogeneous in $\b c$, it applies to any perturbation of $\b c$ by a constant, and thus to $\hat{\b c}$:
+	\begin{equation} \label{eq:prp3matrix}
+		\bs \Omega \dot{\hat{\b c}} = \b A \hat{\b c}.
+	\end{equation}
+	The variance is expressed as
+	\begin{equation}\label{eq:sigmamatrix}
+		\sigma^2 = \frac{1}{\Omega} \hat{\b c}^\t \bs \Omega \hat{\b c}.
+	\end{equation}
+	A time-differentiation of \eqref{eq:sigmamatrix} yields
+	\begin{equation}
+		\frac{d \sigma^2}{dt} = \frac{2}{\Omega} \hat{\b c}^\t \bs \Omega \dot{\hat{\b c}},
+	\end{equation}
+	and finally by \eqref{eq:prp3matrix}
+	\begin{equation}
+		\frac{\Omega}{2} \frac{d \sigma^2}{dt} = \hat{\b c}^\t \b A \hat{\b c}.
+	\end{equation}
+	The latter must be negative (or zero if $\hat{\b c} = \b 0$), which shows that $\b A$ is negative definite.
+\end{proof}
+
+\section{Discrete-time compartment model} \label{sec:dtcm(chapcomp)}
+It is also possible to build a discrete-time compartment model, and this could even be more relevant in the context of numerical implementation. Consider equation \eqref{eq:compartmentmatrix}. For a given time step $\Delta t$, we would like to build a similar expression that would link $\b c(t+\Delta t)$ to $\b c(t)$. From the theory of ordinary differential equations, we know that the general solution to that equation is
+\begin{equation} \label{eq:generalODEsol}
+	\b c(t) = \Exp^{\bs \Omega^{-1}\b A(t-t_0)} \b c(t_0) + \int_{t_0}^t \Exp^{\bs \Omega^{-1}\b A(t-s)} \b q(s) \rm ds.
+\end{equation}
+For a general source term $\b q$, it is not possible to write a matrix expression of the form $\b c(t+\Delta t) = \b A_{\Delta t} \b c(t) + \b B_{\Delta t} \b q(t)$, but it is possible under certain conditions on $\b q$. In this work, we won't need such conditions because we make the assumption that there is no source/sink term, i.e. we assume that $\b q = 0$. Let $t_0 < t_1 < t_2 < \dots$ be such that $t_{i+1} = t_i + \Delta t$. If $\b c(t_i)$ is known, $\b c(t_{i+1})$ can be computed using \eqref{eq:generalODEsol} with $\b q = 0$:
+\begin{equation}
+	\b c(t_{i+1}) = \Exp^{\bs \Omega^{-1}\b A\Delta t} \b c(t_i).
+\end{equation}
+Doing this, we have found a matrix relation that links $\b c(t+\Delta t)$ to $\b c(t)$:
+\begin{equation} \label{eq:generaldiscretecompartment}
+	\b c(t + \Delta t) = \b A_{\Delta t} \b c(t),
+\end{equation}
+where $\b A_{\Delta t} = \Exp^{\bs \Omega^{-1}\b A\Delta t}$ is the \textit{discrete interaction matrix}. Notice that the discrete interaction matrix is closely related to the transition probability matrix introduced in chapter \ref{chap:clustering}. Indeed, developing \eqref{eq:generaldiscretecompartment} for $C_i(t)$ yields
+\begin{equation} \label{eq:crapaud}
+	C_i(t+\Delta t) = [\b A_{\Delta t}]_{i,1} C_{1}(t) + [\b A_{\Delta t}]_{i,2} C_{2}(t) + \ldots + [\b A_{\Delta t}]_{i,N} C_{N}(t).  	
+\end{equation}
+Let $J_i(t)$ denote the number of tracer's particles in compartment $i$ at time $t$, and let $P$ be the mass of one tracer's particle. Notice that
+\begin{equation}
+	C_i(t) = \frac{J_i(t) P}{\Omega_i}.
+\end{equation}
+Multiplying equation \eqref{eq:crapaud} by $\Omega_i/P$ yields after some manipulations
+\begin{equation}
+	J_i(t) = [\b A_{\Delta t}]_{i,1} \frac{\Omega_i}{\Omega_1} J_{1}(t) + [\b A_{\Delta t}]_{i,2}\frac{\Omega_i}{\Omega_2} J_{2}(t) + \ldots + [\b A_{\Delta t}]_{i,N}\frac{\Omega_i}{\Omega_N} J_{N}(t).
+\end{equation}
+Hence, the factor $\frac{\Omega_i}{\Omega_j}[\b A_{\Delta t}]_{i,j}$ can be interpreted as the probability \label{page:probability_interpretation} for a tracer's particle to end up in compartment $i$ after a period $\Delta t$ if it was initially in compartment $j$. This consideration suggests that the entries of $\b A_{\Delta t}$ should be nonnegative: this is indeed an important property of the discrete interaction matrix.
+\begin{property} \label{prop1_discr_comp}
+	The entries of the discrete interaction matrix are nonnegative:
+	\begin{equation}
+		[\b A_{\Delta t}]_{ij} \ge 0 \mbox{ for every } i,j = 1,\dots,N.
+	\end{equation}
+\end{property}
+\begin{proof}
+	Let $C_0 > 0$ be a positive constant, and fix $j \in \{1,\dots,N\}$. Suppose that 
+	\begin{equation}
+		\b c(t) = \begin{pmatrix} c_1(t) \\ \vdots \\ c_{j-1}(t) \\ c_j(t) \\ c_{j+1}(t) \\ \vdots \\ c_N(t) \end{pmatrix}
+				= \begin{pmatrix} 0 \\ \vdots \\ 0 \\ C_0 \\ 0 \\ \vdots \\ 0 \end{pmatrix}.
+	\end{equation}
+	By equation \eqref{eq:generaldiscretecompartment},
+	\begin{equation}
+		\b c(t+\Delta t) = \b A_{\Delta t} \b c(t) = \begin{pmatrix} [\b A_{\Delta t}]_{1,j} C_0 \\ \vdots \\ [\b A_{\Delta t}]_{j-1,j}C_0  \\ [\b A_{\Delta t}]_{j,j} C_0 \\ [\b A_{\Delta t}]_{j+1,j}C_0 \\ \vdots \\ [\b A_{\Delta t}]_{N,j} C_0 \end{pmatrix}.
+	\end{equation}
+	Since $\b c$ is a concentration, we must have that $\b c(t) \ge \b 0$ at any time $t$. Therefore, since $C_0 > 0$ we must have that
+	\begin{equation}
+		[\b A_{\Delta t}]_{i,j} \ge 0 \mbox{ for every } i = 1,\dots,N.
+	\end{equation}
+	Finally, as we have made no assumption on $j$ this must be true for any $j \in \{1,\dots,N\}$, which concludes the proof.
+\end{proof}
+The interpretation of $\frac{\Omega_i}{\Omega_j}[\b A_{\Delta t}]_{i,j}$ in terms of a transition probability of the tracer's particles between compartments suggests another important property of the discrete interaction matrix. Indeed, the tracer's particles cannot disappear, hence the sum of the probabilities over all possible destinations (i.e. over all compartments since we consider an isolated domain) must be equal to one:
+\begin{equation}
+	\sum_{i=1}^N \frac{\Omega_i}{\Omega_j}[\b A_{\Delta t}]_{i,j} = 1 \quad \mbox{for every } j=1,\dots,N.
+\end{equation}
+This property can be deduced from property \ref{prop1_comp}:
+
+\begin{propertyter}{prop1_comp} \label{prop1ter_comp} \label{prop2_discr_comp}
+	The columns of the discrete interaction matrix satisfy the following relation:
+	\begin{equation}
+		\sum_{i=1}^N \Omega_i  [\b A_{\Delta t}]_{ij} = \Omega_j \qquad (j=1,\dots,N),
+	\end{equation}
+	or in matrix form:
+	\begin{equation}
+		\bs \omega^\t \b A_{\Delta t} = \bs \omega^\t .
+	\end{equation}
+\end{propertyter}
+\begin{proof}
+	The expression of the mean concentration over $\Omega$ is the same as in the continuous case:
+	\begin{equation}
+		\bar C = \frac{1}{\Omega} \b 1^\t \bs \Omega \b c.
+	\end{equation}
+	Since $\bar C$ is constant, we must have that
+	\begin{equation}
+		\Omega \bar C(t+\Delta t) = \Omega \bar C(t) = \b1^\t \bs \Omega \b c(t) = \bs \omega^\t \b c(t),
+	\end{equation}
+	but by equation \eqref{eq:generaldiscretecompartment} we also have that
+	\begin{equation}
+		\Omega \bar C(t+\Delta t) = \b1^\t \bs \Omega \b c(t+\Delta t) = \b1^\t \bs \Omega \b A_{\Delta t} \b c(t) = \bs \omega^\t \b A_{\Delta t} \b c(t).
+	\end{equation}
+	Hence, $\bs \omega^\t \b c(t) = \bs \omega^\t \b A_{\Delta t} \b c(t)$, and since this must be true for every possible value of $\b c(t)$, we must have that
+	\begin{equation} \label{eq:prop1ter_comp}
+		\bs \omega^\t = \bs \omega^\t \b A_{\Delta t},
+	\end{equation}
+	the desired result.
+\end{proof}
+\begin{corollary}{prop1ter_comp} \label{corollary2}
+	If the compartments all have the same size, the discrete interaction matrix is  left stochastic:
+	\begin{equation}
+		\b 1^\t \b A_{\Delta t} = \b 1^\t.
+	\end{equation}
+\end{corollary}
+\begin{proof}
+	Let $\Omega_0$ be the size of the compartments. Then, $\bs \omega = \Omega_0 \b 1$ and equation \eqref{eq:prop1ter_comp} reduces to
+	\begin{equation}
+		\Omega_0 \b 1^\t = \Omega_0 \b 1^\t \b A_{\Delta t}.
+	\end{equation}
+\end{proof}
+Property \ref{prop2_comp} also has an interpretation in terms of the discrete interaction matrix:
+\begin{propertyter}{prop2_comp} \label{prop2ter_comp} \label{prop3_discr_comp}
+	The discrete interaction matrix is right stochastic:
+	\begin{equation}
+		\b A_{\Delta t} \b 1 = \b 1.
+	\end{equation}
+\end{propertyter}
+\begin{proof}
+	Let $C_0 > 0$ be a constant and $\b c(t) = C_0 \b 1$. Introducing the latter in \eqref{eq:generaldiscretecompartment} yields
+	\begin{equation}
+		C_0 \b 1 = \b A_{\Delta t} C_0 \b 1 = C_0 \b A_{\Delta t} \b 1.
+	\end{equation}
+\end{proof}
+Two last properties allow to bound the entries of the discrete interaction matrix:
+\begin{property} \label{prop4_discr_comp}
+	The entries of the discrete interaction matrix are smaller than one:
+	\begin{equation}
+	 		[\b A_{\Delta t}]_{i,j} \le 1 \mbox{ for every } i,j = 1,\dots,N.
+	\end{equation}
+\end{property}
+\begin{proof}
+	We proceed by contradiction. Suppose there exist $i,j \in \{1,\dots,N\}$ such that $[\b A_{\Delta t}]_{i,j} > 1$. By property \ref{prop1_discr_comp}, all the entries of $\b A_{\Delta t}$ are nonnegative so that
+	\begin{equation}
+		\sum_{k = 1}^N [\b A_{\Delta t}]_{i,k} > 1,
+	\end{equation}
+	in contradiction with property \ref{prop2ter_comp}.
+\end{proof}
+\begin{property} \label{prop5_discr_comp}
+	The entries of the discrete interaction matrix satisfy
+	\begin{equation}
+		\frac{\Omega_i}{\Omega_j} [\b A_{\Delta t}]_{i,j} \le 1 \mbox{ for every } i,j = 1,\dots,N.
+	\end{equation}
+\end{property}
+\begin{proof}
+	We proceed again by contradiction. Suppose there exist $i,j \in \{1,\dots,N\}$ such that $\frac{\Omega_i}{\Omega_j} [\b A_{\Delta t}]_{i,j} > 1$. By property \ref{prop1_discr_comp}, all the entries of $\b A_{\Delta t}$ are nonnegative so that
+	\begin{equation}
+		\sum_{k = 1}^N \frac{\Omega_k}{\Omega_j}[\b A_{\Delta t}]_{k,j} > 1,
+	\end{equation}
+	in contradiction with property \ref{prop1ter_comp}.
+\end{proof}
+This last property is in agreement with the interpretation of the factors $\frac{\Omega_i}{\Omega_j} [\b A_{\Delta t}]_{i,j}$ as probabilities of transition between the compartments.

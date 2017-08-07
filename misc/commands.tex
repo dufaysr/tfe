@@ -23,6 +23,21 @@
 \newcommand{\ez}{\ensuremath{\hat{\b{e}}_z}}
 \newcommand{\nby}{\ensuremath{n_{box,\,y}}}
 \newcommand{\nbz}{\ensuremath{n_{box,\,z}}}
+
+\makeatletter
+\newcommand{\subalign}[1]{%
+  \vcenter{%
+    \Let@ \restore@math@cr \default@tag
+    \baselineskip\fontdimen10 \scriptfont\tw@
+    \advance\baselineskip\fontdimen12 \scriptfont\tw@
+    \lineskip\thr@@\fontdimen8 \scriptfont\thr@@
+    \lineskiplimit\lineskip
+    \ialign{\hfil$\m@th\scriptstyle##$&$\m@th\scriptstyle{}##$\crcr
+      #1\crcr
+    }%
+  }
+}
+\makeatother
 %C++
 \newcommand{\Cpp}{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{++}}} }
 \DeclareMathOperator{\diag}{diag}
@@ -30,6 +45,7 @@
 \DeclareMathOperator{\trace}{trace}
 \DeclareMathOperator{\Exp}{e}
 \DeclareMathOperator{\cov}{cov}
+\DeclareMathOperator*{\argmin}{arg\,min}
 \def\mslim{\qopname\relax m{\text{ms-lim}}}
 \renewcommand{\t}{\intercal} %transposed matrices
 
@@ -42,3 +58,27 @@
 \providecommand{\e}[1]{\ensuremath{\!\times\!10^{#1}}}
 
 \newcommand\blankpage{\null \thispagestyle{empty} \newpage} %\addtocounter{page}{-1}
+
+\makeatletter
+\newcommand{\neutralize}[1]{\expandafter\let\csname c@#1\endcsname\count@}
+\makeatother
+\newtheorem{property}{Property}
+\newtheorem{cor}{Corollary}
+
+\newenvironment{propertybis}[1]
+  {\renewcommand{\theproperty}{\ref{#1}$'$}%
+   \neutralize{property}\phantomsection
+   \begin{property}}
+  {\end{property}}
+
+\newenvironment{propertyter}[1]
+  {\renewcommand{\theproperty}{\ref{#1}$''$}%
+   \neutralize{property}\phantomsection
+   \begin{property}}
+  {\end{property}}
+
+  \newenvironment{corollary}[1]
+  {\renewcommand{\thecor}{\ref{#1}}%
+   \neutralize{property}\phantomsection
+   \begin{cor}}
+  {\end{cor}}

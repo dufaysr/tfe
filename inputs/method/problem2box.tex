@@ -136,3 +136,138 @@ Hopefully this introductory example shows how a community-detection algorithm co
 	\caption{Illustration of the three-communities partitioning for $\alpha = 0$.}
 	\label{fig:cluster_a0_3}
 \end{figure}
+
+\newpage
+\section{Building a compartment model}
+Let us now focus on the case $\alpha = 0.75$. The community detection method applied in the previous section suggests a two compartments model with $\Omega_1 = \Omega^-$ and $\Omega_2 = \Omega^+$. We consider a \textit{passive} tracer and the domain is \textit{isolated}. Two approaches are proposed in order to build a compartment model: in section \ref{sec:ctcm}, a continuous-time compartment model is build which depends on one parameter, and the analytical solution to that compartment model is used to compute a relevant value for that parameter; in section \ref{sec:dtcm}, a discrete-time compartment model is build which also depends on one parameter, and a numerical simulation is used to estimate that parameter.  
+
+\subsection{Continuous-time compartment model} \label{sec:ctcm}
+Let $\b A$ be the $2 \times 2$ interaction matrix, and let $\b c$ and $\bs \Omega$ be defined as in \eqref{eq:def_compartment_vars}. The evolution of the concentration in the two compartments is given by
+\begin{equation} \label{eq:generalEDOp2b}
+ 	\bs \Omega \b{\dot{c}} = \b A \b c.
+\end{equation}
+It remains to propose an expression for $\b A$. In the general case, a $2 \times 2$ matrix such as $\b A$ has four independent entries. However, properties \ref{prop1bis_comp}, \ref{prop2bis_comp} and \ref{prop3bis_comp} shown in chapter \ref{chap:compartment} imply that $\b A$ has only one degree of freedom. Moreover, for $a > 0$, $\b A$ must have the following form:
+\begin{equation} \label{eq:A}
+	\b A = \begin{pmatrix}
+		-a & a\\
+		a & -a
+	\end{pmatrix}.
+\end{equation}
+This is nothing but a straightforward implication of the combination of the three properties. Another way of seeing this is by looking at the general form of $\b A$ shown in \eqref{eq:generalA}. In this case, that expression reduces to (remember that $U_{i,i} = 0 = V_{i,i}$):
+\begin{equation} \label{eq:Atemp}
+	\b A = \begin{pmatrix}
+		-\frac{1}{2} U_{1,2} - V_{1,2} & -\frac{1}{2}U_{1,2} + V_{1,2}\\
+		-\frac{1}{2}U_{2,1} + V_{2,1} & -\frac{1}{2}U_{2,1} - V_{2,1}
+	\end{pmatrix}.
+\end{equation}
+By the continuity equation for the compartment model \eqref{eq:continuitycompartment}, $U_{1,2} = U_{2,1} = 0$, and by the property \eqref{eq:Vprop} of $V_{i,j}$, $V_{1,2} = V_{2,1} > 0$. With those considerations, \eqref{eq:Atemp} simplifies to
+\begin{equation}
+	\b A = \begin{pmatrix}
+		- V_{1,2} & V_{1,2}\\
+		V_{1,2} & -V_{1,2}
+	\end{pmatrix},
+\end{equation}
+which is exactly \eqref{eq:A} with $V_{1,2} = a$.
+
+The compartment model considered here has in fact an analytic solution that is relatively easy to compute. Indeed, by property \ref{prop1_comp}, the mean concentration over the whole domain is constant:
+\begin{equation}
+	\bar C(t) = \bar C = \frac{\Omega_1 C_1 + \Omega_2 C_2}{\Omega} = \frac{C_1 + C_2}{2}.
+\end{equation}
+Hence, we can express $C_2$ as a linear function of $C_1$:
+\begin{equation}
+	C_2 = 2\bar C - C_1,
+\end{equation}
+and \eqref{eq:generalEDOp2b} reduces to a simple ODE in $C_1$ with one parameter $a$:
+\begin{equation} \label{eq:edoC1_p2b_a75}
+	\frac{dC_1}{dt} = -2aC_1 + 2a\bar C,
+\end{equation}
+where we have redefined $a$ as $V_{1,2}/\Omega_1$ in order to simplify the notations. Let $C_{1,0}$ be the initial condition on $C_1$, namely $C_1(0) = C_{1,0}$. The solution to \eqref{eq:edoC1_p2b_a75} is easy to compute:
+\begin{equation}
+	C_1(t) = (C_{1,0} - \bar C) \Exp^{-2at} + \bar C.
+\end{equation}
+Let us consider the scaled form of the concentration $\tilde C_1 = C_1/\bar C$. The solution is expressed in terms of $\tilde C_1$ as:
+\begin{equation}
+	\tilde C_1(t) = (\tilde C_{1,0} - 1) \Exp^{-2at} + 1.
+\end{equation}
+
+The goal now is to estimate the parameter $a$. To this end, we propose the following approach:
+\begin{enumerate}
+	\item Run a simulation on a particular instance of the bi-overturner problem (i.e. a particular initial condition).
+	\item Using that simulation, compute the average concentration in $\Omega_1$ at $m$ different times $t_0 < t_1 < \dots < t_m$. For the next, let $\bar C_1(t)$ denote the average concentration over $\Omega_1$ at time $t$ (whereas $C_1(t)$ stands for the compartment model concentration in the compartment corresponding to the subdomain $\Omega_1$).
+	\item Apply the method of least squares to compute $a$:
+	\begin{equation} \label{eq:a_minimization}
+		a = \argmin_a \sum_{i=1}^m \left(C_1(t_i)-\bar C_1(t_i)\right)^2.
+	\end{equation}
+\end{enumerate}
+This method leads to a value of $a$ based on one single particular instance of the problem (i.e. a particular initial condition). Of course, we will need to check that the results obtained for other initial conditions are sufficiently close to the simulations.
+
+The method is applied for the initial condition $\tilde C_1(0) = 1$ (and hence $\tilde C_2(0) = 0$), and with the tracer particles initially uniformly distributed over $\Omega_1$. The simulation is run for 1000 years, and $\bar C_1(t)$ is evaluated every year. The minimization of \eqref{eq:a_minimization} is performed in \matlab using the Gauss-Newton algorithm, which is well-suited to solve non-linear least squares problems.\footnote{See for example the wikipedia page of the algorithm : \url{https://en.wikipedia.org/wiki/Gauss-Newton_algorithm}.} The value 
+\begin{equation}
+	a = 0.003125
+\end{equation}
+is found. Figure \ref{fig:comparison_comp-real1} compares the evolution of $\tilde C_1(t) = C_1(t)/\bar C$, the analytical solution of the compartment model, with the evolution of $\tilde C_1(t)/\bar C$, the scaled mean value of the concentration over $\Omega_1$ computed numerically, which we may consider as an approximation of the exact solution.
+
+\textcolor{red}{todo : autres conditions initiales}
+
+\subsection{Discrete-time compartment model} \label{sec:dtcm}
+When there are more than two compartments, finding an analytic solution is not always possible and the methodology presented in the previous section cannot be applied. For this reason, another approach is proposed in this section. 
+\subsubsection{The method}
+Here a \textit{discrete} interaction matrix $\b A_{\Delta t}$ is build based on a numerical simulation over a period $\Delta t$. This methodology is thus far more general than the one presented in the previous section. It goes as follows: to compute the entry $[\b A_{\Delta t}]_{i,j}$, run a simulation over a period $\Delta t$, with all the particles initially uniformly distributed over compartment $j$ (i.e. subdomain $\Omega_j$). Let $J$ be the total number of particles, and $J_{j \rightarrow i}(\Delta t)$ the number of particles amongst those initially in box $j$ that ends up in compartment $i$ after a time $\Delta t$. The factor $\frac{J_{j \rightarrow i}(\Delta t)}{J}$ is an approximation of the probability to go from compartment $j$ to compartment $i$ within a time period $\Delta t$. But this probability is precisely given by $\frac{\Omega_i}{\Omega_j}[\b A_{\Delta t}]_{i,j}$, as explained page \pageref{page:probability_interpretation}. We have thus the approximation
+\begin{equation} \label{eq:A_approx_discr}
+	[\b A_{\Delta t}]_{i,j} \approx \frac{J_{j \rightarrow i}(\Delta t)}{J}\frac{\Omega_j}{\Omega_i}.
+\end{equation}
+Using that formula to compute an approximation of $\b A_{\Delta t}$, it is seen that properties \ref{prop1_discr_comp}, \ref{prop2_discr_comp} and \ref{prop5_discr_comp} are always respected \textit{a priori}. Properties \ref{prop3_discr_comp} and \ref{prop4_discr_comp} should by verified a posteriori.
+\subsubsection{Results}
+In a first instance, we can take advantage of the properties developed in section \ref{sec:dtcm(chapcomp)} to deduce the general form of $\b A_{\Delta t}$ for this problem. In the present case, $\Omega_1$ and $\Omega_2$ have the same size; this implies that property \ref{prop2_discr_comp} reduces to corollary \ref{corollary2}, and that property \ref{prop5_discr_comp} becomes equivalent to property \ref{prop4_discr_comp}. Putting everything together, the matrix $\b A_{\Delta t}$ that we search is a $2 \times 2$ matrix whose entries are comprised between 0 and 1 and which satisfies $\b 1^\t \b A_{\Delta t} = \b 1^\t$ and $\b A_{\Delta t} \b 1= \b 1$. This implies that $\b A_{\Delta t}$ must have the following form:
+\begin{equation} \label{eq:generalformAdeltat}
+	\b A_{\Delta t} = \begin{pmatrix}
+		a & 1-a\\ 1-a & a
+	\end{pmatrix},
+\end{equation}
+for some $a \in [0,\,1]$.
+
+The discrete interaction matrix is approximated for $\Delta t = 1$ year with $J = 10\ 000$. \textcolor{red}{Mentionner l'étude de convergence, mais la rendre plus rigoureuse.} Using formula \eqref{eq:A_approx_discr}, we get
+\begin{equation}
+	\b A_1 = \begin{pmatrix}
+		0.9839 & 0.0159 \\ 
+		0.0161 & 0.9841
+	\end{pmatrix}.
+\end{equation}
+This approximation of $\b A_1$ does not exactly match the general form \eqref{eq:generalformAdeltat}. Hence, we improve that approximation by choosing $a$ as an average:
+\begin{equation}
+	a = \frac{[\b A_1]_{1,1} + (1-[\b A_1]_{1,2}) + (1 - [\b A_1]_{2,1}) + [\b A_1]_{2,2}}{4} = 0.9840,
+\end{equation}
+leading to
+\begin{equation}
+	\b A_1^{discr,1} = \begin{pmatrix}
+		0.9840 & 0.0160 \\ 
+		0.0160 & 0.9840
+	\end{pmatrix},
+\end{equation}
+which match the general form \eqref{eq:generalformAdeltat}. For any initial condition, we can now approximate the concentration in both compartments after $T$ years as
+\begin{equation}
+	\b c^{discr,1}(T) = \left(\b A_1^{discr,1}\right)^T \b c(0).
+\end{equation}
+The resulting evolution of the concentration in compartment 1 is shown in figure \ref{fig:comparison_comp-real1} for the initial condition $\b c(0) = (2\bar C,0)^\t$. Clearly, this result is not satisfying as the concentration decreasing much too fast in compartment 1. Therefore, we propose another way of estimating $\b A_1$ that leads to better results: instead of running the numerical over a period of 1 year, we run a 50 years simulation to compute $\b A_{50}$. The choice of 50 years is motivated by the fact that the two-communities clustering appears approximately at that time scale, as shown in figure \ref{fig:staba75}. Then, $\b A_1$ is approximated as
+\begin{equation}
+	\b A_1 = \left(\b A_{50}\right)^{\frac{1}{50}},
+\end{equation}
+and a small correction is applied (as in the previous method) in order to match the general form \eqref{eq:generalformAdeltat}. Doing this, we get
+\begin{equation}
+	\b A_1^{discr,2} = \begin{pmatrix}
+		0.9972 & 0.0028 \\ 
+		0.0028 & 0.9972
+	\end{pmatrix},
+\end{equation}
+leading to the approximation
+\begin{equation}
+	\b c^{discr,2}(T) = \left(\b A_1^{discr,2}\right)^T \b c(0).
+\end{equation}
+The resulting evolution is also shown in figure \ref{fig:comparison_comp-real1}. The result is far better than with the first method.
+
+\begin{figure}[!htp]
+	\centering
+	\includegraphics[scale=1]{fig/problem2box/C1vsC1tilde1_1000years2.eps}
+	\caption{Comparison of the compartment model solution with the numerical solution for the initial condition $C_1(0) = \bar C$.}
+	\label{fig:comparison_comp-real1}
+\end{figure}

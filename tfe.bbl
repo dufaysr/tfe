@@ -8,7 +8,7 @@ Eric Deleersnijder.
 \newblock Available at \url{http://hdl.handle.net/2078.1/155304}.
 
 \bibitem{deleersnijder2001concept}
-Eric Deleersnijder, Jean-Michel Campin, and Eric J.-M. Delhez.
+Eric Deleersnijder, Jean-Michel Campin, and Eric~J.M. Delhez.
 \newblock The concept of age in marine modelling: I. theory and preliminary
   model results.
 \newblock {\em Journal of Marine Systems}, 28(3):229--267, 2001.
@@ -195,6 +195,17 @@ Eric Deleersnijder.
   term.
 \newblock 2011.
 \newblock Available at \url{http://hdl.handle.net/2078.1/155372}.
+
+\bibitem{deleersnijder2014compartment}
+Eric Deleersnijder.
+\newblock On the structure of a compartment model for tracer transport.
+\newblock 2014.
+\newblock Available at \url{http://hdl.handle.net/2078.1/155581}.
+
+\bibitem{delhez2010compartment}
+Eric~J.M. Delhez.
+\newblock A matrix approach of compartment models.
+\newblock 2010.
 
 \bibitem{timmermans2006masterthesis}
 Catherine Timmermans.
