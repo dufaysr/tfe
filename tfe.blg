@@ -3,49 +3,49 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: tfe.aux
 The style file: unsrt.bst
 Database file #1: bib/bibli.bib
-Warning--empty journal in deleersnijder2006overturner
-Warning--empty journal in deleersnijder2011test
 Warning--empty journal in deleersnijder2014compartment
 Warning--empty journal in delhez2010compartment
-You've used 38 entries,
+Warning--empty journal in deleersnijder2011test
+Warning--empty journal in deleersnijder2006overturner
+You've used 39 entries,
             1791 wiz_defined-function locations,
-            669 strings with 10158 characters,
-and the built_in function-call counts, 7775 in all, are:
-= -- 706
-> -- 319
+            671 strings with 10248 characters,
+and the built_in function-call counts, 7904 in all, are:
+= -- 717
+> -- 323
 < -- 3
-+ -- 124
-- -- 86
-* -- 505
-:= -- 1273
-add.period$ -- 118
-call.type$ -- 38
-change.case$ -- 34
++ -- 126
+- -- 87
+* -- 506
+:= -- 1293
+add.period$ -- 121
+call.type$ -- 39
+change.case$ -- 35
 chr.to.int$ -- 0
-cite$ -- 42
-duplicate$ -- 337
-empty$ -- 778
-format.name$ -- 86
-if$ -- 1696
+cite$ -- 43
+duplicate$ -- 342
+empty$ -- 796
+format.name$ -- 87
+if$ -- 1727
 int.to.chr$ -- 0
-int.to.str$ -- 38
+int.to.str$ -- 39
 missing$ -- 39
-newline$ -- 196
-num.names$ -- 38
-pop$ -- 105
+newline$ -- 201
+num.names$ -- 39
+pop$ -- 111
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 125
+skip$ -- 128
 stack$ -- 0
 substring$ -- 511
-swap$ -- 43
+swap$ -- 44
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 4
-while$ -- 77
-width$ -- 40
-write$ -- 410
+while$ -- 78
+width$ -- 41
+write$ -- 420
 (There were 4 warnings)

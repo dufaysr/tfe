@@ -1,0 +1,125 @@
+%!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
+\chapter{The transport model}
+\section{The reactive transport equation}
+The evolution of the concentration of a particular constituent (or tracer) in an aquatic environment is described by the \textit{reactive transport equation}:
+\begin{equation}\label{eq:ADR}
+	\frac{\partial C}{\partial t} = q-\nabla \cdot \left(\b uC - \b K \nabla C\right).
+\end{equation}
+In this equation, $C$ is the concentration of the constituent in water, expressed in $\rm{kg/m^d}$, where $d$ is the dimension of the problem; $t$ is the time, expressed in seconds; $q$ is the local net production (i.e. production - destruction) rate of the constituent, expressed in $\rm{kg/(m^ds)}$; $\b u$ is the velocity vector whose units are $\rm{m/s}$; and $\b K$ is the \textit{diffusivity tensor}, expressed in $\rm{m^2/s}$. Without loss of generality, we can assume $\b K$ to be symmetric. This is essentially because the impact of the anti-symmetric part of $\b K$, if any, may be viewed as additional advection. More details may be found in appendix A of \cite{deleersnijder2001concept}. Of course, the symmetric tensor $\b K$ must then be positive-definite in order to represent truly diffusive processes, namely phenoma which tend, at any time and location, to homogenize the concentration of any constituent.
+
+In equation \eqref{eq:ADR}, $\nabla \cdot \b u C$ is the \textit{advective} term, $\nabla \cdot (\b K \nabla C)$ is the \textit{diffusive} term, and $q$ is often called the \textit{source/sink} term. When $q=0$, equation becomes the \textit{advection-diffusion} equation:
+\begin{equation}\label{eq:C_PDE_vec}
+ 	\frac{\partial C}{\partial t} = -\nabla \cdot \left(\b uC - \b K \nabla C\right).
+ \end{equation}
+ When $q=0$, the tracer is said to be \textit{passive}.
+
+This equation is omnipresent in this work for several reasons. It is fundamental in our purpose to develop consistent compartment models, as we will see in chapter \ref{chap:compartment}. Furthermore, we have seen in chapter \ref{chap:clustering} that the stability method is based on the knowledge of the \textit{transition probability matrix}. Computing that matrix in the case of marine models cannot be done unless we understand the dynamics of the flow: we will see in chapter \ref{chap:numerical} that efficient numerical methods allowing to track the fate of individual tracer's particles can be devised from equation \eqref{eq:ADR}. The transition probability matrix can then easily be approximated from the particles trajectories. Finally, the particles trajectories can also be used to evaluate the concentration, and hence to assess the validity of the compartment models that will be developed further in this work.
+
+\section{The velocity field}
+In general, the velocity field in equation \eqref{eq:ADR} is unknown and has to be solved from the Navier-Stokes equations. In this work, we will restrict ourselves to problems where the velocity field is known and stationary. The \textit{continuity equation} (local mass conservation)
+\begin{equation} \label{eq:continuity}
+	\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \b u) = 0
+\end{equation}
+must be satisfied everywhere on the domain. In equation \eqref{eq:continuity}, $\rho$ is the density of the seawater mixture. In order to simplify the continuity equation, we make the very common \textit{Boussinesq approximation}. In the aquatic environment, water is, by far, the dominant constituent. The density of seawater is thus close to that of pure water, $\rho_w$. The latter depends on the temperature and pressure, but the variations are often very small: this consideration is at the basis of the Boussinesq approximation. Let $\bar{\rho}$ and $\Delta\rho$ be appropriate reference values of the density and the order of magnitude of its variation. The key assumption in the \textit{Boussinesq approximation} is that
+\begin{equation} \label{eq:bouss_hyp}
+	\frac{\Delta \rho}{\bar{\rho}} \ll 1.
+\end{equation}
+To assess the impact of this assumption on the continuity equation, we consider its dimensionless form. Let $U$, $T$ and $X$ be relevant velocity-, time- and space-scales. This allows to introduce the following dimensionless variables (denoted by primes):
+\begin{equation}
+	\rho' = \frac{\rho - \bar{\rho}}{\Delta \rho}, \quad \b u' = \frac{\b u}{U}, \quad t' = \frac{t}{T}, \quad \mbox{and} \quad \b x' = \frac{\b x}{X},
+\end{equation}
+where $\b x = (y,z)$. The dimensionless version of the continuity equation \eqref{eq:continuity} reads then: 
+\begin{equation}
+	\frac{\Delta \rho}{T}\frac{\partial \rho'}{\partial t'} + \frac{U\Delta \rho}{X}\b u' \cdot \nabla' \rho' + \frac{U(\bar{\rho}+ \rho' \Delta \rho)}{X}\nabla' \cdot \b u' = 0.
+\end{equation}
+Multiplying both sides by $X/(U\bar{\rho})$ yields :
+\begin{equation}
+	\frac{X}{UT}\frac{\Delta \rho}{\bar{\rho}}\frac{\partial \rho'}{\partial t'} + \frac{\Delta \rho}{\bar{\rho}}\b u' \cdot \nabla' \rho' + \left(1+\frac{\Delta \rho}{\bar{\rho}}\rho'\right)\nabla' \cdot \b u' = 0.
+\end{equation}
+By taking \eqref{eq:bouss_hyp} into account, this equation simplifies to $\nabla' \cdot \b u' = 0$, or equivalently in dimensional variables 
+\begin{equation}
+	\nabla \cdot \b u = 0.
+\end{equation}
+
+\section{Properties of the solution of the advection-diffusion equation}
+In this section, we show the most important properties related to the advection-diffusion equation. To this end, let us first introduce some notations and terminology. Let $\Omega$ denote the (time independent) domain of interest and $\partial \Omega$ its boundary. The outward unit normal vector to $\partial \Omega$ is denoted $\hat{\b n}$. The volume of the domain is
+\begin{equation}
+	V = \int_{\Omega} \rm d\Omega.	
+\end{equation}
+An \textit{isolated} domain is such that there is no exchange with the environment, and hence no net flux of the fluid crossing the boundary:
+\begin{equation} \label{eq:isolateddomain}
+	\left. \b u \cdot \hat{\b n}\right|_{\b x \in \partial \Omega} = 0.
+\end{equation}
+
+\begin{property} \label{prop:mass-is-constant}
+	If the domain is isolated and the tracer is passive, the tracer mass contained in the domain of interest is a constant.
+\end{property}
+\begin{proof}
+	Since the domain is isolated, the tracer flux crossing the boundary must be zero:
+	\begin{equation} \label{eq:isolateddomain2}
+		\left. (C\b u - \b K \nabla C)\cdot \n \right|_{\b x \in \partial \Omega} = 0.
+	\end{equation}
+	This equation combined to equation \eqref{eq:isolateddomain} implies that
+	\begin{equation} \label{eq:isolateddomain3}
+		\left. (C\b u)\cdot \n \right|_{\b x \in \partial \Omega} = 0 \quad \mbox{and} \quad \left. (- \b K \nabla C)\cdot \n \right|_{\b x \in \partial \Omega} = 0.
+	\end{equation}
+	The total mass of tracer in the domain is
+	\begin{equation}
+		m(t) = \int_{\Omega} C(\b x,t) \rm d\Omega,
+	\end{equation}
+	and its time derivative
+	\begin{equation} \label{eq:tracermass1}
+		\frac{dm(t)}{dt} = \frac{d}{dt} \int_{\Omega} C(\b x,t) \rm d\Omega = \int_{\Omega} \frac{\partial}{\partial t} C(\b x,t) \rm d\Omega.
+	\end{equation}
+	Injecting \eqref{eq:C_PDE_vec} into \eqref{eq:tracermass1} leads to
+	\begin{equation}
+		\frac{dm(t)}{dt} = \int_{\Omega} -\nabla \cdot \left(\b uC - \b K \nabla C\right) \rm d\Omega = \int_{\partial \Omega} -\left(\b uC - \b K \nabla C\right) \cdot \n \ \rm d(\partial \Omega)
+	\end{equation}
+	where we have used the divergence theorem. Finally, by \eqref{eq:isolateddomain2} this last expression is equal to zero, which concludes the proof.
+\end{proof}
+
+\begin{property}
+	The concentration of a passive tracer in an isolated domain, the variance of the concentration decreases monotonously with time until the concentration is everywhere equal to the mean concentration. In other words, the tracer concentration gets more and more homogeneous with time until the equilibrium state is reached, namely when the concentration is constant and uniform everywhere on $\Omega$.
+\end{property}
+\begin{proof}
+	By property \ref{prop:mass-is-constant}, the total mass of tracer is constant. Hence, the mean concentration over $\Omega$, $\bar C$, is also constant:
+	\begin{equation}
+	 	\bar C = \frac{1}{V} \int_{\Omega} C(\b x,t) \rm d\Omega = \frac{m}{V}.
+	 \end{equation} 
+	 Let $\hat C(\b x,t) := C(\b x,t) - \bar C$ denote the deviation of the concentration with respect to $\bar C$. The variance of the concentration is
+	 \begin{equation}
+	 	\sigma^2(t) = \frac{1}{V} \int_{\Omega} \left(\hat C(\b x,t)\right)^2 \rm d\Omega.
+	 \end{equation}
+	 This quantity is a measure of the concentration inhomogeneity. Notice that $\bar C$ satisfies the advection diffusion equation:
+	 \begin{equation}
+	 	0 = \frac{\partial \bar C}{\partial t} = -\nabla \cdot \left(\b u \bar C - \b K \nabla \bar C\right) = - \bar C \nabla \cdot (\b u - 0) = 0,
+	 \end{equation}
+	 and thus
+	 \begin{equation} \label{prop:variance1}
+	 	\frac{\partial \hat C}{\partial t} = -\nabla \cdot \left(\b u \hat C - \b K \nabla \hat C\right).
+	 \end{equation}
+	 Multiplying equation \eqref{prop:variance1} by $\hat C$ yields, after some calculations
+	 \begin{equation} \label{prop:variance2}
+	 	\frac{\partial \hat C^2}{\partial t} = - \nabla \cdot \left(\hat C^2 \b u \right) + 2\nabla \cdot \left(\hat C \b K \nabla \hat C \right) - 2 \nabla \hat C^\t \b K \nabla \hat C.
+	 \end{equation}
+	 Now, notice that
+	 \begin{equation} \label{prop:variance3}
+	 	\int_{\Omega} \frac{\partial \hat C^2}{\partial t} \rm d\Omega = \frac{d}{dt} \int_{\Omega} \left( \hat C(\b x,t) \right)^2 \rm d\Omega = V\frac{d\sigma^2}{dt}.
+	 \end{equation}
+	 Combining \eqref{prop:variance2} and \eqref{prop:variance3} yields
+	 \begin{equation}
+	 	V\frac{d\sigma^2}{dt} = - \int_{\Omega} \nabla \cdot \left(\hat C^2 \b u \right) \rm d\Omega + 2 \int_{\Omega} \nabla \cdot \left(\hat C \b K \nabla \hat C \right) \rm d\Omega -2 \int_{\Omega} \nabla \hat C^\t \b K \nabla \hat C \rm d\Omega.
+	 \end{equation}
+	 Using the divergence theorem and equations \eqref{eq:isolateddomain} and \eqref{eq:isolateddomain3}, we get
+	 \begin{equation}
+	 		V\frac{d\sigma^2}{dt} = - \underbrace{\int_{\partial \Omega} \hat C^2 (\b u \cdot \n) \rm d(\partial \Omega)}_{=0} + 2\underbrace{\int_{\partial \Omega} \hat C^ (\b K \nabla \hat C \cdot \n) \rm d(\partial \Omega)}_{=0} -2 \int_{\Omega} \nabla \hat C^\t \b K \nabla \hat C \rm d\Omega.
+	 \end{equation}
+	 Finally,
+	 \begin{equation}
+	 	\frac{d\sigma^2}{dt} = -\frac{2}{V} \int_{\Omega} \nabla \hat C^\t \b K \nabla \hat C \rm d\Omega.
+	 \end{equation}
+	 Since $\b K$ is positive definite, the variance of the concentration will decrease until $\nabla \hat C = 0$, hence until $C$ reaches a constant value everywhere on $\Omega$. The only possibility is $\bar C$, and thus we have shown that
+	 \begin{equation}
+	 	\lim_{t\rightarrow \infty} C(\b x,t) = \bar C.
+	 \end{equation}
+\end{proof}

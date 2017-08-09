@@ -33,13 +33,18 @@
 \thispagestyle{empty}		% To suppress header and footer on the back of the cover page
 \blankpage
 \pagenumbering{roman} % for table of contents, etc.
-% \null \newpage
+\tableofcontents
+\null \newpage
 \pagenumbering{arabic}
-\input{inputs/overturner/overturner}
+\input{inputs/intro/intro}
 \input{inputs/clustering/clustering}
-\input{inputs/numerical/numerical}
+\input{inputs/advdiffeq/advdiffeq}
 \input{inputs/compartments/compartments}
+% \input{inputs/overturner/overturner} % Attention, a priori cette section va disparaitre. Mais plusieurs références ! Les rediriger
+\input{inputs/numerical/numerical}
 \input{inputs/method/method}
+\input{inputs/bi-overturner/bi-overturner}
+\input{inputs/conclusion/conclusion}
 \nocite{*}
 \bibliographystyle{unsrt} % Le style est mis entre accolades.
 \bibliography{bib/bibli} % mon fichier de base de données s'appelle bibli.bib

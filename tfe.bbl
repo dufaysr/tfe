@@ -1,18 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{deleersnijder2006overturner}
-Eric Deleersnijder.
-\newblock Éléments d'un modèle latitude-profondeur très simple —
-  application à l'injection de "co2 idéalisée" dans l'océan.
-\newblock 2006.
-\newblock Available at \url{http://hdl.handle.net/2078.1/155304}.
-
-\bibitem{deleersnijder2001concept}
-Eric Deleersnijder, Jean-Michel Campin, and Eric~J.M. Delhez.
-\newblock The concept of age in marine modelling: I. theory and preliminary
-  model results.
-\newblock {\em Journal of Marine Systems}, 28(3):229--267, 2001.
-
 \bibitem{fortunato2010community}
 Santo Fortunato.
 \newblock Community detection in graphs.
@@ -52,6 +39,23 @@ Sergey Grin and Lawrence Page.
 Marina Meil{\u{a}}.
 \newblock Comparing clusterings -- an information based distance.
 \newblock {\em Journal of multivariate analysis}, 98(5):873--895, 2007.
+
+\bibitem{deleersnijder2001concept}
+Eric Deleersnijder, Jean-Michel Campin, and Eric~J.M. Delhez.
+\newblock The concept of age in marine modelling: I. theory and preliminary
+  model results.
+\newblock {\em Journal of Marine Systems}, 28(3):229--267, 2001.
+
+\bibitem{deleersnijder2014compartment}
+Eric Deleersnijder.
+\newblock On the structure of a compartment model for tracer transport.
+\newblock 2014.
+\newblock Available at \url{http://hdl.handle.net/2078.1/155581}.
+
+\bibitem{delhez2010compartment}
+Eric~J.M. Delhez.
+\newblock A matrix approach of compartment models.
+\newblock 2010.
 
 \bibitem{spivakovskaya2007lagrangian}
 Darya Spivakovskaya, Arnold~W. Heemink, and Eric Deleersnijder.
@@ -196,16 +200,17 @@ Eric Deleersnijder.
 \newblock 2011.
 \newblock Available at \url{http://hdl.handle.net/2078.1/155372}.
 
-\bibitem{deleersnijder2014compartment}
+\bibitem{deleersnijder2014tpgef}
 Eric Deleersnijder.
-\newblock On the structure of a compartment model for tracer transport.
-\newblock 2014.
-\newblock Available at \url{http://hdl.handle.net/2078.1/155581}.
+\newblock Modelling transport processes in geophysical and environmental flows.
+\newblock Lecture notes, 2014.
 
-\bibitem{delhez2010compartment}
-Eric~J.M. Delhez.
-\newblock A matrix approach of compartment models.
-\newblock 2010.
+\bibitem{deleersnijder2006overturner}
+Eric Deleersnijder.
+\newblock Éléments d'un modèle latitude-profondeur très simple —
+  application à l'injection de "co2 idéalisée" dans l'océan.
+\newblock 2006.
+\newblock Available at \url{http://hdl.handle.net/2078.1/155304}.
 
 \bibitem{timmermans2006masterthesis}
 Catherine Timmermans.
