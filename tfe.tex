@@ -28,21 +28,27 @@
 \years{2016-2017}	% Academic year
 
 \begin{document}
-\pagenumbering{gobble}
+\pagenumbering{alph}
+\renewcommand{\thepage}{C\arabic{page}}
 \maketitle					% To create front cover page
-\thispagestyle{empty}		% To suppress header and footer on the back of the cover page
-\blankpage
+% \thispagestyle{empty}		% To suppress header and footer on the back of the cover page
+% \null \newpage
+% \blankpage
+\cleardoublepage
 \pagenumbering{roman} % for table of contents, etc.
 \tableofcontents
 \null \newpage
+\cleartooddpage
 \pagenumbering{arabic}
 \input{inputs/intro/intro}
+\part{Theoretical}
 \input{inputs/clustering/clustering}
 \input{inputs/advdiffeq/advdiffeq}
 \input{inputs/compartments/compartments}
-% \input{inputs/overturner/overturner} % Attention, a priori cette section va disparaitre. Mais plusieurs références ! Les rediriger
 \input{inputs/numerical/numerical}
 \input{inputs/method/method}
+\part{Applications}
+\input{inputs/overturnercirculation/overturnercirculation} % Attention, a priori cette section va disparaitre. Mais plusieurs références ! Les rediriger
 \input{inputs/bi-overturner/bi-overturner}
 \input{inputs/conclusion/conclusion}
 \nocite{*}
@@ -52,6 +58,8 @@
 \appendix
 \input{inputs/appendix/stieltjes}
 \input{inputs/appendix/mslim}
+\input{inputs/appendix/streamfunction}
+\newpage \null \newpage
 \backcoverpage
 
 \end{document}

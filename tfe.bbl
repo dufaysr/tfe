@@ -200,11 +200,6 @@ Eric Deleersnijder.
 \newblock 2011.
 \newblock Available at \url{http://hdl.handle.net/2078.1/155372}.
 
-\bibitem{deleersnijder2014tpgef}
-Eric Deleersnijder.
-\newblock Modelling transport processes in geophysical and environmental flows.
-\newblock Lecture notes, 2014.
-
 \bibitem{deleersnijder2006overturner}
 Eric Deleersnijder.
 \newblock Éléments d'un modèle latitude-profondeur très simple —
@@ -216,6 +211,11 @@ Eric Deleersnijder.
 Catherine Timmermans.
 \newblock Ventilation et rétention dans un bassin océanique idéalisé.
 \newblock Master's thesis, UCL, 2006.
+
+\bibitem{deleersnijder2014tpgef}
+Eric Deleersnijder.
+\newblock Modelling transport processes in geophysical and environmental flows.
+\newblock Lecture notes, 2014.
 
 \bibitem{lambiotte2011flow}
 Renaud Lambiotte, Roberta Sinatra, J.-C. Delvenne, Tim~S. Evans, Mauricio

@@ -1,0 +1,88 @@
+%!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
+\section{Properties of the compartment model solution} \label{sec:prop_comp}
+\textcolor{red}{In chapter ???, important properties of the continuous transport model have been derived.} In this section, the counterpart of those properties are established in the case of a compartment model. In the compartment representation, the domain-averaged concentration is
+\begin{equation} \label{eq:Cmean_compartment}
+	\bar{C}(t) = \frac{1}{\Omega} \sum_{i=1}^N \Omega_i C_i(t),
+\end{equation}
+and the variance of the concentration is given by
+\begin{equation}
+	\sigma^2(t) = \frac{1}{\Omega} \sum_{i=1}^{N} \Omega_i \left[C_i(t) - \bar{C}(t)\right]^2.
+\end{equation}
+
+\begin{property} \label{prop1_comp}
+	The mean tracer concentration $\bar C$ is not influenced by the internal advective and diffusive fluxes.
+\end{property}
+\begin{proof}
+	By \eqref{eq:Cmean_compartment}, \eqref{eq:compartmentmodel}, \eqref{eq:Uprop} and \eqref{eq:Vprop}, we get successively
+	\begin{subequations}
+	\begin{align}
+		\frac{d\bar{C}}{dt} &= \frac{1}{\Omega} \sum_{i=1}^N \Omega_i \frac{dC_i(t)}{dt}\\
+			&= \frac{1}{\Omega} \sum_{i=1}^N \left[\Omega_i q_i - \sum_{j=1}^N \left[ U_{i,j}\frac{C_i + C_j}{2} - V_{i,j} (C_j-C_i)\right] - \phi_{i,e} \right]\\
+			&= \frac{1}{\Omega} \sum_{i=1}^N(\Omega_i q_i + \phi_{e,i}). \label{eq:prop1deleersnijder}
+	\end{align}
+	\end{subequations}
+\end{proof}
+
+\begin{corollary}{prop1_comp}
+	For a passive tracer ($q_i = 0$) in an isolated domain ($\phi_{i,e} = 0$), the mean tracer concentration within the whole domain $\bar C$ is a constant.
+\end{corollary}
+\begin{proof}
+	The proof is straightforward by introducing $q_i = 0$ (passive tracer) and $\phi_{i,e} = 0$ (isolated domain) in equation \eqref{eq:prop1deleersnijder}.	
+\end{proof}
+
+\begin{property} \label{prop2_comp}
+	If the tracer is passive, the domain isolated and the initial concentration is constant, then the concentration stays constant.
+\end{property}
+\begin{proof}
+	If the initial concentration is constant, then $C_i(0) = C_0$ for all $i = 1,\dots,N$. At time $t=0$, equation \eqref{eq:compartmentmodel} becomes
+	\begin{equation}
+		\Omega_i \frac{dC_i}{dt} = -C_0 \sum_{\subalign{j&=1 \\j &\neq i}}^N U_{i,j},
+	\end{equation}
+	which is equal to zero by \eqref{eq:continuitycompartment}. Here we have used that $q_i = 0$ and $\phi_{i,e} = 0$ (and thus $U_{i,e}=0$) since the tracer is passive and the domain is isolated.
+\end{proof}
+
+\begin{property} \label{prop3_comp}
+	For a passive tracer ($q_i = 0$) in an isolated domain ($\phi_{i,e} = 0$), the variance of the concentration decreases monotonically until $C_i(t) = \bar{C}(0)$ for all $i = 1,\dots,N$ (i.e., until the tracer distribution is uniform).
+\end{property}
+\begin{proof}
+	Let $\hat{C}_i(t)$ denote the deviation of the concentration in compartment $i$ with respect to the mean concentration over the whole domain:
+	\begin{equation}
+		\hat{C}_i(t) := C_i(t) - \bar C(t).
+	\end{equation}
+	By property \ref{prop2_comp}, $\bar C(t) = \bar C(0) = \bar C$ since the domain is isolated and the tracer is passive. Hence, we can rewrite equation \eqref{eq:compartmentmodel} as 
+	\begin{equation}
+		\Omega_i \frac{d(\hat C_i)}{dt} = - \sum_{j=1}^N \left[ U_{i,j}\frac{\hat C_i + \hat C_j}{2} - V_{i,j} (\hat C_j - \hat C_i)\right] - \bar C \sum_{j=1}^N U_{i,j},
+	\end{equation}
+	which by \eqref{eq:continuitycompartment} simplifies to
+	\begin{equation} \label{eq:temp_comp1}
+		\Omega_i \frac{d(\hat C_i)}{dt} = - \sum_{j=1}^N \left[ U_{i,j}\frac{\hat C_i + \hat C_j}{2} - V_{i,j} (\hat C_j - \hat C_i)\right].
+	\end{equation}
+	Multiplying \eqref{eq:temp_comp1} by $\hat C_i(t)$ and summing over $i = 1,\dots,N$ yields after some calculations
+	\begin{equation} \label{eq:temp_comp2}
+		\Omega \frac{d \sigma^2}{dt} = - \sum_{i=1}^N \sum_{j=1}^N \left[ U_{i,j}(\hat C_i + \hat C_j)\hat C_i - 2 V_{i,j} (\hat C_j - \hat C_i) \hat C_i\right].
+	\end{equation}
+	Let us look at both terms in the right-hand side of \eqref{eq:temp_comp2} separately. The first term is equal to zero:
+	\begin{subequations}
+	 	\begin{align}
+	 		\sum_{i=1}^N \sum_{j=1}^N U_{i,j}(\hat C_i + \hat C_j)\hat C_i &= \sum_{i=1}^N \left(\hat C_i \right)^2 \underbrace{\sum_{j=1}^N U_{i,j}}_{= 0} + \sum_{i=1}^N \sum_{j=1}^N U_{i,j}\hat C_j\hat C_i\\
+	 		&= \sum_{i=1}^N \sum_{j=1}^N \underbrace{\frac{U_{i,j} + U_{j,i}}{2}}_{=0}\hat C_j\hat C_i.
+	 	\end{align}
+	 \end{subequations} 
+	The second term is rewritten as
+	\begin{equation}
+ 		2 \sum_{i=1}^N \sum_{j=1}^N V_{i,j} (\hat C_j - \hat C_i) \hat C_i = -2 \sum_{i=1}^N \sum_{j=1}^N V_{i,j} (\hat C_j - \hat C_i)^2 - 2\sum_{i=1}^N \sum_{j=1}^N V_{i,j} (\hat C_j - \hat C_i) \hat C_i,
+	 \end{equation} 
+	 so that
+	 \begin{equation}
+	 	2 \sum_{i=1}^N \sum_{j=1}^N V_{i,j} (\hat C_j - \hat C_i) \hat C_i = - \sum_{i=1}^N \sum_{j=1}^N V_{i,j} (\hat C_j - \hat C_i)^2.
+	 \end{equation}
+	 Finally,
+	 \begin{equation}
+	 	\Omega \frac{d \sigma^2}{dt} = - \sum_{i=1}^N \sum_{j=1}^N V_{i,j} (\hat C_j - \hat C_i)^2,
+	 \end{equation}
+	 and thus
+	 \begin{equation}
+	 	\frac{d \sigma^2}{dt} = -\frac{1}{\Omega} \sum_{i=1}^N \sum_{j=1}^N V_{i,j} (C_j - C_i)^2,
+	 \end{equation}
+	 which proves the claim.  Interestingly, the advective part of the fluxes does not contribute to the homogenization of the concentration; only the diffusive part does.
+\end{proof}

@@ -1,0 +1,73 @@
+%!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
+\chapter{Applications}
+\section{The streamfunction} \label{app:streamfunction}
+The interest of the streamfunction comes from the following property.
+\begin{property} \label{prop:streamfunction}
+	For any 3-dimensional potential vector $\b a(x,y,z)$ whose second partial derivatives are continuous,
+	\begin{equation}
+		\nabla \cdot (\nabla \times \b a) = 0.
+	\end{equation}
+\end{property}
+\begin{proof}
+	The proof is quite straightforward :
+	\begin{align*}
+		\nabla \cdot (\nabla \times \b a(x,y,z)) &= \nabla \cdot \left[\left(\frac{\partial a_z}{\partial y}-\frac{\partial a_y}{\partial z}\right)\ex + \left(\frac{\partial a_x}{\partial z}-\frac{\partial a_z}{\partial x}\right)\ey + \left(\frac{\partial a_y}{\partial x}-\frac{\partial a_x}{\partial y}\right)\ez \right]\\
+		&= \frac{\partial^2 a_z}{\partial x \partial y} - \frac{\partial^2 a_y}{\partial x \partial z} + \frac{\partial^2 a_x}{\partial y \partial z} - \frac{\partial^2 a_z}{\partial y \partial x} + \frac{\partial^2 a_y}{\partial z \partial x} - \frac{\partial^2 a_x}{\partial z \partial y}\\
+		&= 0.  
+	\end{align*}
+	The assumption on the continuity of the second partial derivatives allows to use \textit{Schwarz's theorem} which states that the second partial derivatives are symmetric.
+\end{proof}
+This property suggests a simple method to build a divergence-free velocity field, namely one that satisfies the continuity equation \eqref{eq:continuity_boussinesq}. Indeed, it is sufficient to choose a relevant three-dimensional vector $\b a(x,y,z) = (a_x(x,y,z),\,a_y(x,y,z),\,a_z(x,y,z))$ with $a_x$, $a_y$ and $a_z$ of class $\C^2$ and impose that 
+\begin{equation} \label{eq:stream3d}
+	\b u = \begin{pmatrix} u \\ v \\ w \end{pmatrix} = - \nabla \times \b a = - \begin{pmatrix} \frac{\partial a_z}{\partial y}-\frac{\partial a_y}{\partial z}\\[.1 cm]
+													\frac{\partial a_x}{\partial z}-\frac{\partial a_z}{\partial x}\\[.1 cm]
+													\frac{\partial a_y}{\partial x}-\frac{\partial a_x}{\partial y}
+									\end{pmatrix}.
+\end{equation}
+This ensures that $\b u$ is divergence-free since $\nabla \cdot \b u = - \div \p{\rot \b a} = 0$.
+
+In this work, we restrict ourselves to two-dimensional flows in the plane. Let us consider the plane $(\ey,\ez)$ without loss of generality. In that case, $u = 0$ and $\partial \cdot/\partial x = 0$. The relation \eqref{eq:stream3d} becomes 
+\begin{equation}
+	\b u = \begin{pmatrix} 0 \\ v \\ w \end{pmatrix} = - \nabla \times \b a = \begin{pmatrix} 0\\ - \frac{\partial a_x}{\partial z}\\[.1 cm] \frac{\partial a_x}{\partial y} \end{pmatrix},
+\end{equation}
+where only the component $a_x$ is needed to describe $\b u$. Hence, the velocity field of a flow in the plane is described by a scalar quantity, the so-called \textit{streamfunction}, generally noted $\psi$. The potential vector $\b a$ is thus of the form $\b a(y,z) = (\psi(y,z),\, 0,\, 0)$, and the components of the velocity vector are given by :
+\begin{equation} \label{eq:u-psi}
+	v = -\frac{\partial \psi}{\partial z}, \quad w = \frac{\partial \psi}{\partial y}.
+\end{equation}
+Note that adding any constant to $\psi$ leaves the velocity vector unchanged. This adds some freedom to the choice of $\psi$. In order to derive a streamfunction that is relevant to some particular problem, it is of top-notch interest to get some physical intuition about the streamfunction. To this end, two fundamental properties of the streamfunction in two dimensions are shown in the next paragraphs. 
+
+First, notice that assuming that $\psi \in \C^2$ implies straightforwardly that $\rm d\psi = (\partial \psi/\partial y)\rm dy + (\partial \psi/\partial z) \rm dz$ is an \textit{exact differential} since by Schwarz's theorem
+\begin{equation}
+	\frac{\partial^2 \psi}{\partial y \partial z} = \frac{\partial^2 \psi}{\partial z \partial y}.
+\end{equation}
+Thus,
+\begin{equation}
+\int_{\b x_1}^{\b x_2} \rm d\psi = \psi(y_2,z_2) - \psi(y_1,z_1)	
+\end{equation}
+is path-independent.
+
+\begin{property} \label{prop:streamfunction-tangent}
+	In two dimensions, the curves along which $\psi$ is constant (i.e. the \textit{isolines} of  $\psi$) are exactly the \textit{streamlines} of the flow, namely the family of curves that are instantaneously tangent to the velocity vector.
+\end{property}
+\begin{proof}
+	Let an isoline of $\psi$ be parametrized by $s \mapsto \b x_S(s) = (y_S(s),z_S(s))$. The fact that $\psi$ is constant along that curve implies that $\rm d\psi_S = (\partial \psi/\partial y)\rm dy_S + (\partial \psi/\partial z) \rm dz_S = \nabla \psi \cdot \rm d \b x_S = 0$. This shows that the vector $\nabla \psi$ is normal to the curve $\b x_S(s)$. Hence, showing that $\b x_S(s)$ is everywhere tangent to $\b u$ is equivalent to showing that $\b u \cdot \nabla \psi = 0$ everywhere. The latter is straightforward using relation \eqref{eq:u-psi} :
+\begin{equation}
+	\b u \cdot \nabla \psi = -\frac{\partial \psi}{\partial z}\frac{\partial \psi}{\partial y} + \frac{\partial \psi}{\partial y}\frac{\partial \psi}{\partial z} = 0,
+\end{equation}
+which concludes the proof.
+\end{proof}
+
+\begin{property} \label{prop:streamfunction-flowrate}
+	In two dimensions, the \textit{volume flow rate} between two streamlines of values $\psi_1$ and $\psi_2$ is equal to the difference of those streamlines, $\psi_1 - \psi_2$.
+\end{property}
+\begin{proof}
+	Consider two infinitely close points $\b x_1 = (y_1,\, z_1)$ and $\b x_1 + \rm d \b x = (y_1 + \rm dy,\, z_1 + \rm dz)$. At those points, the streamfunction has values $\psi(y_1,z_1) = \psi_1$ and $\psi(y_1+\rm dy,z_1 + \rm dz) = \psi_1 + \rm d\psi$. Let us now consider the volume flow rate $\rm dq$ across the infinitesimal segment $[\b x_1,\, \b x_1 + \rm d \b x]$, positive in the right-hand side direction of the segment if the latter is directed from $\b x_1$ to $\b x_1 + \rm d \b x$. It is equal to $\b u \cdot \hat{\b{n}}$, where $\hat{\b{n}} = (\rm dz,\,-\rm dy)$ is the unit vector normal to the segment, oriented in the right-hand side direction. Hence, $\rm dq = v \rm dz - w \rm dy$, which, using relation \eqref{eq:u-psi}, amounts to
+	\begin{equation}
+		\rm dq = - \rm d\psi.
+	\end{equation}
+	Now, consider any two points $\b x_1 = (y_1, z_1)$ and $\b x_2 = (y_2, z_2)$ in the (connected) domain. The volume flow rate $q_{1 \rightarrow 2}$ across any curve $\gamma_{1 \rightarrow 2}$ connecting $\b x_1$ to $\b x_2$, positive in the right-hand side direction of the directed segment $[\b x_1,\, \b x_2]$ is
+	\begin{equation}
+		q_{1 \rightarrow 2} = \int_{\gamma_{1 \rightarrow 2}} \rm dq = \int_{\b x_1}^{\b x_2} (-\rm d\psi) = \psi(y_1,z_1) - \psi(y_2,z_2), 	
+	\end{equation} 
+	where $\int_{\gamma_{1 \rightarrow 2}}$ is the line integral along a curve connecting $\b x_1$ to $\b x_2$, afterwards noted $\int_{\b x_1}^{\b x_2}$ to emphasize the fact that it does not depend on the integration path, since $\rm d\psi$ is an exact differential.
+\end{proof}
