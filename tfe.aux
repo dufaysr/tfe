@@ -25,6 +25,9 @@
 \@writefile{toc}{\select@language{english}}
 \@writefile{lof}{\select@language{english}}
 \@writefile{lot}{\select@language{english}}
+\@writefile{toc}{\contentsline {section}{Acknowledgements}{i}{Doc-Start}}
+\@writefile{toc}{\contentsline {section}{List of abbreviations and symbols}{vi}{chapter*.2}}
+\@writefile{toc}{\contentsline {chapter}{List of Figures}{vii}{chapter*.4}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -84,6 +87,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {4.1}Formulation of a compartment model}{15}{section.4.1}}
 \newlabel{sec:fcm}{{4.1}{15}{Formulation of a compartment model}{section.4.1}{}}
 \newlabel{eq:continuousproblem}{{4.1}{15}{Formulation of a compartment model}{equation.4.1.1}{}}
+\newlabel{eq:C_i(t)}{{4.3}{15}{Formulation of a compartment model}{equation.4.1.3}{}}
 \citation{deleersnijder2014compartment}
 \newlabel{eq:phi_i,j}{{4.6}{16}{Formulation of a compartment model}{equation.4.1.6}{}}
 \newlabel{eq:def_uij}{{4.8}{16}{Formulation of a compartment model}{equation.4.1.8}{}}
@@ -157,11 +161,11 @@
 \newlabel{eq:stoch_int}{{5.9}{28}{Formal definition of a SDE}{equation.5.1.9}{}}
 \newlabel{def:I}{{5.12a}{28}{Formal definition of a SDE}{equation.5.1.12a}{}}
 \newlabel{def:bI}{{5.12b}{28}{Formal definition of a SDE}{equation.5.1.12b}{}}
-\newlabel{remark:backwardIto}{{5.1.1}{28}{Remark}{section*.9}{}}
-\@writefile{toc}{\contentsline {paragraph}{Remark}{28}{section*.9}}
+\newlabel{remark:backwardIto}{{5.1.1}{28}{Remark}{section*.12}{}}
+\@writefile{toc}{\contentsline {paragraph}{Remark}{28}{section*.12}}
 \newlabel{eq:generalSDE}{{5.13}{29}{Remark}{equation.5.1.13}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Properties of the It\IeC {\^o} integral}{29}{subsection.5.1.2}}
-\@writefile{toc}{\contentsline {subsubsection}{Rules for the differentials}{29}{section*.10}}
+\@writefile{toc}{\contentsline {subsubsection}{Rules for the differentials}{29}{section*.13}}
 \newlabel{eq:dW=dt_int}{{5.15}{29}{Rules for the differentials}{equation.5.1.15}{}}
 \newlabel{eq:dw1}{{5.16}{29}{Rules for the differentials}{equation.5.1.16}{}}
 \newlabel{eq:dwprop}{{5.17}{29}{Rules for the differentials}{equation.5.1.17}{}}
@@ -171,7 +175,7 @@
 \newlabel{eq:dw3}{{5.20}{30}{Rules for the differentials}{equation.5.1.20}{}}
 \newlabel{eq:dw2=dt}{{5.22}{30}{Rules for the differentials}{equation.5.1.22}{}}
 \newlabel{eq:dwdt=0}{{5.24}{30}{Rules for the differentials}{equation.5.1.24}{}}
-\@writefile{toc}{\contentsline {subsubsection}{The It\IeC {\^o} formula}{30}{section*.11}}
+\@writefile{toc}{\contentsline {subsubsection}{The It\IeC {\^o} formula}{30}{section*.14}}
 \newlabel{eq:ItoFormula}{{5.26}{30}{The Itô formula}{equation.5.1.26}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}Link between It\IeC {\^o} and backward It\IeC {\^o} SDE's}{31}{subsection.5.1.3}}
 \newlabel{eq:I}{{5.27}{31}{Link between Itô and backward Itô SDE's}{equation.5.1.27}{}}
@@ -195,7 +199,7 @@
 \citation{colet2014stochastic}
 \newlabel{eq:FP-I-ndim}{{5.53}{34}{Generalization to multiple dimensions}{equation.5.1.53}{}}
 \newlabel{eq:FP-bI-ndim}{{5.54}{34}{Generalization to multiple dimensions}{equation.5.1.54}{}}
-\@writefile{toc}{\contentsline {paragraph}{Remark}{34}{section*.12}}
+\@writefile{toc}{\contentsline {paragraph}{Remark}{34}{section*.15}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1.6}Numerical methods}{34}{subsection.5.1.6}}
 \newlabel{sec:numericalmethods}{{5.1.6}{34}{Numerical methods}{subsection.5.1.6}{}}
 \newlabel{eq:numSDE}{{5.55}{34}{Numerical methods}{equation.5.1.55}{}}
@@ -215,7 +219,7 @@
 \newlabel{eq:bE-inter}{{5.64c}{36}{Numerical methods}{equation.5.1.64c}{}}
 \newlabel{eq:bE-ito1}{{5.65a}{36}{Numerical methods}{equation.5.1.65a}{}}
 \newlabel{eq:bE-ito2}{{5.65b}{36}{Numerical methods}{equation.5.1.65b}{}}
-\@writefile{toc}{\contentsline {paragraph}{Remark}{36}{section*.13}}
+\@writefile{toc}{\contentsline {paragraph}{Remark}{36}{section*.16}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1.7}Dealing with no-through boundary conditions}{36}{subsection.5.1.7}}
 \citation{riddle1998specification}
 \citation{silverman1986density}
@@ -237,138 +241,103 @@
 \newlabel{eq:bi-TM}{{5.74}{39}{Lagrangian equations corresponding to the general transport model}{equation.5.2.74}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5.3}The code}{39}{section.5.3}}
 \newlabel{eq:TEcode}{{5.75}{39}{The code}{equation.5.3.75}{}}
-\citation{deleersnijder2011test}
 \@writefile{lol}{\contentsline {listing}{\numberline {1}{\ignorespaces The abstract base class \mintinline [style=tango]{c++}{AbstractAdvDiffProblem}.\relax }}{40}{listing.1}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{listing:abstractadvdiffproblem}{{1}{40}{The abstract base class \cppcode {AbstractAdvDiffProblem}.\relax }{listing.1}{}}
 \@writefile{lol}{\contentsline {listing}{\numberline {2}{\ignorespaces Signatures of the \textit  {compute methods}.\relax }}{40}{listing.2}}
 \newlabel{listing:signature_compute}{{2}{40}{Signatures of the \textit {compute methods}.\relax }{listing.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Test case to assess the implementation of the overturner model}{41}{section.5.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Governing equations}{41}{subsection.5.4.1}}
-\newlabel{eq:testcase:continuity}{{5.76}{41}{Governing equations}{equation.5.4.76}{}}
-\newlabel{eq:testcase:conservative}{{5.77}{41}{Governing equations}{equation.5.4.77}{}}
-\newlabel{eq:testcase:convective}{{5.78}{41}{Governing equations}{equation.5.4.78}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}An idealised model}{41}{subsection.5.4.2}}
-\newlabel{eq:testcase:velocity}{{5.79}{41}{An idealised model}{equation.5.4.79}{}}
-\newlabel{eq:testcase:diffusivity}{{5.80}{41}{An idealised model}{equation.5.4.80}{}}
-\newlabel{eq:testcase}{{5.82}{41}{An idealised model}{equation.5.4.82}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Illustration of the 3D and 2D interpretations of the model.\relax }}{42}{figure.caption.14}}
-\newlabel{fig:testcase_scheme}{{5.1}{42}{Illustration of the 3D and 2D interpretations of the model.\relax }{figure.caption.14}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Test case 1 : infinite domain}{42}{section*.15}}
-\newlabel{eq:testcase:domain}{{5.84}{42}{Test case 1 : infinite domain}{equation.5.4.84}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Test case 2 : semi-infinite domain}{42}{section*.16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Analytical solution and properties}{43}{subsection.5.4.3}}
-\@writefile{toc}{\contentsline {subsubsection}{Green's function}{43}{section*.17}}
-\newlabel{eq:testcase_green}{{5.91}{43}{Green's function}{equation.5.4.91}{}}
-\newlabel{eq:testcase:propmass}{{5.94}{43}{Green's function}{equation.5.4.94}{}}
-\newlabel{eq:testcase:propcenter}{{5.95}{43}{Green's function}{equation.5.4.95}{}}
-\newlabel{eq:testcase:propvar}{{5.96}{43}{Green's function}{equation.5.4.96}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Test case 1}{44}{section*.18}}
-\@writefile{toc}{\contentsline {subsubsection}{Test case 2}{44}{section*.19}}
-\newlabel{tc2_eq2}{{5.102}{44}{Test case 2}{equation.5.4.102}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Validation of the numerical solver}{45}{section.5.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Test case 1}{45}{subsection.5.5.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }}{46}{figure.caption.20}}
-\newlabel{fig:testcase_surf}{{5.2}{46}{Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }{figure.caption.20}{}}
-\newlabel{fig:testcase_fixedy}{{5.3a}{47}{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.\relax }{figure.caption.21}{}}
-\newlabel{sub@fig:testcase_fixedy}{{a}{47}{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.\relax }{figure.caption.21}{}}
-\newlabel{fig:testcase_fixedz}{{5.3b}{47}{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.\relax }{figure.caption.21}{}}
-\newlabel{sub@fig:testcase_fixedz}{{b}{47}{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.\relax }{figure.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The dashed line represent $C_{num}$ and the continuous line is for $C_{exact}$.\relax }}{47}{figure.caption.21}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Test case 2}{47}{subsection.5.5.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }}{48}{figure.caption.22}}
-\newlabel{fig:testcaseSI_surf}{{5.4}{48}{Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }{figure.caption.22}{}}
-\newlabel{fig:testcaseSI_fixedy}{{5.5a}{49}{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.\relax }{figure.caption.23}{}}
-\newlabel{sub@fig:testcaseSI_fixedy}{{a}{49}{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.\relax }{figure.caption.23}{}}
-\newlabel{fig:testcaseSI_fixedz}{{5.5b}{49}{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.\relax }{figure.caption.23}{}}
-\newlabel{sub@fig:testcaseSI_fixedz}{{b}{49}{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.\relax }{figure.caption.23}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The dashed line represent $C_{num}$ and the continuous line is for $C_{exact}$.\relax }}{49}{figure.caption.23}}
 \citation{riddle1998specification}
 \citation{spivakovskaya2007lagrangian}
 \citation{spivakovskaya2007lagrangian}
 \citation{silverman1986density}
 \citation{wand1995kernel}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}From clusters to compartments}{51}{chapter.6}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}From clusters to compartments}{41}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{remark:straightboundaries}{{6}{51}{Remark}{section*.24}{}}
-\@writefile{toc}{\contentsline {paragraph}{Remark}{51}{section*.24}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Methodology}{51}{section.6.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.1}Description of the method}{51}{subsection.6.1.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Illustration of the decomposition of the domain into boxes with $\ensuremath  {n_{box,\tmspace  +\thinmuskip {.1667em}y}}= 15$ and $\ensuremath  {n_{box,\tmspace  +\thinmuskip {.1667em}z}}= 10$.\relax }}{52}{figure.caption.25}}
-\newlabel{fig:box_scheme}{{6.1}{52}{Illustration of the decomposition of the domain into boxes with $\nby = 15$ and $\nbz = 10$.\relax }{figure.caption.25}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.2}Dealing with the time scales}{52}{subsection.6.1.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.3}Use of the stability software}{53}{subsection.6.1.3}}
-\@writefile{toc}{\contentsline {part}{II\hspace  {1em}Applications}{55}{part.2}}
+\newlabel{remark:straightboundaries}{{6}{41}{Remark}{section*.17}{}}
+\@writefile{toc}{\contentsline {paragraph}{Remark}{41}{section*.17}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Methodology}{41}{section.6.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.1}Description of the method}{41}{subsection.6.1.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Illustration of the decomposition of the domain into boxes with $\ensuremath  {n_{box,\tmspace  +\thinmuskip {.1667em}y}}= 15$ and $\ensuremath  {n_{box,\tmspace  +\thinmuskip {.1667em}z}}= 10$.\relax }}{42}{figure.caption.18}}
+\newlabel{fig:box_scheme}{{6.1}{42}{Illustration of the decomposition of the domain into boxes with $\nby = 15$ and $\nbz = 10$.\relax }{figure.caption.18}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.2}Dealing with the time scales}{42}{subsection.6.1.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.3}Use of the stability software}{43}{subsection.6.1.3}}
+\@writefile{toc}{\contentsline {part}{II\hspace  {1em}Applications}{45}{part.2}}
 \citation{deleersnijder2006overturner}
 \citation{timmermans2006masterthesis}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}The "overturner" circulation model}{57}{chapter.7}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}The "overturner" circulation model}{47}{chapter.7}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}An idealized velocity field}{57}{section.7.1}}
-\newlabel{eq:continuity_boussinesq}{{7.2}{57}{An idealized velocity field}{equation.7.1.2}{}}
-\newlabel{eq:overturnerBC}{{7.4}{57}{An idealized velocity field}{equation.7.1.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}An idealized velocity field}{47}{section.7.1}}
+\newlabel{eq:continuity_boussinesq}{{7.2}{47}{An idealized velocity field}{equation.7.1.2}{}}
+\newlabel{eq:overturnerBC}{{7.4}{47}{An idealized velocity field}{equation.7.1.4}{}}
 \citation{deleersnijder2006overturner}
-\newlabel{eq:phi}{{7.6}{58}{An idealized velocity field}{equation.7.1.6}{}}
-\newlabel{eq:psi_overturner}{{7.8}{58}{An idealized velocity field}{equation.7.1.8}{}}
-\newlabel{eq:v_overturner}{{7.9}{58}{An idealized velocity field}{equation.7.1.9}{}}
-\newlabel{eq:w_overturner}{{7.10}{58}{An idealized velocity field}{equation.7.1.10}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Application: the bi-overturner problem}{59}{chapter.8}}
+\newlabel{eq:phi}{{7.6}{48}{An idealized velocity field}{equation.7.1.6}{}}
+\newlabel{eq:psi_overturner}{{7.8}{48}{An idealized velocity field}{equation.7.1.8}{}}
+\newlabel{eq:v_overturner}{{7.9}{48}{An idealized velocity field}{equation.7.1.9}{}}
+\newlabel{eq:w_overturner}{{7.10}{48}{An idealized velocity field}{equation.7.1.10}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Application: the bi-overturner problem}{49}{chapter.8}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {8.1}The bi-overturner class of problems}{59}{section.8.1}}
-\newlabel{eq:psi_2box}{{8.1}{59}{The bi-overturner class of problems}{equation.8.1.1}{}}
-\newlabel{eq:u-psi_2box}{{8.2}{59}{The bi-overturner class of problems}{equation.8.1.2}{}}
-\newlabel{eq:Kh2box}{{8.4}{60}{The bi-overturner class of problems}{equation.8.1.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.1}{\ignorespaces Isolines of the horizontal velocity $v$ for bi-overturner problems.\relax }}{60}{figure.caption.26}}
-\newlabel{fig:v2box}{{8.1}{60}{Isolines of the horizontal velocity $v$ for bi-overturner problems.\relax }{figure.caption.26}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.2}{\ignorespaces Isolines of the horizontal velocity $w$ for bi-overturner problems.\relax }}{61}{figure.caption.27}}
-\newlabel{fig:w2box}{{8.2}{61}{Isolines of the horizontal velocity $w$ for bi-overturner problems.\relax }{figure.caption.27}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.3}{\ignorespaces Illustration of the decomposition of the domain into boxes corresponding to the nodes of the directed graph. The values of $K_h$ are also shown for $\alpha = 0.6$, and the fictitious wall is represented by the black continuous line. Here the particle enters the exchange zone but finally stays in $\Omega ^-$.\relax }}{61}{figure.caption.28}}
-\newlabel{fig:Kh2box}{{8.3}{61}{Illustration of the decomposition of the domain into boxes corresponding to the nodes of the directed graph. The values of $K_h$ are also shown for $\alpha = 0.6$, and the fictitious wall is represented by the black continuous line. Here the particle enters the exchange zone but finally stays in $\Omega ^-$.\relax }{figure.caption.28}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.4}{\ignorespaces Example of a particle trajectory in the bi-overturner model with $\alpha = 0.75$. The black cross represents the initial position whereas the black dot shows the final position. The simulation time is 200 years.\relax }}{62}{figure.caption.29}}
-\newlabel{fig:withouttransfer}{{8.4}{62}{Example of a particle trajectory in the bi-overturner model with $\alpha = 0.75$. The black cross represents the initial position whereas the black dot shows the final position. The simulation time is 200 years.\relax }{figure.caption.29}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.5}{\ignorespaces Example of a particle trajectory in the bi-overturner model with $\alpha = 0.75$. The black cross represents the initial position whereas the black dot shows the final position. The simulation time is 200 years.\relax }}{62}{figure.caption.30}}
-\newlabel{fig:withtransfer}{{8.5}{62}{Example of a particle trajectory in the bi-overturner model with $\alpha = 0.75$. The black cross represents the initial position whereas the black dot shows the final position. The simulation time is 200 years.\relax }{figure.caption.30}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1.1}Application of the stability method}{63}{subsection.8.1.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.6}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 1$.\relax }}{64}{figure.caption.31}}
-\newlabel{fig:staba1}{{8.6}{64}{Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 1$.\relax }{figure.caption.31}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.7}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0.75$.\relax }}{64}{figure.caption.32}}
-\newlabel{fig:staba75}{{8.7}{64}{Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0.75$.\relax }{figure.caption.32}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.8}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0.5$.\relax }}{65}{figure.caption.33}}
-\newlabel{fig:staba5}{{8.8}{65}{Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0.5$.\relax }{figure.caption.33}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.9}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0.25$.\relax }}{65}{figure.caption.34}}
-\newlabel{fig:staba25}{{8.9}{65}{Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0.25$.\relax }{figure.caption.34}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.10}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0$.\relax }}{66}{figure.caption.35}}
-\newlabel{fig:staba0}{{8.10}{66}{Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0$.\relax }{figure.caption.35}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.11}{\ignorespaces Illustration of the two-communities partitioning for $\alpha = 0.25$.\relax }}{66}{figure.caption.36}}
-\newlabel{fig:cluster_a25_2}{{8.11}{66}{Illustration of the two-communities partitioning for $\alpha = 0.25$.\relax }{figure.caption.36}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.12}{\ignorespaces Illustration of the two-communities partitioning for $\alpha = 0.5$.\relax }}{66}{figure.caption.37}}
-\newlabel{fig:cluster_a5_2}{{8.12}{66}{Illustration of the two-communities partitioning for $\alpha = 0.5$.\relax }{figure.caption.37}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.13}{\ignorespaces Illustration of the three-communities partitioning for $\alpha = 0.25$.\relax }}{67}{figure.caption.38}}
-\newlabel{fig:cluster_a25_3}{{8.13}{67}{Illustration of the three-communities partitioning for $\alpha = 0.25$.\relax }{figure.caption.38}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.14}{\ignorespaces Illustration of the three-communities partitioning for $\alpha = 0$.\relax }}{67}{figure.caption.39}}
-\newlabel{fig:cluster_a0_3}{{8.14}{67}{Illustration of the three-communities partitioning for $\alpha = 0$.\relax }{figure.caption.39}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {8.2}Building a compartment model}{67}{section.8.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.1}Continuous-time compartment model}{67}{subsection.8.2.1}}
-\newlabel{sec:ctcm}{{8.2.1}{67}{Continuous-time compartment model}{subsection.8.2.1}{}}
-\newlabel{eq:generalEDOp2b}{{8.5}{67}{Continuous-time compartment model}{equation.8.2.5}{}}
-\newlabel{eq:A}{{8.6}{67}{Continuous-time compartment model}{equation.8.2.6}{}}
-\newlabel{eq:Atemp}{{8.7}{68}{Continuous-time compartment model}{equation.8.2.7}{}}
-\newlabel{eq:edoC1_p2b_a75}{{8.11}{68}{Continuous-time compartment model}{equation.8.2.11}{}}
-\newlabel{eq:a_minimization}{{8.14}{68}{Continuous-time compartment model}{equation.8.2.14}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.2}Discrete-time compartment model}{69}{subsection.8.2.2}}
-\newlabel{sec:dtcm}{{8.2.2}{69}{Discrete-time compartment model}{subsection.8.2.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{The method}{69}{section*.40}}
-\newlabel{eq:A_approx_discr}{{8.16}{69}{The method}{equation.8.2.16}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Results}{69}{section*.41}}
-\newlabel{eq:generalformAdeltat}{{8.17}{70}{Results}{equation.8.2.17}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8.15}{\ignorespaces Comparison of the compartment model solution with the numerical solution for the initial condition $C_1(0) = 2\mathaccentV {bar}016C$.\relax }}{71}{figure.caption.42}}
-\newlabel{fig:comparison_comp-real1}{{8.15}{71}{Comparison of the compartment model solution with the numerical solution for the initial condition $C_1(0) = 2\bar C$.\relax }{figure.caption.42}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.1}The bi-overturner class of problems}{49}{section.8.1}}
+\newlabel{eq:psi_2box}{{8.1}{49}{The bi-overturner class of problems}{equation.8.1.1}{}}
+\newlabel{eq:u-psi_2box}{{8.2}{49}{The bi-overturner class of problems}{equation.8.1.2}{}}
+\newlabel{eq:Kh2box}{{8.4}{50}{The bi-overturner class of problems}{equation.8.1.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.1}{\ignorespaces Isolines of the horizontal velocity $v$ for bi-overturner problems.\relax }}{50}{figure.caption.19}}
+\newlabel{fig:v2box}{{8.1}{50}{Isolines of the horizontal velocity $v$ for bi-overturner problems.\relax }{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.2}{\ignorespaces Isolines of the horizontal velocity $w$ for bi-overturner problems.\relax }}{51}{figure.caption.20}}
+\newlabel{fig:w2box}{{8.2}{51}{Isolines of the horizontal velocity $w$ for bi-overturner problems.\relax }{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.3}{\ignorespaces Illustration of the decomposition of the domain into boxes corresponding to the nodes of the directed graph. The values of $K_h$ are also shown for $\alpha = 0.6$, and the fictitious wall is represented by the black continuous line. Here the particle enters the exchange zone but finally stays in $\Omega ^-$.\relax }}{51}{figure.caption.21}}
+\newlabel{fig:Kh2box}{{8.3}{51}{Illustration of the decomposition of the domain into boxes corresponding to the nodes of the directed graph. The values of $K_h$ are also shown for $\alpha = 0.6$, and the fictitious wall is represented by the black continuous line. Here the particle enters the exchange zone but finally stays in $\Omega ^-$.\relax }{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.4}{\ignorespaces Example of a particle trajectory in the bi-overturner model with $\alpha = 0.75$. The black cross represents the initial position whereas the black dot shows the final position. The simulation time is 200 years.\relax }}{52}{figure.caption.22}}
+\newlabel{fig:withouttransfer}{{8.4}{52}{Example of a particle trajectory in the bi-overturner model with $\alpha = 0.75$. The black cross represents the initial position whereas the black dot shows the final position. The simulation time is 200 years.\relax }{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.5}{\ignorespaces Example of a particle trajectory in the bi-overturner model with $\alpha = 0.75$. The black cross represents the initial position whereas the black dot shows the final position. The simulation time is 200 years.\relax }}{52}{figure.caption.23}}
+\newlabel{fig:withtransfer}{{8.5}{52}{Example of a particle trajectory in the bi-overturner model with $\alpha = 0.75$. The black cross represents the initial position whereas the black dot shows the final position. The simulation time is 200 years.\relax }{figure.caption.23}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1.1}Application of the stability method}{53}{subsection.8.1.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.6}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 1$.\relax }}{54}{figure.caption.24}}
+\newlabel{fig:staba1}{{8.6}{54}{Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 1$.\relax }{figure.caption.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.7}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0.75$.\relax }}{54}{figure.caption.25}}
+\newlabel{fig:staba75}{{8.7}{54}{Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0.75$.\relax }{figure.caption.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.8}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0.5$.\relax }}{55}{figure.caption.26}}
+\newlabel{fig:staba5}{{8.8}{55}{Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0.5$.\relax }{figure.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.9}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0.25$.\relax }}{55}{figure.caption.27}}
+\newlabel{fig:staba25}{{8.9}{55}{Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0.25$.\relax }{figure.caption.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.10}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0$.\relax }}{56}{figure.caption.28}}
+\newlabel{fig:staba0}{{8.10}{56}{Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0$.\relax }{figure.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.11}{\ignorespaces Illustration of the two-communities partitioning for $\alpha = 0.25$.\relax }}{56}{figure.caption.29}}
+\newlabel{fig:cluster_a25_2}{{8.11}{56}{Illustration of the two-communities partitioning for $\alpha = 0.25$.\relax }{figure.caption.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.12}{\ignorespaces Illustration of the two-communities partitioning for $\alpha = 0.5$.\relax }}{56}{figure.caption.30}}
+\newlabel{fig:cluster_a5_2}{{8.12}{56}{Illustration of the two-communities partitioning for $\alpha = 0.5$.\relax }{figure.caption.30}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.13}{\ignorespaces Illustration of the three-communities partitioning for $\alpha = 0.25$.\relax }}{57}{figure.caption.31}}
+\newlabel{fig:cluster_a25_3}{{8.13}{57}{Illustration of the three-communities partitioning for $\alpha = 0.25$.\relax }{figure.caption.31}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.14}{\ignorespaces Illustration of the three-communities partitioning for $\alpha = 0$.\relax }}{57}{figure.caption.32}}
+\newlabel{fig:cluster_a0_3}{{8.14}{57}{Illustration of the three-communities partitioning for $\alpha = 0$.\relax }{figure.caption.32}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8.2}Building a compartment model}{57}{section.8.2}}
+\newlabel{eq:C2-C1}{{8.7}{57}{Building a compartment model}{equation.8.2.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.1}Limitations of the compartment model}{58}{subsection.8.2.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.15}{\ignorespaces Illustration.\relax }}{58}{figure.caption.33}}
+\newlabel{fig:CI_init}{{8.15}{58}{Illustration.\relax }{figure.caption.33}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.16}{\ignorespaces Comparison of the compartment model solution with the numerical solution for the initial condition $C_1(0) = 2\mathaccentV {bar}016C$.\relax }}{59}{figure.caption.34}}
+\newlabel{fig:CI_evol}{{8.16}{59}{Comparison of the compartment model solution with the numerical solution for the initial condition $C_1(0) = 2\bar C$.\relax }{figure.caption.34}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.2}Continuous-time compartment model}{59}{subsection.8.2.2}}
+\newlabel{sec:ctcm}{{8.2.2}{59}{Continuous-time compartment model}{subsection.8.2.2}{}}
+\newlabel{eq:generalEDOp2b}{{8.8}{59}{Continuous-time compartment model}{equation.8.2.8}{}}
+\newlabel{eq:A}{{8.9}{59}{Continuous-time compartment model}{equation.8.2.9}{}}
+\newlabel{eq:Atemp}{{8.10}{59}{Continuous-time compartment model}{equation.8.2.10}{}}
+\newlabel{eq:edoC1_p2b_a75}{{8.12}{59}{Continuous-time compartment model}{equation.8.2.12}{}}
+\newlabel{eq:a_minimization}{{8.15}{60}{Continuous-time compartment model}{equation.8.2.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2.3}Discrete-time compartment model}{60}{subsection.8.2.3}}
+\newlabel{sec:dtcm}{{8.2.3}{60}{Discrete-time compartment model}{subsection.8.2.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{The method}{61}{section*.35}}
+\newlabel{eq:A_approx_discr}{{8.17}{61}{The method}{equation.8.2.17}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Results}{61}{section*.36}}
+\newlabel{eq:generalformAdeltat}{{8.18}{61}{Results}{equation.8.2.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8.17}{\ignorespaces Comparison of the compartment model solution with the numerical solution for the initial condition $C_1(0) = 2\mathaccentV {bar}016C$.\relax }}{62}{figure.caption.37}}
+\newlabel{fig:comparison_comp-real1}{{8.17}{62}{Comparison of the compartment model solution with the numerical solution for the initial condition $C_1(0) = 2\bar C$.\relax }{figure.caption.37}{}}
 \citation{*}
 \bibstyle{unsrt}
 \bibdata{bib/bibli}
-\@writefile{toc}{\contentsline {chapter}{\numberline {9}Conclusion}{73}{chapter.9}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {9}Conclusion}{63}{chapter.9}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibcite{fortunato2010community}{1}
@@ -386,6 +355,7 @@
 \bibcite{stijn1987positive}{13}
 \bibcite{yang1998accuracy}{14}
 \bibcite{zheng2002applied}{15}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{65}{chapter*.38}}
 \bibcite{hunter1987application}{16}
 \bibcite{hunter1993use}{17}
 \bibcite{yeh1990lagrangian}{18}
@@ -405,29 +375,73 @@
 \bibcite{prickett1981random}{32}
 \bibcite{tompson1987numerical}{33}
 \bibcite{pitt2012guide}{34}
-\bibcite{deleersnijder2011test}{35}
-\bibcite{deleersnijder2006overturner}{36}
-\bibcite{timmermans2006masterthesis}{37}
-\bibcite{deleersnijder2014tpgef}{38}
+\bibcite{deleersnijder2006overturner}{35}
+\bibcite{timmermans2006masterthesis}{36}
+\bibcite{deleersnijder2014tpgef}{37}
+\bibcite{deleersnijder2011test}{38}
 \bibcite{lambiotte2011flow}{39}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Numerical considerations}{79}{appendix.A}}
+\@writefile{toc}{\contentsline {chapter}{Appendix}{67}{chapter*.38}}
+\citation{deleersnijder2011test}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Numerical considerations}{69}{appendix.A}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {A.1}Stieltjes integral}{79}{section.A.1}}
-\newlabel{app:stieltjes}{{A.1}{79}{Stieltjes integral}{section.A.1}{}}
-\newlabel{eq:stieltjes}{{A.1}{79}{Stieltjes integral}{equation.A.1.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.2}Mean-square limit}{79}{section.A.2}}
-\newlabel{app:mslim}{{A.2}{79}{Mean-square limit}{section.A.2}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Applications}{81}{appendix.B}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Stieltjes integral}{69}{section.A.1}}
+\newlabel{app:stieltjes}{{A.1}{69}{Stieltjes integral}{section.A.1}{}}
+\newlabel{eq:stieltjes}{{A.1}{69}{Stieltjes integral}{equation.A.1.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}Mean-square limit}{69}{section.A.2}}
+\newlabel{app:mslim}{{A.2}{69}{Mean-square limit}{section.A.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.3}Test case to assess the implementation of the overturner model}{70}{section.A.3}}
+\newlabel{app:test_case}{{A.3}{70}{Test case to assess the implementation of the overturner model}{section.A.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.3.1}Governing equations}{70}{subsection.A.3.1}}
+\newlabel{eq:testcase:continuity}{{A.8}{70}{Governing equations}{equation.A.3.8}{}}
+\newlabel{eq:testcase:conservative}{{A.9}{70}{Governing equations}{equation.A.3.9}{}}
+\newlabel{eq:testcase:convective}{{A.10}{70}{Governing equations}{equation.A.3.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.3.2}An idealized model}{70}{subsection.A.3.2}}
+\newlabel{eq:testcase:velocity}{{A.11}{70}{An idealized model}{equation.A.3.11}{}}
+\newlabel{eq:testcase:diffusivity}{{A.12}{70}{An idealized model}{equation.A.3.12}{}}
+\citation{timmermans2006masterthesis}
+\newlabel{eq:testcase}{{A.14}{71}{An idealized model}{equation.A.3.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces Illustration of the 3D and 2D interpretations of the model.\relax }}{71}{figure.caption.39}}
+\newlabel{fig:testcase_scheme}{{A.1}{71}{Illustration of the 3D and 2D interpretations of the model.\relax }{figure.caption.39}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Test case 1 : infinite domain}{71}{section*.40}}
+\newlabel{eq:testcase:domain}{{A.16}{71}{Test case 1 : infinite domain}{equation.A.3.16}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Test case 2 : semi-infinite domain}{72}{section*.41}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.3.3}Analytical solution and properties}{72}{subsection.A.3.3}}
+\@writefile{toc}{\contentsline {subsubsection}{Green's function}{72}{section*.42}}
+\newlabel{eq:testcase_green}{{A.23}{72}{Green's function}{equation.A.3.23}{}}
+\newlabel{eq:testcase:propmass}{{A.26}{72}{Green's function}{equation.A.3.26}{}}
+\newlabel{eq:testcase:propcenter}{{A.27}{72}{Green's function}{equation.A.3.27}{}}
+\newlabel{eq:testcase:propvar}{{A.28}{72}{Green's function}{equation.A.3.28}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Test case 1}{73}{section*.43}}
+\@writefile{toc}{\contentsline {subsubsection}{Test case 2}{73}{section*.44}}
+\newlabel{tc2_eq2}{{A.34}{73}{Test case 2}{equation.A.3.34}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.4}Validation of the numerical solver}{74}{section.A.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.4.1}Test case 1}{74}{subsection.A.4.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.2}{\ignorespaces Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }}{75}{figure.caption.45}}
+\newlabel{fig:testcase_surf}{{A.2}{75}{Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }{figure.caption.45}{}}
+\newlabel{fig:testcase_fixedy}{{A.3a}{76}{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.\relax }{figure.caption.46}{}}
+\newlabel{sub@fig:testcase_fixedy}{{a}{76}{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.\relax }{figure.caption.46}{}}
+\newlabel{fig:testcase_fixedz}{{A.3b}{76}{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.\relax }{figure.caption.46}{}}
+\newlabel{sub@fig:testcase_fixedz}{{b}{76}{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.\relax }{figure.caption.46}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.3}{\ignorespaces Cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The dashed line represent $C_{num}$ and the continuous line is for $C_{exact}$.\relax }}{76}{figure.caption.46}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.4.2}Test case 2}{76}{subsection.A.4.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.4}{\ignorespaces Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }}{77}{figure.caption.47}}
+\newlabel{fig:testcaseSI_surf}{{A.4}{77}{Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }{figure.caption.47}{}}
+\newlabel{fig:testcaseSI_fixedy}{{A.5a}{78}{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.\relax }{figure.caption.48}{}}
+\newlabel{sub@fig:testcaseSI_fixedy}{{a}{78}{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.\relax }{figure.caption.48}{}}
+\newlabel{fig:testcaseSI_fixedz}{{A.5b}{78}{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.\relax }{figure.caption.48}{}}
+\newlabel{sub@fig:testcaseSI_fixedz}{{b}{78}{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.\relax }{figure.caption.48}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.5}{\ignorespaces Cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The dashed line represent $C_{num}$ and the continuous line is for $C_{exact}$.\relax }}{78}{figure.caption.48}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Applications}{79}{appendix.B}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {B.1}The streamfunction}{81}{section.B.1}}
-\newlabel{app:streamfunction}{{B.1}{81}{The streamfunction}{section.B.1}{}}
-\newlabel{prop:streamfunction}{{B.1.1}{81}{}{property.B.1.1}{}}
-\newlabel{eq:stream3d}{{B.2}{81}{The streamfunction}{equation.B.1.2}{}}
-\newlabel{eq:u-psi}{{B.4}{82}{The streamfunction}{equation.B.1.4}{}}
-\newlabel{prop:streamfunction-tangent}{{B.1.2}{82}{}{property.B.1.2}{}}
-\newlabel{prop:streamfunction-flowrate}{{B.1.3}{82}{}{property.B.1.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.1}The streamfunction}{79}{section.B.1}}
+\newlabel{app:streamfunction}{{B.1}{79}{The streamfunction}{section.B.1}{}}
+\newlabel{prop:streamfunction}{{B.1.1}{79}{}{property.B.1.1}{}}
+\newlabel{eq:stream3d}{{B.2}{79}{The streamfunction}{equation.B.1.2}{}}
+\newlabel{eq:u-psi}{{B.4}{80}{The streamfunction}{equation.B.1.4}{}}
+\newlabel{prop:streamfunction-tangent}{{B.1.2}{80}{}{property.B.1.2}{}}
+\newlabel{prop:streamfunction-flowrate}{{B.1.3}{80}{}{property.B.1.3}{}}
 \gdef\minted@oldcachelist{,
   default.pygstyle,
   default-pyg-prefix.pygstyle,

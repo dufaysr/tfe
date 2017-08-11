@@ -1,9 +1,9 @@
-%!TEX root = ../tfe.tex
+%!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 
 
-\newcommand{\G}{\ensuremath{G(t,t',\b{x})}}
+\newcommand{\G}{\ensuremath{G(\b{x},t,t')}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\E}{\ensuremath{\mathbb{E}}}
 \newcommand{\R}[1][]{\ensuremath{\mathbb{R}^{#1}}}
@@ -89,3 +89,12 @@
     \begin{cor}}
     {\end{cor}
 }
+
+% Custom toc
+\AtBeginDocument{\renewcommand\contentsname{Table of Contents}}
+% \setlength{\cftbeforechapskip}{.1ex}
+\setlength{\cftbeforesecskip}{-.5ex}
+\setlength{\cftbeforesubsecskip}{-1ex}
+% \titleformat{\chapter}[display]
+% {}{\hfill\rule{.7\textwidth}{3pt}}{0pt}
+% {\hfill\huge\bfseries}[\addvspace{-1pt}]

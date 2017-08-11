@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.5.22)  10 AUG 2017 17:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.5.22)  11 AUG 2017 15:16
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1254,13 +1254,60 @@ LaTeX Info: Redefining \upshape on input line 35.
 LaTeX Info: Redefining \slshape on input line 45.
 LaTeX Info: Redefining \itshape on input line 55.
 LaTeX Info: Redefining \scshape on input line 65.
-))
+)
 (/usr/share/texlive/texmf-dist/tex/latex/nextpage/nextpage.sty
 Package: nextpage 2009/09/03 v1.1a additional page commands
 )
-(/home/renaud/Documents/EPL/tfe/latex/misc/commands.tex
-\c@property=\count195
-\c@cor=\count196
+(/usr/share/texlive/texmf-dist/tex/latex/tocloft/tocloft.sty
+Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
+Package tocloft Info: The document has chapter divisions on input line 44.
+\cftparskip=\skip65
+\cftbeforetoctitleskip=\skip66
+\cftaftertoctitleskip=\skip67
+\cftbeforepartskip=\skip68
+\cftpartnumwidth=\skip69
+\cftpartindent=\skip70
+\cftbeforechapskip=\skip71
+\cftchapindent=\skip72
+\cftchapnumwidth=\skip73
+\cftbeforesecskip=\skip74
+\cftsecindent=\skip75
+\cftsecnumwidth=\skip76
+\cftbeforesubsecskip=\skip77
+\cftsubsecindent=\skip78
+\cftsubsecnumwidth=\skip79
+\cftbeforesubsubsecskip=\skip80
+\cftsubsubsecindent=\skip81
+\cftsubsubsecnumwidth=\skip82
+\cftbeforeparaskip=\skip83
+\cftparaindent=\skip84
+\cftparanumwidth=\skip85
+\cftbeforesubparaskip=\skip86
+\cftsubparaindent=\skip87
+\cftsubparanumwidth=\skip88
+\cftbeforeloftitleskip=\skip89
+\cftafterloftitleskip=\skip90
+\cftbeforefigskip=\skip91
+\cftfigindent=\skip92
+\cftfignumwidth=\skip93
+\c@lofdepth=\count195
+\c@lotdepth=\count196
+\cftbeforelottitleskip=\skip94
+\cftafterlottitleskip=\skip95
+\cftbeforetabskip=\skip96
+\cfttabindent=\skip97
+\cfttabnumwidth=\skip98
+))
+(/usr/share/texlive/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+Package: tocbibind 2010/10/13 v1.5k extra ToC listings
+Package tocbibind Info: The document has chapter divisions on input line 50.
+
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+) (/home/renaud/Documents/EPL/tfe/latex/misc/commands.tex
+\c@property=\count197
+\c@cor=\count198
 )
 (/home/renaud/Documents/EPL/tfe/latex/misc/formatting.tex)
 runsystem(which "pygmentize" && touch "tfe.aex")...executed.
@@ -1320,16 +1367,16 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count197
+\scratchcounter=\count199
 \scratchdimen=\dimen301
 \scratchbox=\box80
-\nofMPsegments=\count198
-\nofMParguments=\count199
+\nofMPsegments=\count266
+\nofMParguments=\count267
 \everyMPshowfont=\toks59
-\MPscratchCnt=\count266
+\MPscratchCnt=\count268
 \MPscratchDim=\dimen302
-\MPnumerator=\count267
-\makeMPintoPDFobject=\count268
+\MPnumerator=\count269
+\makeMPintoPDFobject=\count270
 \everyMPtoPDFconversion=\toks60
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -1407,7 +1454,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count269
+\c@section@level=\count271
 )
 LaTeX Info: Redefining \ref on input line 30.
 LaTeX Info: Redefining \pageref on input line 30.
@@ -1418,7 +1465,7 @@ LaTeX Info: Redefining \nameref on input line 30.
 \@outlinefile=\write9
 \openout9 = `tfe.out'.
 
-\c@lstlisting=\count270
+\c@lstlisting=\count272
 
 (/home/renaud/Documents/EPL/tfe/latex/_minted-tfe/default-pyg-prefix.pygstyle)
 *geometry* verbose mode - [ newgeometry ] result:
@@ -1454,7 +1501,7 @@ LaTeX Info: Redefining \nameref on input line 30.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-<fig/EPL_TFEbanner.jpg, id=252, 526.3665pt x 256.0767pt>
+<fig/EPL_TFEbanner.jpg, id=275, 526.3665pt x 256.0767pt>
 File: fig/EPL_TFEbanner.jpg Graphic file (type jpg)
 
 <use fig/EPL_TFEbanner.jpg>
@@ -1528,22 +1575,27 @@ File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 /tfe/latex/fig/EPL_TFEbanner.jpg>]
 [2
 
+] [1] [2
+
 ] (/home/renaud/Documents/EPL/tfe/latex/tfe.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 5.
-
-Underfull \vbox (badness 4001) has occurred while \output is active []
-
- [1
-
-]
-[2])
+(Font)              <10.95> on input line 2.
+ [3] [4])
 \tf@toc=\write10
 \openout10 = `tfe.toc'.
 
- [3] [4
+ [5] [6]
+(/home/renaud/Documents/EPL/tfe/latex/tfe.lof
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-] (/home/renaud/Documents/EPL/tfe/latex/inputs/intro/intro.tex
+ [7
+
+])
+\tf@lof=\write11
+\openout11 = `tfe.lof'.
+
+
+[8] (/home/renaud/Documents/EPL/tfe/latex/inputs/intro/intro.tex
 Chapter 1.
 ) [1
 
@@ -1811,158 +1863,19 @@ E27589D0E6B483817D5204694FBEC0A9296.pygtex)
 
 
 (/home/renaud/Documents/EPL/tfe/latex/_minted-tfe/0ED1C2418E7EDA744B787AAB614FB
-4234F63E2BB056085257725C19914998808.pygtex))
-(/home/renaud/Documents/EPL/tfe/latex/inputs/numerical/test_case.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [40]
-[41] (/home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcase_scheme3D.tex)
-(/home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcase_scheme2D.tex)
-[42] [43] [44] [45]
-Package epstopdf Info: Source file: <fig/testcase/testcase_surf.eps>
-(epstopdf)                    date: 2017-05-24 17:26:05
-(epstopdf)                    size: 123285 bytes
-(epstopdf)             Output file: <fig/testcase/testcase_surf-eps-converted-t
-o.pdf>
-(epstopdf)                    date: 2017-05-24 17:26:57
-(epstopdf)                    size: 108301 bytes
-(epstopdf)             Command: <epstopdf --outfile=fig/testcase/testcase_surf-
-eps-converted-to.pdf fig/testcase/testcase_surf.eps>
-(epstopdf)             \includegraphics on input line 232.
-Package epstopdf Info: Output file is already uptodate.
-
-<fig/testcase/testcase_surf-eps-converted-to.pdf, id=1096, 449.68pt x 343.2825p
-t>
-File: fig/testcase/testcase_surf-eps-converted-to.pdf Graphic file (type pdf)
- <use fig/testcase/testcase_surf-eps-converted-to.pdf>
-Package pdftex.def Info: fig/testcase/testcase_surf-eps-converted-to.pdf used o
-n input line 232.
-(pdftex.def)             Requested size: 455.24411pt x 347.54543pt.
-Package epstopdf Info: Source file: <fig/testcase/testcase_fixedy.eps>
-(epstopdf)                    date: 2017-05-24 17:26:05
-(epstopdf)                    size: 32989 bytes
-(epstopdf)             Output file: <fig/testcase/testcase_fixedy-eps-converted
--to.pdf>
-(epstopdf)                    date: 2017-05-24 17:26:58
-(epstopdf)                    size: 17752 bytes
-(epstopdf)             Command: <epstopdf --outfile=fig/testcase/testcase_fixed
-y-eps-converted-to.pdf fig/testcase/testcase_fixedy.eps>
-(epstopdf)             \includegraphics on input line 239.
-Package epstopdf Info: Output file is already uptodate.
-
-<fig/testcase/testcase_fixedy-eps-converted-to.pdf, id=1097, 227.85126pt x 182.
-6825pt>
-File: fig/testcase/testcase_fixedy-eps-converted-to.pdf Graphic file (type pdf)
-
- <use fig/testcase/testcase_fixedy-eps-converted-to.pdf>
-Package pdftex.def Info: fig/testcase/testcase_fixedy-eps-converted-to.pdf used
- on input line 239.
-(pdftex.def)             Requested size: 223.07211pt x 178.85478pt.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 240.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 240.
-Package epstopdf Info: Source file: <fig/testcase/testcase_fixedz.eps>
-(epstopdf)                    date: 2017-05-24 17:26:06
-(epstopdf)                    size: 37689 bytes
-(epstopdf)             Output file: <fig/testcase/testcase_fixedz-eps-converted
--to.pdf>
-(epstopdf)                    date: 2017-05-24 17:26:58
-(epstopdf)                    size: 17661 bytes
-(epstopdf)             Command: <epstopdf --outfile=fig/testcase/testcase_fixed
-z-eps-converted-to.pdf fig/testcase/testcase_fixedz.eps>
-(epstopdf)             \includegraphics on input line 244.
-Package epstopdf Info: Output file is already uptodate.
-
-<fig/testcase/testcase_fixedz-eps-converted-to.pdf, id=1098, 227.85126pt x 182.
-6825pt>
-File: fig/testcase/testcase_fixedz-eps-converted-to.pdf Graphic file (type pdf)
-
- <use fig/testcase/testcase_fixedz-eps-converted-to.pdf>
-Package pdftex.def Info: fig/testcase/testcase_fixedz-eps-converted-to.pdf used
- on input line 244.
-(pdftex.def)             Requested size: 223.07211pt x 178.85478pt.
-
-Underfull \vbox (badness 2762) has occurred while \output is active []
-
- [46 </home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcase_surf-eps-conve
-rted-to.pdf>]
-Package epstopdf Info: Source file: <fig/testcase/testcaseSI_surf.eps>
-(epstopdf)                    date: 2017-05-24 18:46:22
-(epstopdf)                    size: 146170 bytes
-(epstopdf)             Output file: <fig/testcase/testcaseSI_surf-eps-converted
--to.pdf>
-(epstopdf)                    date: 2017-05-24 21:10:57
-(epstopdf)                    size: 125629 bytes
-(epstopdf)             Command: <epstopdf --outfile=fig/testcase/testcaseSI_sur
-f-eps-converted-to.pdf fig/testcase/testcaseSI_surf.eps>
-(epstopdf)             \includegraphics on input line 283.
-Package epstopdf Info: Output file is already uptodate.
-
-<fig/testcase/testcaseSI_surf-eps-converted-to.pdf, id=1117, 464.73625pt x 388.
-45125pt>
-File: fig/testcase/testcaseSI_surf-eps-converted-to.pdf Graphic file (type pdf)
-
- <use fig/testcase/testcaseSI_surf-eps-converted-to.pdf>
-Package pdftex.def Info: fig/testcase/testcaseSI_surf-eps-converted-to.pdf used
- on input line 283.
-(pdftex.def)             Requested size: 455.24411pt x 380.5255pt.
-Package epstopdf Info: Source file: <fig/testcase/testcaseSI_fixedy.eps>
-(epstopdf)                    date: 2017-05-24 18:46:22
-(epstopdf)                    size: 34087 bytes
-(epstopdf)             Output file: <fig/testcase/testcaseSI_fixedy-eps-convert
-ed-to.pdf>
-(epstopdf)                    date: 2017-05-24 21:10:59
-(epstopdf)                    size: 14411 bytes
-(epstopdf)             Command: <epstopdf --outfile=fig/testcase/testcaseSI_fix
-edy-eps-converted-to.pdf fig/testcase/testcaseSI_fixedy.eps>
-(epstopdf)             \includegraphics on input line 290.
-Package epstopdf Info: Output file is already uptodate.
-
-<fig/testcase/testcaseSI_fixedy-eps-converted-to.pdf, id=1118, 220.825pt x 159.
-59625pt>
-File: fig/testcase/testcaseSI_fixedy-eps-converted-to.pdf Graphic file (type pd
-f)
- <use fig/testcase/testcaseSI_fixedy-eps-converted-to.pdf>
-Package pdftex.def Info: fig/testcase/testcaseSI_fixedy-eps-converted-to.pdf us
-ed on input line 290.
-(pdftex.def)             Requested size: 223.07211pt x 161.22745pt.
-Package epstopdf Info: Source file: <fig/testcase/testcaseSI_fixedz.eps>
-(epstopdf)                    date: 2017-05-24 18:46:23
-(epstopdf)                    size: 29365 bytes
-(epstopdf)             Output file: <fig/testcase/testcaseSI_fixedz-eps-convert
-ed-to.pdf>
-(epstopdf)                    date: 2017-05-24 21:10:59
-(epstopdf)                    size: 12367 bytes
-(epstopdf)             Command: <epstopdf --outfile=fig/testcase/testcaseSI_fix
-edz-eps-converted-to.pdf fig/testcase/testcaseSI_fixedz.eps>
-(epstopdf)             \includegraphics on input line 295.
-Package epstopdf Info: Output file is already uptodate.
-
-<fig/testcase/testcaseSI_fixedz-eps-converted-to.pdf, id=1119, 227.85126pt x 18
-2.6825pt>
-File: fig/testcase/testcaseSI_fixedz-eps-converted-to.pdf Graphic file (type pd
-f)
- <use fig/testcase/testcaseSI_fixedz-eps-converted-to.pdf>
-Package pdftex.def Info: fig/testcase/testcaseSI_fixedz-eps-converted-to.pdf us
-ed on input line 295.
-(pdftex.def)             Requested size: 223.07211pt x 178.85478pt.
- [47 </home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcase_fixedy-eps-con
-verted-to.pdf> </home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcase_fixe
-dz-eps-converted-to.pdf>])) (/home/renaud/Documents/EPL/tfe/latex/inputs/method
-/method.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [48 </home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcaseSI_surf-eps-con
-verted-to.pdf>] [49 </home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcase
-SI_fixedy-eps-converted-to.pdf> </home/renaud/Documents/EPL/tfe/latex/fig/testc
-ase/testcaseSI_fixedz-eps-converted-to.pdf>] [50
-
-]
+4234F63E2BB056085257725C19914998808.pygtex)))
+(/home/renaud/Documents/EPL/tfe/latex/inputs/method/method.tex [40]
 Chapter 6.
 (/home/renaud/Documents/EPL/tfe/latex/inputs/method/generalmethod.tex
-(/home/renaud/Documents/EPL/tfe/latex/fig/clusters/box_scheme.tex) [51]
-[52]
+(/home/renaud/Documents/EPL/tfe/latex/fig/clusters/box_scheme.tex)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 10.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 10.
+ [41
+
+]
+[42]
 LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 26.
 
  (/usr/share/texmf/tex/latex/lm/ts1lmtt.fd
@@ -1975,20 +1888,20 @@ Package microtype Info: Loading generic settings for font family
 Package microtype Info: Character `texttrademark ' is missing
 (microtype)             in font `TS1/lmtt/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-)) [53] [54] [55
+)) [43] [44] [45
 
-] [56]
+] [46]
 (/home/renaud/Documents/EPL/tfe/latex/inputs/overturnercirculation/overturnerci
 rculation.tex
 Chapter 7.
-[57
+[47
 
 ])
 (/home/renaud/Documents/EPL/tfe/latex/inputs/bi-overturner/bi-overturner.tex
-[58]
+[48]
 Chapter 8.
 (/home/renaud/Documents/EPL/tfe/latex/inputs/bi-overturner/problem2box.tex
-[59
+[49
 
 ]
 Package epstopdf Info: Source file: <fig/problem2box/v2box_timmermans.eps>
@@ -2003,7 +1916,7 @@ rmans-eps-converted-to.pdf fig/problem2box/v2box_timmermans.eps>
 (epstopdf)             \includegraphics on input line 35.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/v2box_timmermans-eps-converted-to.pdf, id=1242, 502.87875pt x 
+<fig/problem2box/v2box_timmermans-eps-converted-to.pdf, id=1215, 502.87875pt x 
 227.85126pt>
 File: fig/problem2box/v2box_timmermans-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -2023,7 +1936,7 @@ rmans-eps-converted-to.pdf fig/problem2box/w2box_timmermans.eps>
 (epstopdf)             \includegraphics on input line 42.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/w2box_timmermans-eps-converted-to.pdf, id=1243, 502.87875pt x 
+<fig/problem2box/w2box_timmermans-eps-converted-to.pdf, id=1216, 502.87875pt x 
 227.85126pt>
 File: fig/problem2box/w2box_timmermans-eps-converted-to.pdf Graphic file (type 
 pdf)
@@ -2043,7 +1956,7 @@ df>
 (epstopdf)             \includegraphics on input line 49.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/problem-eps-converted-to.pdf, id=1244, 502.87875pt x 227.85126
+<fig/problem2box/problem-eps-converted-to.pdf, id=1217, 502.87875pt x 227.85126
 pt>
 File: fig/problem2box/problem-eps-converted-to.pdf Graphic file (type pdf)
  <use fig/problem2box/problem-eps-converted-to.pdf>
@@ -2063,7 +1976,7 @@ t_transfer5-eps-converted-to.pdf fig/problem2box/traj_without_transfer5.eps>
 (epstopdf)             \includegraphics on input line 56.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/traj_without_transfer5-eps-converted-to.pdf, id=1245, 502.8787
+<fig/problem2box/traj_without_transfer5-eps-converted-to.pdf, id=1218, 502.8787
 5pt x 227.85126pt>
 File: fig/problem2box/traj_without_transfer5-eps-converted-to.pdf Graphic file 
 (type pdf)
@@ -2084,7 +1997,7 @@ ransfer2-eps-converted-to.pdf fig/problem2box/traj_with_transfer2.eps>
 (epstopdf)             \includegraphics on input line 63.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/traj_with_transfer2-eps-converted-to.pdf, id=1246, 502.87875pt
+<fig/problem2box/traj_with_transfer2-eps-converted-to.pdf, id=1219, 502.87875pt
  x 227.85126pt>
 File: fig/problem2box/traj_with_transfer2-eps-converted-to.pdf Graphic file (ty
 pe pdf)
@@ -2093,10 +2006,10 @@ Package pdftex.def Info: fig/problem2box/traj_with_transfer2-eps-converted-to.p
 df used on input line 63.
 (pdftex.def)             Requested size: 455.24411pt x 206.26717pt.
 
-[60 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/v2box_timmermans-eps-
-converted-to.pdf>] [61 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/w2
+[50 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/v2box_timmermans-eps-
+converted-to.pdf>] [51 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/w2
 box_timmermans-eps-converted-to.pdf> </home/renaud/Documents/EPL/tfe/latex/fig/
-problem2box/problem-eps-converted-to.pdf>] [62 </home/renaud/Documents/EPL/tfe/
+problem2box/problem-eps-converted-to.pdf>] [52 </home/renaud/Documents/EPL/tfe/
 latex/fig/problem2box/traj_without_transfer5-eps-converted-to.pdf> </home/renau
 d/Documents/EPL/tfe/latex/fig/problem2box/traj_with_transfer2-eps-converted-to.
 pdf>]
@@ -2112,7 +2025,7 @@ df>
 (epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/stab_a1-eps-converted-to.pdf, id=1306, 456.70625pt x 456.70625
+<fig/problem2box/stab_a1-eps-converted-to.pdf, id=1275, 456.70625pt x 456.70625
 pt>
 File: fig/problem2box/stab_a1-eps-converted-to.pdf Graphic file (type pdf)
  <use fig/problem2box/stab_a1-eps-converted-to.pdf>
@@ -2131,7 +2044,7 @@ s-converted-to.pdf fig/problem2box/stab_a75.eps>
 (epstopdf)             \includegraphics on input line 88.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/stab_a75-eps-converted-to.pdf, id=1307, 456.70625pt x 456.7062
+<fig/problem2box/stab_a75-eps-converted-to.pdf, id=1276, 456.70625pt x 456.7062
 5pt>
 File: fig/problem2box/stab_a75-eps-converted-to.pdf Graphic file (type pdf)
  <use fig/problem2box/stab_a75-eps-converted-to.pdf>
@@ -2150,7 +2063,7 @@ df>
 (epstopdf)             \includegraphics on input line 95.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/stab_a5-eps-converted-to.pdf, id=1308, 456.70625pt x 456.70625
+<fig/problem2box/stab_a5-eps-converted-to.pdf, id=1277, 456.70625pt x 456.70625
 pt>
 File: fig/problem2box/stab_a5-eps-converted-to.pdf Graphic file (type pdf)
  <use fig/problem2box/stab_a5-eps-converted-to.pdf>
@@ -2169,7 +2082,7 @@ s-converted-to.pdf fig/problem2box/stab_a25.eps>
 (epstopdf)             \includegraphics on input line 102.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/stab_a25-eps-converted-to.pdf, id=1309, 456.70625pt x 456.7062
+<fig/problem2box/stab_a25-eps-converted-to.pdf, id=1278, 456.70625pt x 456.7062
 5pt>
 File: fig/problem2box/stab_a25-eps-converted-to.pdf Graphic file (type pdf)
  <use fig/problem2box/stab_a25-eps-converted-to.pdf>
@@ -2188,7 +2101,7 @@ df>
 (epstopdf)             \includegraphics on input line 109.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/stab_a0-eps-converted-to.pdf, id=1310, 433.62pt x 342.27875pt>
+<fig/problem2box/stab_a0-eps-converted-to.pdf, id=1279, 433.62pt x 342.27875pt>
 File: fig/problem2box/stab_a0-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/problem2box/stab_a0-eps-converted-to.pdf>
 Package pdftex.def Info: fig/problem2box/stab_a0-eps-converted-to.pdf used on i
@@ -2206,7 +2119,7 @@ _2_-eps-converted-to.pdf fig/problem2box/cluster_a25_2_.eps>
 (epstopdf)             \includegraphics on input line 116.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/cluster_a25_2_-eps-converted-to.pdf, id=1311, 502.87875pt x 22
+<fig/problem2box/cluster_a25_2_-eps-converted-to.pdf, id=1280, 502.87875pt x 22
 7.85126pt>
 File: fig/problem2box/cluster_a25_2_-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -2226,7 +2139,7 @@ d-to.pdf>
 (epstopdf)             \includegraphics on input line 123.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/cluster_a5_2_-eps-converted-to.pdf, id=1312, 502.87875pt x 227
+<fig/problem2box/cluster_a5_2_-eps-converted-to.pdf, id=1281, 502.87875pt x 227
 .85126pt>
 File: fig/problem2box/cluster_a5_2_-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -2246,7 +2159,7 @@ _3_-eps-converted-to.pdf fig/problem2box/cluster_a25_3_.eps>
 (epstopdf)             \includegraphics on input line 130.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/cluster_a25_3_-eps-converted-to.pdf, id=1313, 502.87875pt x 22
+<fig/problem2box/cluster_a25_3_-eps-converted-to.pdf, id=1282, 502.87875pt x 22
 7.85126pt>
 File: fig/problem2box/cluster_a25_3_-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -2266,7 +2179,7 @@ d-to.pdf>
 (epstopdf)             \includegraphics on input line 137.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/cluster_a0_3_-eps-converted-to.pdf, id=1314, 502.87875pt x 227
+<fig/problem2box/cluster_a0_3_-eps-converted-to.pdf, id=1283, 502.87875pt x 227
 .85126pt>
 File: fig/problem2box/cluster_a0_3_-eps-converted-to.pdf Graphic file (type pdf
 )
@@ -2274,18 +2187,65 @@ File: fig/problem2box/cluster_a0_3_-eps-converted-to.pdf Graphic file (type pdf
 Package pdftex.def Info: fig/problem2box/cluster_a0_3_-eps-converted-to.pdf use
 d on input line 137.
 (pdftex.def)             Requested size: 318.66948pt x 144.38493pt.
- [63]
-[64 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/stab_a1-eps-converted
+ [53]
+[54 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/stab_a1-eps-converted
 -to.pdf> </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/stab_a75-eps-con
-verted-to.pdf>] [65 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/stab_
+verted-to.pdf>] [55 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/stab_
 a5-eps-converted-to.pdf> </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/
-stab_a25-eps-converted-to.pdf>] [66 </home/renaud/Documents/EPL/tfe/latex/fig/p
+stab_a25-eps-converted-to.pdf>] [56 </home/renaud/Documents/EPL/tfe/latex/fig/p
 roblem2box/stab_a0-eps-converted-to.pdf> </home/renaud/Documents/EPL/tfe/latex/
 fig/problem2box/cluster_a25_2_-eps-converted-to.pdf> </home/renaud/Documents/EP
-L/tfe/latex/fig/problem2box/cluster_a5_2_-eps-converted-to.pdf>] [67 </home/ren
+L/tfe/latex/fig/problem2box/cluster_a5_2_-eps-converted-to.pdf>] [57 </home/ren
 aud/Documents/EPL/tfe/latex/fig/problem2box/cluster_a25_3_-eps-converted-to.pdf
 > </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/cluster_a0_3_-eps-conve
-rted-to.pdf>] [68] [69]
+rted-to.pdf>]
+Package epstopdf Info: Source file: <fig/problem2box/CI_init.eps>
+(epstopdf)                    date: 2017-08-11 09:53:59
+(epstopdf)                    size: 2692197 bytes
+(epstopdf)             Output file: <fig/problem2box/CI_init-eps-converted-to.p
+df>
+(epstopdf)                    date: 2017-08-11 09:54:38
+(epstopdf)                    size: 875665 bytes
+(epstopdf)             Command: <epstopdf --outfile=fig/problem2box/CI_init-eps
+-converted-to.pdf fig/problem2box/CI_init.eps>
+(epstopdf)             \includegraphics on input line 171.
+Package epstopdf Info: Output file is already uptodate.
+
+<fig/problem2box/CI_init-eps-converted-to.pdf, id=1339, 817.0525pt x 370.38374p
+t>
+File: fig/problem2box/CI_init-eps-converted-to.pdf Graphic file (type pdf)
+ <use fig/problem2box/CI_init-eps-converted-to.pdf>
+Package pdftex.def Info: fig/problem2box/CI_init-eps-converted-to.pdf used on i
+nput line 171.
+(pdftex.def)             Requested size: 455.24411pt x 206.37358pt.
+Package epstopdf Info: Source file: <fig/problem2box/CI_1000years.eps>
+(epstopdf)                    date: 2017-08-11 11:29:05
+(epstopdf)                    size: 100222 bytes
+(epstopdf)             Output file: <fig/problem2box/CI_1000years-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2017-08-11 11:29:12
+(epstopdf)                    size: 47268 bytes
+(epstopdf)             Command: <epstopdf --outfile=fig/problem2box/CI_1000year
+s-eps-converted-to.pdf fig/problem2box/CI_1000years.eps>
+(epstopdf)             \includegraphics on input line 178.
+Package epstopdf Info: Output file is already uptodate.
+
+<fig/problem2box/CI_1000years-eps-converted-to.pdf, id=1340, 456.70625pt x 227.
+85126pt>
+File: fig/problem2box/CI_1000years-eps-converted-to.pdf Graphic file (type pdf)
+
+ <use fig/problem2box/CI_1000years-eps-converted-to.pdf>
+Package pdftex.def Info: fig/problem2box/CI_1000years-eps-converted-to.pdf used
+ on input line 178.
+(pdftex.def)             Requested size: 456.70512pt x 227.8507pt.
+
+Overfull \hbox (1.46101pt too wide) in paragraph at lines 178--179
+ [][] 
+ []
+
+[58 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/CI_init-eps-converted
+-to.pdf>] [59 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/CI_1000year
+s-eps-converted-to.pdf>] [60] [61]
 Package epstopdf Info: Source file: <fig/problem2box/C1vsC1tilde1_1000years2.ep
 s>
 (epstopdf)                    date: 2017-08-08 18:25:18
@@ -2296,47 +2256,184 @@ s-converted-to.pdf>
 (epstopdf)                    size: 57617 bytes
 (epstopdf)             Command: <epstopdf --outfile=fig/problem2box/C1vsC1tilde
 1_1000years2-eps-converted-to.pdf fig/problem2box/C1vsC1tilde1_1000years2.eps>
-(epstopdf)             \includegraphics on input line 272.
+(epstopdf)             \includegraphics on input line 301.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/C1vsC1tilde1_1000years2-eps-converted-to.pdf, id=1445, 456.706
+<fig/problem2box/C1vsC1tilde1_1000years2-eps-converted-to.pdf, id=1429, 456.706
 25pt x 227.85126pt>
 File: fig/problem2box/C1vsC1tilde1_1000years2-eps-converted-to.pdf Graphic file
  (type pdf)
 
 <use fig/problem2box/C1vsC1tilde1_1000years2-eps-converted-to.pdf>
 Package pdftex.def Info: fig/problem2box/C1vsC1tilde1_1000years2-eps-converted-
-to.pdf used on input line 272.
+to.pdf used on input line 301.
 (pdftex.def)             Requested size: 456.70512pt x 227.8507pt.
 
-Overfull \hbox (1.46101pt too wide) in paragraph at lines 272--273
+Overfull \hbox (1.46101pt too wide) in paragraph at lines 301--302
  [][] 
  []
 
 )) (/home/renaud/Documents/EPL/tfe/latex/inputs/conclusion/conclusion.tex
-[70] [71 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/C1vsC1tilde1_100
-0years2-eps-converted-to.pdf>] [72
-
-]
+[62 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/C1vsC1tilde1_1000year
+s2-eps-converted-to.pdf>]
 Chapter 9.
-) (/home/renaud/Documents/EPL/tfe/latex/tfe.bbl [73] [74
+) (/home/renaud/Documents/EPL/tfe/latex/tfe.bbl [63
 
-] [75] [76]
+] [64
+
+] [65] [66]
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 ))
-(/home/renaud/Documents/EPL/tfe/latex/inputs/appendix/stieltjes.tex [77]
-[78
+(/home/renaud/Documents/EPL/tfe/latex/inputs/appendix/appendix.tex [67]
+[68
 
 ]
 Appendix A.
-) (/home/renaud/Documents/EPL/tfe/latex/inputs/appendix/mslim.tex)
-(/home/renaud/Documents/EPL/tfe/latex/inputs/appendix/streamfunction.tex
-[79] [80
+(/home/renaud/Documents/EPL/tfe/latex/inputs/appendix/stieltjes.tex)
+(/home/renaud/Documents/EPL/tfe/latex/inputs/appendix/mslim.tex)
+(/home/renaud/Documents/EPL/tfe/latex/inputs/appendix/test_case.tex [69]
+[70] (/home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcase_scheme3D.tex)
+(/home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcase_scheme2D.tex)
+[71] [72] [73] [74]
+Package epstopdf Info: Source file: <fig/testcase/testcase_surf.eps>
+(epstopdf)                    date: 2017-05-24 17:26:05
+(epstopdf)                    size: 123285 bytes
+(epstopdf)             Output file: <fig/testcase/testcase_surf-eps-converted-t
+o.pdf>
+(epstopdf)                    date: 2017-05-24 17:26:57
+(epstopdf)                    size: 108301 bytes
+(epstopdf)             Command: <epstopdf --outfile=fig/testcase/testcase_surf-
+eps-converted-to.pdf fig/testcase/testcase_surf.eps>
+(epstopdf)             \includegraphics on input line 235.
+Package epstopdf Info: Output file is already uptodate.
 
-]
+<fig/testcase/testcase_surf-eps-converted-to.pdf, id=1555, 449.68pt x 343.2825p
+t>
+File: fig/testcase/testcase_surf-eps-converted-to.pdf Graphic file (type pdf)
+ <use fig/testcase/testcase_surf-eps-converted-to.pdf>
+Package pdftex.def Info: fig/testcase/testcase_surf-eps-converted-to.pdf used o
+n input line 235.
+(pdftex.def)             Requested size: 455.24411pt x 347.54543pt.
+Package epstopdf Info: Source file: <fig/testcase/testcase_fixedy.eps>
+(epstopdf)                    date: 2017-05-24 17:26:05
+(epstopdf)                    size: 32989 bytes
+(epstopdf)             Output file: <fig/testcase/testcase_fixedy-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2017-05-24 17:26:58
+(epstopdf)                    size: 17752 bytes
+(epstopdf)             Command: <epstopdf --outfile=fig/testcase/testcase_fixed
+y-eps-converted-to.pdf fig/testcase/testcase_fixedy.eps>
+(epstopdf)             \includegraphics on input line 242.
+Package epstopdf Info: Output file is already uptodate.
+
+<fig/testcase/testcase_fixedy-eps-converted-to.pdf, id=1556, 227.85126pt x 182.
+6825pt>
+File: fig/testcase/testcase_fixedy-eps-converted-to.pdf Graphic file (type pdf)
+
+ <use fig/testcase/testcase_fixedy-eps-converted-to.pdf>
+Package pdftex.def Info: fig/testcase/testcase_fixedy-eps-converted-to.pdf used
+ on input line 242.
+(pdftex.def)             Requested size: 223.07211pt x 178.85478pt.
+Package epstopdf Info: Source file: <fig/testcase/testcase_fixedz.eps>
+(epstopdf)                    date: 2017-05-24 17:26:06
+(epstopdf)                    size: 37689 bytes
+(epstopdf)             Output file: <fig/testcase/testcase_fixedz-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2017-05-24 17:26:58
+(epstopdf)                    size: 17661 bytes
+(epstopdf)             Command: <epstopdf --outfile=fig/testcase/testcase_fixed
+z-eps-converted-to.pdf fig/testcase/testcase_fixedz.eps>
+(epstopdf)             \includegraphics on input line 247.
+Package epstopdf Info: Output file is already uptodate.
+
+<fig/testcase/testcase_fixedz-eps-converted-to.pdf, id=1557, 227.85126pt x 182.
+6825pt>
+File: fig/testcase/testcase_fixedz-eps-converted-to.pdf Graphic file (type pdf)
+
+ <use fig/testcase/testcase_fixedz-eps-converted-to.pdf>
+Package pdftex.def Info: fig/testcase/testcase_fixedz-eps-converted-to.pdf used
+ on input line 247.
+(pdftex.def)             Requested size: 223.07211pt x 178.85478pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [75 </home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcase_surf-eps-conve
+rted-to.pdf>]
+Package epstopdf Info: Source file: <fig/testcase/testcaseSI_surf.eps>
+(epstopdf)                    date: 2017-05-24 18:46:22
+(epstopdf)                    size: 146170 bytes
+(epstopdf)             Output file: <fig/testcase/testcaseSI_surf-eps-converted
+-to.pdf>
+(epstopdf)                    date: 2017-05-24 21:10:57
+(epstopdf)                    size: 125629 bytes
+(epstopdf)             Command: <epstopdf --outfile=fig/testcase/testcaseSI_sur
+f-eps-converted-to.pdf fig/testcase/testcaseSI_surf.eps>
+(epstopdf)             \includegraphics on input line 286.
+Package epstopdf Info: Output file is already uptodate.
+
+<fig/testcase/testcaseSI_surf-eps-converted-to.pdf, id=1576, 464.73625pt x 388.
+45125pt>
+File: fig/testcase/testcaseSI_surf-eps-converted-to.pdf Graphic file (type pdf)
+
+ <use fig/testcase/testcaseSI_surf-eps-converted-to.pdf>
+Package pdftex.def Info: fig/testcase/testcaseSI_surf-eps-converted-to.pdf used
+ on input line 286.
+(pdftex.def)             Requested size: 455.24411pt x 380.5255pt.
+Package epstopdf Info: Source file: <fig/testcase/testcaseSI_fixedy.eps>
+(epstopdf)                    date: 2017-05-24 18:46:22
+(epstopdf)                    size: 34087 bytes
+(epstopdf)             Output file: <fig/testcase/testcaseSI_fixedy-eps-convert
+ed-to.pdf>
+(epstopdf)                    date: 2017-05-24 21:10:59
+(epstopdf)                    size: 14411 bytes
+(epstopdf)             Command: <epstopdf --outfile=fig/testcase/testcaseSI_fix
+edy-eps-converted-to.pdf fig/testcase/testcaseSI_fixedy.eps>
+(epstopdf)             \includegraphics on input line 293.
+Package epstopdf Info: Output file is already uptodate.
+
+<fig/testcase/testcaseSI_fixedy-eps-converted-to.pdf, id=1577, 220.825pt x 159.
+59625pt>
+File: fig/testcase/testcaseSI_fixedy-eps-converted-to.pdf Graphic file (type pd
+f)
+ <use fig/testcase/testcaseSI_fixedy-eps-converted-to.pdf>
+Package pdftex.def Info: fig/testcase/testcaseSI_fixedy-eps-converted-to.pdf us
+ed on input line 293.
+(pdftex.def)             Requested size: 223.07211pt x 161.22745pt.
+Package epstopdf Info: Source file: <fig/testcase/testcaseSI_fixedz.eps>
+(epstopdf)                    date: 2017-05-24 18:46:23
+(epstopdf)                    size: 29365 bytes
+(epstopdf)             Output file: <fig/testcase/testcaseSI_fixedz-eps-convert
+ed-to.pdf>
+(epstopdf)                    date: 2017-05-24 21:10:59
+(epstopdf)                    size: 12367 bytes
+(epstopdf)             Command: <epstopdf --outfile=fig/testcase/testcaseSI_fix
+edz-eps-converted-to.pdf fig/testcase/testcaseSI_fixedz.eps>
+(epstopdf)             \includegraphics on input line 298.
+Package epstopdf Info: Output file is already uptodate.
+
+<fig/testcase/testcaseSI_fixedz-eps-converted-to.pdf, id=1578, 227.85126pt x 18
+2.6825pt>
+File: fig/testcase/testcaseSI_fixedz-eps-converted-to.pdf Graphic file (type pd
+f)
+ <use fig/testcase/testcaseSI_fixedz-eps-converted-to.pdf>
+Package pdftex.def Info: fig/testcase/testcaseSI_fixedz-eps-converted-to.pdf us
+ed on input line 298.
+(pdftex.def)             Requested size: 223.07211pt x 178.85478pt.
+ [76 </home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcase_fixedy-eps-con
+verted-to.pdf> </home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcase_fixe
+dz-eps-converted-to.pdf>])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [77 </home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcaseSI_surf-eps-con
+verted-to.pdf>] [78 </home/renaud/Documents/EPL/tfe/latex/fig/testcase/testcase
+SI_fixedy-eps-converted-to.pdf> </home/renaud/Documents/EPL/tfe/latex/fig/testc
+ase/testcaseSI_fixedz-eps-converted-to.pdf>]
 Appendix B.
-[81] [82]) [83] [84] [85
+(/home/renaud/Documents/EPL/tfe/latex/inputs/appendix/streamfunction.tex
+[79
+
+] [80])) [81] [82] [83
 
 ]
 *geometry* verbose mode - [ newgeometry ] result:
@@ -2372,31 +2469,31 @@ Appendix B.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <9> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 63.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 71.
 runsystem(rm "tfe.pyg")...executed.
 
  [1
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 65.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 65.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 73.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 73.
  (/home/renaud/Documents/EPL/tfe/latex/tfe.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 65.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 65.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 73.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 73.
 Package rerunfilecheck Info: File `tfe.out' has not changed.
-(rerunfilecheck)             Checksum: 73C1BA19E5C382C27CE598669D1F3B29;4260.
+(rerunfilecheck)             Checksum: 5DE8E56743AA78C2F00250744CD4BB79;4634.
  ) 
 Here is how much of TeX's memory you used:
- 42877 strings out of 493029
- 968105 string characters out of 6136234
- 1590345 words of memory out of 5000000
- 44565 multiletter control sequences out of 15000+600000
+ 43242 strings out of 493029
+ 973902 string characters out of 6136234
+ 1597376 words of memory out of 5000000
+ 44905 multiletter control sequences out of 15000+600000
  165649 words of font info for 264 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 64i,16n,110p,2357b,2100s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
-c/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/shar
+ 64i,16n,110p,2357b,2072s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dv
+ips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/shar
 e/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/l
 m-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texlive
 /texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/public/lm
@@ -2422,10 +2519,10 @@ msfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvet
 ic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pf
 b>
-Output written on tfe.pdf (92 pages, 1612968 bytes).
+Output written on tfe.pdf (94 pages, 2543759 bytes).
 PDF statistics:
- 1791 PDF objects out of 2073 (max. 8388607)
- 1583 compressed objects within 16 object streams
- 550 named destinations out of 1000 (max. 500000)
- 49299 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 1889 PDF objects out of 2073 (max. 8388607)
+ 1675 compressed objects within 17 object streams
+ 560 named destinations out of 1000 (max. 500000)
+ 49357 words of extra memory for PDF output out of 51595 (max. 10000000)
 

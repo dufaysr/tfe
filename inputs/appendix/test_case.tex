@@ -1,18 +1,18 @@
-%!TEX root = ../tfe.tex
-\section{Test case to assess the implementation of the overturner model}
-This note is an adaptation of \textit{Eric Deleersnijder}'s working paper \cite{deleersnijder2011test}.
+%!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
+\section{Test case to assess the implementation of the overturner model} \label{app:test_case}
+Two test cases adapted from \textit{Eric Deleersnijder}'s working paper \cite{deleersnijder2011test} are presented here: after introducing the problems, the analytic solutions are computed as well as their main properties. The code is then run on those problems, and the numerical solution and its properties are compared to the analytical ones. Rather than a validation of the numerical solver, this can be considered as a \textit{sanity check}.
 
 %----------------------------------GOVERNING EQUATIONS--------------------------------------------------------%
 \subsection{Governing equations}
-Let us consider a water domain, whose width is denoted $B(t,\b{x})$, where $t$ is the time and $\b{x} = (y,z)$ is the position vector. The continuity equation is
+Let us consider a water domain, whose width is denoted $B(\b{x},t)$, where $\b{x} = (y,z)$ is the position vector and $t$ is the time. The continuity equation is
 \begin{equation} \label{eq:testcase:continuity}
 	\frac{\partial B}{\partial t} + \nabla \cdot (B\b{u}) = 0,
 \end{equation}
-where $\b{u}(t,\b{x})$ is the latitudinally-averaged meridional velocity. Assuming that mixing along the parallels is sufficiently efficient, we may study the concentration of a passive tracer by means of a two-dimensional model. The latitudinally-averaged concentration of the tracer $C(t,\b{x})$ obeys the following partial differential equation :
+where $\b{u}(t,\b{x})$ is the latitudinally-averaged meridional velocity. Assuming that mixing along the parallels is sufficiently efficient, we may study the concentration of a passive tracer by means of a two-dimensional model. The latitudinally-averaged concentration of the tracer $C(\b x, t)$ obeys the following partial differential equation :
 \begin{equation} \label{eq:testcase:conservative}
 	\frac{\partial (BC)}{\partial t} + \nabla \cdot (B \b{u} C) = Q\delta(\b{x} - \b{x}_1) + \nabla \cdot (B\b{K} \cdot \nabla C), 
 \end{equation}
-where $\b{K}$ is the diffusivity tensor (symmetric and positive definite); $\delta$ is the Dirac delta function with $\delta(\b{x}-\b{x}_n) = \delta(x-x_n)\delta(y-y_n)$; $Q(t)$ is the rate of release of a lineic source of length $B$ along the latitude direction located at $\b{x} = \b{x}_1$. If $C(t,\b x)$ represents the 
+where $\b{K}$ is the diffusivity tensor (symmetric and positive definite); $\delta$ is the Dirac delta function with $\delta(\b{x}-\b{x}_n) = \delta(x-x_n)\delta(y-y_n)$; $Q(t)$ is the rate of release of a lineic source of length $B$ along the latitude direction located at $\b{x} = \b{x}_1$. If $C(\b x,t)$ represents the 
 density of the tracer in water, then $Q(t)$ is the mass of tracer released per second by the source.
 
 Equation \eqref{eq:testcase:conservative} is the so-called conservative form of the model. The convective form is obtained by combining equations \eqref{eq:testcase:continuity} and \eqref{eq:testcase:conservative}:
@@ -21,7 +21,7 @@ Equation \eqref{eq:testcase:conservative} is the so-called conservative form of 
 \end{equation}
 
 %----------------------------------AN IDEALISED MODEL----------------------------------------------------------------------%
-\subsection{An idealised model}
+\subsection{An idealized model}
 For our test case to be interesting, we must be able to compute its analytical solution. Accordingly, we make some simplifying assumptions which will allow us to compute the solution analytically.
 First, we assume a constant width $B$ and a constant velocity field
 \begin{equation} \label{eq:testcase:velocity}
@@ -62,24 +62,24 @@ A part of the physical meaning of the model is lost but this makes representatio
 
 %------------------------------------PARAMETERS FOR TEST CASE 1--------------------------------------------------------------%
 \subsubsection{Test case 1 : infinite domain}
-The first (an most simple) test case is to consider an infinite domain, i.e.
+The first (an most simple) test case consists in considering an infinite domain, i.e.
 \begin{equation} \label{eq:testcase:domain}
 	-\infty < y,\, z < \infty,
 \end{equation}
-with nonzero velocities $v$ and $w$. This test case provides a check that our numerical implementation handles the diffusion and advection processes properly both in the $y$- and $z$-directions. The parameters are chosen from the values of the overturner model :
+with nonzero velocities $v$ and $w$. This test case provides a check that our numerical implementation handles the diffusion and advection processes properly both in the $y$- and $z$-directions. The parameters are chosen from the values proposed by \textit{C. Timmermans} for the overturner model in her master's thesis \cite{timmermans2006masterthesis}:
 \begin{equation}
 	v = \frac{\Psi}{H} = 4\e{-4}\mbox{ [$m/s$],}\quad  w = \frac{\Psi}{L}=1.33\e{-7}\mbox{ [$m/s$],}
 \end{equation}
 and
 \begin{equation}
-	K_{yy} = K_h = 10^{3} \mbox{ [$m^2/s$],}\quad K_{zz} = K_{v_{2}} = 10^{-4} \mbox{ [$m^2/s$].} 
+	K_{yy} = 10^{3} \mbox{ [$m^2/s$],}\quad K_{zz} = 10^{-4} \mbox{ [$m^2/s$].} 
 \end{equation}
 For the length scales of the overturner model, those diffusivities corresponds to Péclet numbers
 \begin{equation}
 	Pe_y = \frac{v}{K_{yy}/L} = 6,\quad Pe_z = \frac{w}{K_{zz}/H} = 6.67.
 \end{equation}
 Hence, in both the $y$- and $z$-directions, the transport is neither dominated by advection nor by diffusion. This is interesting as a test case since it allows to assess how the numerical solver handles both physical processes in both directions. 
-Finally, $J = 50\,000$ particles are released at $t=0$ at the location $(y_1,z_1) = (0,0)$.
+Finally, $J = 10\,000$ particles are released at $t=0$ at the location $(y_1,z_1) = (0,0)$.
 
 %------------------------------------PARAMETERS FOR TEST CASE 2--------------------------------------------------------------%
 \subsubsection{Test case 2 : semi-infinite domain}
@@ -87,17 +87,15 @@ Another interesting case is to consider a semi-infinite domain with a wall at $z
 \begin{equation}
 	-\infty < y < \infty,\quad 0 < z < \infty.
 \end{equation}
-This is useful to assess how our numerical model handles no-through boundary conditions. Again, the parameters values are related to the ones from the overturner model :
+This is useful to assess how our numerical model handles no-through boundary conditions. Again, the parameters values are related to the ones proposed in \textit{C. Timmermans}'s master's thesis for the overturner model :
 \begin{equation}
 	v = \frac{\Psi}{H} = 4\e{-4}\mbox{ [$m/s$],}\quad  w = 0\mbox{ [$m/s$],}
 \end{equation}
 and
 \begin{equation}
-	K_{yy} = K_h = 10^{3} \mbox{ [$m^2/s$],}\quad K_{zz} = K_{v_{1}} = 10^{-1} \mbox{ [$m^2/s$].} 
+	K_{yy} = 10^{3} \mbox{ [$m^2/s$],}\quad K_{zz} = 10^{-1} \mbox{ [$m^2/s$].} 
 \end{equation}
-Notice the choice  of $K_{zz}$ : it is chosen equal to $K_{v_1}$, which is $10^3$ times larger than $K_{v_2}$, the value chosen for test case 1. The goal here is to assess that the boundary condition is well handled by the solver. Since $w=0$, only the vertical diffusivity could possibly drive the particles towards the wall. By increasing $K_{zz}$, we ensure that more particles will bounce against the wall, which is relevant in this context. $J = 50\,000$ particles are released at $t=0$ at the location $(y_1,z_1) = (0,H)$.
-
-
+Notice the choice  of $K_{zz}$ : it is chosen $10^3$ times larger than the value chosen for test case 1. The goal here is to assess that the boundary condition is well handled by the solver. Since $w=0$, only the vertical diffusivity could possibly drive the particles towards the wall. By increasing $K_{zz}$, we ensure that more particles will bounce against the wall, which is relevant in this context. $J = 10\,000$ particles are released at $t=0$ at the location $(y_1,z_1) = (0,H)$.
 
 \subsection{Analytical solution and properties}
 %------------------------------------------------Analytic GREEN's FUNCTION ---------------------------------------------%
@@ -106,12 +104,12 @@ In order to build the analytical solution of the problem, we need to compute the
 \begin{equation} \label{eq:testcase_green}
 	\begin{cases}
 		\frac{\partial G}{\partial t} + v \frac{\partial G}{\partial y} + w\frac{\partial G}{\partial z} = K_{yy}\frac{\partial^2 G}{\partial y^2} + K_{zz}\frac{\partial^2 G}{\partial z^2}\\[.1cm]
-		\left. G(t,t',y,z) \right \rvert_{t=t'} = \delta(y)\delta(z) 
+		\left. G(y,z,t,t') \right \rvert_{t=t'} = \delta(y)\delta(z) 
 	\end{cases}
 \end{equation}
-for $t \ge 0$, and on an infinite domain $\infty < y,\, z < \infty$. It can be shown that \textcolor{red}{source ? ou le papier de deleersnijder suffit ?}
+for $t \ge 0$, and on an infinite domain $\infty < y,\, z < \infty$. It can be shown that
 \begin{equation} 
-	G(t,t',y,z) = \frac{\exp\left[-\frac{(y-s_v)^2}{4K_{yy}\tau} -\frac{(z-s_w)^2}{4K_{zz}\tau} \right]}{4\pi\sqrt{K_{yy}K_{zz}}\tau},
+	G(y,z,t,t') = \frac{\exp\left[-\frac{(y-s_v)^2}{4K_{yy}\tau} -\frac{(z-s_w)^2}{4K_{zz}\tau} \right]}{4\pi\sqrt{K_{yy}K_{zz}}\tau},
 \end{equation}
 where $\tau = t-t'$ and 
 \begin{equation}
@@ -135,57 +133,58 @@ The variance of the solution is
 \subsubsection{Test case 1}
 The analytical solution of test case 1 is now obtained with the help of the Green's function derived above by computing the convolution between $G$ and the source terms :
 \begin{align}
-	C(t,\b x) &= \int_{0}^{t} \int_{\R[2]} G(t,t',\b x - \b x') J \delta(t) \delta(\b x- \b x_1) \rm d \b{x}' \rm dt'\nonumber\\
-	&= J G(t,0,\b x - \b x_1).
+	C(\b x,t) &= \int_{0}^{t} \int_{\R[2]} G(\b x - \b x',t,t') J \delta(t) \delta(\b x- \b x_1) \rm d \b{x}' \rm dt'\nonumber\\
+	&= J G(\b x - \b x_1,t,0).
 \end{align}
 The concentration profile for test case 1 is thus
 \begin{equation}
-	\frac{J}{4\pi\sqrt{K_{yy}K_{zz}}t}\exp\left[-\frac{(y-s_v)^2}{4K_{yy}t} -\frac{(z-s_w)^2}{4K_{zz}t} \right].
+	C(y,z,t) = \frac{J}{4\pi\sqrt{K_{yy}K_{zz}}t}\exp\left[-\frac{(y-s_v)^2}{4K_{yy}t} -\frac{(z-s_w)^2}{4K_{zz}t} \right].
 \end{equation}
 
 The total mass of tracer present in the domain is
 \begin{equation}
-	m(t) \equiv \int_{\R[2]} C(t,\b x) \rm d \b x = J.
+	m(t) \equiv \int_{\R[2]} C(\b x,t) \rm d \b x = J.
 \end{equation}
-Note that this number is independant of the transport processes.
+Note that this number is independent of the transport processes.
 
 The mass center is located at
 \begin{align}
-	\b r(t) &\equiv \frac{1}{m(t)} \int_{\R[2]} \b x C(t,\b x) \rm d \b x \nonumber \\
-	&= \int_{\R[2]} \b x G(t,0,\b x - \b x_1) \rm d \b x \nonumber\\
-	&= \int_{\R[2]} (\b x-\b x_1) G(t,0,\b x - \b x_1) + \b x_1 G(t,0,\b x - \b x_1) \rm d \b x\nonumber\\
+	\b r(t) &\equiv \frac{1}{m(t)} \int_{\R[2]} \b x C(\b x,t) \rm d \b x \nonumber \\
+	&= \int_{\R[2]} \b x G(\b x - \b x_1,t,0) \rm d \b x \nonumber\\
+	&= \int_{\R[2]} (\b x-\b x_1) G(\b x - \b x_1,t,0) + \b x_1 G(\b x - \b x_1,t,0) \rm d \b x\nonumber\\
 	&= \b x_1 + \b s(t,0),
 \end{align}
 where properties \eqref{eq:testcase:propmass} and \eqref{eq:testcase:propcenter} are used to perform the last step.
 
 Finally, the variance of the solution is
 \begin{align}
-	\sigma^2(t) &= \frac{1}{m(t)} \int_{\R[2]} \lvert \b x - \b r(t) \rvert^2 C(t,\b x) \rm d \b x \nonumber \\
-	&= \int_{\R[2]} \lvert (\b x - \b x_1) - \b s(t,0)\rvert^2 G(t,0,\b x - \b x_1) \rm d \b x \nonumber \\
+	\sigma^2(t) &= \frac{1}{m(t)} \int_{\R[2]} \lvert \b x - \b r(t) \rvert^2 C(\b x,t) \rm d \b x \nonumber \\
+	&= \int_{\R[2]} \lvert (\b x - \b x_1) - \b s(t,0)\rvert^2 G(\b x - \b x_1,t,0) \rm d \b x \nonumber \\
 	&= 2(K_{yy}+K_{zz})t,
 \end{align}
 where property \eqref{eq:testcase:propvar} is used.
 
 %------------------------------------------------Analytic TEST CASE 2 ---------------------------------------------%
 \subsubsection{Test case 2}
-To compute the solution to test case 2, a little trick must be applied. Consider the problem on an infinite domain with two sudden point sources of equal intensity located at $z = H$ and $z = -H$. By symmetry, one can see that the concentration of that problem in the region $[-\infty, \infty] \times [0, \infty]$ is precisely the concentration of test case 2. Hence, we can use the Green's function $G$ derived or test case 1 to compute the concentration. In this case, the convolution has to be performed with two point sources :
+To compute the solution to test case 2, a little trick must be applied. Consider the problem on an infinite domain with two sudden point sources of equal intensity located at $z = H$ and $z = -H$. By symmetry, one can see that the concentration of that problem in the region $[-\infty, \infty] \times [0, \infty]$ is precisely the concentration of test case 2. Hence, we can use the Green's function $G$ derived for test case 1 to compute the concentration. In this case, the convolution has to be performed with two point sources :
 \begin{align}
-	C(t,\b x) &= \int_{0}^{t} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} J \delta(t') \delta(y'- y_1)\left[\delta(z'-z_1)+\delta(z'+z_1)\right] G(t,t',y-y',z-z') \rm dy' \rm dz' \rm dt' \nonumber\\
-	&= J \int_{0}^{t} \delta(t')[G(t,t',y-y_1,z-z_1)+G(t,t',y-y_1,z+z_1)] \label{tc2_eq2} \nonumber\\
-	&= J[G(t,0,y-y_1,z-z_1)+G(t,0,y-y_1,z+z_1)].
+	C(\b x,t) &= \int_{0}^{t} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} J \delta(t') \delta(y'- y_1)\left[\delta(z'-z_1)+\delta(z'+z_1)\right] G(y-y',z-z',t,t') \rm dy' \rm dz' \rm dt' \nonumber\\
+	&= J \int_{0}^{t} \delta(t')[G(y-y_1,z-z_1,t,t')+G(y-y_1,z+z_1,t,t')] \label{tc2_eq2} \nonumber\\
+	&= J[G(y-y_1,z-z_1,t,0)+G(y-y_1,z+z_1,t,0)].
 \end{align}
 The concentration of the tracer for test case 2 is thus
 \begin{equation}
-	C(t,y,z) = \frac{J}{4\pi\sqrt{K_{yy}K_{zz}}t}\exp\left[-\frac{(y-s_v)^2}{4K_{yy}t}\right]\left\{\exp\left[-\frac{(z-z_1)^2}{4K_{zz}t} \right] + \exp\left[-\frac{(z+z_1)^2}{4K_{zz}t} \right] \right\}
+	C(y,z,t) = \frac{J}{4\pi\sqrt{K_{yy}K_{zz}}t}\exp\left[-\frac{(y-s_v)^2}{4K_{yy}t}\right]\left\{\exp\left[-\frac{(z-z_1)^2}{4K_{zz}t} \right] + \exp\left[-\frac{(z+z_1)^2}{4K_{zz}t} \right] \right\}
 \end{equation}
+
 The mass is obtained as
 \begin{equation}
-	m(t) \equiv \int_{0}^{\infty} \int_{-\infty}^{\infty} C(t,y,z) \rm dy \rm dz = J,
+	m(t) \equiv \int_{0}^{\infty} \int_{-\infty}^{\infty} C(y,z,t) \rm dy \rm dz = J,
 \end{equation}
 i.e. the number of particles released at $t=0$. This result is obvious since there is no other source or sink, and we impose a no-through condition at the boundary.
 
-\textcolor{blue}{NOTE : Le calcul du centre de masse me pose problème dans la direction z. On trouve assez facilement que $r_y = y_1 + s_v = y_1 + vt$. Par contre dans la direction z, il faut calculer $$\int_{0}^{\infty} z \left\{\exp\left[-\frac{(z-z_1)^2}{4K_{zz}t} \right] + \exp\left[-\frac{(z+z_1)^2}{4K_{zz}t} \right] \right\}\rm dz.$$ Pas sûr qu'une solution simple existe... Je m'attends à une expression du type "H + (...)", où (...) est un terme qui permet de tenir compte du décalage du centre de masse selon z à cause du rebond sur le mur, et qui serait donc une fonction de $K_{zz}$, $t$ et $z_1$.\\
-Cependant, le calcul du centre de masse ne me parait pas indispensable et même si cela m'intrigue, j'ai du m'efforcer de lacher l'affaire pour ne pas passer la journée dessus. (D'autant plus que je peux les approximer numériquement à partir de l'expression analytique de la concentration.)}
+No analytic solution has been found for the center of mass and the variance. However, an accurate estimation of those quantities can be computed numerically from the expression of the concentration. 
+
 % The mass center is
 % \begin{align}
 % 	\b r(t) &\equiv \frac{1}{m(t)} \int_{0}^{\infty} \int_{-\infty}^{\infty} (y \b e_y + z \b e_z) C(t,y,z) \rm dy \rm dz \nonumber \\
@@ -196,14 +195,18 @@ Cependant, le calcul du centre de masse ne me parait pas indispensable et même 
 
 %-------------------------------------VALIDATION--------------------------------------------------------------------------------%
 \section{Validation of the numerical solver}
-This section aims to show that the numerical results obtained with the solver are in good agreement with the analytical ones. As the combination of the two test cases cover the main features of the overturner model, this constitutes a validation of the solver. 
+This section aims to show that the numerical results obtained with the solver are in good agreement with the analytical ones. As the combination of the two test cases cover the main features of the problems considered in this work, this constitutes a basic validation of the solver. 
 
-Both test cases are simulated for 1 year with a time step of 1 hour, and $J = 50\,000$ \textcolor{red}{il faudrait tester avec $10\,000$} particles are released at $t=0$.
-The concentration is computed at the final time $T = 1$ year on the domain $[y_{min},y_{max}] \times [z_{min},z_{max}]$, where the subscripts \textit{min} and \textit{max} stands for the minimal and maximal position at time $T$ amongst all the particles. The notation $C(y,z)$ will be used to denote $C(T,y,z)$ in the next. That domain is divided into $20 \times 20$ boxes, and the (normalized) concentration in a box is computed as the number of particles in that box divided by the total number of particles $J$.
+Both test cases are simulated for 1 year with a time step of 1 hour, and $P = 10\,000$ particles are released at $t=0$.
+The concentration is computed at the final time $T = 1$ year on the domain $\Omega = [y_{min},y_{max}] \times [z_{min},z_{max}]$, where the subscripts \textit{min} and \textit{max} stands for the minimal and maximal position at time $T$ amongst all the particles. The domain $\Omega$ is divided into $20 \times 20$ boxes denoted $\Omega_i$ for $i = 1,\dots,200$. Let $\tilde C = J/|\Omega|$, and let $C_i(t)$ denote the concentration in box $i$ at time $t$; the scaled concentration in box $i$ is computed as
+\begin{equation}
+	\tilde C_i(T) := \frac{C_i(T)}{\tilde C} = \frac{P_i(T)}{P}\frac{|\Omega|}{|\Omega_i|},
+\end{equation}
+where $P_i(t)$ is the number of particles in box $i$ at time $t$.
 
 %-------------------------------------RESULTS CASE 1----------------------------------------------------------------------------%
 \subsection{Test case 1}
-Figure \ref{fig:testcase_surf} shows a comparison between the numerical result and the analytical solution for the (normalized) concentrations. Dark (resp. light) shaded areas correspond to zones where the numerically computed concentration is "above" (resp. "below") the exact concentration. Figures \ref{fig:testcase_fixedy} and \ref{fig:testcase_fixedz} represent respectively a cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The numerically computed concentration $C_{num}$ seems to be an appreciable approximation of the exact concentration $C_{exact}$. To be more specific, the maximal local error is 
+Figure \ref{fig:testcase_surf} shows a comparison between the numerical result and the analytical solution for the scaled concentration $C(\b x,T)/\tilde C$. Dark (resp. light) shaded areas correspond to zones where the numerically computed concentration is "above" (resp. "below") the exact concentration. Figures \ref{fig:testcase_fixedy} and \ref{fig:testcase_fixedz} represent respectively a cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The numerically computed concentration $C_{num}$ seems to be an appreciable approximation of the exact concentration $C_{exact}$. To be more specific, the maximal local error is 
 \begin{equation}
 	\|C_{exact}-C_{num}\|_{\infty} = 1.037\e{-3}.
 \end{equation}
@@ -215,7 +218,7 @@ The relative error is
 \begin{equation}
 	\b e_r = \left \lvert \frac{\b r_{exact}-\b r_{num}}{\b r_{exact}} \right \rvert =  \left(1.29\e{-1}, 4.75\e{-2}\right),
 \end{equation}
-where the division is taken element-wise on the vectors. The 2-norm of the relative error is
+where the division is taken element-wise on the vectors. The euclidean norm of the relative error is
 \begin{equation}
 	\| \b e_r \|_2 = 1.38\e{-1}.
 \end{equation}

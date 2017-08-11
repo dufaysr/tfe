@@ -36,10 +36,18 @@
 % \blankpage
 \cleardoublepage
 \pagenumbering{roman} % for table of contents, etc.
+% \frontmatter
+\addcontentsline{toc}{section}{Acknowledgements}
+\section*{Acknowledgements}
 \tableofcontents
 \null \newpage
+\addcontentsline{toc}{section}{List of abbreviations and symbols}
+\section*{List of abbreviations and symbols}
+\listoffigures
+\null\newpage
 \cleartooddpage
 \pagenumbering{arabic}
+% \mainmatter
 \input{inputs/intro/intro}
 \part{Theoretical}
 \input{inputs/clustering/clustering}
@@ -56,10 +64,10 @@
 \bibliography{bib/bibli} % mon fichier de base de données s'appelle bibli.bib
 % Back cover page
 \appendix
-\input{inputs/appendix/stieltjes}
-\input{inputs/appendix/mslim}
-\input{inputs/appendix/streamfunction}
+\addcontentsline{toc}{chapter}{Appendix}
+\input{inputs/appendix/appendix}
 \newpage \null \newpage
+% \backmatter
 \backcoverpage
 
 \end{document}

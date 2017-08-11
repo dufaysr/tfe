@@ -1,0 +1,35 @@
+\select@language {english}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Illustration of the decomposition of the domain into boxes with $\ensuremath {n_{box,\tmspace +\thinmuskip {.1667em}y}}= 15$ and $\ensuremath {n_{box,\tmspace +\thinmuskip {.1667em}z}}= 10$.\relax }}{42}{figure.caption.18}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Isolines of the horizontal velocity $v$ for bi-overturner problems.\relax }}{50}{figure.caption.19}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Isolines of the horizontal velocity $w$ for bi-overturner problems.\relax }}{51}{figure.caption.20}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Illustration of the decomposition of the domain into boxes corresponding to the nodes of the directed graph. The values of $K_h$ are also shown for $\alpha = 0.6$, and the fictitious wall is represented by the black continuous line. Here the particle enters the exchange zone but finally stays in $\Omega ^-$.\relax }}{51}{figure.caption.21}
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Example of a particle trajectory in the bi-overturner model with $\alpha = 0.75$. The black cross represents the initial position whereas the black dot shows the final position. The simulation time is 200 years.\relax }}{52}{figure.caption.22}
+\contentsline {figure}{\numberline {8.5}{\ignorespaces Example of a particle trajectory in the bi-overturner model with $\alpha = 0.75$. The black cross represents the initial position whereas the black dot shows the final position. The simulation time is 200 years.\relax }}{52}{figure.caption.23}
+\contentsline {figure}{\numberline {8.6}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 1$.\relax }}{54}{figure.caption.24}
+\contentsline {figure}{\numberline {8.7}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0.75$.\relax }}{54}{figure.caption.25}
+\contentsline {figure}{\numberline {8.8}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0.5$.\relax }}{55}{figure.caption.26}
+\contentsline {figure}{\numberline {8.9}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0.25$.\relax }}{55}{figure.caption.27}
+\contentsline {figure}{\numberline {8.10}{\ignorespaces Stability, number of communities and variation of information as a function of the Markov time for $\alpha = 0$.\relax }}{56}{figure.caption.28}
+\contentsline {figure}{\numberline {8.11}{\ignorespaces Illustration of the two-communities partitioning for $\alpha = 0.25$.\relax }}{56}{figure.caption.29}
+\contentsline {figure}{\numberline {8.12}{\ignorespaces Illustration of the two-communities partitioning for $\alpha = 0.5$.\relax }}{56}{figure.caption.30}
+\contentsline {figure}{\numberline {8.13}{\ignorespaces Illustration of the three-communities partitioning for $\alpha = 0.25$.\relax }}{57}{figure.caption.31}
+\contentsline {figure}{\numberline {8.14}{\ignorespaces Illustration of the three-communities partitioning for $\alpha = 0$.\relax }}{57}{figure.caption.32}
+\contentsline {figure}{\numberline {8.15}{\ignorespaces Illustration.\relax }}{58}{figure.caption.33}
+\contentsline {figure}{\numberline {8.16}{\ignorespaces Comparison of the compartment model solution with the numerical solution for the initial condition $C_1(0) = 2\mathaccentV {bar}016C$.\relax }}{59}{figure.caption.34}
+\contentsline {figure}{\numberline {8.17}{\ignorespaces Comparison of the compartment model solution with the numerical solution for the initial condition $C_1(0) = 2\mathaccentV {bar}016C$.\relax }}{62}{figure.caption.37}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Illustration of the 3D and 2D interpretations of the model.\relax }}{71}{figure.caption.39}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }}{75}{figure.caption.45}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The dashed line represent $C_{num}$ and the continuous line is for $C_{exact}$.\relax }}{76}{figure.caption.46}
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Comparison of the concentrations obtained analytically and numerically. The "centers of mass" of the concentration obtained numerically (black cross) and numerically (white bullet) are also shown on the figure.\relax }}{77}{figure.caption.47}
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The dashed line represent $C_{num}$ and the continuous line is for $C_{exact}$.\relax }}{78}{figure.caption.48}
+\addvspace {10\p@ }

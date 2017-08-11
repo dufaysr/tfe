@@ -193,13 +193,6 @@ Joe Pitt-Francis and Jonathan Whiteley.
 \newblock {\em Guide to scientific computing in C++}.
 \newblock Springer Science \& Business Media, 2012.
 
-\bibitem{deleersnijder2011test}
-Eric Deleersnijder.
-\newblock Test cases for advection-diffusion equations with a first-order decay
-  term.
-\newblock 2011.
-\newblock Available at \url{http://hdl.handle.net/2078.1/155372}.
-
 \bibitem{deleersnijder2006overturner}
 Eric Deleersnijder.
 \newblock Éléments d'un modèle latitude-profondeur très simple —
@@ -216,6 +209,13 @@ Catherine Timmermans.
 Eric Deleersnijder.
 \newblock Modelling transport processes in geophysical and environmental flows.
 \newblock Lecture notes, 2014.
+
+\bibitem{deleersnijder2011test}
+Eric Deleersnijder.
+\newblock Test cases for advection-diffusion equations with a first-order decay
+  term.
+\newblock 2011.
+\newblock Available at \url{http://hdl.handle.net/2078.1/155372}.
 
 \bibitem{lambiotte2011flow}
 Renaud Lambiotte, Roberta Sinatra, J.-C. Delvenne, Tim~S. Evans, Mauricio

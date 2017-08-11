@@ -11,7 +11,7 @@ where $\b u$ is the velocity field and $q$ is the source or sink term, i.e. the 
 namely the velocity field is divergence-free. As already stated, the diffusivity tensor $\b K$ is symmetric and positive definite.
 
 In order to derive a compartment model from \eqref{eq:continuousproblem}, $\Omega$ must be partitioned into $N$ subdomains $\Omega_i$ ($i = 1,\dots,N$) called the \textit{compartments}. The interface between the subdomains $\Omega_i$ and $\Omega_j$ is denoted $\Gamma_{i,j}$ and the interface between $\Omega_i$ and the environment is denoted $\Gamma_{i,e}$. Obviously, $\Gamma_{i,j} = \Gamma_{j,i}$. In a compartment model, only the averages over the compartments are considered. The mean tracer concentration over compartment $i$ is 
-\begin{equation}
+\begin{equation} \label{eq:C_i(t)}
 	C_i(t) = \frac{1}{\Omega_i} \int_{\Omega_i} C(t,\b x) \rm d\Omega_i,
 \end{equation}
 and the production/destruction term over the subdomain $i$ becomes

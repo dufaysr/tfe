@@ -1,4 +1,7 @@
 \select@language {english}
+\contentsline {section}{Acknowledgements}{i}{Doc-Start}
+\contentsline {section}{List of abbreviations and symbols}{vi}{chapter*.2}
+\contentsline {chapter}{List of Figures}{vii}{chapter*.4}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {part}{I\hspace {1em}Theoretical}{3}{part.1}
 \contentsline {chapter}{\numberline {2}Clustering}{5}{chapter.2}
@@ -18,52 +21,55 @@
 \contentsline {chapter}{\numberline {5}Numerical Considerations}{25}{chapter.5}
 \contentsline {section}{\numberline {5.1}Preliminaries}{26}{section.5.1}
 \contentsline {subsection}{\numberline {5.1.1}Formal definition of a SDE}{28}{subsection.5.1.1}
-\contentsline {paragraph}{Remark}{28}{section*.9}
+\contentsline {paragraph}{Remark}{28}{section*.12}
 \contentsline {subsection}{\numberline {5.1.2}Properties of the It\IeC {\^o} integral}{29}{subsection.5.1.2}
-\contentsline {subsubsection}{Rules for the differentials}{29}{section*.10}
-\contentsline {subsubsection}{The It\IeC {\^o} formula}{30}{section*.11}
+\contentsline {subsubsection}{Rules for the differentials}{29}{section*.13}
+\contentsline {subsubsection}{The It\IeC {\^o} formula}{30}{section*.14}
 \contentsline {subsection}{\numberline {5.1.3}Link between It\IeC {\^o} and backward It\IeC {\^o} SDE's}{31}{subsection.5.1.3}
 \contentsline {subsection}{\numberline {5.1.4}Connection between It\IeC {\^o} and backward It\IeC {\^o} SDE's and the Fokker Planck equation}{32}{subsection.5.1.4}
 \contentsline {subsection}{\numberline {5.1.5}Generalization to multiple dimensions}{33}{subsection.5.1.5}
-\contentsline {paragraph}{Remark}{34}{section*.12}
+\contentsline {paragraph}{Remark}{34}{section*.15}
 \contentsline {subsection}{\numberline {5.1.6}Numerical methods}{34}{subsection.5.1.6}
-\contentsline {paragraph}{Remark}{36}{section*.13}
+\contentsline {paragraph}{Remark}{36}{section*.16}
 \contentsline {subsection}{\numberline {5.1.7}Dealing with no-through boundary conditions}{36}{subsection.5.1.7}
 \contentsline {subsection}{\numberline {5.1.8}Computation of the concentration}{37}{subsection.5.1.8}
 \contentsline {section}{\numberline {5.2}Lagrangian equations corresponding to the general transport model}{37}{section.5.2}
 \contentsline {section}{\numberline {5.3}The code}{39}{section.5.3}
-\contentsline {section}{\numberline {5.4}Test case to assess the implementation of the overturner model}{41}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Governing equations}{41}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}An idealised model}{41}{subsection.5.4.2}
-\contentsline {subsubsection}{Test case 1 : infinite domain}{42}{section*.15}
-\contentsline {subsubsection}{Test case 2 : semi-infinite domain}{42}{section*.16}
-\contentsline {subsection}{\numberline {5.4.3}Analytical solution and properties}{43}{subsection.5.4.3}
-\contentsline {subsubsection}{Green's function}{43}{section*.17}
-\contentsline {subsubsection}{Test case 1}{44}{section*.18}
-\contentsline {subsubsection}{Test case 2}{44}{section*.19}
-\contentsline {section}{\numberline {5.5}Validation of the numerical solver}{45}{section.5.5}
-\contentsline {subsection}{\numberline {5.5.1}Test case 1}{45}{subsection.5.5.1}
-\contentsline {subsection}{\numberline {5.5.2}Test case 2}{47}{subsection.5.5.2}
-\contentsline {chapter}{\numberline {6}From clusters to compartments}{51}{chapter.6}
-\contentsline {paragraph}{Remark}{51}{section*.24}
-\contentsline {section}{\numberline {6.1}Methodology}{51}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Description of the method}{51}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Dealing with the time scales}{52}{subsection.6.1.2}
-\contentsline {subsection}{\numberline {6.1.3}Use of the stability software}{53}{subsection.6.1.3}
-\contentsline {part}{II\hspace {1em}Applications}{55}{part.2}
-\contentsline {chapter}{\numberline {7}The "overturner" circulation model}{57}{chapter.7}
-\contentsline {section}{\numberline {7.1}An idealized velocity field}{57}{section.7.1}
-\contentsline {chapter}{\numberline {8}Application: the bi-overturner problem}{59}{chapter.8}
-\contentsline {section}{\numberline {8.1}The bi-overturner class of problems}{59}{section.8.1}
-\contentsline {subsection}{\numberline {8.1.1}Application of the stability method}{63}{subsection.8.1.1}
-\contentsline {section}{\numberline {8.2}Building a compartment model}{67}{section.8.2}
-\contentsline {subsection}{\numberline {8.2.1}Continuous-time compartment model}{67}{subsection.8.2.1}
-\contentsline {subsection}{\numberline {8.2.2}Discrete-time compartment model}{69}{subsection.8.2.2}
-\contentsline {subsubsection}{The method}{69}{section*.40}
-\contentsline {subsubsection}{Results}{69}{section*.41}
-\contentsline {chapter}{\numberline {9}Conclusion}{73}{chapter.9}
-\contentsline {chapter}{\numberline {A}Numerical considerations}{79}{appendix.A}
-\contentsline {section}{\numberline {A.1}Stieltjes integral}{79}{section.A.1}
-\contentsline {section}{\numberline {A.2}Mean-square limit}{79}{section.A.2}
-\contentsline {chapter}{\numberline {B}Applications}{81}{appendix.B}
-\contentsline {section}{\numberline {B.1}The streamfunction}{81}{section.B.1}
+\contentsline {chapter}{\numberline {6}From clusters to compartments}{41}{chapter.6}
+\contentsline {paragraph}{Remark}{41}{section*.17}
+\contentsline {section}{\numberline {6.1}Methodology}{41}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Description of the method}{41}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Dealing with the time scales}{42}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Use of the stability software}{43}{subsection.6.1.3}
+\contentsline {part}{II\hspace {1em}Applications}{45}{part.2}
+\contentsline {chapter}{\numberline {7}The "overturner" circulation model}{47}{chapter.7}
+\contentsline {section}{\numberline {7.1}An idealized velocity field}{47}{section.7.1}
+\contentsline {chapter}{\numberline {8}Application: the bi-overturner problem}{49}{chapter.8}
+\contentsline {section}{\numberline {8.1}The bi-overturner class of problems}{49}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}Application of the stability method}{53}{subsection.8.1.1}
+\contentsline {section}{\numberline {8.2}Building a compartment model}{57}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}Limitations of the compartment model}{58}{subsection.8.2.1}
+\contentsline {subsection}{\numberline {8.2.2}Continuous-time compartment model}{59}{subsection.8.2.2}
+\contentsline {subsection}{\numberline {8.2.3}Discrete-time compartment model}{60}{subsection.8.2.3}
+\contentsline {subsubsection}{The method}{61}{section*.35}
+\contentsline {subsubsection}{Results}{61}{section*.36}
+\contentsline {chapter}{\numberline {9}Conclusion}{63}{chapter.9}
+\contentsline {chapter}{Bibliography}{65}{chapter*.38}
+\contentsline {chapter}{Appendix}{67}{chapter*.38}
+\contentsline {chapter}{\numberline {A}Numerical considerations}{69}{appendix.A}
+\contentsline {section}{\numberline {A.1}Stieltjes integral}{69}{section.A.1}
+\contentsline {section}{\numberline {A.2}Mean-square limit}{69}{section.A.2}
+\contentsline {section}{\numberline {A.3}Test case to assess the implementation of the overturner model}{70}{section.A.3}
+\contentsline {subsection}{\numberline {A.3.1}Governing equations}{70}{subsection.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}An idealized model}{70}{subsection.A.3.2}
+\contentsline {subsubsection}{Test case 1 : infinite domain}{71}{section*.40}
+\contentsline {subsubsection}{Test case 2 : semi-infinite domain}{72}{section*.41}
+\contentsline {subsection}{\numberline {A.3.3}Analytical solution and properties}{72}{subsection.A.3.3}
+\contentsline {subsubsection}{Green's function}{72}{section*.42}
+\contentsline {subsubsection}{Test case 1}{73}{section*.43}
+\contentsline {subsubsection}{Test case 2}{73}{section*.44}
+\contentsline {section}{\numberline {A.4}Validation of the numerical solver}{74}{section.A.4}
+\contentsline {subsection}{\numberline {A.4.1}Test case 1}{74}{subsection.A.4.1}
+\contentsline {subsection}{\numberline {A.4.2}Test case 2}{76}{subsection.A.4.2}
+\contentsline {chapter}{\numberline {B}Applications}{79}{appendix.B}
+\contentsline {section}{\numberline {B.1}The streamfunction}{79}{section.B.1}
