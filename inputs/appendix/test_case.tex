@@ -198,37 +198,40 @@ No analytic solution has been found for the center of mass and the variance. How
 This section aims to show that the numerical results obtained with the solver are in good agreement with the analytical ones. As the combination of the two test cases cover the main features of the problems considered in this work, this constitutes a basic validation of the solver. 
 
 Both test cases are simulated for 1 year with a time step of 1 hour, and $P = 10\,000$ particles are released at $t=0$.
-The concentration is computed at the final time $T = 1$ year on the domain $\Omega = [y_{min},y_{max}] \times [z_{min},z_{max}]$, where the subscripts \textit{min} and \textit{max} stands for the minimal and maximal position at time $T$ amongst all the particles. The domain $\Omega$ is divided into $20 \times 20$ boxes denoted $\Omega_i$ for $i = 1,\dots,200$. Let $\tilde C = J/|\Omega|$, and let $C_i(t)$ denote the concentration in box $i$ at time $t$; the scaled concentration in box $i$ is computed as
+The concentration is computed at the final time $T = 1$ year on the domain $\Omega = [y_{min},y_{max}] \times [z_{min},z_{max}]$, where the subscripts \textit{min} and \textit{max} stands for the minimal and maximal position at time $T$ amongst all the particles. The domain $\Omega$ is divided into $20 \times 20$ boxes denoted $\Omega_i$ for $i = 1,\dots,200$. Let $C_i(t)$ denote the concentration in box $i$ at time $t$ and $C_{max}(t) = \max_i C_i(t)$. The scaled concentration in box $i$ is computed as
 \begin{equation}
-	\tilde C_i(T) := \frac{C_i(T)}{\tilde C} = \frac{P_i(T)}{P}\frac{|\Omega|}{|\Omega_i|},
+	\tilde C_i(T) := \frac{C_i(T)}{C_{i,max}(T)} = \frac{P_i(T)}{P_{max}(T)},
 \end{equation}
-where $P_i(t)$ is the number of particles in box $i$ at time $t$.
+where $P_i(t)$ is the number of particles in box $i$ at time $t$ and $P_{max}(t) = \max_i P_i(t)$. The last equality is true because all the boxes have the same volume. The analytic solutions of the concentration are scaled identically:
+\begin{equation}
+	\tilde C(t) = \frac{C(t)}{C_{max}(t)}.
+\end{equation}
 
 %-------------------------------------RESULTS CASE 1----------------------------------------------------------------------------%
 \subsection{Test case 1}
-Figure \ref{fig:testcase_surf} shows a comparison between the numerical result and the analytical solution for the scaled concentration $C(\b x,T)/\tilde C$. Dark (resp. light) shaded areas correspond to zones where the numerically computed concentration is "above" (resp. "below") the exact concentration. Figures \ref{fig:testcase_fixedy} and \ref{fig:testcase_fixedz} represent respectively a cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The numerically computed concentration $C_{num}$ seems to be an appreciable approximation of the exact concentration $C_{exact}$. To be more specific, the maximal local error is 
+Figure \ref{fig:testcase_surf} shows a comparison between the numerical result and the analytical solution for the scaled concentration $C(\b x,T)/\tilde C$. Dark (resp. light) shaded areas correspond to zones where the numerically computed concentration is "above" (resp. "below") the exact concentration. It would probably have been more rigorous to represent the numerically computed concentration as a three-dimensional histogram since the box-counting method computes the mean value of the concentration in each box. However, here we have considered that the numerically computed mean concentration in a box corresponds to the concentration at the center of that box. The continuous representation of $\tilde{C}_{num}$ is then obtained by interpolation. Figures \ref{fig:testcase_fixedy} and \ref{fig:testcase_fixedz} represent respectively a cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The numerically computed concentration $\tilde C_{num}$ seems to be an appreciable approximation of the exact concentration $\tilde C_{exact}$. To be more specific, the maximal local error is 
 \begin{equation}
-	\|C_{exact}-C_{num}\|_{\infty} = 1.037\e{-3}.
+	\|\tilde C_{exact}- \tilde C_{num}\|_{\infty} = 7.017\e{-2}.
 \end{equation}
 The centers of mass are located at
 \begin{equation}
-	\b r_{exact} = (12\,614.4,\,4.2) \mbox{ [$m$],}\quad \b r_{num} = (10\,985.3,\,4.4) \mbox{ [$m$]}.
+	\b r_{exact} = (12\,614.4,\,4.2) \mbox{ [$m$],}\quad \b r_{num} = (11\,715.3,\,4.5) \mbox{ [$m$]}.
 \end{equation}
 The relative error is
 \begin{equation}
-	\b e_r = \left \lvert \frac{\b r_{exact}-\b r_{num}}{\b r_{exact}} \right \rvert =  \left(1.29\e{-1}, 4.75\e{-2}\right),
+	\b e_r = \left \lvert \frac{\b r_{exact}-\b r_{num}}{\b r_{exact}} \right \rvert =  \left(7.13\e{-2}, 7.89\e{-2}\right),
 \end{equation}
 where the division is taken element-wise on the vectors. The euclidean norm of the relative error is
 \begin{equation}
-	\| \b e_r \|_2 = 1.38\e{-1}.
+	\| \b e_r \|_2 = 1.06\e{-1}.
 \end{equation}
 This can be seen as a quantification of the error on advection. To quantify the error on diffusion, we compute the variance of the concentration :
 \begin{equation}
-	\sigma^2_{exact} = 6.31\e{10} \mbox{ [$m^2$],}\quad \sigma^2_{num} = 6.35\e{10} \mbox{ [$m^2$].}
+	\sigma^2_{exact} = 6.31\e{10} \mbox{ [$m^2$],}\quad \sigma^2_{num} = 6.43\e{10} \mbox{ [$m^2$].}
 \end{equation}
 The relative error is
 \begin{equation}
-	e_{\sigma^2} = \left \lvert \frac{\sigma^2_{exact}-\sigma^2_{num}}{\sigma^2_{exact}}\right \rvert = 7.26\e{-3}.
+	e_{\sigma^2} = \left \lvert \frac{\sigma^2_{exact}-\sigma^2_{num}}{\sigma^2_{exact}}\right \rvert = 1.86\e{-2}.
 \end{equation}
 \begin{figure}[H]
 	\centering
@@ -240,46 +243,46 @@ The relative error is
 	\centering
 	\begin{subfigure}[b]{0.49\textwidth}
 		\includegraphics[width=\textwidth]{fig/testcase/testcase_fixedy.eps}
-		\caption{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.}
+		\caption{$\tilde C_{num}(y_1+vT,z)$ and $\tilde C_{exact}(y_1+vT,z)$.}
 		\label{fig:testcase_fixedy}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.49\textwidth}
 		\includegraphics[width=\textwidth]{fig/testcase/testcase_fixedz.eps}
-		\caption{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.}
+		\caption{$\tilde C_{num}(y,z_1+wT)$ and $\tilde C_{exact}(y,z_1+wT)$.}
 		\label{fig:testcase_fixedz}
 	\end{subfigure}
-	\caption{Cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The dashed line represent $C_{num}$ and the continuous line is for $C_{exact}$.}
+	\caption{Cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The dashed line represent $\tilde C_{num}$ and the continuous line is for $\tilde C_{exact}$.}
 \end{figure}
 
 %-------------------------------------------RESULTS CASE 2-----------------------------------------------------------------------%
 \subsection{Test case 2}
-Figure \ref{fig:testcaseSI_surf} shows a comparison between the numerical result and the analytical solution for the (normalized) concentrations for test case 2. Since we do not have analytical expressions of the center of mass and of the variance for this test case, the "exact" values are approximated numerically thanks to the analytical expression of the concentration. Figures \ref{fig:testcaseSI_fixedy} and \ref{fig:testcaseSI_fixedz} represent respectively a cut of the concentrations at fixed $y = r_{y,exact}$ and along the boundary $z = 0$. The big picture about test case 2 is the presence of a boundary with no-through condition. A first verification is to check if all the particles are still in the domain, which is indeed the case. Although this might seem trivial here, it is sometimes a real challenge to ensure that no particle crosses the boundary, especially for geometrically complex domains. Besides, one can see on figure \ref{fig:testcaseSI_fixedz} that the concentration profile is well approximated along the boundary. Indeed, the maximal local error at the boundary is
+Figure \ref{fig:testcaseSI_surf} shows a comparison between the numerical result and the analytical solution for the scaled concentrations for test case 2. The same remark as the one made for test case 1 applies concerning the representation of the numerically computed concentration. Since we do not have analytical expressions of the center of mass and of the variance for this test case, the "exact" values are approximated numerically thanks to the analytical expression of the concentration. Figures \ref{fig:testcaseSI_fixedy} and \ref{fig:testcaseSI_fixedz} represent respectively a cut of the concentrations at fixed $y = r_{y,exact}$ and along the boundary $z = 0$. The big picture about test case 2 is the presence of a boundary with no-through condition. A first verification is to check if all the particles are still in the domain, which is indeed the case. Although this might seem trivial here, it is sometimes a real challenge to ensure that no particle crosses the boundary, especially for geometrically complex domains. Besides, one can see on figure \ref{fig:testcaseSI_fixedz} that the concentration profile is well approximated along the boundary. Indeed, the maximal local error at the boundary is
 \begin{equation}
-	\|C_{exact}(y,0)-C_{num}(y,0)\|_{\infty} = 3.53\e{-4}, 
+	\|\tilde C_{exact}(y,0)- \tilde C_{num}(y,0)\|_{\infty} = 2.964\e{-2}, 
 \end{equation}
 The maximal local error on the whole domain is 
 \begin{equation}
-	\|C_{exact}-C_{num}\|_{\infty} = 1.097\e{-3}.
+	\|\tilde C_{exact}- \tilde C_{num}\|_{\infty} = 8.668\e{-2}.
 \end{equation}
 The centers of mass are located at
 \begin{equation}
-	\b r_{exact} = (1.26\e{4},5.06\e{3}) \mbox{ [$m$],}\quad \b r_{num} = (1.10\e{4},5.05\e{3}) \mbox{ [$m$]}.
+	\b r_{exact} = (1.26\e{4},5.06\e{3}) \mbox{ [$m$],}\quad \b r_{num} = (1.37\e{4},5.05\e{3}) \mbox{ [$m$]}.
 \end{equation}
 The relative error is
 \begin{equation}
-	\b e_r = \left \lvert \frac{\b r_{exact}-\b r_{num}}{\b r_{exact}} \right \rvert =  \left(1.29\e{-1}, 1.825\e{-3}\right).
+	\b e_r = \left \lvert \frac{\b r_{exact}-\b r_{num}}{\b r_{exact}} \right \rvert =  \left(8.566\e{-2}, 2.718\e{-3}\right).
 \end{equation}
-The 2-norm of the relative error is
+The euclidean norm of the relative error is
 \begin{equation}
-	\| \b e_r \|_2 = 1.29\e{-1}.
+	\| \b e_r \|_2 = 8.571\e{-2}.
 \end{equation}
 This can be seen as a quantification of the error on advection. To quantify the error on diffusion, we compute the variance of the concentration :
 \begin{equation}
-	\sigma^2_{exact} = 6.39\e{10} \mbox{ [$m^2$],}\quad \sigma^2_{num} = 6.35\e{10} \mbox{ [$m^2$].}
+	\sigma^2_{exact} = 6.39\e{10} \mbox{ [$m^2$],}\quad \sigma^2_{num} = 6.25\e{10} \mbox{ [$m^2$].}
 \end{equation}
 The relative error is
 \begin{equation}
-	e_{\sigma^2} = \left \lvert \frac{\sigma^2_{exact}-\sigma^2_{num}}{\sigma^2_{exact}}\right \rvert = 4.85\e{-3}.
+	e_{\sigma^2} = \left \lvert \frac{\sigma^2_{exact}-\sigma^2_{num}}{\sigma^2_{exact}}\right \rvert = 2.269\e{-2}.
 \end{equation}
 \begin{figure}[H]
 	\centering
@@ -291,13 +294,13 @@ The relative error is
 	\centering
 	\begin{subfigure}[b]{0.49\textwidth}
 		\includegraphics[width=\textwidth]{fig/testcase/testcaseSI_fixedy.eps}
-		\caption{$C_{num}(y_1+vT,z)$ and $C_{exact}(y_1+vT,z)$.}
+		\caption{$\tilde C_{num}(y_1+vT,z)$ and $\tilde C_{exact}(y_1+vT,z)$.}
 		\label{fig:testcaseSI_fixedy}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.49\textwidth}
 		\includegraphics[width=\textwidth]{fig/testcase/testcaseSI_fixedz.eps}
-		\caption{$C_{num}(y,z_1+wT)$ and $C_{exact}(y,z_1+wT)$.}
+		\caption{$\tilde C_{num}(y,z_1+wT)$ and $\tilde C_{exact}(y,z_1+wT)$.}
 		\label{fig:testcaseSI_fixedz}
 	\end{subfigure}
-	\caption{Cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The dashed line represent $C_{num}$ and the continuous line is for $C_{exact}$.}
+	\caption{Cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The dashed line represent $\tilde C_{num}$ and the continuous line is for $\tilde C_{exact}$.}
 \end{figure}

@@ -43,7 +43,6 @@
 \null \newpage
 \addcontentsline{toc}{section}{List of abbreviations and symbols}
 \section*{List of abbreviations and symbols}
-\listoffigures
 \null\newpage
 \cleartooddpage
 \pagenumbering{arabic}
@@ -62,12 +61,13 @@
 \nocite{*}
 \bibliographystyle{unsrt} % Le style est mis entre accolades.
 \bibliography{bib/bibli} % mon fichier de base de données s'appelle bibli.bib
-% Back cover page
+\listoffigures
 \appendix
 \addcontentsline{toc}{chapter}{Appendix}
 \input{inputs/appendix/appendix}
 \newpage \null \newpage
 % \backmatter
+% Back cover page
 \backcoverpage
 
 \end{document}

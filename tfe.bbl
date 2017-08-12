@@ -1,20 +1,86 @@
 \begin{thebibliography}{10}
 
+\bibitem{deleersnijder1998two}
+Eric Deleersnijder, Jia Wang, and Christopher~NK Mooers.
+\newblock A two-compartment model for understanding the simulated
+  three-dimensional circulation in prince william sound, alaska.
+\newblock {\em Continental Shelf Research}, 18(2):279--287, 1998.
+
+\bibitem{maderich2014regional}
+V~Maderich, R~Bezhenar, R~Heling, G~de~With, KT~Jung, JG~Myoung, Y-K Cho,
+  F~Qiao, and L~Robertson.
+\newblock Regional long-term model of radioactivity dispersion and fate in the
+  northwestern pacific and adjacent seas: application to the fukushima dai-ichi
+  accident.
+\newblock {\em Journal of environmental radioactivity}, 131:4--18, 2014.
+
+\bibitem{soetaert1995estimating}
+Karline Soetaert and Peter M.~J. Herman.
+\newblock Estimating estuarine residence times in the westerschelde (the
+  netherlands) using a box model with fixed dispersion coefficients.
+\newblock {\em Hydrobiologia}, 311(1):215--224, 1995.
+
+\bibitem{kohler2005quantitative}
+Peter K{\"o}hler, Hubertus Fischer, Guy Munhoven, and Richard~E. Zeebe.
+\newblock Quantitative interpretation of atmospheric carbon records over the
+  last glacial termination.
+\newblock {\em Global Biogeochemical Cycles}, 19(4), 2005.
+
+\bibitem{munhoven1996glacial}
+Guy Munhoven and Louis~M. François.
+\newblock Glacial-interglacial variability of atmospheric co2 due to changing
+  continental silicate rock weathering: A model study.
+\newblock {\em Journal of Geophysical Research: Atmospheres},
+  101(D16):21423--21437, 1996.
+
+\bibitem{newman2010networks}
+Mark E.~J. Newman.
+\newblock {\em Networks: an introduction}.
+\newblock Oxford university press, 2010.
+
 \bibitem{fortunato2010community}
 Santo Fortunato.
 \newblock Community detection in graphs.
 \newblock {\em Physics reports}, 486(3):75--174, 2010.
+
+\bibitem{girvan2002community}
+Michelle Girvan and Mark E.~J. Newman.
+\newblock Community structure in social and biological networks.
+\newblock {\em Proceedings of the national academy of sciences},
+  99(12):7821--7826, 2002.
+
+\bibitem{holme2003subnetwork}
+Petter Holme, Mikael Huss, and Hawoong Jeong.
+\newblock Subnetwork hierarchies of biochemical pathways.
+\newblock {\em Bioinformatics}, 19(4):532--538, 2003.
+
+\bibitem{guimera2005functional}
+Roger Guimera and Luis A~Nunes Amaral.
+\newblock Functional cartography of complex metabolic networks.
+\newblock {\em nature}, 433(7028):895, 2005.
+
+\bibitem{palla2005uncovering}
+Gergely Palla, Imre Der{\'e}nyi, Ill{\'e}s Farkas, and Tam{\'a}s Vicsek.
+\newblock Uncovering the overlapping community structure of complex networks in
+  nature and society.
+\newblock {\em arXiv preprint physics/0506133}, 2005.
+
+\bibitem{flake2002self}
+Gary~William Flake, Steve Lawrence, C~Lee Giles, and Frans~M Coetzee.
+\newblock Self-organization and identification of web communities.
+\newblock {\em Computer}, 35(3):66--70, 2002.
+
+\bibitem{huss2007currency}
+Mikael Huss and Petter Holme.
+\newblock Currency and commodity metabolites: their identification and relation
+  to the modularity of metabolic networks.
+\newblock {\em IET systems biology}, 1(5):280--285, 2007.
 
 \bibitem{delvenne2010stability}
 J.-C. Delvenne, Sophia~N. Yaliraki, and Mauricio Barahona.
 \newblock Stability of graph communities across time scales.
 \newblock {\em Proceedings of the National Academy of Sciences},
   107(29):12755--12760, 2010.
-
-\bibitem{lambiotte2009laplacian}
-Renaud Lambiotte, J.-C. Delvenne, and Mauricio Barahona.
-\newblock Laplacian dynamics and multiscale modular structure in networks.
-\newblock {\em arXiv preprint arXiv:0812.1770}, 2009.
 
 \bibitem{delvenne2013stability}
 Jean-Charles Delvenne, Michael~T. Schaub, Sophia~N. Yaliraki, and Mauricio
@@ -23,6 +89,11 @@ Jean-Charles Delvenne, Michael~T. Schaub, Sophia~N. Yaliraki, and Mauricio
   community detection.
 \newblock In {\em Dynamics On and Of Complex Networks, Volume 2}, pages
   221--242. Springer, 2013.
+
+\bibitem{lambiotte2009laplacian}
+Renaud Lambiotte, J.-C. Delvenne, and Mauricio Barahona.
+\newblock Laplacian dynamics and multiscale modular structure in networks.
+\newblock {\em arXiv preprint arXiv:0812.1770}, 2009.
 
 \bibitem{blondel2008fast}
 Vincent Blondel, Jean-Loup Guillaume, Renaud Lambiotte, and Etienne Lefebvre.
@@ -204,6 +275,12 @@ Eric Deleersnijder.
 Catherine Timmermans.
 \newblock Ventilation et rétention dans un bassin océanique idéalisé.
 \newblock Master's thesis, UCL, 2006.
+
+\bibitem{newman2006finding}
+Mark E.~J. Newman.
+\newblock Finding community structure in networks using the eigenvectors of
+  matrices.
+\newblock {\em Physical review}, 74(3):036104, 2006.
 
 \bibitem{deleersnijder2014tpgef}
 Eric Deleersnijder.

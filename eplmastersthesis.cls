@@ -91,7 +91,7 @@
   \pagenumbering{alph}
   \renewcommand{\thepage}{BC\arabic{page}}
   \parskip = 0pt
-  %\thispagestyle{empty}
+  \thispagestyle{empty}
   \newgeometry{top=1.25cm,bottom=1.25cm,left=1.25cm,right=1.25cm}
   \vspace*{17.75cm}
   \noindent \footnotesize \color{UCLblue} \fontfamily{phv} \selectfont Rue Archim\`{e}de, 1 bte L6.11.01, 1348 Louvain-la-Neuve ~ ~ \color{EPLblue} \textbf{www.uclouvain.be/epl} \\
