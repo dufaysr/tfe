@@ -21,7 +21,7 @@ In matrix formulation, the mean concentration is expressed as
 \begin{equation} \label{eq:Cmeanmatrix}
 	\bar C = \frac{1}{\Omega} \b 1^\t \bs \Omega \b c,
 \end{equation}
-where $\b 1$ is the N-dimensional unit column vector. Notice that $\Omega = \b 1^\t \bs \Omega \b 1$. In the next of this section, we show of properties \ref{prop1_comp}, \ref{prop2_comp} and \ref{prop3_comp} from section \ref{sec:prop_comp} are expressed in matrix formulation.
+where $\b 1$ is the N-dimensional unit column vector. Notice that $\Omega = \b 1^\t \bs \Omega \b 1$. In the next of this section, we show of properties~\ref{prop1_comp}, \ref{prop2_comp} and~\ref{prop3_comp} from section~\ref{sec:prop_comp} are expressed in matrix formulation.
 \begin{propertybis}{prop1_comp} \label{prop1bis_comp}
 Each column of the interaction matrix sums to zero:
 \begin{equation}
@@ -29,11 +29,11 @@ Each column of the interaction matrix sums to zero:
 \end{equation}
 \end{propertybis} 
 \begin{proof}
-	We know that $\dot{\bar C} = 0$. From equations \eqref{eq:compartmentmatrix} and \eqref{eq:Cmeanmatrix},
+	We know that $\dot{\bar C} = 0$. From equations~\eqref{eq:compartmentmatrix} and~\eqref{eq:Cmeanmatrix},
 	\begin{equation}
 		\Omega \dot{\bar{C}} = \b 1^\t \bs \Omega \dot{\b{c}} = \b 1^\t \bs \Omega \b q + \b 1^\t\b A \b c.
 	\end{equation}
-	Furthermore, equation \eqref{eq:prop1deleersnijder} in an isolated system is equivalent to
+	Furthermore, equation~\eqref{eq:prop1deleersnijder} in an isolated system is equivalent to
 	\begin{equation}
 		\Omega \dot{\bar{C}} = \b 1^\t \bs \Omega \b q,
 	\end{equation}
@@ -47,7 +47,7 @@ Each column of the interaction matrix sums to zero:
 	\end{equation}	
 \end{propertybis}
 \begin{proof}
-	Let $C_0$ be a constant and $\b c = C_0 \b 1$. Introducing the latter in \eqref{eq:compartmentmatrix} with $\b q = \b 0$ yields
+	Let $C_0$ be a constant and $\b c = C_0 \b 1$. Introducing the latter in~\eqref{eq:compartmentmatrix} with $\b q = \b 0$ yields
 	\begin{equation}
 		0 = C_0 \b A \b 1.
 	\end{equation}
@@ -58,7 +58,7 @@ Each column of the interaction matrix sums to zero:
 \end{propertybis}
 \begin{proof}
 	We consider a passive tracer hence $\b q = 0$. Besides, since the domain is isolated the domain-averaged value of the concentration $\bar C$ is a constant.
-	Consider $\hat{\b c} = \b c - \bar C \b 1$, the deviation of the concentration with respect to $\bar C$. Since under those conditions, \eqref{eq:compartmentmatrix} is linear and homogeneous in $\b c$, it applies to any perturbation of $\b c$ by a constant, and thus to $\hat{\b c}$:
+	Consider $\hat{\b c} = \b c - \bar C \b 1$, the deviation of the concentration with respect to $\bar C$. Since under those conditions,~\eqref{eq:compartmentmatrix} is linear and homogeneous in $\b c$, it applies to any perturbation of $\b c$ by a constant, and thus to $\hat{\b c}$:
 	\begin{equation} \label{eq:prp3matrix}
 		\bs \Omega \dot{\hat{\b c}} = \b A \hat{\b c}.
 	\end{equation}
@@ -66,11 +66,11 @@ Each column of the interaction matrix sums to zero:
 	\begin{equation}\label{eq:sigmamatrix}
 		\sigma^2 = \frac{1}{\Omega} \hat{\b c}^\t \bs \Omega \hat{\b c}.
 	\end{equation}
-	A time-differentiation of \eqref{eq:sigmamatrix} yields
+	A time-differentiation of~\eqref{eq:sigmamatrix} yields
 	\begin{equation}
 		\frac{d \sigma^2}{dt} = \frac{2}{\Omega} \hat{\b c}^\t \bs \Omega \dot{\hat{\b c}},
 	\end{equation}
-	and finally by \eqref{eq:prp3matrix}
+	and finally by~\eqref{eq:prp3matrix}
 	\begin{equation}
 		\frac{\Omega}{2} \frac{d \sigma^2}{dt} = \hat{\b c}^\t \b A \hat{\b c}.
 	\end{equation}

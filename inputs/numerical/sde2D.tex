@@ -1,16 +1,16 @@
 %!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
-\section{The code}
+\section{The code} \label{sec:thecode}
 The preceding sections cover all the material needed to implement a Lagrangian code that solves a two-dimensional advection-diffusion problem. For the need of this work, a \Cpp code has been implemented. The choice of \Cpp is motivated by the fact that it is \textit{fast}, and that it comes together with a wide range of \textit{open source} supporting tools. Another reason is that \Cpp is an \textit{object-oriented language}, and it is widely held that writing in an object-oriented style leads to programs which are easier to understand, to extend, to maintain and to refactor \cite{pitt2012guide}.
 
 The code deals with the two-dimensional transport equation
 \begin{equation} \label{eq:TEcode}
 	\frac{\partial C}{\partial t} = \nabla \cdot (-\b u C + \b K \nabla C)
 \end{equation}
-on rectangular domains with no-through boundary conditions. It allows to simulate trajectories, to compute the concentration and to build the transition probability matrix for a given partitioning of the domain. The trajectories are simulated using the backward Euler method, applied on the system of backward Itô SDE's \eqref{eq:bi-TM}.
-% The user can choose between the Euler-Maruyama \textcolor{red}{attention implémenter drift gradient term} and backward-Itô method to simulate the trajectories. In view of the preceding sections, the Itô SDE corresponding to \eqref{eq:TEcode} is
+on rectangular domains with no-through boundary conditions. It allows to simulate trajectories, to compute the concentration and to build the transition probability matrix for a given partitioning of the domain. The trajectories are simulated using the backward Euler method, applied on the system of backward Itô SDE's~\eqref{eq:bi-TM}.
+% The user can choose between the Euler-Maruyama \textcolor{red}{attention implémenter drift gradient term} and backward-Itô method to simulate the trajectories. In view of the preceding sections, the Itô SDE corresponding to~\eqref{eq:TEcode} is
 In this work, only the box-counting method is used for the estimation of the concentration (and thus also for the computation of the transition probability matrix) but the density kernel estimation method has also been implemented for the sake of completeness.
 
-In order to use the code on a particular problem meeting the above specifications, a class that defines the problem must be implemented. That class must inherit from the abstract base class \mintinline{c++}{AbstractAdvDiffProblem} (see listing \ref{listing:abstractadvdiffproblem}), and must at least implement the two pure virtual functions of the abstract base class:
+In order to use the code on a particular problem meeting the above specifications, a class that defines the problem must be implemented. That class must inherit from the abstract base class \mintinline{c++}{AbstractAdvDiffProblem} (see listing~\ref{listing:abstractadvdiffproblem}), and must at least implement the two pure virtual functions of the abstract base class:
 \begin{listing}[ht!]
 \caption{The abstract base class \cppcode{AbstractAdvDiffProblem}.}
 \label{listing:abstractadvdiffproblem}
@@ -43,11 +43,11 @@ class AbstractAdvDiffProblem
 	where \cppcode{a}, \cppcode{b} and \cppcode{c} are of type double. The elements of \cppcode{A} are then accessed via the syntax \cppcode{A(i,j)} which uses one-based indexing. Hence, \cppcode{A(1,1) = a}, \cppcode{A(1,2) = A(2,1) = b} and \cppcode{A(2,2) = c}. The same syntax can be used to modify the elements of \cppcode{A}.
 	\item \mintinline[style=tango]{c++}{Vec2 getU(double y, double z)}: returns the velocity vector $\b u$ evaluated at $(y,z)$. The return value is of type \cppcode{Vec2}, a structure that stores a vector of size 2. The syntax \cppcode{Vec2 v(a,b)} is used to create the two-dimensional vector $v = (a,b)$. The elements of \cppcode{v} are accessed via the syntax \cppcode{v(i)} which also uses one-based indexing.
 \end{itemize}
-By default, the code computes the matrix $\b B$ using \eqref{eq:B} and \eqref{eq:Bstar}. This is done by the function \cppcode{LowerTriMatrix GetB(double y, double z)}. In some cases, it can be interesting to overload that definition of \cppcode{GetB}, which is possible since this function is virtual. The return value must be of type \cppcode{LowerTriMatrix}, which is a structure similar to \cppcode{SymMatrix} but is intended to store lower triangular $2\times2$ matrices instead of symmetric $2\times2$ matrices.
+By default, the code computes the matrix $\b B$ using~\eqref{eq:B} and~\eqref{eq:Bstar}. This is done by the function \cppcode{LowerTriMatrix GetB(double y, double z)}. In some cases, it can be interesting to overload that definition of \cppcode{GetB}, which is possible since this function is virtual. The return value must be of type \cppcode{LowerTriMatrix}, which is a structure similar to \cppcode{SymMatrix} but is intended to store lower triangular $2\times2$ matrices instead of symmetric $2\times2$ matrices.
 
 Notice that the code as such implements the dimensional form of the transport model. However, it can be used to run simulations on the adimensional form of the transport model. To this end, it suffice to define the functions \cppcode{getK} and \cppcode{getU} accordingly: \cppcode{getK} shall return the inverse of the Peclet matrix, and \cppcode{getU} shall return the adimensional velocity vector.
 
-Once a class describing the problem is properly defined, three methods can be used to compute either the trajectories, the normalized concentration or the transition probability matrix. We call those methods the \textit{compute methods}. Their signatures are given in listing \ref{listing:signature_compute}. Since those functions are well documented in the code, we do not provide any further explanations about how to use them here.
+Once a class describing the problem is properly defined, three methods can be used to compute either the trajectories, the normalized concentration or the transition probability matrix. We call those methods the \textit{compute methods}. Their signatures are given in listing~\ref{listing:signature_compute}. Since those functions are well documented in the code, we do not provide any further explanations about how to use them here.
 \begin{listing}[ht!]
 \caption{Signatures of the \textit{compute methods}.}
 \label{listing:signature_compute}
@@ -64,7 +64,7 @@ void ComputeTransitionProbabilities(const AbstractAdvDiffProblem& prob, std::str
 \end{minted}
 \end{listing}
 
-Test cases with analytical solutions have been built to assess the validity of the implementation. They are presented in appendix \ref{app:test_case} and the numerical solution is compared to the analytical solution, producing satisfying results.
+Test cases with analytical solutions have been built to assess the validity of the implementation. They are presented in appendix~\ref{app:test_case} and the numerical solution is compared to the analytical solution, producing satisfying results.
 % \begin{itemize}
 % 	\item \mintinline{c++}{LowerTriMatrix getB(double y, double z)}:
 % 	\item io 

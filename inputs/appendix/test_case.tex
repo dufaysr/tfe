@@ -15,7 +15,7 @@ where $\b{u}(t,\b{x})$ is the latitudinally-averaged meridional velocity. Assumi
 where $\b{K}$ is the diffusivity tensor (symmetric and positive definite); $\delta$ is the Dirac delta function with $\delta(\b{x}-\b{x}_n) = \delta(x-x_n)\delta(y-y_n)$; $Q(t)$ is the rate of release of a lineic source of length $B$ along the latitude direction located at $\b{x} = \b{x}_1$. If $C(\b x,t)$ represents the 
 density of the tracer in water, then $Q(t)$ is the mass of tracer released per second by the source.
 
-Equation \eqref{eq:testcase:conservative} is the so-called conservative form of the model. The convective form is obtained by combining equations \eqref{eq:testcase:continuity} and \eqref{eq:testcase:conservative}:
+Equation~\eqref{eq:testcase:conservative} is the so-called conservative form of the model. The convective form is obtained by combining equations~\eqref{eq:testcase:continuity} and~\eqref{eq:testcase:conservative}:
 \begin{equation}  \label{eq:testcase:convective}
 	\frac{\partial C}{\partial t} + \b{u} \cdot \nabla C = \frac{Q}{B} \delta(\b{x} - \b{x}_1) + \frac{1}{B} \nabla \cdot (B\b{K} \cdot \nabla C).
 \end{equation}
@@ -40,7 +40,7 @@ where $K_{yy},\ K_{zz} > 0$. Finally, we consider a sudden pointwise release of 
 \end{equation} 
 where $M$ is the mass of tracer released at $t=0$.
 
-Under these assumptions, equation \eqref{eq:testcase:convective} simplifies to :
+Under these assumptions, equation~\eqref{eq:testcase:convective} simplifies to :
 \begin{equation} \label{eq:testcase}
 	\frac{\partial C}{\partial t} + v \frac{\partial C}{\partial y} + w \frac{\partial C}{\partial z} = J \delta(t) \delta(y - y_1)\delta(z-z_1) + K_{yy} \frac{\partial^2 C}{\partial y^2} + K_{zz} \frac{\partial^2 C}{\partial z^2},
 \end{equation}
@@ -49,7 +49,7 @@ For the sake of simplicity, we can forget about the fact that our model is width
 \begin{equation}
 	Q := J\delta(t).
 \end{equation}
-A part of the physical meaning of the model is lost but this makes representations of the problem easier. $C$ now represents the two-dimensional density (i.e., in [$kg/m^2$]) of the tracer in water. $J$ can then be regarded as the mass of tracer released by the sudden point source at $\b x = \b x_1$. The three- and two-dimensional interpretations of the problem are represented on figure \ref{fig:testcase_scheme}.
+A part of the physical meaning of the model is lost but this makes representations of the problem easier. $C$ now represents the two-dimensional density (i.e., in [$kg/m^2$]) of the tracer in water. $J$ can then be regarded as the mass of tracer released by the sudden point source at $\b x = \b x_1$. The three- and two-dimensional interpretations of the problem are represented on figure~\ref{fig:testcase_scheme}.
 % \footnote{This could be a bit confusing. As we switch from a 3-dimensional interpretation of the model to a 2-dimensional one, the meaning of the parameters changes. Hence, in the 3-dimensional interpretation, $C$ represents a 3D density ([$kg/m^3$]) and $M$ is a mass, whereas in the 2-dimensional interpretation, $C$ is a 2D density ([$kg/m^2$]) and $M$ has units of [$kg\,m$]. A part of the physical meaning of the model is lost, but this makes representations of the problem much easier.} \textcolor{red}{On peut aussi simplement considérer B = 1. Attention, si on opte finalement pour cette option, un facteur B doit être présent pour le calcul de certains diagnostiques.}
 \begin{figure}[H]
 	\centering
@@ -154,7 +154,7 @@ The mass center is located at
 	&= \int_{\R[2]} (\b x-\b x_1) G(\b x - \b x_1,t,0) + \b x_1 G(\b x - \b x_1,t,0) \rm d \b x\nonumber\\
 	&= \b x_1 + \b s(t,0),
 \end{align}
-where properties \eqref{eq:testcase:propmass} and \eqref{eq:testcase:propcenter} are used to perform the last step.
+where properties~\eqref{eq:testcase:propmass} and~\eqref{eq:testcase:propcenter} are used to perform the last step.
 
 Finally, the variance of the solution is
 \begin{align}
@@ -162,7 +162,7 @@ Finally, the variance of the solution is
 	&= \int_{\R[2]} \lvert (\b x - \b x_1) - \b s(t,0)\rvert^2 G(\b x - \b x_1,t,0) \rm d \b x \nonumber \\
 	&= 2(K_{yy}+K_{zz})t,
 \end{align}
-where property \eqref{eq:testcase:propvar} is used.
+where property~\eqref{eq:testcase:propvar} is used.
 
 %------------------------------------------------Analytic TEST CASE 2 ---------------------------------------------%
 \subsubsection{Test case 2}
@@ -209,7 +209,7 @@ where $P_i(t)$ is the number of particles in box $i$ at time $t$ and $P_{max}(t)
 
 %-------------------------------------RESULTS CASE 1----------------------------------------------------------------------------%
 \subsection{Test case 1}
-Figure \ref{fig:testcase_surf} shows a comparison between the numerical result and the analytical solution for the scaled concentration $C(\b x,T)/\tilde C$. Dark (resp. light) shaded areas correspond to zones where the numerically computed concentration is "above" (resp. "below") the exact concentration. It would probably have been more rigorous to represent the numerically computed concentration as a three-dimensional histogram since the box-counting method computes the mean value of the concentration in each box. However, here we have considered that the numerically computed mean concentration in a box corresponds to the concentration at the center of that box. The continuous representation of $\tilde{C}_{num}$ is then obtained by interpolation. Figures \ref{fig:testcase_fixedy} and \ref{fig:testcase_fixedz} represent respectively a cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The numerically computed concentration $\tilde C_{num}$ seems to be an appreciable approximation of the exact concentration $\tilde C_{exact}$. To be more specific, the maximal local error is 
+Figure~\ref{fig:testcase_surf} shows a comparison between the numerical result and the analytical solution for the scaled concentration $C(\b x,T)/\tilde C$. Dark (resp. light) shaded areas correspond to zones where the numerically computed concentration is "above" (resp. "below") the exact concentration. It would probably have been more rigorous to represent the numerically computed concentration as a three-dimensional histogram since the box-counting method computes the mean value of the concentration in each box. However, here we have considered that the numerically computed mean concentration in a box corresponds to the concentration at the center of that box. The continuous representation of $\tilde{C}_{num}$ is then obtained by interpolation. Figures~\ref{fig:testcase_fixedy} and~\ref{fig:testcase_fixedz} represent respectively a cut of the concentrations at fixed $y = r_{y,exact}$ and at fixed $z = r_{z,exact}$. The numerically computed concentration $\tilde C_{num}$ seems to be an appreciable approximation of the exact concentration $\tilde C_{exact}$. To be more specific, the maximal local error is 
 \begin{equation}
 	\|\tilde C_{exact}- \tilde C_{num}\|_{\infty} = 7.017\e{-2}.
 \end{equation}
@@ -256,7 +256,7 @@ The relative error is
 
 %-------------------------------------------RESULTS CASE 2-----------------------------------------------------------------------%
 \subsection{Test case 2}
-Figure \ref{fig:testcaseSI_surf} shows a comparison between the numerical result and the analytical solution for the scaled concentrations for test case 2. The same remark as the one made for test case 1 applies concerning the representation of the numerically computed concentration. Since we do not have analytical expressions of the center of mass and of the variance for this test case, the "exact" values are approximated numerically thanks to the analytical expression of the concentration. Figures \ref{fig:testcaseSI_fixedy} and \ref{fig:testcaseSI_fixedz} represent respectively a cut of the concentrations at fixed $y = r_{y,exact}$ and along the boundary $z = 0$. The big picture about test case 2 is the presence of a boundary with no-through condition. A first verification is to check if all the particles are still in the domain, which is indeed the case. Although this might seem trivial here, it is sometimes a real challenge to ensure that no particle crosses the boundary, especially for geometrically complex domains. Besides, one can see on figure \ref{fig:testcaseSI_fixedz} that the concentration profile is well approximated along the boundary. Indeed, the maximal local error at the boundary is
+Figure~\ref{fig:testcaseSI_surf} shows a comparison between the numerical result and the analytical solution for the scaled concentrations for test case 2. The same remark as the one made for test case 1 applies concerning the representation of the numerically computed concentration. Since we do not have analytical expressions of the center of mass and of the variance for this test case, the "exact" values are approximated numerically thanks to the analytical expression of the concentration. Figures~\ref{fig:testcaseSI_fixedy} and~\ref{fig:testcaseSI_fixedz} represent respectively a cut of the concentrations at fixed $y = r_{y,exact}$ and along the boundary $z = 0$. The big picture about test case 2 is the presence of a boundary with no-through condition. A first verification is to check if all the particles are still in the domain, which is indeed the case. Although this might seem trivial here, it is sometimes a real challenge to ensure that no particle crosses the boundary, especially for geometrically complex domains. Besides, one can see on figure~\ref{fig:testcaseSI_fixedz} that the concentration profile is well approximated along the boundary. Indeed, the maximal local error at the boundary is
 \begin{equation}
 	\|\tilde C_{exact}(y,0)- \tilde C_{num}(y,0)\|_{\infty} = 2.964\e{-2}, 
 \end{equation}

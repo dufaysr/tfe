@@ -1,10 +1,10 @@
 %!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
 \section{Discrete-time compartment model} \label{sec:dtcm(chapcomp)}
-It is also possible to build a discrete-time compartment model, and this could even be more relevant in the context of numerical implementation. Consider equation \eqref{eq:compartmentmatrix}. For a given time step $\Delta t$, we would like to build a similar expression that would link $\b c(t+\Delta t)$ to $\b c(t)$. From the theory of ordinary differential equations, we know that the general solution to that equation is
+It is also possible to build a discrete-time compartment model, and this could even be more relevant in the context of numerical implementation. Consider equation~\eqref{eq:compartmentmatrix}. For a given time step $\Delta t$, we would like to build a similar expression that would link $\b c(t+\Delta t)$ to $\b c(t)$. From the theory of ordinary differential equations, we know that the general solution to that equation is
 \begin{equation} \label{eq:generalODEsol}
 	\b c(t) = \Exp^{\bs \Omega^{-1}\b A(t-t_0)} \b c(t_0) + \int_{t_0}^t \Exp^{\bs \Omega^{-1}\b A(t-s)} \b q(s) \rm ds.
 \end{equation}
-For a general source term $\b q$, it is not possible to write a matrix expression of the form $\b c(t+\Delta t) = \b A_{\Delta t} \b c(t) + \b B_{\Delta t} \b q(t)$, but it is possible under certain conditions on $\b q$. In this work, we won't need such conditions because we make the assumption that there is no source/sink term, i.e. we assume that $\b q = 0$. Let $t_0 < t_1 < t_2 < \dots$ be such that $t_{i+1} = t_i + \Delta t$. If $\b c(t_i)$ is known, $\b c(t_{i+1})$ can be computed using \eqref{eq:generalODEsol} with $\b q = 0$:
+For a general source term $\b q$, it is not possible to write a matrix expression of the form $\b c(t+\Delta t) = \b A_{\Delta t} \b c(t) + \b B_{\Delta t} \b q(t)$, but it is possible under certain conditions on $\b q$. In this work, we won't need such conditions because we make the assumption that there is no source/sink term, i.e. we assume that $\b q = 0$. Let $t_0 < t_1 < t_2 < \dots$ be such that $t_{i+1} = t_i + \Delta t$. If $\b c(t_i)$ is known, $\b c(t_{i+1})$ can be computed using~\eqref{eq:generalODEsol} with $\b q = 0$:
 \begin{equation}
 	\b c(t_{i+1}) = \Exp^{\bs \Omega^{-1}\b A\Delta t} \b c(t_i).
 \end{equation}
@@ -12,7 +12,7 @@ Doing this, we have found a matrix relation that links $\b c(t+\Delta t)$ to $\b
 \begin{equation} \label{eq:generaldiscretecompartment}
 	\b c(t + \Delta t) = \b A_{\Delta t} \b c(t),
 \end{equation}
-where $\b A_{\Delta t} = \Exp^{\bs \Omega^{-1}\b A\Delta t}$ is the \textit{discrete interaction matrix}. Notice that the discrete interaction matrix is closely related to the transition probability matrix introduced in chapter \ref{chap:clustering}. Indeed, developing \eqref{eq:generaldiscretecompartment} for $C_i(t)$ yields
+where $\b A_{\Delta t} = \Exp^{\bs \Omega^{-1}\b A\Delta t}$ is the \textit{discrete interaction matrix}. Notice that the discrete interaction matrix is closely related to the transition probability matrix introduced in chapter~\ref{chap:clustering}. Indeed, developing~\eqref{eq:generaldiscretecompartment} for $C_i(t)$ yields
 \begin{equation} \label{eq:crapaud}
 	C_i(t+\Delta t) = [\b A_{\Delta t}]_{i,1} C_{1}(t) + [\b A_{\Delta t}]_{i,2} C_{2}(t) + \ldots + [\b A_{\Delta t}]_{i,N} C_{N}(t).  	
 \end{equation}
@@ -20,7 +20,7 @@ Let $J_i(t)$ denote the number of tracer's particles in compartment $i$ at time 
 \begin{equation}
 	C_i(t) = \frac{J_i(t) P}{\Omega_i}.
 \end{equation}
-Multiplying equation \eqref{eq:crapaud} by $\Omega_i/P$ yields after some manipulations
+Multiplying equation~\eqref{eq:crapaud} by $\Omega_i/P$ yields after some manipulations
 \begin{equation}
 	J_i(t) = [\b A_{\Delta t}]_{i,1} \frac{\Omega_i}{\Omega_1} J_{1}(t) + [\b A_{\Delta t}]_{i,2}\frac{\Omega_i}{\Omega_2} J_{2}(t) + \ldots + [\b A_{\Delta t}]_{i,N}\frac{\Omega_i}{\Omega_N} J_{N}(t).
 \end{equation}
@@ -37,7 +37,7 @@ Hence, the factor $\frac{\Omega_i}{\Omega_j}[\b A_{\Delta t}]_{i,j}$ can be inte
 		\b c(t) = \begin{pmatrix} c_1(t) \\ \vdots \\ c_{j-1}(t) \\ c_j(t) \\ c_{j+1}(t) \\ \vdots \\ c_N(t) \end{pmatrix}
 				= \begin{pmatrix} 0 \\ \vdots \\ 0 \\ C_0 \\ 0 \\ \vdots \\ 0 \end{pmatrix}.
 	\end{equation}
-	By equation \eqref{eq:generaldiscretecompartment},
+	By equation~\eqref{eq:generaldiscretecompartment},
 	\begin{equation}
 		\b c(t+\Delta t) = \b A_{\Delta t} \b c(t) = \begin{pmatrix} [\b A_{\Delta t}]_{1,j} C_0 \\ \vdots \\ [\b A_{\Delta t}]_{j-1,j}C_0  \\ [\b A_{\Delta t}]_{j,j} C_0 \\ [\b A_{\Delta t}]_{j+1,j}C_0 \\ \vdots \\ [\b A_{\Delta t}]_{N,j} C_0 \end{pmatrix}.
 	\end{equation}
@@ -51,7 +51,7 @@ The interpretation of $\frac{\Omega_i}{\Omega_j}[\b A_{\Delta t}]_{i,j}$ in term
 \begin{equation}
 	\sum_{i=1}^N \frac{\Omega_i}{\Omega_j}[\b A_{\Delta t}]_{i,j} = 1 \quad \mbox{for every } j=1,\dots,N.
 \end{equation}
-This property can be deduced from property \ref{prop1_comp}:
+This property can be deduced from property~\ref{prop1_comp}:
 
 \begin{propertyter}{prop1_comp} \label{prop1ter_comp} \label{prop2_discr_comp}
 	The columns of the discrete interaction matrix satisfy the following relation:
@@ -72,7 +72,7 @@ This property can be deduced from property \ref{prop1_comp}:
 	\begin{equation}
 		\Omega \bar C(t+\Delta t) = \Omega \bar C(t) = \b1^\t \bs \Omega \b c(t) = \bs \omega^\t \b c(t),
 	\end{equation}
-	but by equation \eqref{eq:generaldiscretecompartment} we also have that
+	but by equation~\eqref{eq:generaldiscretecompartment} we also have that
 	\begin{equation}
 		\Omega \bar C(t+\Delta t) = \b1^\t \bs \Omega \b c(t+\Delta t) = \b1^\t \bs \Omega \b A_{\Delta t} \b c(t) = \bs \omega^\t \b A_{\Delta t} \b c(t).
 	\end{equation}
@@ -89,12 +89,12 @@ This property can be deduced from property \ref{prop1_comp}:
 	\end{equation}
 \end{corollary}
 \begin{proof}
-	Let $\Omega_0$ be the size of the compartments. Then, $\bs \omega = \Omega_0 \b 1$ and equation \eqref{eq:prop1ter_comp} reduces to
+	Let $\Omega_0$ be the size of the compartments. Then, $\bs \omega = \Omega_0 \b 1$ and equation~\eqref{eq:prop1ter_comp} reduces to
 	\begin{equation}
 		\Omega_0 \b 1^\t = \Omega_0 \b 1^\t \b A_{\Delta t}.
 	\end{equation}
 \end{proof}
-Property \ref{prop2_comp} also has an interpretation in terms of the discrete interaction matrix:
+Property~\ref{prop2_comp} also has an interpretation in terms of the discrete interaction matrix:
 \begin{propertyter}{prop2_comp} \label{prop2ter_comp} \label{prop3_discr_comp}
 	The discrete interaction matrix is right stochastic:
 	\begin{equation}
@@ -102,7 +102,7 @@ Property \ref{prop2_comp} also has an interpretation in terms of the discrete in
 	\end{equation}
 \end{propertyter}
 \begin{proof}
-	Let $C_0 > 0$ be a constant and $\b c(t) = C_0 \b 1$. Introducing the latter in \eqref{eq:generaldiscretecompartment} yields
+	Let $C_0 > 0$ be a constant and $\b c(t) = C_0 \b 1$. Introducing the latter in~\eqref{eq:generaldiscretecompartment} yields
 	\begin{equation}
 		C_0 \b 1 = \b A_{\Delta t} C_0 \b 1 = C_0 \b A_{\Delta t} \b 1.
 	\end{equation}
@@ -115,11 +115,11 @@ Two last properties allow to bound the entries of the discrete interaction matri
 	\end{equation}
 \end{property}
 \begin{proof}
-	We proceed by contradiction. Suppose there exist $i,j \in \{1,\dots,N\}$ such that $[\b A_{\Delta t}]_{i,j} > 1$. By property \ref{prop1_discr_comp}, all the entries of $\b A_{\Delta t}$ are nonnegative so that
+	We proceed by contradiction. Suppose there exist $i,j \in \{1,\dots,N\}$ such that $[\b A_{\Delta t}]_{i,j} > 1$. By property~\ref{prop1_discr_comp}, all the entries of $\b A_{\Delta t}$ are nonnegative so that
 	\begin{equation}
 		\sum_{k = 1}^N [\b A_{\Delta t}]_{i,k} > 1,
 	\end{equation}
-	in contradiction with property \ref{prop2ter_comp}.
+	in contradiction with property~\ref{prop2ter_comp}.
 \end{proof}
 \begin{property} \label{prop5_discr_comp}
 	The entries of the discrete interaction matrix satisfy
@@ -128,10 +128,10 @@ Two last properties allow to bound the entries of the discrete interaction matri
 	\end{equation}
 \end{property}
 \begin{proof}
-	We proceed again by contradiction. Suppose there exist $i,j \in \{1,\dots,N\}$ such that $\frac{\Omega_i}{\Omega_j} [\b A_{\Delta t}]_{i,j} > 1$. By property \ref{prop1_discr_comp}, all the entries of $\b A_{\Delta t}$ are nonnegative so that
+	We proceed again by contradiction. Suppose there exist $i,j \in \{1,\dots,N\}$ such that $\frac{\Omega_i}{\Omega_j} [\b A_{\Delta t}]_{i,j} > 1$. By property~\ref{prop1_discr_comp}, all the entries of $\b A_{\Delta t}$ are nonnegative so that
 	\begin{equation}
 		\sum_{k = 1}^N \frac{\Omega_k}{\Omega_j}[\b A_{\Delta t}]_{k,j} > 1,
 	\end{equation}
-	in contradiction with property \ref{prop1ter_comp}.
+	in contradiction with property~\ref{prop1ter_comp}.
 \end{proof}
 This last property is in agreement with the interpretation of the factors $\frac{\Omega_i}{\Omega_j} [\b A_{\Delta t}]_{i,j}$ as probabilities of transition between the compartments.

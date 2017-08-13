@@ -1,3 +1,41 @@
 %!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
 \addcontentsline{toc}{chapter}{Conclusion}
 \chapter*{Conclusion}
+This work starts with an introduction of the concept of communities in a network. In particular, chapter~\ref{chap:clustering} is entirely dedicated to the \textit{stability measure}, which allows to quantify the quality of a particular clustering:
+\[
+	r(t) = \max_{\P} \left\{\trace \left[ \b \b H_{\P}^{\t}(\b \Pi\b P(t) - \bs \pi^{\t}\bs \pi)\b H_{\P} \right]\right\},
+\]
+where $t$ is the Markov time, which acts as an intrinsic resolution parameter. This chapter is intended to be a standalone theoretical chapter providing a complete overview of the stability measure.
+
+In chapter~\ref{chap:transportmodel}, the \textit{reactive transport} equation 
+\[
+	\frac{\partial C}{\partial t} = q-\nabla \cdot \left(\b uC - \b K \nabla C\right).
+\]
+is presented and the main properties of the solution to that equation are shown. This allows to propose a compartment model structure in chapter~\ref{chap:compartment} that exhibits similar properties:
+\[
+	\Omega_i \frac{dC_i}{dt} = \Omega_i q_i - \sum_{\subalign{j&=1 \\j &\neq i}}^N \left[ U_{i,j}\frac{C_i + C_j}{2} - V_{i,j} (C_j-C_i)\right] - \phi_{i,e} \quad \mbox{for } i=1,\dots,N.
+\]
+The equivalent matrix form
+\[
+	\bs \Omega \b{\dot{c}} = \bs \Omega \b q + \b A \b c
+\]
+is also developed for convenience, and the previously mentioned properties are translated into the matrix language.
+
+Anticipating the fact that we do not consider any problem involving reactive phenomena in this work, the attention is then focused on the \textit{advection-diffusion} equation in chapter~\ref{chap:numerical}. It is the particular form of the reactive transport equation obtained when the reactive term $q$ is equal to zero. In order to numerically solve such problems, the Eulerian methods are compared to the Lagrangian methods to arrive at the conclusion the a Lagrangian approach is better suited to the needs of this work. An effort is made to derive the Lagrangian equations describing the position of an individual particle which are consistent with the advection-diffusion transport model. This leads to the beautiful and complex theory of stochastic differential equations (SDEs). The backward-Itô interpretation of stochastic differential equations is shown to be particularly useful for dealing with problems involving a discontinuous diffusivity tensor. Indeed, at the contrary to the Itô or Stratonovich interpretations, the backward-Itô interpretation leads to Lagrangian equations that does not include \textit{gradient drift terms}, namely terms involving spatial derivatives of the diffusivity tensor:
+\[  
+	\mathbf{(bI)} \quad
+	\begin{cases}
+		\rm d \b{x}(t) =  \b u(\b x(t),t) \rm dt + \b B(\b x(t),t) \rm d \b W(t),\\
+		\b B \b B^\t = 2 \b K,\\
+		\b x(t_0) = \b x_0.
+	\end{cases}{}
+\]
+The most simple numerical scheme consistent with the backward-Itô interpretation of a SDE, the backward-Euler scheme, is then presented. The \textit{box-counting} method which allows to estimate the concentration from a set of particles trajectories completes the tools needed to implement an efficient code to numerically solve a two-dimensional advection-diffusion problem. The code is briefly presented in section~\ref{sec:thecode}. 
+
+Finally, the whole method is summarized in chapter~\ref{chap:method}, allowing to tackle a simple test problem in chapters~\ref{chap:overturnercirculation} and \ref{chap:bioverturner}. The test problem is chosen such that a two compartments decomposition of the domain is intuitively obvious. Satisfactorily, the method leads to the expected box decomposition. For that simple problem, a continuous-time compartment model satisfying the properties from chapter~\ref{chap:compartment} is build relatively easily using an ad-hoc method. A more general approach leading to a discrete-time compartment model is also proposed. Both models are assessed by comparing their results to the ones obtained by numerical simulations.
+
+For the simple test problem considered, the method leads to a satisfying two-compartments model. It would be presumptuous to draw conclusions on the method based only on the results obtained for such a simple test problem. Instead, this encouraging result strengthens our idea that further works are worthwhile. Ideas of problems on which the method may be tested include the idealized two-dimensional model of the meridian circulation in the Atlantic \cite{deleersnijder2006overturner}, the Great Barrier Reef, Australia \cite{thomas2014numerical} or the Pacific Ocean \cite{shah2017tracing}.
+
+To conclude, let us mention the several prospects of amelioration that comes to our mind at the time of finishing this work. As already raised, the method should be applied on more complex problems, and at the very least on problems having a physical meaning. Furthermore, it could be interesting to compare the results obtained when using different clustering algorithms. For example, the \textit{infomap} algorithm proposed by Martin Rosvall also seems well adapted to this study.\footnote{See the excellent website \url{http://www.mapequation.org} for a presentation of the algorithm and links to the related publications.} Finally, we could extend the \Cpp code towards a complete toolbox for the simulation of two-dimensional SDEs. Such a toolbox should allow to choose the boundary conditions and to deal with the reactive term, and it could integrate higher order numerical schemes like Milstein's scheme but this is of course outside the scope of the present work. A parallelization of the code with MPI also figures amongst the perspective of further work that have been considered.\footnote{In fact, an MPI version of the code has actually been implemented. But we have not managed to test that implementation with many nodes because of incompatibility problems with the versions of MPI on the clusters.}
+
+% This work illustrates how the tools from applied mathematics could potentially be useful in the context of solving real-world physical problems. It 

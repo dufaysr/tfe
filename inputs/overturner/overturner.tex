@@ -4,7 +4,7 @@
 \subsection{Estimation of the parameter values}
 \textcolor{red}{Vérifier que c'est bien les valeurs finales}
 The numerical values used here are based on personal communications with \textit{E. Deleersnijder}.
-The model for the idealized meridian velocity field in the Atlantic ocean will be complete once we have assigned plausible values to the parameters. For this purpose, some physical insight is needed. First, the Atlantic ocean extends approximately from $50\degree$ South to $60\degree$ North, hence over $\frac{11}{18}\pi$ radians. With the radius of the Earth estimated to $6\,371$ km, we get that $L$ must be close to $(\frac{11}{18}\pi) (6\,371) = 12\, 231$ km. Moreover, the mean depth of the Atlantic ocean is about $4$ km. Hence, we choose $L = 12\,000$ km and $H = 4$ km. In virtue of the properties of the streamfunction, the maximum $\Psi = \psi(y_0,z_0)$ of the meridian streamfunction is equal to the volume flow rate accross any curve connecting $(y_0,z_0)$ to a point on the boundary of the domain: it is thus a measure of the intensity of the meridian circulation. With an estimated rate of deep convection in the Atlantic ocean of about $20$ Sv and a mean width of about $5\,000$ km, this yields $\Psi = 4$ $\rm{m^2/s}$. Finally, we use $y_0 = 11\,000$ km and $z_0 = 3.5$ km based on qualitative inspection of the meridian streamfunction graph. Characteristic values $V$ and $W$ of the meridional and vertical speed are, in virtue of relations \eqref{eq:u-psi} :
+The model for the idealized meridian velocity field in the Atlantic ocean will be complete once we have assigned plausible values to the parameters. For this purpose, some physical insight is needed. First, the Atlantic ocean extends approximately from $50\degree$ South to $60\degree$ North, hence over $\frac{11}{18}\pi$ radians. With the radius of the Earth estimated to $6\,371$ km, we get that $L$ must be close to $(\frac{11}{18}\pi) (6\,371) = 12\, 231$ km. Moreover, the mean depth of the Atlantic ocean is about $4$ km. Hence, we choose $L = 12\,000$ km and $H = 4$ km. In virtue of the properties of the streamfunction, the maximum $\Psi = \psi(y_0,z_0)$ of the meridian streamfunction is equal to the volume flow rate accross any curve connecting $(y_0,z_0)$ to a point on the boundary of the domain: it is thus a measure of the intensity of the meridian circulation. With an estimated rate of deep convection in the Atlantic ocean of about $20$ Sv and a mean width of about $5\,000$ km, this yields $\Psi = 4$ $\rm{m^2/s}$. Finally, we use $y_0 = 11\,000$ km and $z_0 = 3.5$ km based on qualitative inspection of the meridian streamfunction graph. Characteristic values $V$ and $W$ of the meridional and vertical speed are, in virtue of relations~\eqref{eq:u-psi} :
 \begin{equation}\label{eq:VW}
 	V = \frac{\Psi}{H} \quad \mbox{and} \quad W = \frac{\Psi}{L}.
 \end{equation}
@@ -14,7 +14,7 @@ According to \textit{E. Deleersnijder} [personal communication], the characteris
 \end{equation}
 an acceptable value.
 
-With those values of the parameters, the isolines of the adimensional streamfunction $\psi/\Psi$ are shown in figure \ref{fig:psi_overturner}, and the meridional and vertical components of the velocity field are illustrated in figure \ref{fig:vw_overturner}.
+With those values of the parameters, the isolines of the adimensional streamfunction $\psi/\Psi$ are shown in figure~\ref{fig:psi_overturner}, and the meridional and vertical components of the velocity field are illustrated in figure~\ref{fig:vw_overturner}.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=.6\textwidth]{fig/overturner/psi.eps}
@@ -60,7 +60,7 @@ where $K_h$ is a positive constant and
 		\end{array}
 	\right.
 \end{equation}
-with $K_{v_1}$, $K_{v_2}$ and $K_{v_3}$ positive constants. In the framework of the idealised model of the meridian circulation in the Atlantic ocean, \textit{E. Deleersnijder} [personal communication] proposes the values $K_h = 10^3$ $\rm{m^2/s}$, $K_{v_1} = 10^{-1}$ $\rm{m^2/s}$, $K_{v_2} = 10^{-4}$ $\rm{m^2/s}$ and $K_{v_3} = 10^{-3}$ $\rm{m^2/s}$. The relatively large value of $K_{v_1}$ allows to represent deep convection in the corresponding zone without having to implement a convective adjustment algorithm. The developped form of \eqref{eq:C_PDE_vec} is then
+with $K_{v_1}$, $K_{v_2}$ and $K_{v_3}$ positive constants. In the framework of the idealised model of the meridian circulation in the Atlantic ocean, \textit{E. Deleersnijder} [personal communication] proposes the values $K_h = 10^3$ $\rm{m^2/s}$, $K_{v_1} = 10^{-1}$ $\rm{m^2/s}$, $K_{v_2} = 10^{-4}$ $\rm{m^2/s}$ and $K_{v_3} = 10^{-3}$ $\rm{m^2/s}$. The relatively large value of $K_{v_1}$ allows to represent deep convection in the corresponding zone without having to implement a convective adjustment algorithm. The developped form of~\eqref{eq:C_PDE_vec} is then
 \begin{equation}\label{eq:C_PDE_dev}
 	\frac{\partial C}{\partial t} = -\frac{\partial}{\partial y}\left(vC - K_h\frac{\partial C}{\partial y}\right) -\frac{\partial}{\partial z}\left(wC - K_v(y,z)\frac{\partial C}{\partial z}\right).
 \end{equation}
@@ -81,15 +81,15 @@ In order to get a formulation of the problem using as few independent parameters
 \begin{equation}
 	t' = \frac{t}{T} = \frac{t\Psi}{LH}, \quad y' = \frac{y}{L} \quad \mbox{and} \quad z' = \frac{z}{H},   	
 \end{equation}
-where $T$ is the time scale introduced in \eqref{eq:T}. The adimensional hydrodynamic variables are:
+where $T$ is the time scale introduced in~\eqref{eq:T}. The adimensional hydrodynamic variables are:
 \begin{equation}
 	\psi' = \frac{\psi}{\Psi}, \quad v' = \frac{v}{V} = \frac{vH}{\Psi}, \quad \mbox{and} \quad w' = \frac{w}{W} = \frac{wL}{\Psi},
 \end{equation}
-where $V$ and $W$ are the velocity scales introduced in \eqref{eq:VW}. The adimensional concentration is
+where $V$ and $W$ are the velocity scales introduced in~\eqref{eq:VW}. The adimensional concentration is
 \begin{equation}
 	C' = \frac{C}{C_r}, 	
 \end{equation}
-where $C_r$ is a characteristic value of the concentration. We will see shortly that there is no needed to assign a particular value to $C_r$. The adimensional form of equation \eqref{eq:C_PDE_dev} is then
+where $C_r$ is a characteristic value of the concentration. We will see shortly that there is no needed to assign a particular value to $C_r$. The adimensional form of equation~\eqref{eq:C_PDE_dev} is then
 \begin{equation}\label{eq:PDE_adim}
 	\frac{\partial C'}{\partial t'} = -\frac{\partial}{\partial y'}\left(v'C' - \frac{1}{Pe_h}\frac{\partial C'}{\partial y'}\right) -\frac{\partial}{\partial z'}\left(w'C' - \frac{1}{Pe_v(y,z)}\frac{\partial C'}{\partial z'}\right),
 \end{equation}
@@ -101,7 +101,7 @@ are the horizontal and vertical Péclet numbers. They correspond to the ratio be
 \begin{equation}
 	V_{d} = \frac{K_h}{L} \quad \mbox{and} \quad W_{d}(y,z) = \frac{K_v(y,z)}{H}.
 \end{equation}
-There are three different vertical diffusive velocity scale depending on which zone of the ocean we consider \textcolor{red}{Donner des noms aux zones dans le chap 1 : 1 = ?, 2 = "Deep convection" et 3 = "surface flow"}. The advective velocity scales $V$ and $W$ have already been introduced in \eqref{eq:VW}. The Péclet numbers may then be rewritten as
+There are three different vertical diffusive velocity scale depending on which zone of the ocean we consider \textcolor{red}{Donner des noms aux zones dans le chap 1 : 1 = ?, 2 = "Deep convection" et 3 = "surface flow"}. The advective velocity scales $V$ and $W$ have already been introduced in~\eqref{eq:VW}. The Péclet numbers may then be rewritten as
 \begin{equation}
 	Pe_h = \frac{V}{V_{d}} = 12, 
 \end{equation}

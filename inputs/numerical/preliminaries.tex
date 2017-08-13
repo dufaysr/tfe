@@ -2,11 +2,11 @@
 \section{Preliminaries}
 We introduce here the notions of stochastic differential equations (SDE's) and stochastic integrals. Those are the fundamental tools at the basis of the Lagrangian numerical methods. The discussion that comes next is based on several references, including \cite{gardiner1985stochastic}, \cite{heemink2011slides}, \cite{keunings}, \cite{spivakovskaya2007lagrangian} and \cite{shah2017tracing}. Other references have been used for local parts of the work; they are then cited when they come in handy. Some results are stated without proofs. In such cases, unless otherwise stated, the reader may refer to \cite{gardiner1985stochastic} for formal proofs.
 
-The idea behind Lagrangian methods is to estimate the concentration obeying an advection-diffusion-reaction equation by simulating the trajectories of a large number of particles in the flow. In this work, we restrict ourselves to advection diffusion equations of the form \eqref{eq:C_PDE_vec}, which we recall here for the sake of readability:
+The idea behind Lagrangian methods is to estimate the concentration obeying an advection-diffusion-reaction equation by simulating the trajectories of a large number of particles in the flow. In this work, we restrict ourselves to advection diffusion equations of the form~\eqref{eq:C_PDE_vec}, which we recall here for the sake of readability:
 \begin{equation} \label{eq:ADE}
 	\frac{\partial C}{\partial t} = \nabla \cdot (-\b u C + \b K \nabla C)
 \end{equation}
-In the next, equation \eqref{eq:ADE} will be referred to as the \textit{transport model}. In order to implement a numerical method tracking the fates of individual particles, an equation describing the fate of such a particle must be derived, and that equation must be consistent with the transport model. Formally, the transport model can be interpreted as a Fokker-Planck equation, namely the partial differential equation governing the time evolution of the probability density function $p(\b x,t)$ of the position of a particle. The correspondence is made by interpreting the concentration as the probability density function: $p=C$. 
+In the next, equation~\eqref{eq:ADE} will be referred to as the \textit{transport model}. In order to implement a numerical method tracking the fates of individual particles, an equation describing the fate of such a particle must be derived, and that equation must be consistent with the transport model. Formally, the transport model can be interpreted as a Fokker-Planck equation, namely the partial differential equation governing the time evolution of the probability density function $p(\b x,t)$ of the position of a particle. The correspondence is made by interpreting the concentration as the probability density function: $p=C$. 
 
 At the microscopic scale, Brownian diffusion is modeled by a stochastic force acting on the particles. This force is interpreted as the resultant of atomic bombardment on the particle. Intuitively, the direction of the force due to atomic bombardment is constantly changing, and at different times the particle is hit more on one side than another, leading to the seemingly random nature of the force, and hence of the motion. Therefore, the differential equation governing the position $\b x(t)$ of a particle is stochastic. For example, Langevin proposed in 1908 an equation governing the position of a Brownian particle, which in 1D can be written in the form :
 \begin{equation} \label{eq:Langevin}
@@ -31,7 +31,7 @@ where $t_1 < t_2 < t_3 < t_4$. In other words, $W(t)$ is a zero mean gaussian pr
 \begin{equation}
 	x(t) = at + bW(t),
 \end{equation}
-where we implicitly assumed that $x(0) = 0$. However, one can show that the Wiener process is not differentiable with probability 1. We are thus faced with a paradox here since this implies that $x(t)$ is itself non-differentiable, and hence that the Langevin equation as stated in \eqref{eq:Langevin} \textit{does not exist mathematically}. In fact, $\xi(t)$ is the derivative of $W(t)$ in the \textit{distributive sense}. From \eqref{eq:whitenoise_integral}, it follows directly that
+where we implicitly assumed that $x(0) = 0$. However, one can show that the Wiener process is not differentiable with probability 1. We are thus faced with a paradox here since this implies that $x(t)$ is itself non-differentiable, and hence that the Langevin equation as stated in~\eqref{eq:Langevin} \textit{does not exist mathematically}. In fact, $\xi(t)$ is the derivative of $W(t)$ in the \textit{distributive sense}. From~\eqref{eq:whitenoise_integral}, it follows directly that
 \begin{equation}\label{eq:dW}
 	\rm dW(t) \equiv W(t+\rm dt) - W(t) = \xi(t) \rm dt,
 \end{equation}
@@ -40,30 +40,30 @@ but it is incorrect (or at least very misleading) to write $\frac{dW(t)}{dt} = \
 Hopefully this introductory example shows the need for some preliminary steps in order to rigorously define a Stochastic Differential Equation (SDE), and to formalize the link between SDE's and Fokker-Planck equations. This is precisely the goal of the next pages.
 
 \subsection{Formal definition of a SDE}
-In this section, we restrict ourselves to a one-dimensional problem. This allows to make the notations less cumbersome while still introducing all the tools and concepts that are needed in order to understand the two-dimensional Lagrangian model which is at the basis of our numerical resolution of the overturner model for the meridian concentration in the Atlantic ocean. Indeed, all the results presented here can almost straightforwardly be extended to several dimensions. Consider again the Langevin equation \eqref{eq:Langevin}. We have shown in the introduction that the equation does not really make sense under that form. What we are now going to show is that the corresponding \textit{integral equation} 
+In this section, we restrict ourselves to a one-dimensional problem. This allows to make the notations less cumbersome while still introducing all the tools and concepts that are needed in order to understand the two-dimensional Lagrangian model which is at the basis of our numerical resolution of the overturner model for the meridian concentration in the Atlantic ocean. Indeed, all the results presented here can almost straightforwardly be extended to several dimensions. Consider again the Langevin equation~\eqref{eq:Langevin}. We have shown in the introduction that the equation does not really make sense under that form. What we are now going to show is that the corresponding \textit{integral equation} 
 \begin{equation} \label{eq:SDEint_xsi}
 	x(t) = x(t_0) + \int_{t_0}^t a(x(s),s) \rm ds + \int_{t_0}^t b(x(s),s) \xi(s) \rm ds
 \end{equation}
-can be interpreted consistently. The first integral is a standard Lebesgue integral of a function $a$ of the stochastic process $x(t)$. The second integral has to be defined carefully, because of the presence of the white noise. By \eqref{eq:dW}, we rewrite it as
+can be interpreted consistently. The first integral is a standard Lebesgue integral of a function $a$ of the stochastic process $x(t)$. The second integral has to be defined carefully, because of the presence of the white noise. By~\eqref{eq:dW}, we rewrite it as
 \begin{equation} \label{eq:stoch_int}
 	\int_0^t b(x(s),s) \rm dW(s),
 \end{equation}
-which is a kind of stochastic Stieltjes integral (see appendix \ref{app:stieltjes}). Consider the partition of interval $[t_0,\,t]$:
+which is a kind of stochastic Stieltjes integral (see appendix~\ref{app:stieltjes}). Consider the partition of interval $[t_0,\,t]$:
 \begin{equation}
 	t_0 \le t_1 \le t_2 \le \dots \le t_{n-1} \le t_n = t,
 \end{equation}
-and define intermediate points $\tau_i \in [t_{i-1},\, t_i]$. Such a partition will often be used thereafter without introducing it explicitly every time it appears. The stochastic integral of $b$ with respect to the Wiener process $\int_{t_0}^t b(x(s),s) \rm dW(s)$ is defined as a mean-square limit (see appendix \ref{app:mslim}) of the partial sum
+and define intermediate points $\tau_i \in [t_{i-1},\, t_i]$. Such a partition will often be used thereafter without introducing it explicitly every time it appears. The stochastic integral of $b$ with respect to the Wiener process $\int_{t_0}^t b(x(s),s) \rm dW(s)$ is defined as a mean-square limit (see appendix~\ref{app:mslim}) of the partial sum
 \begin{equation}
 	S_n = \sum_{i=1}^n b(x(\tau_i),\tau_i) [W(t_i)-W(t_{i-1})].
 \end{equation}
-Such a limit is not unique: it depends on the particular choice of $\tau_i$. This sensibility to the choice of location $x(\tau_i)$ at which the function is evaluated is a consequence of the unbounded variation of the Wiener process. Popular choices are $\tau_i = t_i$, $\tau_i = \frac{1}{2}(t_{i-1}+t_i)$ or $\tau_i = t_i$, corresponding to the \textit{Itô}, \textit{Stratonovich} and \textit{backward Itô} stochastic integrals, respectively. Hence, for a stochastic integral such as \eqref{eq:stoch_int} to be well-defined, its \textit{interpretation} must be stated explicitly. Namely, one must specify if the integral is taken in the \textit{Itô}, \textit{Stratonovich} or \textit{backward Itô} sense, or any other interpretation corresponding to a given choice of $\tau_i$. Only the Itô and backward Itô interpretations will be considered in this work. To avoid any confusion, we will denote the Itô integral by $\I\int$ and the backward Itô integral by $\bI\int$. Hence
+Such a limit is not unique: it depends on the particular choice of $\tau_i$. This sensibility to the choice of location $x(\tau_i)$ at which the function is evaluated is a consequence of the unbounded variation of the Wiener process. Popular choices are $\tau_i = t_i$, $\tau_i = \frac{1}{2}(t_{i-1}+t_i)$ or $\tau_i = t_i$, corresponding to the \textit{Itô}, \textit{Stratonovich} and \textit{backward Itô} stochastic integrals, respectively. Hence, for a stochastic integral such as~\eqref{eq:stoch_int} to be well-defined, its \textit{interpretation} must be stated explicitly. Namely, one must specify if the integral is taken in the \textit{Itô}, \textit{Stratonovich} or \textit{backward Itô} sense, or any other interpretation corresponding to a given choice of $\tau_i$. Only the Itô and backward Itô interpretations will be considered in this work. To avoid any confusion, we will denote the Itô integral by $\I\int$ and the backward Itô integral by $\bI\int$. Hence
 \begin{subequations}
 \begin{align}
         \I\int_{t_0}^t b(x(s),s) \rm dW(s) &= \mslim_{n\rightarrow \infty} \sum_{i=1}^n b(x(t_{i-1}),t_{i-1}) [W(t_i)-W(t_{i-1})], \label{def:I}\\
         \bI\int_{t_0}^t b(x(s),s) \rm dW(s) &= \mslim_{n\rightarrow \infty} \sum_{i=1}^n b(x(t_{i}),t_{i}) [W(t_i)-W(t_{i-1})]. \label{def:bI}
 \end{align}
 \end{subequations}
-\paragraph{Remark}\label{remark:backwardIto} In the backward Itô definition of the stochastic integral, only $x$ needs to be evaluated at $t_i$: if $b(x,t)$ is differentiable in $t$ (which is assumed here), the integral is independent of the particular choice of value for $t$ in the range $[t_{i-1},\, t_i]$. Hence, we could replace $b(x(t_i),t_i)$ by $b(x(t_i),\tau_i)$ with $\tau_i \in [t_{i-1},\, t_i]$ in the definition \eqref{def:bI}. Note that this remark is not restricted to backward Itô integration: if $b$ is differentiable in $t$, only the location $x(\tau_i)$ at which $b$ is evaluated in the sum affects the limit.
+\paragraph{Remark}\label{remark:backwardIto} In the backward Itô definition of the stochastic integral, only $x$ needs to be evaluated at $t_i$: if $b(x,t)$ is differentiable in $t$ (which is assumed here), the integral is independent of the particular choice of value for $t$ in the range $[t_{i-1},\, t_i]$. Hence, we could replace $b(x(t_i),t_i)$ by $b(x(t_i),\tau_i)$ with $\tau_i \in [t_{i-1},\, t_i]$ in the definition~\eqref{def:bI}. Note that this remark is not restricted to backward Itô integration: if $b$ is differentiable in $t$, only the location $x(\tau_i)$ at which $b$ is evaluated in the sum affects the limit.
 
 Conventionally, a stochastic differential equation such as $\eqref{eq:Langevin}$ is written in the form
 \begin{equation} \label{eq:generalSDE}
@@ -72,13 +72,13 @@ Conventionally, a stochastic differential equation such as $\eqref{eq:Langevin}$
 		x(t_0) = x_0. 
 	\end{cases}
 \end{equation}
-Equation \eqref{eq:generalSDE} has to be interpreted as the implicit integral equation
+Equation~\eqref{eq:generalSDE} has to be interpreted as the implicit integral equation
 \begin{equation}
 	x(t) = x_0 + \int_{t_0}^t a(x(s),s) \rm ds + \int_{t_0}^t b(x(s),s) \rm dW(s),
 \end{equation}
-and the interpretation of the stochastic integral must thus be stated. For example, one will talk about an Itô SDE or a backward Itô SDE, and the stochastic process $x(t)$ which is the solution to the SDE \eqref{eq:generalSDE} is different whether the stochastic integral is computed in the Itô or backward Itô sense.
+and the interpretation of the stochastic integral must thus be stated. For example, one will talk about an Itô SDE or a backward Itô SDE, and the stochastic process $x(t)$ which is the solution to the SDE~\eqref{eq:generalSDE} is different whether the stochastic integral is computed in the Itô or backward Itô sense.
 
-It can be shown that an Itô stochastic integral $\I\int_{t_0}^t G(s) \rm dW(s)$ exists whenever the function $G$ is \textit{continuous} and \textit{nonanticipating} on the closed interval $[t_0,\,t]$. $G$ is a \textit{nonanticipating} function of $t$ is for all $t$ and $s$ such that $t<s$, $G(t)$ is statistically independent of $W(s)-W(t)$. This condition seems obviously satisfied for any deterministic function $b(x(t),t)$ of the stochastic process $x(t)$ obeying the SDE \eqref{eq:generalSDE}, since $x(t)$ only depends on anterior values of the Wiener process. For example, in the context of the position of a brownian particle, it is intuitively obvious that the unknown future collisions cannot affect the present position of the particle. From now on, we assume thus that we are dealing with \textit{nonanticipating} functions.
+It can be shown that an Itô stochastic integral $\I\int_{t_0}^t G(s) \rm dW(s)$ exists whenever the function $G$ is \textit{continuous} and \textit{nonanticipating} on the closed interval $[t_0,\,t]$. $G$ is a \textit{nonanticipating} function of $t$ is for all $t$ and $s$ such that $t<s$, $G(t)$ is statistically independent of $W(s)-W(t)$. This condition seems obviously satisfied for any deterministic function $b(x(t),t)$ of the stochastic process $x(t)$ obeying the SDE~\eqref{eq:generalSDE}, since $x(t)$ only depends on anterior values of the Wiener process. For example, in the context of the position of a brownian particle, it is intuitively obvious that the unknown future collisions cannot affect the present position of the particle. From now on, we assume thus that we are dealing with \textit{nonanticipating} functions.
 
 \subsection{Properties of the Itô integral}
 When working with nonanticipating functions, it is possible to take advantage of the fact that $G(t_{i-1})$ is independent of $W(t_i) - W(t_{i-1})$ to derive particularly useful properties of the Itô integral. Such properties are generally not true for Stratonovich or backward Itô integrals. However, there is a formula called Ito's formula that allows to build rules to transform any SDE into an Itô SDE. Hence, when working with a Stratonovich or backward Itô SDE, it is often useful to transform that SDE into an equivalent Itô SDE so that the previously mentioned properties can be applied. In this section, we first derive those properties, and then we show Itô's formula for the change of variables. Those results are fundamental for connecting a SDE to the Fokker-Plank equation and for building consistent numerical schemes, as we shall see later.
@@ -98,7 +98,7 @@ Let $\Delta W_i := W(t_i) - W(t_{i-1})$ and $\Delta t_i = t_i - t_{i-1}$. By the
         &\esp{(\Delta W_i^2 - \Delta t_i)^2} = 2 \Delta t_i^2. \label{eq:dwvar}
 \end{align}
 \end{subequations}
-Using Riemann sums, the left hand side of equation \eqref{eq:dw1} can be rewritten as
+Using Riemann sums, the left hand side of equation~\eqref{eq:dw1} can be rewritten as
 \begin{equation}
 	\lim_{n\rightarrow\infty} \esp{\left(\sum_{i=1}^n G(t_{i-1})(\Delta W_i^2-\Delta t_i)\right)^2},
 \end{equation}
@@ -106,7 +106,7 @@ which, by developing the square and using the linearity of the expectation opera
 \begin{equation} \label{eq:dw2}
 	\lim_{n\rightarrow\infty} \sum_{i=1}^n \bigg[\esp{G^2(t_{i-1})(\Delta W_i^2-\Delta t_i)^2} + \sum_{j=1}^{i-1} \esp{2G(t_{i-1})G(t_{j-1})(\Delta W_j^2 - \Delta t_j)(\Delta W_i^2 - \Delta t_i)}\bigg].
 \end{equation}
-Since $G$ is nonanticipating, we can use independence between terms to rewrite \eqref{eq:dw2} as
+Since $G$ is nonanticipating, we can use independence between terms to rewrite~\eqref{eq:dw2} as
 \begin{equation} \label{eq:dw3}
 	\lim_{n\rightarrow\infty} \sum_{i=1}^n \bigg[\esp{G^2(t_{i-1})}\underbrace{\esp{(\Delta W_i^2-\Delta t_i)^2}}_{=2\Delta t_i^2} + \sum_{j=1}^{i-1} \esp{2G(t_{i-1})G(t_{j-1})(\Delta W_j^2 - \Delta t_j)}\underbrace{\esp{(\Delta W_i^2 - \Delta t_i)}}_{=0}\bigg],
 \end{equation}
@@ -114,7 +114,7 @@ which simplifies to
 \begin{equation}
 	2 \lim_{n\rightarrow\infty} \sum_{i=1}^n \esp{G^2(t_{i-1})}\Delta t_i^2.
 \end{equation}
-If $G$ is bounded on $[t_0,\,t]$, the latter goes to zero, which concludes the proof. Since $[\rm dW(t)]^2$ only appears in the context of stochastic integration, property \eqref{eq:dW=dt_int} is often written
+If $G$ is bounded on $[t_0,\,t]$, the latter goes to zero, which concludes the proof. Since $[\rm dW(t)]^2$ only appears in the context of stochastic integration, property~\eqref{eq:dW=dt_int} is often written
 \begin{equation} \label{eq:dw2=dt}
 	\left[\rm dW(t)\right]^2 = \rm dt,  	
 \end{equation}  
@@ -132,7 +132,7 @@ and that for any $N_1 \ge 1$, $N_2 \ge 1$
 Those results are often summarized by saying that $\rm dW(t)$ is an infinitesimal of order $\frac{1}{2}$ in $\rm dt$ and that infinitesimals of order higher than $1$ are discarded when it comes to compute differentials. Intuitively, $\rm dW(t)$ is a gaussian of variance $\rm dt$; a characteristic magnitude for $\rm dW(t)$ is its standard deviation, $\sqrt{\rm dt}$ which is indeed of order $\frac{1}{2}$.
 
 \subsubsection{The Itô formula}
-Consider an arbitrary function $\phi(x(t),t)$ with $x(t)$ obeying the Itô SDE \eqref{eq:generalSDE}. We are interested in the SDE governing $\phi$. By definition, 
+Consider an arbitrary function $\phi(x(t),t)$ with $x(t)$ obeying the Itô SDE~\eqref{eq:generalSDE}. We are interested in the SDE governing $\phi$. By definition, 
 \begin{equation}
 	\rm d\phi(x(t),t) = \phi(x(t)+\rm dx(t),t+ \rm dt) - \phi(x(t),t). 	
 \end{equation}
@@ -155,7 +155,7 @@ and the equivalent backward Itô SDE
 \begin{equation} \label{eq:bI}
 	dx(t) = a_{bI}(x(t),t) \rm dt + b_{bI}(x(t),t) \rm dW(t). 
 \end{equation}
-The goal is to compute the relations between the functions $a_I$, $b_I$ and $a_{bI}$, $b_{bI}$. By \eqref{eq:bI},
+The goal is to compute the relations between the functions $a_I$, $b_I$ and $a_{bI}$, $b_{bI}$. By~\eqref{eq:bI},
 \begin{equation}
 	x(t) = x(t_0) + \int_{t_0}^t a_{bI}(x(s),s) \rm ds + \bI \int_{t_0}^t b_{bI}(x(t),t) \rm dW(t).
 \end{equation}
@@ -163,13 +163,13 @@ Let us rewrite the backward Itô stochastic integral term
 \begin{equation} \label{eq:bI-int}
 	\bI \int_{t_0}^t b_{bI}(x(t),t) \rm dW(t) \triangleq \mslim_{n\rightarrow \infty} \sum_{i=1}^n b_{bI}(x(t_{i}),t_{i}) [W(t_i)-W(t_{i-1})]
 \end{equation}
-as an Itô integral. Since $x(t)$ satisfies the Itô SDE \eqref{eq:I}, we can apply Itô formula. This yields 
+as an Itô integral. Since $x(t)$ satisfies the Itô SDE~\eqref{eq:I}, we can apply Itô formula. This yields 
 \begin{align} \label{eq:equiv1}
 	b_{bI}(x(t_i),t_{i}) =~& b_{bI}(x(t_{i-1}),t_{i-1}) \nonumber\\
 		&+ \left[\frac{\partial b_{bI}}{\partial t} + \frac{\partial b_{bI}}{\partial x} a_I(x(t_{i-1}),t_{i-1}) + \frac{1}{2}\frac{\partial^2 b_{bI}}{\partial x^2} b_I^2(x(t_{i-1}),t_{i-1})\right] (t_i - t_{i-1}) \nonumber\\
 		&+ \frac{\partial b_{bI}}{\partial x}b_I(x(t_{i-1}),t_{i-1}) (W(t_i) - W(t_{i-1})),
 \end{align}
-where the derivatives are evaluated at $(x(t_{i-1}),t_{i-1})$. Introducing \eqref{eq:equiv1} in \eqref{eq:bI-int} and setting $[\rm dW(t)]^2 = \rm dt$ yields, after dropping the terms in $\rm dt \rm dW(t)$ and $\rm dt^2$:
+where the derivatives are evaluated at $(x(t_{i-1}),t_{i-1})$. Introducing~\eqref{eq:equiv1} in~\eqref{eq:bI-int} and setting $[\rm dW(t)]^2 = \rm dt$ yields, after dropping the terms in $\rm dt \rm dW(t)$ and $\rm dt^2$:
 \begin{align}
 	\bI \int_{t_0}^t b_{bI}(x(t),t) \rm dW(t) =~& \mslim_{n\rightarrow \infty} \sum_{i=1}^n b_{bI}(x(t_{i-1}),t_{i-1}) [W(t_i)-W(t_{i-1})] \nonumber\\
 	&+ b_I(x(t_{i-1}),t_{i-1}) \frac{\partial b_{bI}}{\partial x}[t_i - t_{i-1}],
@@ -206,7 +206,7 @@ Let $p(x,t;y,s)$ be the probability density function of the position $x$ of the 
 \begin{equation}
 	\Pr\big(\bar{x} < x(t) < \bar{x} + \rm dx \,\big|\, x(s) = y\big) = p(\bar{x},t;y,s)\rm dx.
 \end{equation}
- From \eqref{eq:itoSDE} we are going the derive the partial differential equation governing the evolution of $p(x,t;x_0,t_0)$. Let $K(x)$ be an arbitrary function of $\mathcal{C}^2$ with compact support. In the next, all the derivative terms of functions $a$ and $b$ are evaluated at $(x(t),t)$ and the derivatives of $K$ are evaluated at $x(t)$, unless otherwise stated. By Itô's formula:
+ From~\eqref{eq:itoSDE} we are going the derive the partial differential equation governing the evolution of $p(x,t;x_0,t_0)$. Let $K(x)$ be an arbitrary function of $\mathcal{C}^2$ with compact support. In the next, all the derivative terms of functions $a$ and $b$ are evaluated at $(x(t),t)$ and the derivatives of $K$ are evaluated at $x(t)$, unless otherwise stated. By Itô's formula:
 \begin{equation}
 	\rm dK(x(t)) = \left[\frac{\partial K}{\partial x} a(x(t),t) + \frac{1}{2}b^2(x(t),t) \frac{\partial^2 K}{\partial x^2} \right] \rm dt + \frac{\partial K}{\partial x}b(x(t),t) \rm dW(t),
 \end{equation}
@@ -218,7 +218,7 @@ and thus
 \begin{equation} \label{eq:dEKdt}
 	\frac{d\esp{K(x(t))}}{dt} = \esp{\frac{\partial K}{\partial x} a(x(t),t) + \frac{1}{2}b^2(x(t),t) \frac{\partial^2 K}{\partial x^2}}.
 \end{equation}
-Using the probability density $p(x,t)$, we can rewrite \eqref{eq:dEKdt} as
+Using the probability density $p(x,t)$, we can rewrite~\eqref{eq:dEKdt} as
 \begin{equation} \label{eq:dEKdt_int}
 	\frac{d}{dt} \int_{-\infty}^{\infty} K(x) p(x,t;x_0,t_0) \rm dx = \underbrace{\int_{-\infty}^{\infty} \frac{\partial K}{\partial x} a(x,t) p(x,t;x_0,t_0) \rm dx}_{:= I_1} + \frac{1}{2} \underbrace{\int_{-\infty}^{\infty} \frac{\partial^2 K}{\partial x^2} b^2(x,t) p(x,t;x_0,t_0) \rm dx}_{:= I_2}.
 \end{equation}
@@ -233,7 +233,7 @@ where the second equality is obtained because $K$ has a compact support. Integra
 	&= \left. b^2(x,t) p(x,t;x_0,t_0) \frac{\partial K}{\partial x} \right|_{-\infty}^{\infty} - \left. \frac{\partial (b^2 p)}{\partial x} K(x) \right|_{-\infty}^{\infty} +  \int_{-\infty}^{\infty} K(x) \frac{\partial^2 (b^2 p)}{\partial x^2} \rm dx\nonumber\\
 	&= \int_{-\infty}^{\infty} K(x) \frac{\partial^2 (b^2 p)}{\partial x^2} \rm dx. \label{eq:I2}
 \end{align}
-Again, the surface terms vanish because of the compact support of $K$. Inserting \eqref{eq:I1} and \eqref{eq:I2} in \eqref{eq:dEKdt_int} and rearranging the terms yields
+Again, the surface terms vanish because of the compact support of $K$. Inserting~\eqref{eq:I1} and~\eqref{eq:I2} in~\eqref{eq:dEKdt_int} and rearranging the terms yields
 \begin{equation}
 	\int_{-\infty}^{\infty} K(x) \left( \frac{\partial p}{\partial t} + \frac{\partial (ap)}{\partial x} - \frac{1}{2}\frac{\partial^2 (b^2 p)}{\partial x^2}\right) \rm dx= 0.
 \end{equation}
@@ -241,7 +241,7 @@ Since $K$ is arbitrary we must have that
 \begin{equation} \label{eq:FPito}
 	\frac{\partial p}{\partial t} = - \frac{\partial (ap)}{\partial x} + \frac{1}{2}\frac{\partial^2 (b^2 p)}{\partial x^2},
 \end{equation}
-the Fokker-Planck equation (or Kolmogorov forward equation) corresponding to the Itô SDE \eqref{eq:itoSDE}.
+the Fokker-Planck equation (or Kolmogorov forward equation) corresponding to the Itô SDE~\eqref{eq:itoSDE}.
 
 Now suppose that the particle's position $x(t)$ obeys the backward Itô SDE
 \begin{equation} \label{eq:bitoSDE}
@@ -250,7 +250,7 @@ Now suppose that the particle's position $x(t)$ obeys the backward Itô SDE
 		x(t_0) = x_0. 
 	\end{cases}
 \end{equation}
-By \eqref{eq:bI-I}, $x(t)$ is equivalently governed by the Itô SDE
+By~\eqref{eq:bI-I}, $x(t)$ is equivalently governed by the Itô SDE
 \begin{equation} \label{eq:biSDE-i}
 	\begin{cases}
 		\rm dx(t) = \left(a(x(t),t)+b(x(t),t)\dfrac{\partial b}{\partial x}\right)\rm dt + b(x(t),t) \rm dW(t)\\
@@ -265,10 +265,10 @@ The latter can be simplified to
 \begin{equation}
 	\frac{\partial p}{\partial t} = - \frac{\partial(ap)}{\partial x} + \frac{1}{2}\frac{\partial}{\partial x}\left(b^2 \frac{\partial p}{\partial x} \right),
 \end{equation}
-the Fokker-Planck equation corresponding to the backward Itô SDE \eqref{eq:bitoSDE}.
+the Fokker-Planck equation corresponding to the backward Itô SDE~\eqref{eq:bitoSDE}.
 
 \subsection{Generalization to multiple dimensions}
-Here we generalize the results of previous section to the cases with $n$ variables and $m$ independent noise components. In that case, $\b x(t)$ and $\b a(\b x,t)$ are $n$-dimensional vectors, $\b B(\b x, t)$ is a $n \times m$ matrix and $\b W(t)$ is a $m$-dimensional multivariate Wiener process of mean $\b 0$. Hence, $\b W(t) = [W_1(t),W_2(t),\dots,W_m(t)]^{\t}$ is a vector of $m$ \textit{independent} Wiener processes such as defined in \eqref{eq:WienerProcess}. The general form of a multidimensional SDE is then
+Here we generalize the results of previous section to the cases with $n$ variables and $m$ independent noise components. In that case, $\b x(t)$ and $\b a(\b x,t)$ are $n$-dimensional vectors, $\b B(\b x, t)$ is a $n \times m$ matrix and $\b W(t)$ is a $m$-dimensional multivariate Wiener process of mean $\b 0$. Hence, $\b W(t) = [W_1(t),W_2(t),\dots,W_m(t)]^{\t}$ is a vector of $m$ \textit{independent} Wiener processes such as defined in~\eqref{eq:WienerProcess}. The general form of a multidimensional SDE is then
 \begin{equation} \label{eq:SDE_ndim}
 	\begin{cases}
 		\rm d \b{x}(t) =  \b a(\b x(t),t) \rm dt + \b B(\b x(t),t) \rm d \b W(t),\\
@@ -281,27 +281,27 @@ The differential rules are similar to the one-dimensional case. For $N \ge 3$, $
 	[\rm dW_i(t)]^{N} = 0,\\[.1cm]
 	[\rm dt]^{N_1}[\rm dW_i(t)]^{N_2} = 0.
 \end{subnumcases}
-Itô's formula for a function $\phi$ of the $n$-dimensional vector $\b x(t)$ satisfying the Itô SDE \eqref{eq:SDE_ndim} is
+Itô's formula for a function $\phi$ of the $n$-dimensional vector $\b x(t)$ satisfying the Itô SDE~\eqref{eq:SDE_ndim} is
 \begin{align}
 	\rm df(\b x) =~&\left[ \sum_{i=1}^n a_i(\b x(t),t) \frac{\partial f}{\partial x_i} + \frac{1}{2}\sum_{i=1}^n \sum_{j=1}^n [\b B(\b x(t),t)\b B^{\t}(\b x(t),t)]_{ij} \frac{\partial^2 f}{\partial x_i \partial x_j} \right] \rm dt \nonumber\\
 	&+ \sum_{i=1}^{n}\sum_{j=1}^{m} [\b B(\b x(t),t)]_{ij}\frac{\partial f}{\partial x_i} \rm dW_j(t),
 \end{align}
 where the derivatives of $f$ are evaluated at $\b x(t)$.
 
-Let $\b D = \b B\b B^{\t}$. If \eqref{eq:SDE_ndim} is interpreted as an Itô SDE, the corresponding Fokker-Planck equation is
+Let $\b D = \b B\b B^{\t}$. If~\eqref{eq:SDE_ndim} is interpreted as an Itô SDE, the corresponding Fokker-Planck equation is
 \begin{equation} \label{eq:FP-I-ndim}
 	\frac{\partial p}{\partial t} = -\sum_{i=1}^n \frac{\partial(a_ip)}{\partial x_i} + \frac{1}{2} \sum_{i=1}^n \sum_{j=1}^n \frac{\partial^2 \left([\b D]_{ij}p\right)}{\partial x_i \partial x_j}.
 \end{equation}
 
-If \eqref{eq:SDE_ndim} is interpreted as a backward Itô SDE, the corresponding Fokker-Planck equation is
+If~\eqref{eq:SDE_ndim} is interpreted as a backward Itô SDE, the corresponding Fokker-Planck equation is
 \begin{equation} \label{eq:FP-bI-ndim}
 	\frac{\partial p}{\partial t} = -\sum_{i=1}^n \frac{\partial(a_ip)}{\partial x_i} + \frac{1}{2} \sum_{i=1}^n \sum_{j=1}^n \frac{\partial}{\partial x_i}\left( [\b D]_{ij} \frac{\partial p}{\partial x_j} \right).
 \end{equation}
-In equations \eqref{eq:FP-I-ndim} and \eqref{eq:FP-bI-ndim}, all the derivatives are evaluated at $(\b x(t),t)$.
+In equations~\eqref{eq:FP-I-ndim} and~\eqref{eq:FP-bI-ndim}, all the derivatives are evaluated at $(\b x(t),t)$.
 
 Generally, if we have a Fokker-Planck equation and want to compute a corresponding SDE, we have to compute $\b B$ from $\b D = \b B \b B^{\t}$. The solution to that equation is not unique, so that SDE's with different $\b B$ could be consistent with the same Fokker-Planck equation. If $\b D$ is positive-semidefinite, the Cholesky decomposition \textit{exists}, namely there is a lower triangular matrix $\b B$ which is the solution to $\b D = \b B \b B^{\t}$. Besides, if $\b D$ is positive-definite, the Cholesky decomposition is \textit{unique} if we require that the diagonal elements of $\b B$ are strictly positive. This provides a way to compute $\b B$ in the case of a positive-semidefinite matrix $\b D$.
 
-\paragraph{Remark} The Itô and backward Itô SDE's considered in this section have exactly the same form, given by equation \eqref{eq:SDE_ndim}. However, if $\b B$ is not constant, they correspond to different Fokker-Planck equations and thus to different \textit{transport processes}. An important implication that does not arise in the context of deterministic integration is that the numerical method has to be chosen consistently with the type (Itô, backward Itô, Stratonovich, etc.) of the SDE. The derivation of simple numerical schemes consistent with either an Itô or a backward Itô SDE is the topic of the next section.
+\paragraph{Remark} The Itô and backward Itô SDE's considered in this section have exactly the same form, given by equation~\eqref{eq:SDE_ndim}. However, if $\b B$ is not constant, they correspond to different Fokker-Planck equations and thus to different \textit{transport processes}. An important implication that does not arise in the context of deterministic integration is that the numerical method has to be chosen consistently with the type (Itô, backward Itô, Stratonovich, etc.) of the SDE. The derivation of simple numerical schemes consistent with either an Itô or a backward Itô SDE is the topic of the next section.
 
 \subsection{Numerical methods} \label{sec:numericalmethods}
 We present here the \textit{Euler} and \textit{backward-Euler} methods, which are the simplest numerical schemes for the simulation of an Itô and a backward Itô stochastic process, respectively. The goal of this section is really to provide some intuition about why the \textit{Euler method} is relevant to simulate an Itô process whereas the \textit{backward-Euler method} is relevant in the context of a backward Itô process. We do not aim at providing fully rigorous proofs of convergence and consistency. Such a formalism can be found in the well-known book by Kloeden and Platen about stochastic numerical methods \cite{kloedenplaten1995numerical}. The backward-Euler method has been introduced more recently by LaBolle \cite{labolle2000diffusion}. A more recent handbook about stochastic numerical methods is \cite{colet2014stochastic}.
@@ -313,9 +313,9 @@ Consider the one-dimensional SDE
 		x(t_0) = x_0. 
 	\end{cases}
 \end{equation}
-Through a numerical approximation of \eqref{eq:numSDE}, we can only compute $x$ at discrete times $t_0 < t_1  < \dots < t_{n-1} < t_n = T$, where $T$ is the final integration time. We consider a constant time step $\Delta t$ such that $t_{i+1} = t_i + \Delta t$ for any $i \in \{0,1,\dots,n-1\}$. Let $X_i$ denote the numerical approximation of $x(t_i)$, and let $\Delta W_i := W(t_{i+1}) - W(t_i) \sim \mathcal{N}(0,\Delta t)$. $\Delta W_i$ is thus a gaussian noise of mean $0$ and variance $\Delta t$, and $\Delta W_i$ is independent of $\Delta W_j$ for any $i \neq j$. In the next, we shall only verify that the schemes are \textit{consistent}, namely that they tend to the proper SDE when $t_i \rightarrow t$, $\Delta t \rightarrow \rm dt$ and $\Delta W_i \rightarrow \rm dW(t)$.
+Through a numerical approximation of~\eqref{eq:numSDE}, we can only compute $x$ at discrete times $t_0 < t_1  < \dots < t_{n-1} < t_n = T$, where $T$ is the final integration time. We consider a constant time step $\Delta t$ such that $t_{i+1} = t_i + \Delta t$ for any $i \in \{0,1,\dots,n-1\}$. Let $X_i$ denote the numerical approximation of $x(t_i)$, and let $\Delta W_i := W(t_{i+1}) - W(t_i) \sim \mathcal{N}(0,\Delta t)$. $\Delta W_i$ is thus a gaussian noise of mean $0$ and variance $\Delta t$, and $\Delta W_i$ is independent of $\Delta W_j$ for any $i \neq j$. In the next, we shall only verify that the schemes are \textit{consistent}, namely that they tend to the proper SDE when $t_i \rightarrow t$, $\Delta t \rightarrow \rm dt$ and $\Delta W_i \rightarrow \rm dW(t)$.
 
-Let us first consider the case where \eqref{eq:numSDE} is a Itô SDE. Suppose that $x(t_i)$ is known, and we want to compute $x(t_{i+1})$. Now, consider a partition $t_i = t_{i_0} < t_{i_1} < \dots < t_{i_{m-1}} < t_{i_m} = t_{i+1}$ of $[t_i,\, t_{i+1}]$. By \eqref{eq:numSDE} and the definition of the Itô stochastic integral: 
+Let us first consider the case where~\eqref{eq:numSDE} is a Itô SDE. Suppose that $x(t_i)$ is known, and we want to compute $x(t_{i+1})$. Now, consider a partition $t_i = t_{i_0} < t_{i_1} < \dots < t_{i_{m-1}} < t_{i_m} = t_{i+1}$ of $[t_i,\, t_{i+1}]$. By~\eqref{eq:numSDE} and the definition of the Itô stochastic integral: 
 \begin{equation}
 	x(t_{i+1}) = x(t_{i}) + \lim_{m\rightarrow\infty} \sum_{k=0}^{m-1} a\left(x(t_{i_k}),t_{i_k}\right)(t_{i_{k+1}} - t_{i_{k}}) + \mslim_{m\rightarrow\infty} \sum_{k=0}^{m-1} b\left(x(t_{i_{k}}),t_{i_k}\right)[W(t_{i_{k+1}}) - W(t_{i_{k}})].
 \end{equation}
@@ -325,7 +325,7 @@ the simplest approximation to that expression is to take $m=1$. This gives preci
 \end{equation}
 Note that if $R_0,R_1,\dots,R_{n-1}$ are independent standard gaussian random variables, then we can replace $\Delta W_i$ by $\sqrt{\Delta t}R_i$ which could be more practical to implement.
 
-Now consider the case where \eqref{eq:numSDE} is a backward Itô SDE. A similar reasoning as set out above for the Itô case yields :
+Now consider the case where~\eqref{eq:numSDE} is a backward Itô SDE. A similar reasoning as set out above for the Itô case yields :
 \begin{equation}
 	x(t_{i+1}) = x(t_{i}) + \lim_{m\rightarrow\infty} \sum_{k=0}^{m-1} a\left(x(t_{i_k}),t_{i_k}\right)(t_{i_{k+1}} - t_{i_{k}}) + \mslim_{m\rightarrow\infty} \sum_{k=0}^{m-1} b\left(x(t_{i_{k+1}}),t_{i_k}\right)[W(t_{i_{k+1}}) - W(t_{i_{k}})].
 \end{equation}
@@ -333,7 +333,7 @@ Notice that since the first limit corresponds to a deterministic integral, we ca
 \begin{equation} \label{eq:biImplicit}
 	X_{i+1} = X_i + a(X_i,t_i) \Delta t + b(X_{i+1},t_i) \Delta W_i,
 \end{equation}
-which is an \textit{implicit} scheme since $b$ has to be evaluated at $X_{i+1}$. In the general case $b$ is nonlinear in $x$ and solving \eqref{eq:biImplicit} is nontrivial. In particular, it is not always possible to invert $b$ and hence to find an explicit formula for $X_{i+1}$. The idea is thus to rely on a predictor-corrector method: we first compute an estimate $X^{*}_{i+1}$ of $X_{i+1}$ using an explicit formula, and then we compute $X_{i+1}$ as
+which is an \textit{implicit} scheme since $b$ has to be evaluated at $X_{i+1}$. In the general case $b$ is nonlinear in $x$ and solving~\eqref{eq:biImplicit} is nontrivial. In particular, it is not always possible to invert $b$ and hence to find an explicit formula for $X_{i+1}$. The idea is thus to rely on a predictor-corrector method: we first compute an estimate $X^{*}_{i+1}$ of $X_{i+1}$ using an explicit formula, and then we compute $X_{i+1}$ as
 \begin{equation} \label{eq:biCorrector}
 	X_{i+1} = X_i + a(X_i,t_i) \Delta t + b(X^*_{i+1},t_i) \Delta W_i.
 \end{equation}
@@ -342,12 +342,12 @@ Now the question is: how to compute $X^*_{i+1}$ ? One might be tempted to use th
 		\Delta Y_i = b(X_i,t_i)\Delta W_i, \label{eq:backwardEuler-dY}\\
 		X_{i+1} = X_i + a(X_i,t_i) \Delta t + b(X_{i}+\Delta Y_i,t_i) \Delta W_i. \label{eq:backwardEuler-dX}
 \end{subnumcases}
-In order to see that the scheme \eqref{eq:backwardEuler} consistently approximate the backward Itô SDE \eqref{eq:numSDE}, we can consider a stochastic process $y(t)$ and interpret $\Delta Y_i$ as the difference between two successive iterates: $\Delta Y_i = Y_{i+1} - Y_{i}$. But then, the scheme \eqref{eq:backwardEuler} is precisely the \textit{Euler method} applied on the Itô SDE with two variables
+In order to see that the scheme~\eqref{eq:backwardEuler} consistently approximate the backward Itô SDE~\eqref{eq:numSDE}, we can consider a stochastic process $y(t)$ and interpret $\Delta Y_i$ as the difference between two successive iterates: $\Delta Y_i = Y_{i+1} - Y_{i}$. But then, the scheme~\eqref{eq:backwardEuler} is precisely the \textit{Euler method} applied on the Itô SDE with two variables
 \begin{subnumcases}{\label{eq:ito2}} 
 	\rm dy(t) = b(x(t),t) \rm dW(t),\\
 	\rm dx(t) = a(x(t),t) \rm dt + b(x(t)+\rm dy(t),t) \rm dW(t). \label{eq:ito2.2}
 \end{subnumcases}
-Therefore, by the equivalence formula between Itô and backward Itô SDE's \eqref{eq:bI-I}, showing that the scheme \eqref{eq:backwardEuler} is consistent with the backward Itô SDE \eqref{eq:numSDE} amounts to show that \eqref{eq:ito2} is equivalent to the Itô SDE
+Therefore, by the equivalence formula between Itô and backward Itô SDE's~\eqref{eq:bI-I}, showing that the scheme~\eqref{eq:backwardEuler} is consistent with the backward Itô SDE~\eqref{eq:numSDE} amounts to show that~\eqref{eq:ito2} is equivalent to the Itô SDE
 \begin{equation} \label{eq:bE-ito}
 	\rm dx(t) = \left(a(x(t),t)+b(x(t),t)\dfrac{\partial b}{\partial x}\right)\rm dt + b(x(t),t) \rm dW(t),
 \end{equation}
@@ -359,14 +359,14 @@ where $\partial_x b$ is evaluated at $(x(t),t)$. Using the same convention for a
 		&= b(x(t),t) + \frac{\partial b}{\partial x} \rm b(x(t),t) \rm dW(t) + \frac{1}{2}\frac{\partial^2 b}{\partial x^2} b^2(x(t),t) \rm dt + \dots \label{eq:bE-inter}
 	\end{align}
 \end{subequations}
-Finally, introducing \eqref{eq:bE-inter} in \eqref{eq:ito2.2} yields
+Finally, introducing~\eqref{eq:bE-inter} in~\eqref{eq:ito2.2} yields
 \begin{subequations}
 	\begin{align}
 		\rm dx(t) &= a(x(t),t) \rm dt + b(x(t),t)\rm dW(t) + \frac{\partial b}{\partial x} \rm b(x(t),t) [\rm dW(t)]^2 + \frac{1}{2}\frac{\partial^2 b}{\partial x^2} b^2(x(t),t) \rm dt \rm dW(t), \label{eq:bE-ito1}\\
 		&= \left(a(x(t),t)+b(x(t),t)\dfrac{\partial b}{\partial x}\right)\rm dt + b(x(t),t) \rm dW(t), \label{eq:bE-ito2}
 	\end{align}
 \end{subequations}
-where we have used the properties \eqref{eq:dw2=dt} and \eqref{eq:dwdt=0} of Itô integration. Since \eqref{eq:bE-ito2} is exactly \eqref{eq:bE-ito}, we have shown the consistency of the backward-Euler method \eqref{eq:backwardEuler} for the numerical integration of the backward Itô SDE \eqref{eq:numSDE}. Notice that including the advective transport in the computation of $\Delta Y_i$ in equation \eqref{eq:backwardEuler-dY} leads to a term of order $\rm dt \rm dW$ in equation \eqref{eq:bE-ito1}. By \eqref{eq:dwdt=0}, $\rm dt \rm dW = 0$ and this term does not appears in \eqref{eq:bE-ito2}. 
+where we have used the properties~\eqref{eq:dw2=dt} and~\eqref{eq:dwdt=0} of Itô integration. Since~\eqref{eq:bE-ito2} is exactly~\eqref{eq:bE-ito}, we have shown the consistency of the backward-Euler method~\eqref{eq:backwardEuler} for the numerical integration of the backward Itô SDE~\eqref{eq:numSDE}. Notice that including the advective transport in the computation of $\Delta Y_i$ in equation~\eqref{eq:backwardEuler-dY} leads to a term of order $\rm dt \rm dW$ in equation~\eqref{eq:bE-ito1}. By~\eqref{eq:dwdt=0}, $\rm dt \rm dW = 0$ and this term does not appears in~\eqref{eq:bE-ito2}. 
 
 \paragraph{Remark} We have implicitly assumed through all the above developments that $b$ is \textit{smooth enough}, and the equivalence between the Itô and backward Itô formulation has only be proven in that case. In the case of discontinuous $b$, the consistency of the backward Itô formulation with the Fokker-Planck equation is shown in \cite{labolle2000diffusion} for the one-dimensional case and demonstrated in the two-dimensional case. There is however no proof for the multi-dimensional case. The efficacy of the backward-Euler method in the case of discontinuous diffusivities is assessed in \cite{spivakovskaya2007backward} on two one-dimensional test cases. The second test case is an advection-diffusion equation with constant velocity and a piecewise constant diffusivity (like the diffusivities of the overturner model). It shows a significantly better performance of the backward-Euler method with respect to Itô and Stratonovich methods in estimating the residence time of a tracer. %This result is particularly interesting in the context of the overturner model, where the vertical diffusivity $K_v$ is discontinuous.
 
@@ -374,7 +374,7 @@ where we have used the properties \eqref{eq:dw2=dt} and \eqref{eq:dwdt=0} of It�
 Only no-through boundary conditions are encountered in the problems that we will consider. Such conditions are enforced by bouncing particles off boundaries, as suggested in \cite{tompson1992particle}. Under such conditions, no particle can leave the domain. Bouncing is assumed to be perfect, so that it is equivalent to remap particles leaving the domain into the domain by an orthogonal symmetry with the boundary, since we only consider straight lines boundaries.
 
 \subsection{Computation of the concentration} \label{boxcounting_kernel}
-The above discussions shows how to simulate individual particles trajectories. However, what we ultimately want is to properly estimate the solution to \eqref{eq:ADE}, namely to compute an approximation of the concentration from the particles locations. Several methods exists, amongst which the \textit{box counting method} and the \textit{kernel density estimation}. Both methods are discussed in \cite{spivakovskaya2007lagrangian} and \cite{dehaan1999densitykernel}.
+The above discussions shows how to simulate individual particles trajectories. However, what we ultimately want is to properly estimate the solution to~\eqref{eq:ADE}, namely to compute an approximation of the concentration from the particles locations. Several methods exists, amongst which the \textit{box counting method} and the \textit{kernel density estimation}. Both methods are discussed in \cite{spivakovskaya2007lagrangian} and \cite{dehaan1999densitykernel}.
 
 The \textit{box counting} method has been extensively used to estimate the concentration in studies using random walk modeling, see e.g. \cite{riddle1998specification}. The method goes as follows: suppose a grid discretization of the domain, the \textit{box counting methods} consists in counting the number of particles in a grid cell (or box); the estimation of the concentration is then obtained by multiplying the number of particles with their mass, and dividing this total mass by the volume of the grid box. This method amounts to compute histograms: the concentration profile computed this way is constant in each box and discontinuous at the boundaries between the grid cells. Such an estimation of the concentration depends thus on the size and center of the boxes, but there is unfortunately no physical argument that would allow to choose those parameters. The choice of the averaging volumes is thus often made empirically as the result of a trade-off between regularity and a satisfying resolution of the solution. Indeed, on one hand, choosing large boxes could lead to the loss of important details since the estimated concentration cannot be described in a box more precisely than a constant. Hence the solution tends to be oversmoothed when the number of boxes is too small. On the other hand, opting for many small boxes lead to a concentration profile that tends to become very irregular or noisy. Another disadvantage of the method is that the number of particles needed to make the uncertainties becomes negligible might be excessively large. However, this method is the most efficient for problem where the goal is precisely to compute volume averages over grid cells; but if one aims at computing point concentration, then the kernel density estimation turns out to be more efficient.
 

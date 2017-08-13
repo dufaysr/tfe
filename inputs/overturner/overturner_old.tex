@@ -18,7 +18,7 @@ To assess the impact of this assumption on the continuity equation, we consider 
 \begin{equation}
 	\rho' = \frac{\rho - \bar{\rho}}{\Delta \rho}, \quad \b u' = \frac{\b u}{U}, \quad t' = \frac{t}{T}, \quad \mbox{and} \quad \b x' = \frac{\b x}{X},
 \end{equation}
-where $\b x = (y,z)$. The dimensionless version of the continuity equation \eqref{eq:continuity} reads then: 
+where $\b x = (y,z)$. The dimensionless version of the continuity equation~\eqref{eq:continuity} reads then: 
 \begin{equation}
 	\frac{\Delta \rho}{T}\frac{\partial \rho'}{\partial t'} + \frac{U\Delta \rho}{X}\b u' \cdot \nabla' \rho' + \frac{U(\bar{\rho}+ \rho' \Delta \rho)}{X}\nabla' \cdot \b u' = 0.
 \end{equation}
@@ -26,7 +26,7 @@ Multiplying both sides by $X/(U\bar{\rho})$ yields :
 \begin{equation}
 	\frac{X}{UT}\frac{\Delta \rho}{\bar{\rho}}\frac{\partial \rho'}{\partial t'} + \frac{\Delta \rho}{\bar{\rho}}\b u' \cdot \nabla' \rho' + \left(1+\frac{\Delta \rho}{\bar{\rho}}\rho'\right)\nabla' \cdot \b u' = 0.
 \end{equation}
-By taking \eqref{eq:bouss_hyp} into account, this equation simplifies to $\nabla' \cdot \b u' = 0$, or equivalently in dimensional variables $\nabla \cdot \b u = 0$. For our particular problem, this amounts to
+By taking~\eqref{eq:bouss_hyp} into account, this equation simplifies to $\nabla' \cdot \b u' = 0$, or equivalently in dimensional variables $\nabla \cdot \b u = 0$. For our particular problem, this amounts to
 \begin{equation}
 	\frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0.
 \end{equation}
@@ -51,7 +51,7 @@ we can choose a relevant $\b a(x,y,z) = (a_x(x,y,z),\,a_y(x,y,z),\,a_z(x,y,z))$ 
 													\frac{\partial a_y}{\partial x}-\frac{\partial a_x}{\partial y}
 									\end{pmatrix}.
 \end{equation}
-This ensures that $\b u$ satisfies the continuity equation. Here, we consider a 2-dimensional flow in the plane $(\ey,\ez)$. Hence $u = 0$ and $\partial \cdot/\partial x = 0$. The relation \eqref{eq:stream3d} becomes 
+This ensures that $\b u$ satisfies the continuity equation. Here, we consider a 2-dimensional flow in the plane $(\ey,\ez)$. Hence $u = 0$ and $\partial \cdot/\partial x = 0$. The relation~\eqref{eq:stream3d} becomes 
 \begin{equation}
 	\b u = \begin{pmatrix} 0 \\ v \\ w \end{pmatrix} = - \nabla \times \b a = \begin{pmatrix} 0\\ - \frac{\partial a_x}{\partial z}\\[.1 cm] \frac{\partial a_x}{\partial y} \end{pmatrix},
 \end{equation}
@@ -73,13 +73,13 @@ Thus,
 \end{equation}
 is path-independant. 
 
-An important property of the streamfunction in two dimensions is that the curves along which $\psi$ is constant are exactly the \textit{streamlines} of the flow, namely the family of curves that are instantaneously tangent to the velocity vector. To show that, let such a curve be parametrized by $s \mapsto \b x_S(s) = (y_S(s),z_S(s))$. The fact that $\psi$ is constant along that curve implies that $\rm d\psi_S = (\partial \psi/\partial y)\rm dy_S + (\partial \psi/\partial z) \rm dz_S = \nabla \psi \cdot \rm d \b x_S = 0$. This shows that vector $\nabla \psi$ is normal to the curve $\b x_S(s)$. Hence, showing that $\b x_S(s)$ is everywhere tangent to $\b u$ is equivalent to showing that $\b u \cdot \nabla \psi = 0$ everywhere. The latter is straightforward using relation \eqref{eq:u-psi} :
+An important property of the streamfunction in two dimensions is that the curves along which $\psi$ is constant are exactly the \textit{streamlines} of the flow, namely the family of curves that are instantaneously tangent to the velocity vector. To show that, let such a curve be parametrized by $s \mapsto \b x_S(s) = (y_S(s),z_S(s))$. The fact that $\psi$ is constant along that curve implies that $\rm d\psi_S = (\partial \psi/\partial y)\rm dy_S + (\partial \psi/\partial z) \rm dz_S = \nabla \psi \cdot \rm d \b x_S = 0$. This shows that vector $\nabla \psi$ is normal to the curve $\b x_S(s)$. Hence, showing that $\b x_S(s)$ is everywhere tangent to $\b u$ is equivalent to showing that $\b u \cdot \nabla \psi = 0$ everywhere. The latter is straightforward using relation~\eqref{eq:u-psi} :
 \begin{equation}
 	\b u \cdot \nabla \psi = -\frac{\partial \psi}{\partial z}\frac{\partial \psi}{\partial y} + \frac{\partial \psi}{\partial y}\frac{\partial \psi}{\partial z} = 0,
 \end{equation}
 which concludes the proof.
 
-Now we show another interesting property of the streamlines, namely that the \textit{volume flow rate} between two streamlines of values $\psi_1$ and $\psi_2$ is equal to the difference of those streamlines, $\psi_1 - \psi_2$. To show that, consider two infinitely close points $\b x_1 = (y_1,\, z_1)$ and $\b x_1 + \rm d \b x = (y_1 + \rm dy,\, z_1 + \rm dz)$. At those points, the streamfunction has values $\psi(y_1,z_1) = \psi_1$ and $\psi(y_1+\rm dy,z_1 + \rm dz) = \psi_1 + \rm d\psi$. Let us now consider the volume flow rate $\rm dq$ accross the infinitesimal segment $[\b x_1,\, \b x_1 + \rm d \b x]$, positive in the right-hand side direction of the segment if the latter is directed from $\b x_1$ to $\b x_1 + \rm d \b x$. It is equal to $\b u \cdot \hat{\b{n}}$, where $\hat{\b{n}} = (\rm dz,\,-\rm dy)$ is the unit normal to the segment, oriented in the right-hand side direction. Hence, $\rm dq = v \rm dz - w \rm dy$, which, using relation \eqref{eq:u-psi}, amounts to
+Now we show another interesting property of the streamlines, namely that the \textit{volume flow rate} between two streamlines of values $\psi_1$ and $\psi_2$ is equal to the difference of those streamlines, $\psi_1 - \psi_2$. To show that, consider two infinitely close points $\b x_1 = (y_1,\, z_1)$ and $\b x_1 + \rm d \b x = (y_1 + \rm dy,\, z_1 + \rm dz)$. At those points, the streamfunction has values $\psi(y_1,z_1) = \psi_1$ and $\psi(y_1+\rm dy,z_1 + \rm dz) = \psi_1 + \rm d\psi$. Let us now consider the volume flow rate $\rm dq$ accross the infinitesimal segment $[\b x_1,\, \b x_1 + \rm d \b x]$, positive in the right-hand side direction of the segment if the latter is directed from $\b x_1$ to $\b x_1 + \rm d \b x$. It is equal to $\b u \cdot \hat{\b{n}}$, where $\hat{\b{n}} = (\rm dz,\,-\rm dy)$ is the unit normal to the segment, oriented in the right-hand side direction. Hence, $\rm dq = v \rm dz - w \rm dy$, which, using relation~\eqref{eq:u-psi}, amounts to
 \begin{equation}
 	\rm dq = - \rm d\psi.
 \end{equation}
@@ -90,7 +90,7 @@ Now, consider any two points $\b x_1 = (y_1, z_1)$ and $\b x_2 = (y_2, z_2)$ in 
 where $\int_{\gamma_{1 \rightarrow 2}}$ is the line integral along a curve connecting $\b x_1$ to $\b x_2$, afterwards noted $\int_{\b x_1}^{\b x_2}$ to emphasize the fact that it does not depend on the integration path, since $\rm d\psi$ is an exact differential.
 \end{tcolorbox}
 %----------------------------------------END STREAMFUNCTIONS-------------------------------------------%
-Now we are able to derive a relevant streamfunction. In particular, $\psi$ must be such that the boundary conditions \eqref{eq:overturnerBC} are satisfied. Those conditions state that $\b u$ must be tangent to the boundary everywhere on $\partial \Omega$, which precisely amounts to require that $\psi$ is constant on $\partial \Omega$. Without loss of generality, we can choose this constant to be zero. Hence, we require that 
+Now we are able to derive a relevant streamfunction. In particular, $\psi$ must be such that the boundary conditions~\eqref{eq:overturnerBC} are satisfied. Those conditions state that $\b u$ must be tangent to the boundary everywhere on $\partial \Omega$, which precisely amounts to require that $\psi$ is constant on $\partial \Omega$. Without loss of generality, we can choose this constant to be zero. Hence, we require that 
 \begin{equation}
 	\psi(0,z) = 0, \quad \psi(L,z) = 0, \quad \psi(y,0) = 0 \quad \mbox{and} \quad \psi(y,H) = 0, \quad \mbox{for all $(y,z) \in \Omega$}.
 \end{equation}
@@ -169,7 +169,7 @@ and
 \subsection{Estimation of the parameter values}
 \textcolor{red}{Vérifier que c'est bien les valeurs finales}
 The numerical values used here are based on personal communications with \textit{E. Deleersnijder}.
-The model for the idealised meridian velocity field in the Atlantic ocean will be complete once we have assigned plausible values to the parameters. For this purpose, some physical insight is needed. First, the Atlantic ocean extends approximately from $50\degree$ South to $60\degree$ North, hence over $\frac{11}{18}\pi$ radians. With the radius of the Earth estimated to $6\,371$ km, we get that $L$ must be close to $(\frac{11}{18}\pi) (6\,371) = 12\, 231$ km. Moreover, the mean depth of the Atlantic ocean is about $4$ km. Hence, we choose $L = 12\,000$ km and $H = 4$ km. In virtue of the properties of the streamfunction, the maximum $\Psi = \psi(y_0,z_0)$ of the meridian streamfunction is equal to the volume flow rate accross any curve connecting $(y_0,z_0)$ to a point on the boundary of the domain: it is thus a measure of the intensity of the meridian circulation. With an estimated rate of deep convection in the Atlantic ocean of about $20$ Sv and a mean width of about $5\,000$ km, this yields $\Psi = 4$ $\rm{m^2/s}$. Finally, we use $y_0 = 11\,000$ km and $z_0 = 3.5$ km based on qualitative inspection of the meridian streamfunction graph. Characteristic values $V$ and $W$ of the meridional and vertical speed are, in virtue of relations \eqref{eq:u-psi} :
+The model for the idealised meridian velocity field in the Atlantic ocean will be complete once we have assigned plausible values to the parameters. For this purpose, some physical insight is needed. First, the Atlantic ocean extends approximately from $50\degree$ South to $60\degree$ North, hence over $\frac{11}{18}\pi$ radians. With the radius of the Earth estimated to $6\,371$ km, we get that $L$ must be close to $(\frac{11}{18}\pi) (6\,371) = 12\, 231$ km. Moreover, the mean depth of the Atlantic ocean is about $4$ km. Hence, we choose $L = 12\,000$ km and $H = 4$ km. In virtue of the properties of the streamfunction, the maximum $\Psi = \psi(y_0,z_0)$ of the meridian streamfunction is equal to the volume flow rate accross any curve connecting $(y_0,z_0)$ to a point on the boundary of the domain: it is thus a measure of the intensity of the meridian circulation. With an estimated rate of deep convection in the Atlantic ocean of about $20$ Sv and a mean width of about $5\,000$ km, this yields $\Psi = 4$ $\rm{m^2/s}$. Finally, we use $y_0 = 11\,000$ km and $z_0 = 3.5$ km based on qualitative inspection of the meridian streamfunction graph. Characteristic values $V$ and $W$ of the meridional and vertical speed are, in virtue of relations~\eqref{eq:u-psi} :
 \begin{equation}\label{eq:VW}
 	V = \frac{\Psi}{H} \quad \mbox{and} \quad W = \frac{\Psi}{L}.
 \end{equation}
@@ -179,7 +179,7 @@ According to \textit{E. Deleersnijder} [personal communication], the characteris
 \end{equation}
 an acceptable value.
 
-With those values of the parameters, the isolines of the adimensional streamfunction $\psi/\Psi$ are shown in figure \ref{fig:psi_overturner}, and the meridional and vertical components of the velocity field are illustrated in figure \ref{fig:vw_overturner}.
+With those values of the parameters, the isolines of the adimensional streamfunction $\psi/\Psi$ are shown in figure~\ref{fig:psi_overturner}, and the meridional and vertical components of the velocity field are illustrated in figure~\ref{fig:vw_overturner}.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=.6\textwidth]{fig/overturner/psi.eps}
@@ -225,7 +225,7 @@ where $K_h$ is a positive constant and
 		\end{array}
 	\right.
 \end{equation}
-with $K_{v_1}$, $K_{v_2}$ and $K_{v_3}$ positive constants. In the framework of the idealised model of the meridian circulation in the Atlantic ocean, \textit{E. Deleersnijder} [personal communication] proposes the values $K_h = 10^3$ $\rm{m^2/s}$, $K_{v_1} = 10^{-1}$ $\rm{m^2/s}$, $K_{v_2} = 10^{-4}$ $\rm{m^2/s}$ and $K_{v_3} = 10^{-3}$ $\rm{m^2/s}$. The relatively large value of $K_{v_1}$ allows to represent deep convection in the corresponding zone without having to implement a convective adjustment algorithm. The developped form of \eqref{eq:C_PDE_vec} is then
+with $K_{v_1}$, $K_{v_2}$ and $K_{v_3}$ positive constants. In the framework of the idealised model of the meridian circulation in the Atlantic ocean, \textit{E. Deleersnijder} [personal communication] proposes the values $K_h = 10^3$ $\rm{m^2/s}$, $K_{v_1} = 10^{-1}$ $\rm{m^2/s}$, $K_{v_2} = 10^{-4}$ $\rm{m^2/s}$ and $K_{v_3} = 10^{-3}$ $\rm{m^2/s}$. The relatively large value of $K_{v_1}$ allows to represent deep convection in the corresponding zone without having to implement a convective adjustment algorithm. The developped form of~\eqref{eq:C_PDE_vec} is then
 \begin{equation}\label{eq:C_PDE_dev}
 	\frac{\partial C}{\partial t} = -\frac{\partial}{\partial y}\left(vC - K_h\frac{\partial C}{\partial y}\right) -\frac{\partial}{\partial z}\left(wC - K_v(y,z)\frac{\partial C}{\partial z}\right).
 \end{equation}
@@ -246,15 +246,15 @@ In order to get a formulation of the problem using as few independant parameters
 \begin{equation}
 	t' = \frac{t}{T} = \frac{t\Psi}{LH}, \quad y' = \frac{y}{L} \quad \mbox{and} \quad z' = \frac{z}{H},   	
 \end{equation}
-where $T$ is the time scale introduced in \eqref{eq:T}. The adimensional hydrodynamic variables are:
+where $T$ is the time scale introduced in~\eqref{eq:T}. The adimensional hydrodynamic variables are:
 \begin{equation}
 	\psi' = \frac{\psi}{\Psi}, \quad v' = \frac{v}{V} = \frac{vH}{\Psi}, \quad \mbox{and} \quad w' = \frac{w}{W} = \frac{wL}{\Psi},
 \end{equation}
-where $V$ and $W$ are the velocity scales introduced in \eqref{eq:VW}. The adimensional concentration is
+where $V$ and $W$ are the velocity scales introduced in~\eqref{eq:VW}. The adimensional concentration is
 \begin{equation}
 	C' = \frac{C}{C_r}, 	
 \end{equation}
-where $C_r$ is a characteristic value of the concentration. We will see shortly that there is no needed to assign a particular value to $C_r$. The adimensional form of equation \eqref{eq:C_PDE_dev} is then
+where $C_r$ is a characteristic value of the concentration. We will see shortly that there is no needed to assign a particular value to $C_r$. The adimensional form of equation~\eqref{eq:C_PDE_dev} is then
 \begin{equation}\label{eq:PDE_adim}
 	\frac{\partial C'}{\partial t'} = -\frac{\partial}{\partial y'}\left(v'C' - \frac{1}{Pe_h}\frac{\partial C'}{\partial y'}\right) -\frac{\partial}{\partial z'}\left(w'C' - \frac{1}{Pe_v(y,z)}\frac{\partial C'}{\partial z'}\right),
 \end{equation}
@@ -266,7 +266,7 @@ are the horizontal and vertical Péclet numbers. They correspond to the ratio be
 \begin{equation}
 	V_{d} = \frac{K_h}{L} \quad \mbox{and} \quad W_{d}(y,z) = \frac{K_v(y,z)}{H}.
 \end{equation}
-There are three different vertical diffusive velocity scale depending on which zone of the ocean we consider \textcolor{red}{Donner des noms aux zones dans le chap 1 : 1 = ?, 2 = "Deep convection" et 3 = "surface flow"}. The advective velocity scales $V$ and $W$ have already been introduced in \eqref{eq:VW}. The Péclet numbers may then be rewritten as
+There are three different vertical diffusive velocity scale depending on which zone of the ocean we consider \textcolor{red}{Donner des noms aux zones dans le chap 1 : 1 = ?, 2 = "Deep convection" et 3 = "surface flow"}. The advective velocity scales $V$ and $W$ have already been introduced in~\eqref{eq:VW}. The Péclet numbers may then be rewritten as
 \begin{equation}
 	Pe_h = \frac{V}{V_{d}} = 12, 
 \end{equation}
