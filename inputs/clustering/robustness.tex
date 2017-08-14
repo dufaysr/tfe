@@ -1,0 +1,23 @@
+%!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
+\section{Assessing the robustness of a partition} \label{subsec:robustness}
+We present here two mechanisms commonly used to assess the relevance of a particular partition. One simple way is to consider that a robust partition should not be altered by a small modification of the quality function. Such a modification could be for example a perturbation of the Markov time $t$ at which the partition has been found. From this point of view, robust partitions correspond to \textit{plateaux} in the community curve of the graph. In other words, robust partitions should be persistent over a wide interval of Markov time.
+
+\begin{sloppypar} 
+The second indicator of the robustness of a partition that we will take into account in this work follows from considering that a robust partition is one that is persistent to small modifications of the optimization algorithm. The central tool to quantify this approach of the robustness of a partition is the \textit{normalized variation of information} \cite{meilua2007comparing}, which is a popular way to compare two partitions. Let $p(\C)$ be the probability for a node to be in community $\C$, i.e. $p(\C) = n_\C/n$ where $n_\C$ is the number of nodes in community $\C$. The variation of information between partitions $\P_1$ and $\P_2$ is defined as
+\begin{equation} \label{eq:clustering_VI}
+	\VI(\P_1,\P_2) := \frac{H(\P_1,\P_2)-H(\P_1)-H(\P_2)}{\log (n)} = \frac{H(\P_1|\P_2)+H(\P_2|\P_1)}{\log (n)},
+\end{equation}
+where $\log(n)$ is a normalization factor; 
+\begin{equation}
+	H(\P) := -\sum_{\C \in \P} p(\C) \log[p(\C)] 	
+\end{equation}
+is the Shannon entropy; $H(\P_1,\P_2)$ is the Shannon entropy of the joint probability $p(\C_1,\C_2)$ that a node belongs both to a community $\C_1$ of $\P_1$ and to a community $\C_2$ of $\P_2$. We have 
+\begin{equation}
+	p(\C_1,\C_2) = \frac{n_{\C_1 \cap\, \C_2}}{n},	
+\end{equation}
+and
+\begin{equation}
+	H(\P_1,\P_2) := -\sum_{\C_1 \in \P_1} \sum_{\C_2 \in \P_2} p(\C_1,\C_2) \log[p(\C_1,\C_2)].
+\end{equation}
+Similarly, $H(\P_1|\P_2)$ is the conditional Shannon entropy of partition $\P_1$ given $\P_2$, which is defined in a standard way from the joint distribution: $p(\C_1|\C_2) = p(\C_1,\C_2)/p(\C_2) = n_{\C_1\cap\, \C_2}/n_{\C_2}$, and the expression of $H(\P_1|\P_2)$ follows straightforwardly. The latter can be interpreted as the additional information needed to describe $\P_1$ once $\P_2$ is known. This measure of the difference between two partitions is then used as follows: for each Markov time, an ensemble of Louvain optimizations of stability are performed, starting from different random initial node ordering.\footnote{Remember that the problem being $\mathcal{NP}$-hard, we rely on a heuristic algorithm --- the Louvain method --- that finds a good partition for a given Markov time, but not necessarily the optimal partition. Hence the partition found may differ if a different initial condition is provided.} The normalized variation of information allows then to quantify how different the optimized partitions are. Therefore, a low variation of information indicates optimized partitions that are very similar to each others, and thus that a small modification of the algorithm barely alter the partition. From the point of view of the field of dynamical system, robust partitions have thus an attractor with a large basin of attraction for the optimization method. 
+\end{sloppypar}

@@ -1,0 +1,49 @@
+%!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
+\addcontentsline{toc}{section}{List of symbols}
+\section*{List of Symbols}
+Unless otherwise stated, bold lower cases indicate column vectors ($\b x$) and bold upper cases indicate matrices ($\b X$). The entries of a vector are denoted by a single subscript ($x_i$) and the entries of a matrix are denoted by brackets with a double subscript ($[\b X]_{i,j})$. The transposed sign is $^\t$.
+
+\noindent As a general rule, subscript $t$ indicates a discrete-time quantity evaluated at time $t$, while parenthesis indicate a continuous-time quantity.
+
+\subsection*{Clustering}
+All the graphs considered are weighted directed graphs.\\[.5cm]
+\begin{tabular}{ll}
+	$n$ & Number of nodes of the graph.\\
+	$\b A$ & Weighted adjacency matrix.\\
+	$q_i$ & Total outgoing weight from node $i$ ($i \in \{1,\dots,n\}$).\\
+	$\b q$ & Vector of the $q_i$'s.\\
+	$\b Q$ & Matrix with the total outgoing weights on its diagonal: $\b Q = \diag(\b q)$.\\
+	$\b M$ & Transition probability matrix for the discrete-time Markov process.\\
+	$\b P(t)$ & Transition matrix for the continuous-time Markov process evaluated at time $t$.\\
+	$p_{t,i}$ & Probability to be in node $i$ at Markov time $t$ ($i \in \{1,\dots,n\}$).\\
+	$\b p_t$ & Discrete-time probability vector: $\b p_t = [p_{t,1},\dots,p_{t,n}]$.\\
+	$\b p(t)$ & Continuous-time probability vector.\\
+	$\bs \pi$ & Stationary distribution vector.\\
+	$\bs \Pi$ & Matrix with the stationary distributions on its diagonal: $\bs \Pi = \diag(\bs \pi)$.\\
+	$\b x_t$ & Random indicator vector at time $t$.\\
+	$\b C(\b x_\tau,\b x_{\tau+t})$ & Autocovariance matrix of $\b x$.\\
+	$\P$ & A partition.\\
+	$c$ & Number of communities.\\
+	$\C_i$ & The $i$th community of the partition ($i \in \{1,\dots,c\}$).\\
+	$\b H_{\P}$ & Indicator matrix of $\P$.\\
+	$\mathcal{H}_{\P}(\cdot)$ & Operator $\b H_\P^\t (\cdot) \b H_\P$.\\
+	$\b y_t$ & Community indicator vector at time $t$.\\
+	$\b R_t(\P)$ & Discrete-time clustered autocovariance matrix for partition $\P$ at time $t$.\\
+	$\b R(t;\P)$ & Continuous-time clustered autocovariance matrix for partition $\P$ at time $t$.\\
+	$r_t(\P)$ & Discrete-time stability of partition $\P$.\\
+	$r(t;\P)$ & Continuous-time stability of partition $\P$.\\
+	$r_t$ & Discrete-time stability curve.\\
+	$r(t)$ & Continuous-time stability curve.\\
+	$\tau$ & Teleportation probability.\\
+	$\lambda_i(\b q)$ & Rate at which continuous-time random walkers leave node $i$ ($i \in \{1,\dots,c\}$).\\
+	$\bs \lambda(\b q)$ & Vector of the $\lambda_i(\b q)$'s.\\
+	$\b L$ & Laplacian matrix.\\
+	$\VI(\P_1,\P_2)$ & Variation of information between partitions $\P_1$ and $\P_2$.
+\end{tabular}
+
+\subsection*{Transport model}
+\begin{tabular}{ccl}
+	\phantom{notat}
+	& $\Omega$ & Domain of the problem.\\
+	& $|\Omega|$ & Volume of region $\Omega$.\\	
+\end{tabular}

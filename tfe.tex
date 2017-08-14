@@ -37,25 +37,23 @@
 \cleardoublepage
 \pagenumbering{roman} % for table of contents, etc.
 % \frontmatter
-\addcontentsline{toc}{section}{Acknowledgements}
-\section*{Acknowledgements}
+\input{inputs/acknowledgments/acknowledgments}
 \tableofcontents
 \null \newpage
-\addcontentsline{toc}{section}{List of abbreviations and symbols}
-\section*{List of abbreviations and symbols}
+\input{inputs/notations/notations}
 \null\newpage
 \cleartooddpage
 \pagenumbering{arabic}
 % \mainmatter
 \input{inputs/intro/intro}
-\part{Theoretical}
+% \part{Theoretical}
 \input{inputs/clustering/clustering}
 \input{inputs/advdiffeq/advdiffeq}
 \input{inputs/compartments/compartments}
 \input{inputs/numerical/numerical}
 \input{inputs/method/method}
-\part{Applications}
-\input{inputs/overturnercirculation/overturnercirculation} % Attention, a priori cette section va disparaitre. Mais plusieurs références ! Les rediriger
+% \part{Applications}
+\input{inputs/overturnercirculation/overturnercirculation}
 \input{inputs/bi-overturner/bi-overturner}
 \input{inputs/conclusion/conclusion}
 \nocite{*}

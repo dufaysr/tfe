@@ -1,0 +1,56 @@
+%!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
+\section{Discrete-time stability as an autocovariance}
+The stability criterion is based on the two-way relationship between graphs and Markov chains: On one hand, any graph has an associated Markov chain where the states are the nodes of the graph and the transitions probabilities between states are given by the weights of the edges. On the other hand, any Markov chain can be represented by a graph whose edges are weighted according to the transition probabilities. Concretely, consider a graph of $n$ nodes whose $n \times n$ weighted adjacency matrix is denoted $\b A$. Let $\b q = \b A \b 1$; $q_i$ is thus the total weight of the outgoing edges from node $i$. Let $\b Q = \mathrm{diag}(\b q)$. Then, by normalizing the rows of $\b A$ we get the matrix $\b M = \b Q^{-1}\b A$, the transition probability matrix. $\b M$ is row-stochastic (or right-stochastic) and $[\b M]_{ij}$ is the probability to go from node $i$ to node $j$. 
+Consider a particle moving in the network according to the transition probabilities in $\b M$. Now let $\b p_t$ be the $1 \times n$ probability vector at Markov time $t$, namely that $p_{t,i}$ is the probability that the particle is located in node $i$ at time $t$. The dynamics of the discrete-time Markov process are given by :
+\begin{equation} \label{eq:discreteMP}
+	\b p_{t+1} = \b p_t \b K^{-1}\b A = \b p_t \b M.  	
+\end{equation} 
+Now, suppose that the Markov chain is ergodic, i.e. that it is possible to go from every state to every state and that the Markov process is aperiodic. The ergodicity assumption implies that any initial state will asymptotically reach the same stationary solution. Let $\bs \pi$ be that stationary distribution, obtained by solving $\bs \pi = \bs \pi \b M$, and $\b \Pi = \rm{diag}(\bs \pi)$. Now, let $\b x_t$ be the $n$-dimensional random indicator vector describing the position of a particle undergoing the above dynamics: $x_{t,i} = 1$ if the particle is located in node $i$ at time $t$, and $0$ otherwise. At stationarity, the \textit{autocovariance matrix} of $\b x$ is
+\begin{subequations}
+	\begin{align}
+ 	\b C(\b x_{t_0},\b x_{t_0+t}) &\triangleq \E\left[(\b x_{t_0} - \E[\b x_{t_0}])^{\t}(\b x_{t_0+t} - \E[\b x_{t_0+t}])\right] \\
+ 		&= \E\left[(\b x_{t_0} - \bs \pi)^{\t}(\b x_{t_0+t} - \bs \pi)\right] \\
+ 		&= \E\left[\b x_{t_0}^{\t} \b x_{t_0+t}\right] - \E[\b x_{t_0}^{\t}] \bs \pi - \bs \pi^{\t} \E\left[\b x_{t_0+t}\right] + \bs \pi^{\t} \bs \pi \\
+ 		&= \bs \Pi \b M^t - \bs \pi^{\t} \bs \pi,
+ 	\end{align}
+\end{subequations}
+where the fact that $\b C(\b x_{t_0},\b x_{t_0+t})$ only depends on the time difference $t$ at stationarity is readily verified. Here, $^\t$ is the transposed sign and $\b M^t$ is $\b M$ at the power $t$. $[\b C(\b x_{t_0},\b x_{t_0+t})]_{ij}$ is interpreted as the correlation between $\b x_{t_0,\,i}$ and $\b x_{t_0+t,\,j}$. The independence on the initial time $t_0$ implies that it can indifferently be chosen equal to $0$.
+
+Suppose now a partition $\P$; we note $\b H_{\P}$ the indicator matrix of $\P$. If $c$ is the number of communities in $\P$, $\b H_{\P}$ is a binary $n \times c$ matrix such that 
+\begin{equation}
+	[\b H_{\P}]_{ik} = 
+	\begin{cases}
+		1  & \quad \mbox{if node $i$ is in community $k$},\\
+	    0  & \quad \text{otherwise}.\\
+	\end{cases}
+\end{equation}
+Let us define $\mathcal{H}_{\P} : \R[n \times n] \rightarrow \R[c \times c] : \b B \mapsto \mathcal{H}_\P(\b B) = \b H_{\P}^{\t} \b B \b H_{\P}$. Let $\b X$ be any $n \times n$ matrix, then $\b Y = \mathcal{H}_{\P}(\b X)$ is a $c \times c$ matrix such that 
+\begin{equation}
+	[\b Y]_{kl} = \sum_{i \in \C_k} \sum_{j \in \C_l} [\b X]_{ij},	
+\end{equation}
+where $\C_k$ and $\C_l$ denote communities $k$ and $l$ of partition $\P$. One could thus say that operator $\mathcal{H}_{\P}$ returns the \textit{clustered version} of any $n \times n$ matrix, namely the matrix where the contributions of every nodes belonging to the same community are gathered by summing them. Finally, let $\b y_t = \b H_{\P}^{\t} \b x_t$ denote the $c$-dimensional community indicator vector: $\b y_{t,\,k}$ is equal to $1$ if the particle is in community $k$ at time $t$ and zero otherwise.
+Using those notations and the interpretation of $\mathcal{H}_{\P} $, the \textit{clustered autocovariance matrix} for partition $\P$ at time $t$ is defined as
+\begin{subequations}
+	\begin{align}
+		\b R_t(\P) &= \mathcal{H}_{\P}\left(\b C(\b x_{t_0},\b x_{t_0+t})\right)\\
+			&= \b C(\b y_{t_0},\b y_{t_0+t})\\
+			&= \b H_{\P}^{\t}(\b \Pi\b M^t - \bs \pi^{\t}\bs \pi)\b H_{\P}.
+	\end{align}
+\end{subequations}
+Notice that $\b R_t$ depends only on the topology of the graph and on the partition. If the graph has well defined communities given by $\P$ \textit{over a given time scale}, we expect that the particle is more likely to remain within the starting community over that time scale. This implies that the values of $\b y_{0,\,i}$ and $\b y_{t,\,i}$ are positively correlated for $t$ in that time scale, which in turn implies large diagonal elements in $\b R_t(\P)$ and hence a large trace of $\b R_t(\P)$. The elements of $\b R_t(\P)$ are interpreted as follows in terms of the random walk of a particle: $[\b R_t(\P)]_{kl}$ is the probability that a particle is in community $\C_l$ after $t$ discrete time-steps if it has started in $\C_k$ minus the probability that two independent random walkers are in $\C_k$ and $\C_l$, evaluated at stationarity. A good partition is such that there is a high likelihood of remaining in the starting community over a given time scale. The definition of the stability of a \textit{clustering} $\P$ follows naturally:
+\begin{equation}
+	r_t(\P) = \min_{0 \le s \le t} \sum_{i = 1}^{c} [\b R_s]_{ii} = \min_{0 \le s \le t} \trace(\b R_s).
+\end{equation}
+Note that taking the minimum for all times up to $t$ implies that the stability of the clustering at time $t$ is large only if it is large for all times preceding $t$. This allows to assign a low stability to partitions where there is a high probability of leaving the community and coming back to it later. According to \cite{delvenne2013stability}, this minimization is unnecessary in most cases and we have $r_t(\P) \approx \trace(\b R_t)$. Nevertheless, taking the minimization ensures maximum generality and allows for example to deal with almost bipartite graphs where $\trace(\b R_s)$ can be oscillatory.
+
+All the definitions introduced until now are for a given partition $\P$. But what we ultimately want to compute is the optimal partition in the sense of stability, hence the one that maximizes the stability measure. Clearly, the optimal partition might be different for each Markov time $t$. Computing the optimal clustering for each Markov time gives the \textit{stability curve of the graph} :
+\begin{equation}
+	r_t = \max_{\P} r_t(\P).
+\end{equation}
+Now we understand how Markov time acts as an intrinsic resolution parameter: as Markov time grows, the number of communities is expected to decrease, since there are more possibilities for a random walker to escape a community when the time window increases. Hence, communities get bigger (or coarser) as Markov time increases. Interestingly, one can prove that in the case of \textit{undirected} networks, stability at time 1 is equivalent to the well-known \textit{configuration modularity} measure. But this equivalence does not hold for \textit{directed} networks and therefore does not concern the present work.
+
+At this stage, an important remark has to be made about the assumption of ergodicity. The verification of this assumption is often far from being obvious, especially in the case of big undirected networks. The trick in that case is to introduce "à la Google" random teleportations.\footnote{In the original PageRank proposed by S. Brin and L. Page in 1998 (ref. \cite{grin1998anatomy}), this consists essentially in applying a perturbation to the transition probability matrix between web pages in order to ensure that at least one row of the matrix is positive, which implies the convergence of the Power Method. If we note the teleportation probability $\tau$, the perturbation can be interpreted as follows: a web surfer follows a link in his current page with probability $1-\tau$ and jumps to an arbitrary web page with probability $\tau$.} Let $\tau$ be the \textit{teleportation probability}. Then, if a random walker is located on a node with at least one outlink (which is always the case for the networks that we will consider), it follows one of the outlinks with probability $1-\tau$. Otherwise, the node is called a \textit{dangling node} and the random walker is teleported with a uniform probability to another random node. The corresponding perturbation of the transition probability matrix is, in the most general case:
+\begin{equation} \label{eq:M_teleport}
+	\widetilde{\b M} = (1-\tau)\b M + \frac{1}{n}[(1-\tau)\b d + \tau \b 1]\b 1^{\t},
+\end{equation}
+where $n$ is the number of nodes, $\b d$ is a binary $n \times 1$ vector whose entries are equal to $1$ if the corresponding node is a dangling node and $0$ otherwise, and $\b 1$ is the $n \times 1$ unity vector. In the case that we will consider in the next section, $\b d$ is the zero vector. This perturbation is known to make the dynamics ergodic, ensuring the existence and uniqueness of the stationary solution $\bs \pi$.
