@@ -2,7 +2,7 @@
 \section{Matrix formulation}
 The generic compartment model described in the previous sections can be written in matrix form. For simplicity and because we will restrict ourselves to such systems in the next, we consider the case of an isolated system, i.e. $\phi_{i,e} = 0$. Let
 \begin{equation} \label{eq:def_compartment_vars}
-	\b c = \begin{pmatrix} C_1 \\ C_2 \\ \vdots \\ C_N \end{pmatrix}, \quad \b q = \begin{pmatrix} q_1 \\ q_2 \\ \vdots \\ q_N \end{pmatrix}, \quad \bs \omega = \begin{pmatrix} \Omega_1 \\ \Omega_2 \\ \vdots \\ \Omega_N \end{pmatrix}, \quad \mbox{and} \quad \bs \Omega = \diag(\bs \omega).
+	\b c = \begin{pmatrix} C_1 \\ C_2 \\ \vdots \\ C_N \end{pmatrix}, \quad \b q = \begin{pmatrix} q_1 \\ q_2 \\ \vdots \\ q_N \end{pmatrix}, \quad \bs \omega = \begin{pmatrix} |\Omega_1| \\ |\Omega_2| \\ \vdots \\ |\Omega_N| \end{pmatrix}, \quad \mbox{and} \quad \bs \Omega = \diag(\bs \omega).
 \end{equation}
 The evolution of the concentrations in the compartments is given by
 \begin{equation} \label{eq:compartmentmatrix}
@@ -19,60 +19,60 @@ where $\b A$ is the \textit{interaction matrix}, which describes the advective a
 \end{equation}
 In matrix formulation, the mean concentration is expressed as
 \begin{equation} \label{eq:Cmeanmatrix}
-	\bar C = \frac{1}{\Omega} \b 1^\t \bs \Omega \b c,
+	\bar C = \frac{1}{|\Omega|} \b 1^\t \bs \Omega \b c,
 \end{equation}
-where $\b 1$ is the N-dimensional unit column vector. Notice that $\Omega = \b 1^\t \bs \Omega \b 1$. In the next of this section, we show of properties~\ref{prop1_comp}, \ref{prop2_comp} and~\ref{prop3_comp} from section~\ref{sec:prop_comp} are expressed in matrix formulation.
-\begin{propertybis}{prop1_comp} \label{prop1bis_comp}
+where $\b 1$ is the N-dimensional unit column vector. Notice that $|\Omega| = \b 1^\t \bs \Omega \b 1$. In the next of this section, we show how properties~\ref{prop1_comp}, \ref{prop2_comp} and~\ref{prop3_comp} from section~\ref{sec:prop_comp} are expressed in matrix formulation.
+\begin{property} \label{prop1bis_comp}
 Each column of the interaction matrix sums to zero:
 \begin{equation}
 	\b 1^\t \b A = 0.
 \end{equation}
-\end{propertybis} 
+\end{property} 
 \begin{proof}
-	We know that $\dot{\bar C} = 0$. From equations~\eqref{eq:compartmentmatrix} and~\eqref{eq:Cmeanmatrix},
+	From equations~\eqref{eq:compartmentmatrix} and~\eqref{eq:Cmeanmatrix},
 	\begin{equation}
-		\Omega \dot{\bar{C}} = \b 1^\t \bs \Omega \dot{\b{c}} = \b 1^\t \bs \Omega \b q + \b 1^\t\b A \b c.
+		|\Omega| \dot{\bar{C}} = \b 1^\t \bs \Omega \dot{\b{c}} = \b 1^\t \bs \Omega \b q + \b 1^\t\b A \b c.
 	\end{equation}
-	Furthermore, equation~\eqref{eq:prop1deleersnijder} in an isolated system is equivalent to
-	\begin{equation}
-		\Omega \dot{\bar{C}} = \b 1^\t \bs \Omega \b q,
+	This equation is valid for an isolated system. If furthermore the tracer is passive ($\b q=0$), we know by corollary \ref{cor:Cmeanconstant} that $\bar C$ must be constant. Hence
+	\begin{equation} \label{eq:souris}
+		|\Omega| \dot{\bar{C}} = \b 1^\t\b A \b c = 0.
 	\end{equation}
-	hence we must have that $\b 1^\t \b A = 0$.
+	Equation~\eqref{eq:souris} must be valid for any concentration vector $\b c$, thus $\b 1^\t \b A = 0$.
 \end{proof}
 
-\begin{propertybis}{prop2_comp} \label{prop2bis_comp}
+\begin{property} \label{prop2bis_comp}
 	Each row of the interaction matrix sums to zero:
 	\begin{equation}
 		\b A \b 1 = 0.		
 	\end{equation}	
-\end{propertybis}
+\end{property}
 \begin{proof}
-	Let $C_0$ be a constant and $\b c = C_0 \b 1$. Introducing the latter in~\eqref{eq:compartmentmatrix} with $\b q = \b 0$ yields
+	Let $C_0>0$ be a constant and $\b c = C_0 \b 1$. Introducing the latter in~\eqref{eq:compartmentmatrix} with $\b q = \b 0$ yields
 	\begin{equation}
 		0 = C_0 \b A \b 1.
 	\end{equation}
 \end{proof}
 
-\begin{propertybis}{prop3_comp} \label{prop3bis_comp}
+\begin{property} \label{prop3bis_comp}
 	The interaction matrix is negative definite.
-\end{propertybis}
+\end{property}
 \begin{proof}
-	We consider a passive tracer hence $\b q = 0$. Besides, since the domain is isolated the domain-averaged value of the concentration $\bar C$ is a constant.
+	Let $\b q = 0$. Since we consider an isolated domain, $\bar C$ is a constant.
 	Consider $\hat{\b c} = \b c - \bar C \b 1$, the deviation of the concentration with respect to $\bar C$. Since under those conditions,~\eqref{eq:compartmentmatrix} is linear and homogeneous in $\b c$, it applies to any perturbation of $\b c$ by a constant, and thus to $\hat{\b c}$:
 	\begin{equation} \label{eq:prp3matrix}
 		\bs \Omega \dot{\hat{\b c}} = \b A \hat{\b c}.
 	\end{equation}
-	The variance is expressed as
+	The box variance is expressed as
 	\begin{equation}\label{eq:sigmamatrix}
-		\sigma^2 = \frac{1}{\Omega} \hat{\b c}^\t \bs \Omega \hat{\b c}.
+		\sigma^2_{box} = \frac{1}{|\Omega|} \hat{\b c}^\t \bs \Omega \hat{\b c}.
 	\end{equation}
 	A time-differentiation of~\eqref{eq:sigmamatrix} yields
 	\begin{equation}
-		\frac{d \sigma^2}{dt} = \frac{2}{\Omega} \hat{\b c}^\t \bs \Omega \dot{\hat{\b c}},
+		\frac{d \sigma^2_{box}}{dt} = \frac{2}{|\Omega|} \hat{\b c}^\t \bs \Omega \dot{\hat{\b c}},
 	\end{equation}
 	and finally by~\eqref{eq:prp3matrix}
 	\begin{equation}
-		\frac{\Omega}{2} \frac{d \sigma^2}{dt} = \hat{\b c}^\t \b A \hat{\b c}.
+		\frac{|\Omega|}{2} \frac{d \sigma^2_{box}}{dt} = \hat{\b c}^\t \b A \hat{\b c}.
 	\end{equation}
-	The latter must be negative (or zero if $\hat{\b c} = \b 0$), which shows that $\b A$ is negative definite.
+	By property~\ref{prop3_comp}, the latter must be negative (or zero if $\hat{\b c} = \b 0$), which shows that $\b A$ is negative definite.
 \end{proof}

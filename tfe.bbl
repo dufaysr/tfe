@@ -155,6 +155,11 @@ Eric~J.M. Delhez.
 \newblock A matrix approach of compartment models.
 \newblock 2010.
 
+\bibitem{EDO}
+Jean Van~Schaftingen.
+\newblock Lmat1223: Équations différentielles ordinaires.
+\newblock Lecture notes, 2013.
+
 \bibitem{spivakovskaya2007lagrangian}
 Darya Spivakovskaya, Arnold~W. Heemink, and Eric Deleersnijder.
 \newblock Lagrangian modelling of multi-dimensional advection-diffusion with

@@ -10,29 +10,33 @@ where $\b u$ is the velocity field and $q$ is the source or sink term, i.e. the 
 \end{equation}
 namely the velocity field is divergence-free. As already stated, the diffusivity tensor $\b K$ is symmetric and positive definite.
 
-In order to derive a compartment model from~\eqref{eq:continuousproblem}, $\Omega$ must be partitioned into $N$ subdomains $\Omega_i$ ($i = 1,\dots,N$) called the \textit{compartments}. The interface between the subdomains $\Omega_i$ and $\Omega_j$ is denoted $\Gamma_{i,j}$ and the interface between $\Omega_i$ and the environment is denoted $\Gamma_{i,e}$. Obviously, $\Gamma_{i,j} = \Gamma_{j,i}$. In a compartment model, only the averages over the compartments are considered. The mean tracer concentration over compartment $i$ is 
+In order to derive a compartment model from~\eqref{eq:continuousproblem}, $\Omega$ must be partitioned into $N$ subdomains $\Omega_1,\Omega_2,\dots,\Omega_N$ called the \textit{compartments}. Mathematically, the fact that these subdomains form a partition of $\Omega$ means that
+\begin{equation}
+	\bigcup_{i \in\{1,\dots,N\}} \Omega_i = \Omega \qquad \mbox{and} \qquad \Omega_i \cap \Omega_j = \varnothing \mbox{ if } i \neq j.
+\end{equation}
+In this section, unless otherwise stated, the subscripts $i$ and $j$ are implicitly assumed to be in $\{1,\dots,N\}$. The interface between the subdomains $\Omega_i$ and $\Omega_j$ is denoted $\Gamma_{i,j}$ and the interface between $\Omega_i$ and the environment is denoted $\Gamma_{i,e}$. Obviously, $\Gamma_{i,j} = \Gamma_{j,i}$ and $\cup_{i\in\{1,\dots,N\}} \Gamma_{i,e} = \partial \Omega$. In a compartment model, only the averages over the compartments are considered. The mean tracer concentration over compartment $i$ is 
 \begin{equation} \label{eq:C_i(t)}
-	C_i(t) = \frac{1}{\Omega_i} \int_{\Omega_i} C(t,\b x) \rm d\Omega_i,
+	C_i(t) = \frac{1}{|\Omega_i|} \int_{\Omega_i} C(t,\b x) \rm d\Omega_i,
 \end{equation}
-and the production/destruction term over the subdomain $i$ becomes
+and the net production rate over the subdomain $i$ is
 \begin{equation}
-	q_i(t) =  \frac{1}{\Omega_i} \int_{\Omega_i} q(t,\b x) \rm d\Omega_i.
+	q_i(t) =  \frac{1}{|\Omega_i|} \int_{\Omega_i} q(t,\b x) \rm d\Omega_i.
 \end{equation}
-The equation governing the evolution of $C_i(t)$, the average concentration in compartment $i$, is obtained by integrating~\eqref{eq:continuousproblem} over $\Omega_i$. This yields, using Gauss's Theorem:
+The equation governing the evolution of $C_i(t)$, the average concentration over compartment $i$, is obtained by integrating~\eqref{eq:continuousproblem} over $\Omega_i$. This yields, using the divergence theorem:
 \begin{equation}
-	\Omega_i \frac{d C_i}{d t} = \Omega_i q_i - \sum_{\subalign{j&=1 \\j &\neq i}}^N \underbrace{\int_{\Gamma_{i,j}} (\b u C - \b K \cdot \nabla C)\cdot \b n_{i,j} \rm d\Gamma_{i,j}}_{\phi_{i,j}} - \underbrace{\int_{\Gamma_{i,e}} (\b u C - \b K \cdot \nabla C)\cdot \b n_{i,e} \rm d\Gamma_{i,e}}_{\phi_{i,e}}.
+	|\Omega_i| \frac{d C_i}{d t} = |\Omega_i| q_i - \sum_{\subalign{j&=1 \\j &\neq i}}^N \underbrace{\int_{\Gamma_{i,j}} (\b u C - \b K \cdot \nabla C)\cdot \b n_{i,j} \rm d\Gamma_{i,j}}_{:= \phi_{i,j}} - \underbrace{\int_{\Gamma_{i,e}} (\b u C - \b K \cdot \nabla C)\cdot \b n_{i,e} \rm d\Gamma_{i,e}}_{:= \phi_{i,e}},
 \end{equation}
-In the framework of a compartment model, only the mean concentration in each compartment are available, making it impossible to evaluate the integrals in the right-hand side exactly. The flux $\phi_{i,j}$ can be split into an advective and a diffusive part:
+where $\phi_{i,j}$ is interpreted as the tracer flux from compartment $i$ to compartment $j$, and $\phi_{i,e}$ is the flux of tracer leaving compartment $i$ towards the environment. In the framework of a compartment model, only the mean concentration in each compartment are available, making it impossible to evaluate the integrals in the right-hand side exactly. The flux $\phi_{i,j}$ can be split into an advective and a diffusive part:
 \begin{equation} \label{eq:phi_i,j}
 	\phi_{i,j} = \underbrace{\int_{\Gamma_{i,j}} (\b u C)\cdot \b n_{i,j} \rm d\Gamma_{i,j}}_{:= \phi_{i,j}^A \mbox{ \footnotesize (advective part)}} + \underbrace{\int_{\Gamma_{i,j}} (-\b K \cdot \nabla C)\cdot \b n_{i,j} \rm d\Gamma_{i,j}}_{:= \phi_{i,j}^D \mbox{ \footnotesize (diffusive part)}}.
 \end{equation} 
 A natural approximation of the advective flux $\phi_{i,j}^A$ is obtained as
 \begin{equation}
-	\phi_{i,j}^A \approx \frac{C_i + C_j}{2} \int_{\Gamma_{i,j}} \b u \cdot \b n_{i,j} \rm d\Gamma_{i,j} =  \frac{C_i + C_j}{2} \Gamma_{i,j} u_{i,j},
+	\phi_{i,j}^A \approx \frac{C_i + C_j}{2} \int_{\Gamma_{i,j}} \b u \cdot \b n_{i,j} \rm d\Gamma_{i,j} =  \frac{C_i + C_j}{2} |\Gamma_{i,j}| u_{i,j},
 \end{equation}
 where a characteristic speed $u_{i,j}$ has been introduced such that
 \begin{equation} \label{eq:def_uij}
-	\Gamma_{i,j}u_{i,j} = \int_{\Gamma_{i,j}}\b u \cdot \b n_{i,j} \rm d\Gamma_{i,j}.
+	|\Gamma_{i,j}|u_{i,j} = \int_{\Gamma_{i,j}}\b u \cdot \b n_{i,j} \rm d\Gamma_{i,j}.
 \end{equation}
 Since $\phi_{i,j}^A = - \phi_{j,i}^A$ and $\Gamma_{i,j} = \Gamma_{j,i}$, the characteristic speed must satisfy
 \begin{equation}
@@ -41,11 +45,11 @@ Since $\phi_{i,j}^A = - \phi_{j,i}^A$ and $\Gamma_{i,j} = \Gamma_{j,i}$, the cha
 The definition~\eqref{eq:def_uij} satisfies that condition.
 The diffusive flux $\phi_{i,j}^D$ involves the gradient of the concentration at the interface. A possible approximation is given by
 \begin{equation}
-	\phi_{i,j}^D = - \Gamma_{i,j} k_{i,j} \frac{C_j-C_i}{l_{i,j}},
+	\phi_{i,j}^D = - |\Gamma_{i,j}| k_{i,j} \frac{C_j-C_i}{l_{i,j}},
 \end{equation}
 where $k_{i,j} > 0$ is a characteristic diffusivity and $l_{i,j} > 0$ is a characteristic length. Obviously, $\phi_{i,j}^D = -\phi_{j,i}^D$ hence $k_{i,j} = k_{j,i}$ and $l_{i,j} = l_{j,i}$. In \cite{deleersnijder2014compartment}, \textit{Deleersnijder} proposes to simplify those notations by introducing advective and diffusive "fluxes" $U_{i,j}$ and $V_{i,j}$:
 \begin{equation} \label{eq:def_Uij_Vij}
-	U_{i,j} = \Gamma_{i,j}u_{i,j} \quad \mbox{and} \quad V_{i,j} = \frac{\Gamma_{i,j}k_{i,j}}{l_{i,j}}.
+	U_{i,j} = |\Gamma_{i,j}|u_{i,j} \quad \mbox{and} \quad V_{i,j} = \frac{|\Gamma_{i,j}|k_{i,j}}{l_{i,j}}.
 \end{equation}
 By the previously mentioned properties, it is obvious that 
 \begin{equation} \label{eq:Uprop}
@@ -64,8 +68,8 @@ and the equation governing the evolution of the concentration in compartment $i$
 	\Omega_i \frac{dC_i}{dt} = \Omega_i q_i - \sum_{\subalign{j&=1 \\j &\neq i}}^N \left[ U_{i,j}\frac{C_i + C_j}{2} - V_{i,j} (C_j-C_i)\right] - \phi_{i,e}.
 \end{equation}
 Let us fix the convention $U_{i,i} = 0$ and $V_{i,i} = 0$ so that the summation subscript $j \neq i$ becomes unnecessary.
-Note that by~\eqref{eq:def_Uij_Vij},~\eqref{eq:def_uij} and Gauss's theorem,
+Note that by~\eqref{eq:def_Uij_Vij},~\eqref{eq:def_uij} and the divergence theorem,
 \begin{equation} \label{eq:continuitycompartment}
-	\sum_{\subalign{j&=1 \\j &\neq i}}^N U_{i,j} + U_{i,e} = \sum_{\subalign{j&=1 \\j &\neq i}}^N \int_{\Gamma_{i,j}}\b u \cdot \b n_{i,j} \rm d\Gamma_{i,j} + \int_{\Gamma_{i,e}}\b u \cdot \b n_{i,e} \rm d\Gamma_{i,e} = \int_{\Omega_{i}} (\nabla \cdot \b u) \rm d\Omega_{i} = 0,
+	\sum_{j=1}^N U_{i,j} + U_{i,e} = \sum_{\subalign{j&=1 \\j &\neq i}}^N \int_{\Gamma_{i,j}}\b u \cdot \b n_{i,j} \rm d\Gamma_{i,j} + \int_{\Gamma_{i,e}}\b u \cdot \b n_{i,e} \rm d\Gamma_{i,e} = \int_{\Omega_{i}} (\nabla \cdot \b u) \rm d\Omega_{i} = 0,
 \end{equation}
 the counterpart to the continuity equation.
