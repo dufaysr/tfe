@@ -8,10 +8,10 @@
 	\PYG{k}{public}\PYG{o}{:}
 		\PYG{n}{AbstractAdvDiffProblem}\PYG{p}{(}\PYG{k+kt}{double} \PYG{n}{H0}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{H1}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{L0}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{L1}\PYG{p}{)}\PYG{p}{;}
 		\PYG{k}{virtual} \PYG{o}{\PYGZti{}}\PYG{n}{AbstractAdvDiffProblem}\PYG{p}{(}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}\PYG{p}{;}
-		\PYG{k+kt}{double} \PYG{n+nf}{getH0}\PYG{p}{(}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;} \PYG{c+c1}{// bottom boundary}
-		\PYG{k+kt}{double} \PYG{n+nf}{getH1}\PYG{p}{(}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;} \PYG{c+c1}{// top boundary}
-		\PYG{k+kt}{double} \PYG{n+nf}{getL0}\PYG{p}{(}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;} \PYG{c+c1}{// left boundary}
-		\PYG{k+kt}{double} \PYG{n+nf}{getL1}\PYG{p}{(}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;} \PYG{c+c1}{// right boundary}
+		\PYG{k+kt}{double} \PYG{n+nf}{getH0}\PYG{p}{(}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;}
+		\PYG{k+kt}{double} \PYG{n+nf}{getH1}\PYG{p}{(}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;}
+		\PYG{k+kt}{double} \PYG{n+nf}{getL0}\PYG{p}{(}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;}
+		\PYG{k+kt}{double} \PYG{n+nf}{getL1}\PYG{p}{(}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;}
 		\PYG{k}{virtual} \PYG{n}{SymMatrix} \PYG{n+nf}{getK}\PYG{p}{(}\PYG{k+kt}{double} \PYG{n}{y}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{z}\PYG{p}{)} \PYG{k}{const}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{c+c1}{// diffusivity tensor}
 		\PYG{k}{virtual} \PYG{n}{LowerTriMatrix} \PYG{n+nf}{getB}\PYG{p}{(}\PYG{k+kt}{double} \PYG{n}{y}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{z}\PYG{p}{)} \PYG{k}{const}\PYG{p}{;} \PYG{c+c1}{// 2K = BB\PYGZsq{}}
 		\PYG{k}{virtual} \PYG{n}{Vec2} \PYG{n+nf}{getU}\PYG{p}{(}\PYG{k+kt}{double} \PYG{n}{y}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{z}\PYG{p}{)} \PYG{k}{const}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{c+c1}{// velocity vector}

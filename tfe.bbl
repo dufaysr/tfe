@@ -238,18 +238,18 @@ Peter~E. Kloeden and Eckhard Platen.
 \newblock {\em Numerical Solution of Stochastic Differential Equations}.
 \newblock Springer-Verlag, Berlin Heidelberg New York, 1995.
 
+\bibitem{colet2014stochastic}
+Pere Colet and Raúl Toral.
+\newblock {\em Stochastic numerical methods: an introduction for students and
+  scientists}.
+\newblock John Wiley \& Sons, 2014.
+
 \bibitem{labolle2000diffusion}
 Eric~M. LaBolle, Jeremy Quastel, Graham~E. Fogg, and Janko Gravner.
 \newblock Diffusion processes in composite porous media and their numerical
   integration by random walks: Generalized stochastic differential equations
   with discontinuous coefficients.
 \newblock {\em Water Resources Research}, 36(3):651--662, 2000.
-
-\bibitem{colet2014stochastic}
-Pere Colet and Raúl Toral.
-\newblock {\em Stochastic numerical methods: an introduction for students and
-  scientists}.
-\newblock John Wiley \& Sons, 2014.
 
 \bibitem{tompson1992particle}
 Andrew F.~B. Tompson and D.~E. Dougherty.

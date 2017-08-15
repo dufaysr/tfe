@@ -42,13 +42,13 @@ Unless otherwise stated, bold lower cases indicate column vectors ($\b x$) and b
 	$\VI(\P_1,\P_2)$ & Variation of information between partitions $\P_1$ and $\P_2$.
 \end{tabular}
 \end{table}
-
+\newpage
 \subsection*{Transport model}
 Adimensional variables are denoted by primes.
 \begin{table}[H]
 \begin{tabular}{ll}
 	$C$ & Concentration function.\\
-	$C(\b x,t)$ & Concentration function with its dependence on position and time written explicitly.\\
+	$C(\b x,t)$ & Concentration function with its dependence on position and time written\\ & explicitly.\\
 	$q$ & Source/sink term, or reactive term.\\
 	$\b u$ & Velocity vector.\\
 	$\b K$ & Diffusivity tensor (symmetric and positive-definite).\\
@@ -83,12 +83,42 @@ In what follows, $i,j \in \{1,\dots,N\}$.
 	$V_{i,j}$ & Diffusive "flux" from compartment $i$ to compartment $j$.\\
 	$\sigma_{box}^2(t)$ & Box variance.\\
 	$\b c$ & Vector of the compartment's concentrations: $\b c = [C_1(t),\dots,C_N(t)]^\t$.\\
-	$\b q$ & Vector of the net production rates over the compartments: $\b q = [q_1(t),\dots,q_N(t)]^\t$.\\
-	$\bs \omega$ & Vector of the volumes (areas in two dimensions) of the compartments: $\bs \omega = [|\Omega_1|,\dots,|\Omega_N|]^\t$.\\
+	$\b q$ & Vector of the $q_i$'s: $\b q = [q_1(t),\dots,q_N(t)]^\t$.\\
+	$\bs \omega$ & Vector of the $|\Omega_i|$'s: $\bs \omega = [|\Omega_1|,\dots,|\Omega_N|]^\t$.\\
 	$\bs \Omega$ & Matrix with $\bs \omega$ on its diagonal: $\bs \Omega = \diag (\bs \omega)$.\\
 	$\b A$ & Interaction matrix.\\
 	$\b A_{\Delta t}$ & Discrete interaction matrix for time step $\Delta t$.\\
 	$P_i(t)$ & Number of tracer's particles in compartment $i$ at time $t$.\\
 	$P$ & Mass of one tracer's particle.\\
+\end{tabular}
+\end{table}
+
+\subsection*{SDEs}
+\begin{table}[H]
+\begin{tabular}{ll}
+	$\delta(t)$ & Dirac delta function.\\
+	$\xi(t)$ & White noise.\\
+	$W(t)$ & Wiener process.\\
+	$\I$ & Indicate an Itô SDE or integral.\\
+	$\bI$ & Indicate a backward Itô SDE or integral.\\
+	$\esp{\cdot}$ & Expectation.\\
+	$p$ & Probability density function.\\
+	$p(x,t;y,s)$ & Probability density function with its dependence on position and time,\\& and the initial condition written explicitly.\\
+	$X_i$ & Numerical approximation of $x(t_i)$.\\
+	$\Delta W_i$ & $W(t_i)-W(t_{i-1})$.\\
+	$\Delta t_i$ & $t_i-t_{i-1}$.\\
+\end{tabular}
+\end{table}
+
+\subsection*{From clusters to compartments}
+\begin{table}[H]
+\begin{tabular}{ll}
+	$\nby$ & Number of grid cells in the $y$-direction.\\
+	$\nbz$ & Number of grid cells in the $z$-direction.\\
+	$N_{cell}$ & Total number of grid cells.\\
+	$m_{i,j}(T)$ & Probability that a particle ends up in grid cell $j$ after a time $T$\\ & if it was initially in grid cell $i$.\\
+	$\b M(T)$ & Adjacency matrix of the graph at time $T$, which is also the transition\\ & probability matrix.\\
+	$P_{i \rightarrow j}(T)$ & Number of particles in grid cell $j$ at time $T$, which were initially in grid cell $i$.\\
+	$P_0$ & Number of particles released in each grid cell.\\
 \end{tabular}
 \end{table}

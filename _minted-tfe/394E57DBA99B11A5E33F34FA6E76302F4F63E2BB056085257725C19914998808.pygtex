@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k+kt}{void} \PYG{n+nf}{ComputeTrajectories}\PYG{p}{(}\PYG{k}{const} \PYG{n}{AbstractAdvDiffProblem}\PYG{o}{\PYGZam{}} \PYG{n}{prob}\PYG{p}{,} \PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{string} \PYG{n}{model}\PYG{p}{,}
+						 \PYG{k+kt}{double} \PYG{n}{dt}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{T}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{Nloc}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{yStart}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{zStart}\PYG{p}{)}\PYG{p}{;}
+\PYG{k+kt}{void} \PYG{n+nf}{ComputeConcentration}\PYG{p}{(}\PYG{k}{const} \PYG{n}{AbstractAdvDiffProblem} \PYG{o}{\PYGZam{}}\PYG{n}{prob}\PYG{p}{,} \PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{string} \PYG{n}{model}\PYG{p}{,}
+						  \PYG{k+kt}{double} \PYG{n}{dt}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{T}\PYG{p}{,} \PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{string} \PYG{n}{estimator}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{Nloc}\PYG{p}{,}
+						  \PYG{k+kt}{double} \PYG{n}{yStart}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{zStart}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{nboxy}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{nboxz}\PYG{p}{)}\PYG{p}{;}
+\PYG{k+kt}{void} \PYG{n}{ComputeTransitionProbabilities}\PYG{p}{(}\PYG{k}{const} \PYG{n}{AbstractAdvDiffProblem}\PYG{o}{\PYGZam{}} \PYG{n}{prob}\PYG{p}{,}
+									\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{string} \PYG{n}{model}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{nboxy}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{nboxz}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{nyloc}\PYG{p}{,}
+									\PYG{k+kt}{int} \PYG{n}{nzloc}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{dt}\PYG{p}{,} \PYG{k+kt}{double} \PYG{n}{Times}\PYG{p}{[}\PYG{p}{]}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{nTimes}\PYG{p}{,}
+									\PYG{k+kt}{bool} \PYG{n}{binary}\PYG{p}{,} \PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{string} \PYG{n}{estimator} \PYG{o}{=} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{box}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\end{Verbatim}

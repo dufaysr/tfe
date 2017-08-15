@@ -19,7 +19,7 @@
 \RequirePackage{xcolor}
 \definecolor{UCLblue}{cmyk}{1.00,0.68,0.00,0.54}
 \definecolor{EPLblue}{cmyk}{0.70,0.30,0.00,0.00}
-\RequirePackage[top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm]{geometry}
+\RequirePackage[top=2.5cm,bottom=2.5cm,inner=4cm,outer=2.5cm]{geometry}
 \DeclareTextSymbol{\degre}{T1}{6}
 
 \RequirePackage{etoolbox}

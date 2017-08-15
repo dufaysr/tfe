@@ -24,10 +24,10 @@ class AbstractAdvDiffProblem
 	public:
 		AbstractAdvDiffProblem(double H0, double H1, double L0, double L1);
 		virtual ~AbstractAdvDiffProblem(){};
-		double getH0() const; // bottom boundary
-		double getH1() const; // top boundary 
-		double getL0() const; // left boundary
-		double getL1() const; // right boundary
+		double getH0() const;
+		double getH1() const; 
+		double getL0() const;
+		double getL1() const;
 		virtual SymMatrix getK(double y, double z) const=0; // diffusivity tensor
 		virtual LowerTriMatrix getB(double y, double z) const; // 2K = BB'
 		virtual Vec2 getU(double y, double z) const=0; // velocity vector
@@ -40,27 +40,27 @@ class AbstractAdvDiffProblem
 	\[
 		A = \begin{pmatrix} a & b \\ b & c \end{pmatrix},
 	\] 
-	where \cppcode{a}, \cppcode{b} and \cppcode{c} are of type double. The elements of \cppcode{A} are then accessed via the syntax \cppcode{A(i,j)} which uses one-based indexing. Hence, \cppcode{A(1,1) = a}, \cppcode{A(1,2) = A(2,1) = b} and \cppcode{A(2,2) = c}. The same syntax can be used to modify the elements of \cppcode{A}.
-	\item \mintinline[style=tango]{c++}{Vec2 getU(double y, double z)}: returns the velocity vector $\b u$ evaluated at $(y,z)$. The return value is of type \cppcode{Vec2}, a structure that stores a vector of size 2. The syntax \cppcode{Vec2 v(a,b)} is used to create the two-dimensional vector $v = (a,b)$. The elements of \cppcode{v} are accessed via the syntax \cppcode{v(i)} which also uses one-based indexing.
+	where \cppcode{a}, \cppcode{b} and \cppcode{c} are of type \cppcode{double}. The elements of \cppcode{A} are then accessed via the syntax \cppcode{A(i,j)} which uses one-based indexing. Hence, \cppcode{A(1,1) = a}, \cppcode{A(1,2) = A(2,1) = b} and \cppcode{A(2,2) = c}. The same syntax can be used to modify the elements of \cppcode{A}.
+	\item \mintinline[style=tango]{c++}{Vec2 getU(double y, double z)}: returns the velocity vector $\b u$ evaluated at $(y,z)$. The return value is of type \cppcode{Vec2}, a structure that stores two elements of type \cppcode{double}. The syntax \cppcode{Vec2 v(a,b)} is used to create the two-dimensional vector $v = (a,b)$. The elements of \cppcode{v} are accessed via the syntax \cppcode{v(i)} which also uses one-based indexing: \cppcode{v(1) = a} and \cppcode{v(2) = b}.
 \end{itemize}
 By default, the code computes the matrix $\b B$ using~\eqref{eq:B} and~\eqref{eq:Bstar}. This is done by the function \cppcode{LowerTriMatrix GetB(double y, double z)}. In some cases, it can be interesting to overload that definition of \cppcode{GetB}, which is possible since this function is virtual. The return value must be of type \cppcode{LowerTriMatrix}, which is a structure similar to \cppcode{SymMatrix} but is intended to store lower triangular $2\times2$ matrices instead of symmetric $2\times2$ matrices.
 
 Notice that the code as such implements the dimensional form of the transport model. However, it can be used to run simulations on the adimensional form of the transport model. To this end, it suffice to define the functions \cppcode{getK} and \cppcode{getU} accordingly: \cppcode{getK} shall return the inverse of the Peclet matrix, and \cppcode{getU} shall return the adimensional velocity vector.
 
-Once a class describing the problem is properly defined, three methods can be used to compute either the trajectories, the normalized concentration or the transition probability matrix. We call those methods the \textit{compute methods}. Their signatures are given in listing~\ref{listing:signature_compute}. Since those functions are well documented in the code, we do not provide any further explanations about how to use them here.
+Once a class describing the problem is properly defined, three methods can be used to compute either the trajectories, the normalized concentration or the transition probability matrix. We call those methods the \textit{compute methods}. Their signatures are given in listing~\ref{listing:signature_compute}. Since those functions are well documented in the code, we invite the interested reader to refer to the code for further explanations about those functions.
 \begin{listing}[ht!]
 \caption{Signatures of the \textit{compute methods}.}
 \label{listing:signature_compute}
 \begin{minted}[breaklines,tabsize=4,fontsize=\footnotesize,style=tango,escapeinside=||]{c++}
-void ComputeTrajectories(const AbstractAdvDiffProblem& prob, std::string model, double dt,
-						 double T, int Nloc, double yStart, double zStart);
-void ComputeConcentration(const AbstractAdvDiffProblem &prob, std::string model, double dt,
-						  double T, std::string estimator, int Nloc, double yStart,
-						  double zStart, int nboxy, int nboxz);
-void ComputeTransitionProbabilities(const AbstractAdvDiffProblem& prob, std::string model,
-									int nboxy, int nboxz, int nyloc, int nzloc, double dt,
-									double Times[], int nTimes, bool binary,
-									std::string estimator = "box");
+void ComputeTrajectories(const AbstractAdvDiffProblem& prob, std::string model, 
+						 double dt, double T, int Nloc, double yStart, double zStart);
+void ComputeConcentration(const AbstractAdvDiffProblem &prob, std::string model,
+						  double dt, double T, std::string estimator, int Nloc,
+						  double yStart, double zStart, int nboxy, int nboxz);
+void ComputeTransitionProbabilities(const AbstractAdvDiffProblem& prob,
+									std::string model, int nboxy, int nboxz, int nyloc,
+									int nzloc, double dt, double Times[], int nTimes,
+									bool binary, std::string estimator = "box");
 \end{minted}
 \end{listing}
 

@@ -30,7 +30,7 @@ Anticipating the fact that we do not consider any problem involving reactive phe
 		\b x(t_0) = \b x_0.
 	\end{cases}{}
 \]
-The most simple numerical scheme consistent with the backward-Itô interpretation of a SDE, the backward-Euler scheme, is then presented. The \textit{box-counting} method which allows to estimate the concentration from a set of particles trajectories completes the tools needed to implement an efficient code to numerically solve a two-dimensional advection-diffusion problem. The code is briefly presented in section~\ref{sec:thecode}. 
+The most simple numerical scheme consistent with the backward-Itô interpretation of a SDE, the backward Euler scheme, is then presented. The \textit{box-counting} method which allows to estimate the concentration from a set of particles trajectories completes the tools needed to implement an efficient code to numerically solve a two-dimensional advection-diffusion problem. The code is briefly presented in section~\ref{sec:thecode}. 
 
 Finally, the whole method is summarized in chapter~\ref{chap:method}, allowing to tackle a simple test problem in chapters~\ref{chap:overturnercirculation} and \ref{chap:bioverturner}. The test problem is chosen such that a two compartments decomposition of the domain is intuitively obvious. Satisfactorily, the method leads to the expected box decomposition. For that simple problem, a continuous-time compartment model satisfying the properties from chapter~\ref{chap:compartment} is build relatively easily using an ad-hoc method. A more general approach leading to a discrete-time compartment model is also proposed. Both models are assessed by comparing their results to the ones obtained by numerical simulations.
 
