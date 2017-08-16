@@ -38,28 +38,28 @@ Now, exchange between $\Omega^-$ and $\Omega^+$ is possible but only above $z^*$
 \begin{figure}[!htp]
 	\centering
 	\includegraphics[width=\textwidth]{fig/problem2box/w2box_timmermans.eps}
-	\caption{Isolines of the horizontal velocity $w$ for bi-overturner problems.}
+	\caption{Isolines of the vertical velocity $w$ for bi-overturner problems.}
 	\label{fig:w2box}
 \end{figure}
 
 \begin{figure}[!htp]
 	\centering
 	\includegraphics[width=\textwidth]{fig/problem2box/problem.eps}
-	\caption{Illustration of the decomposition of the domain into boxes corresponding to the nodes of the directed graph. The values of $K_{yy}$ are also shown for $\alpha = 0.6$, and the fictitious wall is represented by the black continuous line. Here the particle enters the exchange zone but finally stays in $\Omega^-$.}
+	\caption{Illustration of the decomposition of the domain into grid cells corresponding to the nodes of the directed graph. The values of $K_{yy}$ are also shown for $\alpha = 0.6$, and the fictitious wall is represented by the black continuous line.}
 	\label{fig:Kh2box}
 \end{figure}
 
 \begin{figure}[!htp]
 	\centering
 	\includegraphics[width=\textwidth]{fig/problem2box/traj_without_transfer5.eps}
-	\caption{Example of a particle trajectory in the bi-overturner model with $\alpha = 0.75$. The black cross represents the initial position whereas the black dot shows the final position. The simulation time is 200 years.}
+	\caption{Example of a particle trajectory in the bi-overturner model with $\alpha = 0.75$. The black cross represents the initial position whereas the black dot shows the final position. The simulation time is 200 years. Here the particle enters the exchange zone but finally stays in $\Omega^-$.}
 	\label{fig:withouttransfer}
 \end{figure}
 
 \begin{figure}[!htp]
 	\centering
 	\includegraphics[width=\textwidth]{fig/problem2box/traj_with_transfer2.eps}
-	\caption{Example of a particle trajectory in the bi-overturner model with $\alpha = 0.75$. The black cross represents the initial position whereas the black dot shows the final position. The simulation time is 200 years.}
+	\caption{Example of a particle trajectory in the bi-overturner model with $\alpha = 0.75$. The black cross represents the initial position whereas the black dot shows the final position. The simulation time is 200 years. Here the particle enters the exchange zone and finally goes in $\Omega^+$.}
 	\label{fig:withtransfer}
 \end{figure}
 When $\alpha = 1$, the obvious compartmental model is made of the two compartments $\Omega^-$ and $\Omega^+$ which do not communicate with each other. Suppose that different amounts of passive tracer are released into $\Omega^-$ and $\Omega^+$ at a given time; the concentration in each compartment tends to become uniform in time due to diffusion, but the concentration in $\Omega^-$ depends only on the initial quantity of tracer released in $\Omega^-$ and similarly for the concentration in $\Omega^+$. At the contrary, when $\alpha = 0$ the concentration tends to become uniform over the whole domain when time goes to infinity. Hence, we can expect three types of partitioning to be dominant at different time scales: a three-communities partitioning with left and right compartments and an intermediate zone in between; a two-communities partitioning corresponding to $\Omega^-$ and $\Omega^+$; and finally a trivial partitioning with one single community for very long time scales. For intermediate values of $\alpha$, we expect a behavior similar to the case $\alpha = 0$ when $\alpha$ is close to $0$. When $\alpha$ is close to $1$ but still different from $1$, exchange can still happen between $\Omega^-$ and $\Omega^+$. However, in terms of communities, we expect the two-community partitioning to be dominant for long time scales.  
@@ -176,13 +176,13 @@ The point is that those three cases could never be rendered exactly by a compart
 \begin{figure}[!htp]
 	\centering
 	\includegraphics[width = \textwidth]{fig/problem2box/CI_init.eps}
-	\caption{Illustration.}
+	\caption{Illustration of the three different initial repartitions of the tracer's particles.}
 	\label{fig:CI_init}
 \end{figure}
 
 \begin{figure}[!htp]
 	\centering
-	\includegraphics[scale=1]{fig/problem2box/CI_1000years.eps}
+	\includegraphics[width=\textwidth]{fig/problem2box/CI_1000years.eps}
 	\caption{Comparison of the compartment model solution with the numerical solution for the initial condition $C_1(0) = 2\bar C$.}
 	\label{fig:CI_evol}
 \end{figure}
@@ -321,7 +321,7 @@ This section presents a procedure to numerically estimate the discrete transitio
 
 \begin{figure}[!htp]
 	\centering
-	\includegraphics[scale=1]{fig/problem2box/C1vsC1tilde1_1000years2.eps}
-	\caption{Comparison of the compartment model solution with the numerical solution for the initial condition $C_1(0) = 2\bar C$.}
+	\includegraphics[width=\textwidth]{fig/problem2box/C1vsC1tilde1_1000years2.eps}
+	\caption{Comparison of the different compartment model solutions with the numerical solution for the initial condition $C_1(0) = 2\bar C$.}
 	\label{fig:comparison_comp-real1}
 \end{figure}

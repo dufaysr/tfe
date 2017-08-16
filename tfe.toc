@@ -10,7 +10,7 @@
 \contentsline {chapter}{\numberline {2}The transport model}{11}{chapter.2}
 \contentsline {section}{\numberline {2.1}The reactive transport equation}{11}{section.2.1}
 \contentsline {section}{\numberline {2.2}The continuity equation and the Boussinesq approximation}{12}{section.2.2}
-\contentsline {section}{\numberline {2.3}Properties of the solution of the advection-diffusion equation}{12}{section.2.3}
+\contentsline {section}{\numberline {2.3}Properties of the solution of the reactive transport equation}{12}{section.2.3}
 \contentsline {chapter}{\numberline {3}Structure of a compartment model for tracer transport}{15}{chapter.3}
 \contentsline {section}{\numberline {3.1}Formulation of a compartment model}{15}{section.3.1}
 \contentsline {section}{\numberline {3.2}Properties of the compartment model solution}{17}{section.3.2}
@@ -29,43 +29,44 @@
 \contentsline {paragraph}{Remark}{35}{section*.23}
 \contentsline {subsection}{\numberline {4.1.6}Numerical methods}{35}{subsection.4.1.6}
 \contentsline {paragraph}{Remark}{38}{section*.24}
+\contentsline {subsubsection}{Strong and Weak convergence of the schemes}{38}{section*.25}
 \contentsline {subsection}{\numberline {4.1.7}Dealing with no-through boundary conditions}{38}{subsection.4.1.7}
-\contentsline {subsection}{\numberline {4.1.8}Computation of the concentration}{38}{subsection.4.1.8}
+\contentsline {subsection}{\numberline {4.1.8}Computation of the concentration}{39}{subsection.4.1.8}
 \contentsline {section}{\numberline {4.2}Lagrangian equations corresponding to the advection-diffusion transport model}{39}{section.4.2}
-\contentsline {section}{\numberline {4.3}The code}{40}{section.4.3}
-\contentsline {chapter}{\numberline {5}From clusters to compartments: the method}{43}{chapter.5}
-\contentsline {paragraph}{Remark}{43}{section*.25}
-\contentsline {section}{\numberline {5.1}Description of the method}{43}{section.5.1}
-\contentsline {section}{\numberline {5.2}Dealing with the time scales}{44}{section.5.2}
-\contentsline {section}{\numberline {5.3}Use of the stability software}{45}{section.5.3}
-\contentsline {chapter}{\numberline {6}The "overturner" circulation model}{47}{chapter.6}
-\contentsline {section}{\numberline {6.1}An idealized velocity field}{47}{section.6.1}
-\contentsline {chapter}{\numberline {7}Application: the bi-overturner problem}{51}{chapter.7}
-\contentsline {section}{\numberline {7.1}The bi-overturner class of problems}{51}{section.7.1}
-\contentsline {section}{\numberline {7.2}Application of the stability method}{55}{section.7.2}
-\contentsline {section}{\numberline {7.3}Building a compartment model}{60}{section.7.3}
-\contentsline {subsection}{\numberline {7.3.1}Limitations of the compartment model}{61}{subsection.7.3.1}
-\contentsline {subsection}{\numberline {7.3.2}Continuous-time compartment model}{62}{subsection.7.3.2}
-\contentsline {subsection}{\numberline {7.3.3}Discrete-time compartment model}{64}{subsection.7.3.3}
-\contentsline {subsubsection}{The method}{64}{section*.45}
-\contentsline {subsubsection}{Results}{64}{section*.46}
-\contentsline {chapter}{Conclusion}{66}{figure.caption.47}
-\contentsline {chapter}{Bibliography}{69}{chapter*.49}
-\contentsline {chapter}{List of Figures}{73}{chapter*.50}
-\contentsline {chapter}{Appendix}{74}{chapter*.50}
-\contentsline {chapter}{\numberline {A}Stochastic Differential Equations}{75}{appendix.A}
-\contentsline {section}{\numberline {A.1}Stieltjes integral}{75}{section.A.1}
-\contentsline {section}{\numberline {A.2}Mean-square limit}{75}{section.A.2}
-\contentsline {chapter}{\numberline {B}Test cases to assess the implementation of the Lagrangian solver}{77}{appendix.B}
-\contentsline {section}{\numberline {B.1}Governing equations}{77}{section.B.1}
-\contentsline {section}{\numberline {B.2}An idealized model}{78}{section.B.2}
-\contentsline {subsection}{\numberline {B.2.1}Test case 1 : infinite domain}{78}{subsection.B.2.1}
-\contentsline {subsection}{\numberline {B.2.2}Test case 2 : semi-infinite domain}{79}{subsection.B.2.2}
-\contentsline {section}{\numberline {B.3}Analytical solution and properties}{79}{section.B.3}
-\contentsline {subsection}{\numberline {B.3.1}Green's function}{79}{subsection.B.3.1}
-\contentsline {subsection}{\numberline {B.3.2}Test case 1}{80}{subsection.B.3.2}
-\contentsline {subsection}{\numberline {B.3.3}Test case 2}{81}{subsection.B.3.3}
-\contentsline {section}{\numberline {B.4}Validation of the numerical solver}{81}{section.B.4}
-\contentsline {subsection}{\numberline {B.4.1}Test case 1}{82}{subsection.B.4.1}
-\contentsline {subsection}{\numberline {B.4.2}Test case 2}{84}{subsection.B.4.2}
-\contentsline {chapter}{\numberline {C}The streamfunction}{87}{appendix.C}
+\contentsline {section}{\numberline {4.3}The code}{41}{section.4.3}
+\contentsline {chapter}{\numberline {5}From clusters to compartments: the method}{45}{chapter.5}
+\contentsline {paragraph}{Remark}{45}{section*.26}
+\contentsline {section}{\numberline {5.1}Description of the method}{45}{section.5.1}
+\contentsline {section}{\numberline {5.2}Dealing with the time scales}{46}{section.5.2}
+\contentsline {section}{\numberline {5.3}Use of the stability software}{47}{section.5.3}
+\contentsline {chapter}{\numberline {6}The "overturner" circulation model}{49}{chapter.6}
+\contentsline {section}{\numberline {6.1}An idealized velocity field}{49}{section.6.1}
+\contentsline {chapter}{\numberline {7}Application: the bi-overturner problem}{53}{chapter.7}
+\contentsline {section}{\numberline {7.1}The bi-overturner class of problems}{53}{section.7.1}
+\contentsline {section}{\numberline {7.2}Application of the stability method}{56}{section.7.2}
+\contentsline {section}{\numberline {7.3}Building a compartment model}{61}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}Limitations of the compartment model}{62}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}Continuous-time compartment model}{63}{subsection.7.3.2}
+\contentsline {subsection}{\numberline {7.3.3}Discrete-time compartment model}{65}{subsection.7.3.3}
+\contentsline {subsubsection}{The method}{65}{section*.46}
+\contentsline {subsubsection}{Results}{65}{section*.47}
+\contentsline {chapter}{Conclusion}{67}{figure.caption.48}
+\contentsline {chapter}{Bibliography}{71}{chapter*.50}
+\contentsline {chapter}{List of Figures}{75}{chapter*.51}
+\contentsline {chapter}{Appendix}{76}{chapter*.51}
+\contentsline {chapter}{\numberline {A}Stochastic Differential Equations}{77}{appendix.A}
+\contentsline {section}{\numberline {A.1}Stieltjes integral}{77}{section.A.1}
+\contentsline {section}{\numberline {A.2}Mean-square limit}{77}{section.A.2}
+\contentsline {chapter}{\numberline {B}Test cases to assess the implementation of the Lagrangian solver}{79}{appendix.B}
+\contentsline {section}{\numberline {B.1}Governing equations}{79}{section.B.1}
+\contentsline {section}{\numberline {B.2}An idealized model}{80}{section.B.2}
+\contentsline {subsection}{\numberline {B.2.1}Test case 1 : infinite domain}{80}{subsection.B.2.1}
+\contentsline {subsection}{\numberline {B.2.2}Test case 2 : semi-infinite domain}{81}{subsection.B.2.2}
+\contentsline {section}{\numberline {B.3}Analytical solution and properties}{81}{section.B.3}
+\contentsline {subsection}{\numberline {B.3.1}Green's function}{81}{subsection.B.3.1}
+\contentsline {subsection}{\numberline {B.3.2}Test case 1}{82}{subsection.B.3.2}
+\contentsline {subsection}{\numberline {B.3.3}Test case 2}{83}{subsection.B.3.3}
+\contentsline {section}{\numberline {B.4}Validation of the numerical solver}{83}{section.B.4}
+\contentsline {subsection}{\numberline {B.4.1}Test case 1}{84}{subsection.B.4.1}
+\contentsline {subsection}{\numberline {B.4.2}Test case 2}{86}{subsection.B.4.2}
+\contentsline {chapter}{\numberline {C}The streamfunction}{89}{appendix.C}

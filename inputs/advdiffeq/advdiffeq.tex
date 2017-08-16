@@ -5,7 +5,7 @@ The evolution of the concentration of a particular constituent (or tracer) in an
 \begin{equation}\label{eq:ADR}
 	\frac{\partial C}{\partial t} = q-\nabla \cdot \left(\b uC - \b K \nabla C\right).
 \end{equation}
-In this equation, $C$ is the concentration of the constituent in water, expressed in $\rm{kg/m^d}$, where $d$ is the dimension of the problem; $t$ is the time, expressed in seconds; $q$ is the local net production (i.e. production - destruction) rate of the constituent, expressed in $\rm{kg/(m^ds)}$; $\b u$ is the velocity vector whose units are $\rm{m/s}$; and $\b K$ is the \textit{diffusivity tensor}, expressed in $\rm{m^2/s}$. Without loss of generality, we can assume $\b K$ to be symmetric. This is essentially because the impact of the anti-symmetric part of $\b K$, if any, may be viewed as additional advection. More details may be found in appendix A of \cite{deleersnijder2001concept}. Of course, the symmetric tensor $\b K$ must then be positive-definite in order to represent truly diffusive processes, namely phenomena which tend, at any time and location, to homogenize the concentration of any constituent.
+In this equation, $C$ is the concentration of the constituent in water, expressed in $\rm{kg/m^d}$, where $d$ is the dimension of the problem; $t$ is the time, expressed in seconds; $q$ is the local net production (i.e. production - destruction) rate of the constituent, expressed in $\rm{kg/(m^ds)}$; $\b u$ is the velocity vector whose units are $\rm{m/s}$; and $\b K$ is the \textit{diffusivity tensor}, whose entries are expressed in $\rm{m^2/s}$. Without loss of generality, we can assume $\b K$ to be symmetric. This is essentially because the impact of the anti-symmetric part of $\b K$, if any, may be viewed as additional advection. More details may be found in appendix A of \cite{deleersnijder2001concept}. Of course, the symmetric tensor $\b K$ must then be positive-definite in order to represent truly diffusive processes, namely phenomena which tend, at any time and location, to homogenize the concentration of any constituent.
 
 In equation~\eqref{eq:ADR}, $\nabla \cdot (\b u C)$ is the \textit{advective} term, $\nabla \cdot (\b K \nabla C)$ is the \textit{diffusive} term, and $q$ is often called the \textit{source/sink} term. When $q=0$, equation~\eqref{eq:ADR} becomes the \textit{advection-diffusion} equation:
 \begin{equation}\label{eq:C_PDE_vec}
@@ -24,7 +24,7 @@ must be satisfied everywhere on the domain. In equation~\eqref{eq:continuity}, $
 \begin{equation} \label{eq:bouss_hyp}
 	\frac{\Delta \rho}{\bar{\rho}} \ll 1.
 \end{equation}
-To assess the impact of this assumption on the continuity equation, we consider its dimensionless form. Let $U$, $T$ and $X$ be relevant velocity-, time- and space-scales. We use those parameters to \textit{scale} the flow variables, leading to the following dimensionless variables (denoted by primes):
+To assess the impact of this assumption on the continuity equation, we consider its dimensionless form. Let $U$, $T$ and $X$ be relevant velocity-, time- and space-scales. We use those parameters to scale the flow variables, leading to the following dimensionless variables (denoted by primes):
 \begin{equation}
 	\rho' = \frac{\rho - \bar{\rho}}{\Delta \rho}, \quad \b u' = \frac{\b u}{U}, \quad t' = \frac{t}{T}, \quad \mbox{and} \quad \b x' = \frac{\b x}{X},
 \end{equation}
@@ -41,7 +41,7 @@ By taking~\eqref{eq:bouss_hyp} into account, this equation simplifies to $\nabla
 	\nabla \cdot \b u = 0.
 \end{equation}
 
-\section{Properties of the solution of the advection-diffusion equation}\label{sec:propcontinuous}
+\section{Properties of the solution of the reactive transport equation}\label{sec:propcontinuous}
 In this section, we show the most important properties related to the reactive transport equation. To this end, let us first introduce some notations and terminology. Let $\Omega$ denote the (time independent) domain of interest and $\partial \Omega$ its boundary. Let $\hat{\b n}$ denote the unit vector, normal to $\partial \Omega$ and oriented towards the exterior of the domain. The volume of the domain is
 \begin{equation}
 	|\Omega| = \int_{\Omega} \rm d\Omega.	
@@ -52,9 +52,14 @@ The mean tracer concentration over the domain is
 \end{equation}
 and the variance of the concentration over $\Omega$ is expressed as
 \begin{equation} \label{eq:sigma2continuous}
- 	\sigma^2(t) = \frac{1}{|\Omega|} \int_{\Omega} \left(\hat C(\b x,t)\right)^2 \rm d\Omega.
+ 	\sigma^2(t) = \frac{1}{|\Omega|} \int_{\Omega} \left(\hat C(\b x,t)\right)^2 \rm d\Omega,
 \end{equation}
-This quantity is a measure of the concentration inhomogeneity.
+where 
+\begin{equation} \label{eq:Chat}
+	\hat C(\b x,t) := C(\b x,t) - \bar C	
+\end{equation}
+denotes the deviation of the concentration with respect to $\bar C$.
+The variance is a measure of the concentration inhomogeneity.
 The mean net production rate is denoted
 \begin{equation}
 	\bar q(t) = \frac{1}{|\Omega|}\int_\Omega q\ \rm d\Omega.
@@ -117,7 +122,7 @@ Therefore, $\Phi=0$ if the domain is isolated.
 	For a passive tracer in an isolated domain, the variance of the concentration decreases monotonously with time until the concentration is everywhere equal to the mean concentration. In other words, the tracer concentration gets more and more homogeneous with time until the equilibrium state is reached, which happens when the concentration is constant and uniform everywhere on $\Omega$.
 \end{property}
 \begin{proof}
-	By corollary~\ref{prop:mass-is-constant}, the mean concentration $\bar C$ is constant. Let $\hat C(\b x,t) := C(\b x,t) - \bar C$ denote the deviation of the concentration with respect to $\bar C$. It is easy to show that $\bar C$ satisfies the advection diffusion equation:
+	By corollary~\ref{prop:mass-is-constant}, the mean concentration $\bar C$ is constant. Let $\hat C(\b x,t)$ be defined as in~\eqref{eq:Chat}. It is easy to show that $\bar C$ satisfies the advection diffusion equation:
 	 \begin{equation}
 	 	0 = \frac{\partial \bar C}{\partial t} = -\nabla \cdot \left(\b u \bar C - \b K \nabla \bar C\right) = - \bar C \nabla \cdot (\b u - 0) = 0,
 	 \end{equation}
