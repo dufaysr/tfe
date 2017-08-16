@@ -1,5 +1,5 @@
 %!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
-\chapter{From clusters to compartments} \label{chap:method}
+\chapter{From clusters to compartments: the method} \label{chap:method}
 In this chapter, we formalize the method used to go from the numerical implementation of the particle trajectories to the clustering allowing to delineate the compartments in a box model. In other words, it is explained how to use a clustering algorithm on an advection-diffusion problem, and then how to choose which communities found by the stability method to use as compartments in a box model. 
 
 The underpinning idea of the method is that communities found on the dynamic of the flow could be relevant compartments for the box model. The idea makes sense although it is far from being obvious that the communities are indeed the compartments that we seek. In a first instance, we should only check that, at least in some cases, community detection leads to relevant partitions. In the next chapter, a test problem is build for which we know in advances what compartments to expect, and the method is tested on that problem.

@@ -1,12 +1,11 @@
 %!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
-\section{The streamfunction} \label{app:streamfunction}
 The interest of the streamfunction comes from the following property.
-\begin{property} \label{prop:streamfunction}
+\begin{propertyapp} \label{prop:streamfunction}
 	For any 3-dimensional potential vector $\b a(x,y,z)$ whose second partial derivatives are continuous,
 	\begin{equation}
 		\nabla \cdot (\nabla \times \b a) = 0.
 	\end{equation}
-\end{property}
+\end{propertyapp}
 \begin{proof}
 	The proof is quite straightforward :
 	\begin{align*}
@@ -45,9 +44,9 @@ Thus,
 \end{equation}
 is path-independent.
 
-\begin{property} \label{prop:streamfunction-tangent}
+\begin{propertyapp} \label{prop:streamfunction-tangent}
 	In two dimensions, the curves along which $\psi$ is constant (i.e. the \textit{isolines} of  $\psi$) are exactly the \textit{streamlines} of the flow, namely the family of curves that are instantaneously tangent to the velocity vector.
-\end{property}
+\end{propertyapp}
 \begin{proof}
 	Let an isoline of $\psi$ be parametrized by $s \mapsto \b x_S(s) = (y_S(s),z_S(s))$. The fact that $\psi$ is constant along that curve implies that $\rm d\psi_S = (\partial \psi/\partial y)\rm dy_S + (\partial \psi/\partial z) \rm dz_S = \nabla \psi \cdot \rm d \b x_S = 0$. This shows that the vector $\nabla \psi$ is normal to the curve $\b x_S(s)$. Hence, showing that $\b x_S(s)$ is everywhere tangent to $\b u$ is equivalent to showing that $\b u \cdot \nabla \psi = 0$ everywhere. The latter is straightforward using relation~\eqref{eq:u-psi} :
 \begin{equation}
@@ -56,9 +55,9 @@ is path-independent.
 which concludes the proof.
 \end{proof}
 
-\begin{property} \label{prop:streamfunction-flowrate}
+\begin{propertyapp} \label{prop:streamfunction-flowrate}
 	In two dimensions, the \textit{volume flow rate} between two streamlines of values $\psi_1$ and $\psi_2$ is equal to the difference of those streamlines, $\psi_1 - \psi_2$.
-\end{property}
+\end{propertyapp}
 \begin{proof}
 	Consider two infinitely close points $\b x_1 = (y_1,\, z_1)$ and $\b x_1 + \rm d \b x = (y_1 + \rm dy,\, z_1 + \rm dz)$. At those points, the streamfunction has values $\psi(y_1,z_1) = \psi_1$ and $\psi(y_1+\rm dy,z_1 + \rm dz) = \psi_1 + \rm d\psi$. Let us now consider the volume flow rate $\rm dq$ across the infinitesimal segment $[\b x_1,\, \b x_1 + \rm d \b x]$, positive in the right-hand side direction of the segment if the latter is directed from $\b x_1$ to $\b x_1 + \rm d \b x$. It is equal to $\b u \cdot \hat{\b{n}}$, where $\hat{\b{n}} = (\rm dz,\,-\rm dy)$ is the unit vector normal to the segment, oriented in the right-hand side direction. Hence, $\rm dq = v \rm dz - w \rm dy$, which, using relation~\eqref{eq:u-psi}, amounts to
 	\begin{equation}

@@ -67,21 +67,8 @@
 \newcommand{\neutralize}[1]{\expandafter\let\csname c@#1\endcsname\count@}
 \makeatother
 \newtheorem{property}{Property}[section]
+\newtheorem{propertyapp}{Property}[chapter]
 \newtheorem{cor}{Corollary}
-
-\newenvironment{propertybis}[1]{
-    \renewcommand{\theproperty}{\ref{#1}$'$}%
-    \neutralize{property}\phantomsection
-    \begin{property}}
-    {\end{property}
-}
-
-\newenvironment{propertyter}[1]{
-    \renewcommand{\theproperty}{\ref{#1}$''$}%
-    \neutralize{property}\phantomsection
-    \begin{property}}
-    {\end{property}
-}
 
 \newenvironment{corollary}[1]{
     \renewcommand{\thecor}{\ref{#1}}%

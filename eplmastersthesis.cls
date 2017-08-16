@@ -46,8 +46,7 @@
 	\begin{flushright}
 	    \color{UCLblue} \fontfamily{phv} \selectfont
 	    {\huge \@title} \\
-	    \vspace*{12pt}
-        \ifdef{\@subtitle}{\Large \@subtitle}{$ $} \\
+	    \ifdef{\@subtitle}{\vspace*{12pt} \Large \@subtitle}{$ $} \\
 	    \vspace*{12pt}
 		\large Dissertation presented by \\
 		\textbf{\@author}
@@ -72,7 +71,7 @@
 		Academic year \@years \\
 	\end{flushright}
 	\vspace*{6pt}
-	\color{EPLblue}{\rule{18.5cm}{8.25cm}}
+	\color{EPLblue}{\rule{18.5cm}{8cm}}
   \end{titlepage}
 }
 

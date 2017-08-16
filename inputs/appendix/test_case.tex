@@ -1,9 +1,8 @@
 %!TEX root = /home/renaud/Documents/EPL/tfe/latex/tfe.tex
-\section{Test case to assess the implementation of the overturner model} \label{app:test_case}
 Two test cases adapted from \textit{Eric Deleersnijder}'s working paper \cite{deleersnijder2011test} are presented here: after introducing the problems, the analytic solutions are computed as well as their main properties. The code is then run on those problems, and the numerical solution and its properties are compared to the analytical ones. Rather than a validation of the numerical solver, this can be considered as a \textit{sanity check}.
 
 %----------------------------------GOVERNING EQUATIONS--------------------------------------------------------%
-\subsection{Governing equations}
+\section{Governing equations}
 Let us consider a water domain, whose width is denoted $B(\b{x},t)$, where $\b{x} = (y,z)$ is the position vector and $t$ is the time. The continuity equation is
 \begin{equation} \label{eq:testcase:continuity}
 	\frac{\partial B}{\partial t} + \nabla \cdot (B\b{u}) = 0,
@@ -21,7 +20,7 @@ Equation~\eqref{eq:testcase:conservative} is the so-called conservative form of 
 \end{equation}
 
 %----------------------------------AN IDEALISED MODEL----------------------------------------------------------------------%
-\subsection{An idealized model}
+\section{An idealized model}
 For our test case to be interesting, we must be able to compute its analytical solution. Accordingly, we make some simplifying assumptions which will allow us to compute the solution analytically.
 First, we assume a constant width $B$ and a constant velocity field
 \begin{equation} \label{eq:testcase:velocity}
@@ -61,7 +60,7 @@ A part of the physical meaning of the model is lost but this makes representatio
 
 
 %------------------------------------PARAMETERS FOR TEST CASE 1--------------------------------------------------------------%
-\subsubsection{Test case 1 : infinite domain}
+\subsection{Test case 1 : infinite domain}
 The first (an most simple) test case consists in considering an infinite domain, i.e.
 \begin{equation} \label{eq:testcase:domain}
 	-\infty < y,\, z < \infty,
@@ -82,7 +81,7 @@ Hence, in both the $y$- and $z$-directions, the transport is neither dominated b
 Finally, $J = 10\,000$ particles are released at $t=0$ at the location $(y_1,z_1) = (0,0)$.
 
 %------------------------------------PARAMETERS FOR TEST CASE 2--------------------------------------------------------------%
-\subsubsection{Test case 2 : semi-infinite domain}
+\subsection{Test case 2 : semi-infinite domain}
 Another interesting case is to consider a semi-infinite domain with a wall at $z=0$ :
 \begin{equation}
 	-\infty < y < \infty,\quad 0 < z < \infty.
@@ -97,9 +96,9 @@ and
 \end{equation}
 Notice the choice  of $K_{zz}$ : it is chosen $10^3$ times larger than the value chosen for test case 1. The goal here is to assess that the boundary condition is well handled by the solver. Since $w=0$, only the vertical diffusivity could possibly drive the particles towards the wall. By increasing $K_{zz}$, we ensure that more particles will bounce against the wall, which is relevant in this context. $J = 10\,000$ particles are released at $t=0$ at the location $(y_1,z_1) = (0,H)$.
 
-\subsection{Analytical solution and properties}
+\section{Analytical solution and properties}
 %------------------------------------------------Analytic GREEN's FUNCTION ---------------------------------------------%
-\subsubsection{Green's function}
+\subsection{Green's function}
 In order to build the analytical solution of the problem, we need to compute the Green's function associated to this particular problem. We derive the Green's function $G$ associated to test case 1. We will show later how this function can be used to compute the concentration for both test case 1 and test case 2. $\G$ is zero for $t<t'$ and is the solution of
 \begin{equation} \label{eq:testcase_green}
 	\begin{cases}
@@ -130,7 +129,7 @@ The variance of the solution is
 \end{equation}
 
 %------------------------------------------------Analytic TEST CASE 1 ---------------------------------------------%
-\subsubsection{Test case 1}
+\subsection{Test case 1}
 The analytical solution of test case 1 is now obtained with the help of the Green's function derived above by computing the convolution between $G$ and the source terms :
 \begin{align}
 	C(\b x,t) &= \int_{0}^{t} \int_{\R[2]} G(\b x - \b x',t,t') J \delta(t) \delta(\b x- \b x_1) \rm d \b{x}' \rm dt'\nonumber\\
@@ -165,7 +164,7 @@ Finally, the variance of the solution is
 where property~\eqref{eq:testcase:propvar} is used.
 
 %------------------------------------------------Analytic TEST CASE 2 ---------------------------------------------%
-\subsubsection{Test case 2}
+\subsection{Test case 2}
 To compute the solution to test case 2, a little trick must be applied. Consider the problem on an infinite domain with two sudden point sources of equal intensity located at $z = H$ and $z = -H$. By symmetry, one can see that the concentration of that problem in the region $[-\infty, \infty] \times [0, \infty]$ is precisely the concentration of test case 2. Hence, we can use the Green's function $G$ derived for test case 1 to compute the concentration. In this case, the convolution has to be performed with two point sources :
 \begin{align}
 	C(\b x,t) &= \int_{0}^{t} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} J \delta(t') \delta(y'- y_1)\left[\delta(z'-z_1)+\delta(z'+z_1)\right] G(y-y',z-z',t,t') \rm dy' \rm dz' \rm dt' \nonumber\\
