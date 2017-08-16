@@ -1,5 +1,7 @@
 % EPL master thesis cover template
 \documentclass{eplmastersthesis}
+\usepackage{etoolbox}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{MYFANCY}}{}{}
 \input{misc/packages}
 \input{misc/commands}
 \input{misc/formatting}

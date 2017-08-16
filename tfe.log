@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.5.22)  16 AUG 2017 12:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.5.22)  16 AUG 2017 16:40
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1309,11 +1309,22 @@ Package tocbibind Note: Using chapter style headings, unless overridden.
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
-))
+)
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/euscript.sty
 Package: euscript 2009/06/22 v3.00 Euler Script fonts
 LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
 (Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip99
+\f@ncyO@elh=\skip100
+\f@ncyO@erh=\skip101
+\f@ncyO@olh=\skip102
+\f@ncyO@orh=\skip103
+\f@ncyO@elf=\skip104
+\f@ncyO@erf=\skip105
+\f@ncyO@olf=\skip106
+\f@ncyO@orf=\skip107
 )
 (/home/renaud/Documents/EPL/tfe/latex/misc/commands.tex
 \c@property=\count197
@@ -1329,28 +1340,28 @@ runsystem(rm "tfe.aex")...executed.
 (/home/renaud/Documents/EPL/tfe/latex/tfe.aux)
 \openout1 = `tfe.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 32.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 30.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 32.
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1358,10 +1369,10 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
-LaTeX Info: Redefining \degres on input line 30.
-LaTeX Info: Redefining \dots on input line 30.
-LaTeX Info: Redefining \up on input line 30.
-LaTeX Info: Redefining \microtypecontext on input line 30.
+LaTeX Info: Redefining \degres on input line 32.
+LaTeX Info: Redefining \dots on input line 32.
+LaTeX Info: Redefining \up on input line 32.
+LaTeX Info: Redefining \microtypecontext on input line 32.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1440,15 +1451,15 @@ e
 
 \symgns@font=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
-(Font)                  TS1/lmr/m/n --> TS1/lmr/bx/n on input line 30.
-Package gensymb Info: Math companion symbols declared on input line 30.
-LaTeX Info: Redefining \degree on input line 30.
-LaTeX Info: Redefining \celsius on input line 30.
+(Font)                  TS1/lmr/m/n --> TS1/lmr/bx/n on input line 32.
+Package gensymb Info: Math companion symbols declared on input line 32.
+LaTeX Info: Redefining \degree on input line 32.
+LaTeX Info: Redefining \celsius on input line 32.
 Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 30.
-LaTeX Info: Redefining \ohm on input line 30.
-Package gensymb Info: Using \textohm for \ohm on input line 30.
-Package gensymb Info: Using \textmu for \micro on input line 30.
+erthousand on input line 32.
+LaTeX Info: Redefining \ohm on input line 32.
+Package gensymb Info: Using \textohm for \ohm on input line 32.
+Package gensymb Info: Using \textmu for \micro on input line 32.
 ABD: EveryShipout initializing macros
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.13}).
@@ -1458,7 +1469,7 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box81
-Package hyperref Info: Link coloring OFF on input line 30.
+Package hyperref Info: Link coloring OFF on input line 32.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -1467,9 +1478,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count272
 )
-LaTeX Info: Redefining \ref on input line 30.
-LaTeX Info: Redefining \pageref on input line 30.
-LaTeX Info: Redefining \nameref on input line 30.
+LaTeX Info: Redefining \ref on input line 32.
+LaTeX Info: Redefining \pageref on input line 32.
+LaTeX Info: Redefining \nameref on input line 32.
 
 (/home/renaud/Documents/EPL/tfe/latex/tfe.out)
 (/home/renaud/Documents/EPL/tfe/latex/tfe.out)
@@ -1516,9 +1527,9 @@ LaTeX Info: Redefining \nameref on input line 30.
 File: fig/EPL_TFEbanner.jpg Graphic file (type jpg)
 
 <use fig/EPL_TFEbanner.jpg>
-Package pdftex.def Info: fig/EPL_TFEbanner.jpg used on input line 37.
+Package pdftex.def Info: fig/EPL_TFEbanner.jpg used on input line 39.
 (pdftex.def)             Requested size: 526.36522pt x 256.07608pt.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 37.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 39.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
@@ -1527,35 +1538,35 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `phv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 37.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 39.
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 37.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 39.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 37.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 39.
 
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 37.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 39.
 
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 37.
+(Font)              <10.95> on input line 39.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 37.
+(Font)              <8> on input line 39.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 37.
-LaTeX Font Info:    Try loading font information for U+msa on input line 37.
+(Font)              <6> on input line 39.
+LaTeX Font Info:    Try loading font information for U+msa on input line 39.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1563,7 +1574,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 37.
+LaTeX Font Info:    Try loading font information for U+msb on input line 39.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1571,17 +1582,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 37.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 39.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 37.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 39.
 LaTeX Font Info:    Font shape `T1/phv/bx/sc' in size <12> not available
-(Font)              Font shape `T1/phv/b/sc' tried instead on input line 37.
+(Font)              Font shape `T1/phv/b/sc' tried instead on input line 39.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 37.
+(Font)              <12> on input line 39.
  [1
 
 
@@ -2185,26 +2196,6 @@ File: fig/problem2box/stab_a0-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: fig/problem2box/stab_a0-eps-converted-to.pdf used on i
 nput line 107.
 (pdftex.def)             Requested size: 288.81021pt x 281.12997pt.
-Package epstopdf Info: Source file: <fig/problem2box/cluster_a25_2_.eps>
-(epstopdf)                    date: 2017-07-05 09:15:48
-(epstopdf)                    size: 98206 bytes
-(epstopdf)             Output file: <fig/problem2box/cluster_a25_2_-eps-convert
-ed-to.pdf>
-(epstopdf)                    date: 2017-07-05 10:58:31
-(epstopdf)                    size: 12263 bytes
-(epstopdf)             Command: <epstopdf --outfile=fig/problem2box/cluster_a25
-_2_-eps-converted-to.pdf fig/problem2box/cluster_a25_2_.eps>
-(epstopdf)             \includegraphics on input line 114.
-Package epstopdf Info: Output file is already uptodate.
-
-<fig/problem2box/cluster_a25_2_-eps-converted-to.pdf, id=1342, 502.87875pt x 22
-7.85126pt>
-File: fig/problem2box/cluster_a25_2_-eps-converted-to.pdf Graphic file (type pd
-f)
- <use fig/problem2box/cluster_a25_2_-eps-converted-to.pdf>
-Package pdftex.def Info: fig/problem2box/cluster_a25_2_-eps-converted-to.pdf us
-ed on input line 114.
-(pdftex.def)             Requested size: 288.79422pt x 130.85004pt.
 Package epstopdf Info: Source file: <fig/problem2box/cluster_a5_2_.eps>
 (epstopdf)                    date: 2017-07-05 09:12:27
 (epstopdf)                    size: 98170 bytes
@@ -2214,16 +2205,36 @@ d-to.pdf>
 (epstopdf)                    size: 12260 bytes
 (epstopdf)             Command: <epstopdf --outfile=fig/problem2box/cluster_a5_
 2_-eps-converted-to.pdf fig/problem2box/cluster_a5_2_.eps>
-(epstopdf)             \includegraphics on input line 121.
+(epstopdf)             \includegraphics on input line 114.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/cluster_a5_2_-eps-converted-to.pdf, id=1343, 502.87875pt x 227
+<fig/problem2box/cluster_a5_2_-eps-converted-to.pdf, id=1342, 502.87875pt x 227
 .85126pt>
 File: fig/problem2box/cluster_a5_2_-eps-converted-to.pdf Graphic file (type pdf
 )
  <use fig/problem2box/cluster_a5_2_-eps-converted-to.pdf>
 Package pdftex.def Info: fig/problem2box/cluster_a5_2_-eps-converted-to.pdf use
-d on input line 121.
+d on input line 114.
+(pdftex.def)             Requested size: 288.79422pt x 130.85004pt.
+Package epstopdf Info: Source file: <fig/problem2box/cluster_a75_2_.eps>
+(epstopdf)                    date: 2017-07-05 09:09:29
+(epstopdf)                    size: 98061 bytes
+(epstopdf)             Output file: <fig/problem2box/cluster_a75_2_-eps-convert
+ed-to.pdf>
+(epstopdf)                    date: 2017-08-16 15:33:23
+(epstopdf)                    size: 12258 bytes
+(epstopdf)             Command: <epstopdf --outfile=fig/problem2box/cluster_a75
+_2_-eps-converted-to.pdf fig/problem2box/cluster_a75_2_.eps>
+(epstopdf)             \includegraphics on input line 121.
+Package epstopdf Info: Output file is already uptodate.
+
+<fig/problem2box/cluster_a75_2_-eps-converted-to.pdf, id=1343, 502.87875pt x 22
+7.85126pt>
+File: fig/problem2box/cluster_a75_2_-eps-converted-to.pdf Graphic file (type pd
+f)
+ <use fig/problem2box/cluster_a75_2_-eps-converted-to.pdf>
+Package pdftex.def Info: fig/problem2box/cluster_a75_2_-eps-converted-to.pdf us
+ed on input line 121.
 (pdftex.def)             Requested size: 288.79422pt x 130.85004pt.
 Package epstopdf Info: Source file: <fig/problem2box/cluster_a25_3_.eps>
 (epstopdf)                    date: 2017-07-05 09:15:45
@@ -2272,11 +2283,35 @@ d-to.pdf> </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/stab_a5-eps-con
 verted-to.pdf>] [58 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/stab_
 a25-eps-converted-to.pdf> </home/renaud/Documents/EPL/tfe/latex/fig/problem2box
 /stab_a0-eps-converted-to.pdf>] [59 </home/renaud/Documents/EPL/tfe/latex/fig/p
-roblem2box/cluster_a25_2_-eps-converted-to.pdf> </home/renaud/Documents/EPL/tfe
-/latex/fig/problem2box/cluster_a5_2_-eps-converted-to.pdf> </home/renaud/Docume
+roblem2box/cluster_a5_2_-eps-converted-to.pdf> </home/renaud/Documents/EPL/tfe/
+latex/fig/problem2box/cluster_a75_2_-eps-converted-to.pdf> </home/renaud/Docume
 nts/EPL/tfe/latex/fig/problem2box/cluster_a25_3_-eps-converted-to.pdf> </home/r
 enaud/Documents/EPL/tfe/latex/fig/problem2box/cluster_a0_3_-eps-converted-to.pd
-f>] [60]
+f>]
+Package epstopdf Info: Source file: <fig/problem2box50/stab_a75.eps>
+(epstopdf)                    date: 2017-08-16 15:55:29
+(epstopdf)                    size: 113165 bytes
+(epstopdf)             Output file: <fig/problem2box50/stab_a75-eps-converted-t
+o.pdf>
+(epstopdf)                    date: 2017-08-16 16:16:05
+(epstopdf)                    size: 47909 bytes
+(epstopdf)             Command: <epstopdf --outfile=fig/problem2box50/stab_a75-
+eps-converted-to.pdf fig/problem2box50/stab_a75.eps>
+(epstopdf)             \includegraphics on input line 146.
+Package epstopdf Info: Output file is already uptodate.
+
+<fig/problem2box50/stab_a75-eps-converted-to.pdf, id=1394, 425.59pt x 319.1925p
+t>
+File: fig/problem2box50/stab_a75-eps-converted-to.pdf Graphic file (type pdf)
+ <use fig/problem2box50/stab_a75-eps-converted-to.pdf>
+Package pdftex.def Info: fig/problem2box50/stab_a75-eps-converted-to.pdf used o
+n input line 146.
+(pdftex.def)             Requested size: 288.80641pt x 281.10944pt.
+
+Underfull \vbox (badness 2591) has occurred while \output is active []
+
+ [60 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box50/stab_a75-eps-conve
+rted-to.pdf>]
 Package epstopdf Info: Source file: <fig/problem2box/CI_init.eps>
 (epstopdf)                    date: 2017-08-11 09:53:59
 (epstopdf)                    size: 2692197 bytes
@@ -2286,16 +2321,17 @@ df>
 (epstopdf)                    size: 875665 bytes
 (epstopdf)             Command: <epstopdf --outfile=fig/problem2box/CI_init-eps
 -converted-to.pdf fig/problem2box/CI_init.eps>
-(epstopdf)             \includegraphics on input line 169.
+(epstopdf)             \includegraphics on input line 178.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/CI_init-eps-converted-to.pdf, id=1403, 817.0525pt x 370.38374p
+<fig/problem2box/CI_init-eps-converted-to.pdf, id=1408, 817.0525pt x 370.38374p
 t>
 File: fig/problem2box/CI_init-eps-converted-to.pdf Graphic file (type pdf)
  <use fig/problem2box/CI_init-eps-converted-to.pdf>
 Package pdftex.def Info: fig/problem2box/CI_init-eps-converted-to.pdf used on i
-nput line 169.
+nput line 178.
 (pdftex.def)             Requested size: 412.56497pt x 187.02252pt.
+ [61]
 Package epstopdf Info: Source file: <fig/problem2box/CI_1000years.eps>
 (epstopdf)                    date: 2017-08-11 11:29:05
 (epstopdf)                    size: 100222 bytes
@@ -2305,25 +2341,25 @@ Package epstopdf Info: Source file: <fig/problem2box/CI_1000years.eps>
 (epstopdf)                    size: 47268 bytes
 (epstopdf)             Command: <epstopdf --outfile=fig/problem2box/CI_1000year
 s-eps-converted-to.pdf fig/problem2box/CI_1000years.eps>
-(epstopdf)             \includegraphics on input line 176.
+(epstopdf)             \includegraphics on input line 185.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/CI_1000years-eps-converted-to.pdf, id=1404, 456.70625pt x 227.
+<fig/problem2box/CI_1000years-eps-converted-to.pdf, id=1418, 456.70625pt x 227.
 85126pt>
 File: fig/problem2box/CI_1000years-eps-converted-to.pdf Graphic file (type pdf)
 
  <use fig/problem2box/CI_1000years-eps-converted-to.pdf>
 Package pdftex.def Info: fig/problem2box/CI_1000years-eps-converted-to.pdf used
- on input line 176.
+ on input line 185.
 (pdftex.def)             Requested size: 456.70512pt x 227.8507pt.
 
-Overfull \hbox (44.14015pt too wide) in paragraph at lines 176--177
+Overfull \hbox (44.14015pt too wide) in paragraph at lines 185--186
  [][] 
  []
 
-[61 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/CI_init-eps-converted
--to.pdf>] [62 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/CI_1000year
-s-eps-converted-to.pdf>] [63] [64]
+[62 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/CI_init-eps-converted
+-to.pdf> </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/CI_1000years-eps
+-converted-to.pdf>] [63] [64] [65]
 Package epstopdf Info: Source file: <fig/problem2box/C1vsC1tilde1_1000years2.ep
 s>
 (epstopdf)                    date: 2017-08-15 19:53:44
@@ -2334,29 +2370,29 @@ s-converted-to.pdf>
 (epstopdf)                    size: 57673 bytes
 (epstopdf)             Command: <epstopdf --outfile=fig/problem2box/C1vsC1tilde
 1_1000years2-eps-converted-to.pdf fig/problem2box/C1vsC1tilde1_1000years2.eps>
-(epstopdf)             \includegraphics on input line 315.
+(epstopdf)             \includegraphics on input line 324.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/problem2box/C1vsC1tilde1_1000years2-eps-converted-to.pdf, id=1488, 456.706
+<fig/problem2box/C1vsC1tilde1_1000years2-eps-converted-to.pdf, id=1505, 456.706
 25pt x 227.85126pt>
 File: fig/problem2box/C1vsC1tilde1_1000years2-eps-converted-to.pdf Graphic file
  (type pdf)
 
 <use fig/problem2box/C1vsC1tilde1_1000years2-eps-converted-to.pdf>
 Package pdftex.def Info: fig/problem2box/C1vsC1tilde1_1000years2-eps-converted-
-to.pdf used on input line 315.
+to.pdf used on input line 324.
 (pdftex.def)             Requested size: 456.70512pt x 227.8507pt.
 
-Overfull \hbox (44.14015pt too wide) in paragraph at lines 315--316
+Overfull \hbox (44.14015pt too wide) in paragraph at lines 324--325
  [][] 
  []
 
 )) (/home/renaud/Documents/EPL/tfe/latex/inputs/conclusion/conclusion.tex
-[65 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/C1vsC1tilde1_1000year
-s2-eps-converted-to.pdf>] [66
+[66 </home/renaud/Documents/EPL/tfe/latex/fig/problem2box/C1vsC1tilde1_1000year
+s2-eps-converted-to.pdf>] [67
 
-] [67])
-(/home/renaud/Documents/EPL/tfe/latex/tfe.bbl [68] [69
+]) (/home/renaud/Documents/EPL/tfe/latex/tfe.bbl
+[68] [69
 
 ] [70] [71]
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
@@ -2402,7 +2438,7 @@ eps-converted-to.pdf fig/testcase/testcase_surf.eps>
 (epstopdf)             \includegraphics on input line 237.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/testcase/testcase_surf-eps-converted-to.pdf, id=1698, 464.73625pt x 388.45
+<fig/testcase/testcase_surf-eps-converted-to.pdf, id=1714, 464.73625pt x 388.45
 125pt>
 File: fig/testcase/testcase_surf-eps-converted-to.pdf Graphic file (type pdf)
  <use fig/testcase/testcase_surf-eps-converted-to.pdf>
@@ -2421,7 +2457,7 @@ y-eps-converted-to.pdf fig/testcase/testcase_fixedy.eps>
 (epstopdf)             \includegraphics on input line 244.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/testcase/testcase_fixedy-eps-converted-to.pdf, id=1699, 235.88126pt x 205.
+<fig/testcase/testcase_fixedy-eps-converted-to.pdf, id=1715, 235.88126pt x 205.
 76875pt>
 File: fig/testcase/testcase_fixedy-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -2441,7 +2477,7 @@ z-eps-converted-to.pdf fig/testcase/testcase_fixedz.eps>
 (epstopdf)             \includegraphics on input line 249.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/testcase/testcase_fixedz-eps-converted-to.pdf, id=1700, 235.88126pt x 205.
+<fig/testcase/testcase_fixedz-eps-converted-to.pdf, id=1716, 235.88126pt x 205.
 76875pt>
 File: fig/testcase/testcase_fixedz-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -2468,7 +2504,7 @@ f-eps-converted-to.pdf fig/testcase/testcaseSI_surf.eps>
 (epstopdf)             \includegraphics on input line 288.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/testcase/testcaseSI_surf-eps-converted-to.pdf, id=1732, 456.70625pt x 366.
+<fig/testcase/testcaseSI_surf-eps-converted-to.pdf, id=1747, 456.70625pt x 366.
 36874pt>
 File: fig/testcase/testcaseSI_surf-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -2488,7 +2524,7 @@ edy-eps-converted-to.pdf fig/testcase/testcaseSI_fixedy.eps>
 (epstopdf)             \includegraphics on input line 295.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/testcase/testcaseSI_fixedy-eps-converted-to.pdf, id=1733, 235.88126pt x 20
+<fig/testcase/testcaseSI_fixedy-eps-converted-to.pdf, id=1748, 235.88126pt x 20
 5.76875pt>
 File: fig/testcase/testcaseSI_fixedy-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -2508,7 +2544,7 @@ edz-eps-converted-to.pdf fig/testcase/testcaseSI_fixedz.eps>
 (epstopdf)             \includegraphics on input line 300.
 Package epstopdf Info: Output file is already uptodate.
 
-<fig/testcase/testcaseSI_fixedz-eps-converted-to.pdf, id=1734, 235.88126pt x 20
+<fig/testcase/testcaseSI_fixedz-eps-converted-to.pdf, id=1749, 235.88126pt x 20
 5.76875pt>
 File: fig/testcase/testcaseSI_fixedz-eps-converted-to.pdf Graphic file (type pd
 f)
@@ -2564,27 +2600,27 @@ Appendix C.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <9> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 70.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 72.
 runsystem(rm "tfe.pyg")...executed.
 
  [1
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 72.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 72.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 74.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 74.
  (/home/renaud/Documents/EPL/tfe/latex/tfe.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 72.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 72.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 74.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 74.
 Package rerunfilecheck Info: File `tfe.out' has not changed.
-(rerunfilecheck)             Checksum: 2A83B6711EF6BCC12F13ACC2FCF11000;4797.
+(rerunfilecheck)             Checksum: FB59FF313CAFCDBCCBDDB85973EFC84A;4797.
  ) 
 Here is how much of TeX's memory you used:
- 43509 strings out of 493029
- 980429 string characters out of 6136234
- 1569856 words of memory out of 5000000
- 45057 multiletter control sequences out of 15000+600000
- 167709 words of font info for 270 fonts, out of 8000000 for 9000
+ 43647 strings out of 493029
+ 982113 string characters out of 6136234
+ 1571091 words of memory out of 5000000
+ 45183 multiletter control sequences out of 15000+600000
+ 167958 words of font info for 273 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,16n,110p,2368b,2070s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
@@ -2614,10 +2650,10 @@ type1/public/lm/lmtt9.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb><
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on tfe.pdf (102 pages, 2986748 bytes).
+Output written on tfe.pdf (102 pages, 3035736 bytes).
 PDF statistics:
- 2055 PDF objects out of 2073 (max. 8388607)
- 1821 compressed objects within 19 object streams
- 614 named destinations out of 1000 (max. 500000)
- 50926 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 2070 PDF objects out of 2073 (max. 8388607)
+ 1835 compressed objects within 19 object streams
+ 615 named destinations out of 1000 (max. 500000)
+ 50931 words of extra memory for PDF output out of 51595 (max. 10000000)
 

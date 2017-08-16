@@ -44,15 +44,15 @@
 \contentsline {section}{\numberline {7.1}The bi-overturner class of problems}{51}{section.7.1}
 \contentsline {section}{\numberline {7.2}Application of the stability method}{55}{section.7.2}
 \contentsline {section}{\numberline {7.3}Building a compartment model}{60}{section.7.3}
-\contentsline {subsection}{\numberline {7.3.1}Limitations of the compartment model}{60}{subsection.7.3.1}
-\contentsline {subsection}{\numberline {7.3.2}Continuous-time compartment model}{61}{subsection.7.3.2}
-\contentsline {subsection}{\numberline {7.3.3}Discrete-time compartment model}{63}{subsection.7.3.3}
-\contentsline {subsubsection}{The method}{63}{section*.44}
-\contentsline {subsubsection}{Results}{64}{section*.45}
-\contentsline {chapter}{Conclusion}{65}{figure.caption.46}
-\contentsline {chapter}{Bibliography}{69}{chapter*.48}
-\contentsline {chapter}{List of Figures}{73}{chapter*.49}
-\contentsline {chapter}{Appendix}{74}{chapter*.49}
+\contentsline {subsection}{\numberline {7.3.1}Limitations of the compartment model}{61}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}Continuous-time compartment model}{62}{subsection.7.3.2}
+\contentsline {subsection}{\numberline {7.3.3}Discrete-time compartment model}{64}{subsection.7.3.3}
+\contentsline {subsubsection}{The method}{64}{section*.45}
+\contentsline {subsubsection}{Results}{64}{section*.46}
+\contentsline {chapter}{Conclusion}{66}{figure.caption.47}
+\contentsline {chapter}{Bibliography}{69}{chapter*.49}
+\contentsline {chapter}{List of Figures}{73}{chapter*.50}
+\contentsline {chapter}{Appendix}{74}{chapter*.50}
 \contentsline {chapter}{\numberline {A}Stochastic Differential Equations}{75}{appendix.A}
 \contentsline {section}{\numberline {A.1}Stieltjes integral}{75}{section.A.1}
 \contentsline {section}{\numberline {A.2}Mean-square limit}{75}{section.A.2}
